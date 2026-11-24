@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="juno-uat" name="Maintainer acceptance preview">
+    <mxGraphModel page="1" pageWidth="1000" pageHeight="480" grid="1" gridSize="10" background="#FFFFFF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="juno.　Maintainer acceptance preview" style="text;html=0;align=left;verticalAlign=middle;fontColor=#10111A;fontSize=31;" vertex="1" parent="1">
+          <mxGeometry x="35" y="20" width="850" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="candidate" value="Pinned candidate revisions&#10;Verified Git tree and exact PR heads" style="rounded=1;html=0;fontSize=15;strokeColor=#A99BFF;strokeWidth=1.5;fillColor=#F7F7FB;fontColor=#10111A;" vertex="1" parent="1">
+          <mxGeometry x="40" y="115" width="270" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="preview" value="Local preview worktree&#10;preview/juno-uat" style="rounded=1;html=0;fontSize=15;strokeColor=#A99BFF;strokeWidth=1.5;fillColor=#F7F7FB;fontColor=#10111A;" vertex="1" parent="1">
+          <mxGeometry x="365" y="115" width="270" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="browser" value="Maintainer browser&#10;127.0.0.1:3300" style="rounded=1;html=0;fontSize=15;strokeColor=#A99BFF;strokeWidth=1.5;fillColor=#F7F7FB;fontColor=#10111A;" vertex="1" parent="1">
+          <mxGeometry x="690" y="115" width="270" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="compose" value="Dedicated Compose project&#10;Web + API · 127.0.0.1:4300" style="rounded=1;html=0;fontSize=15;strokeColor=#A99BFF;strokeWidth=1.5;fillColor=#F7F7FB;fontColor=#10111A;" vertex="1" parent="1">
+          <mxGeometry x="365" y="275" width="270" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="data" value="PostgreSQL&#10;Private network&#10;Persistent UAT volume" style="rounded=1;html=0;fontSize=15;strokeColor=#A99BFF;strokeWidth=1.5;fillColor=#F7F7FB;fontColor=#10111A;" vertex="1" parent="1">
+          <mxGeometry x="690" y="275" width="270" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="agents" value="Agent worktrees&#10;Separate branches and environments" style="rounded=1;html=0;fontSize=15;strokeColor=#A99BFF;strokeWidth=1.5;fillColor=#F7F7FB;fontColor=#10111A;" vertex="1" parent="1">
+          <mxGeometry x="40" y="275" width="270" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" value="Original project creator: Enzo Ribas. Developed with AI assistance." style="text;html=0;align=left;verticalAlign=middle;fontColor=#10111A;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="416" width="920" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#7565F5;" edge="1" parent="1" source="candidate" target="preview">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#7565F5;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="preview" target="compose">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#7565F5;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" edge="1" parent="1" source="browser" target="compose">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;endFill=1;strokeWidth=2;strokeColor=#7565F5;" edge="1" parent="1" source="compose" target="data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
