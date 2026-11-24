@@ -43,4 +43,4 @@ Use the existing [MIT license](../../LICENSE), [project attribution](../../AUTHO
 
 ## Publishing and diagrams
 
-Use editable architecture diagrams to show boundaries and workflows with accompanying text. Apply the visual documentation standard. Keep source in Git, label proposals, and update affected figures with implementation. Evaluate the publishing options in the [technology comparison](../architecture/technology-evaluation.md). Keep generated references reproducible from source.
+Use [editable architecture diagrams](../architecture/diagrams/README.md) to show boundaries and workflows with accompanying text. Apply the [visual documentation standard](visual-documentation.md). Keep source in Git, label proposals, and update affected figures with implementation. Evaluate the publishing options in the [technology comparison](../architecture/technology-evaluation.md). Keep generated references reproducible from source.

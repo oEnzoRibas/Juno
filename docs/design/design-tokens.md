@@ -14,6 +14,6 @@
 
 The action pairs give approximate contrast of 6.80:1 and 7.89:1. Check borders, status, focus, disabled and interactive states in context. Add warning, error, muted and elevated-surface roles as needed with documented contrast checks.
 
-For architecture diagrams, use purple for application, blue `#356BB3` for infrastructure and persistence, teal `#087D77` for security and asynchronous flows, orange `#94491A` for external-integration text, and neutral `#62677D` for operational notes. Use `#5543CF` for small purple labels. Pair color with labels and boundary styles. See the visual standard.
+For architecture diagrams, use purple for application, blue `#356BB3` for infrastructure and persistence, teal `#087D77` for security and asynchronous flows, orange `#94491A` for external-integration text, and neutral `#62677D` for operational notes. Use `#5543CF` for small purple labels. Pair color with labels and boundary styles. See the [visual standard](../development/visual-documentation.md).
 
 Start with spacing equivalents of 4, 8, 12, 16, 24, and 32 px and radius candidates of 6 and 12 px. Use borders for surface separation and restrained elevation for overlays. Define default, hover, focus, active, disabled, loading, empty, error, and success states where applicable. Use a consistent icon family with accessible names or labels for actions.

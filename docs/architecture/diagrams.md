@@ -1,6 +1,6 @@
 # Architecture diagrams
 
-**Status:** Proposed supporting sketches from JUNO-0001. See the authoritative editable architecture diagrams and the visual documentation standard. Use C4 concepts for context, containers, components and deployment. Use sequences and entity relationships for process and data views. [C4 diagrams](https://c4model.com/diagrams) · [Mermaid reference](https://mermaid.js.org/intro/) · [GitHub diagram rendering](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+**Status:** Proposed supporting sketches from JUNO-0001. See the [authoritative editable architecture diagrams](diagrams/README.md) and the [visual documentation standard](../development/visual-documentation.md). Use C4 concepts for context, containers, components and deployment. Use sequences and entity relationships for process and data views. [C4 diagrams](https://c4model.com/diagrams) · [Mermaid reference](https://mermaid.js.org/intro/) · [GitHub diagram rendering](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
 
 ## System context
 
