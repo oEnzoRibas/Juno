@@ -30,4 +30,4 @@ Use the Git workflow for task branches, atomic commits, draft and ready PRs, and
 
 Use the development protocol for owner-requested work and check the definition of done before completion.
 
-Read the [branching and release proposal](docs/governance/release.md), AI disclosure, and [code of conduct](CODE_OF_CONDUCT.md).
+Read the [branching and release proposal](docs/governance/release.md), [AI disclosure](AI_DISCLOSURE.md), and [code of conduct](CODE_OF_CONDUCT.md).
