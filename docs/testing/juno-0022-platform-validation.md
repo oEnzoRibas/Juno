@@ -16,6 +16,16 @@ Set `JUNO_BROWSER_CHANNEL=chrome` to use installed Chrome. Web and API default t
 
 The runner generates a unique project and synthetic credentials for every invocation and loads `.env.example` instead of the checkout's `.env`. The bootstrap command reads a synthetic administrator from standard input. A normal run or check failure removes only the generated project's containers, test volume, networks and image tag. After a forced interruption, inspect resources with the logged project name and confirm that no runner is active before clearing any disposable resources. Preserve persistent developer volumes. Browser test output can contain synthetic account or invitation details.
 
+## Audit SQL regression
+
+The runtime regression increment adds `onboarding-audit.sql` to the same disposable Compose runner as `tenant-isolation.sql` and `invitation-expiry.sql`. It uses [PR #34](https://github.com/oEnzoRibas/Juno/pull/34) at `0b31c5e22e7d64488340f454f6d6bf67d6d7f302` and applies migration `0004_onboarding_audit_read.sql` before running the SQL suite. The existing GitHub Actions Compose job picks up the new check through the runner.
+
+The audit fixture uses the application database role with synthetic data. It checks that an active administrator sees only the current tenant's 50 most recent events, newest first, with only the event and timestamp fields. It verifies denial with missing tenant context, a different tenant, a member, a platform administrator without membership, or an inactive administrator. It also verifies that the runtime role cannot delete audit events. The SQL transaction rolls back its fixtures.
+
+The runner still covers fresh migrations and a no-op rerun, tenant scope and write denial, invitation expiry, HTTP and OpenAPI smoke, and the Playwright suites. [PR #35](https://github.com/oEnzoRibas/Juno/pull/35) separately covers workspace capability flags and their OpenAPI schema.
+
+Local validation on 2026-11-24 passed frozen install, lint, type checks, four Vitest tests, Linux amd64 Compose build and startup, fresh and repeated migrations, HTTP and OpenAPI smoke, all three SQL regressions and all three Playwright scenarios. The audit fixtures and disposable project were removed.
+
 ## Independent evidence on 2026-11-24
 
 Windows host, Node 24.12.0, pnpm 11.25.0, Docker Engine 29.9.3 on Linux amd64, Compose 5.7.0 and installed Chrome.
