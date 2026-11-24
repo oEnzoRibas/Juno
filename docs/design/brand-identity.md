@@ -6,7 +6,7 @@
 | Wordmark | `juno.` |
 | Tagline | Manage. Engage. Evolve. |
 | Symbol | Geometric J monogram with elements resembling a sideways E, for Junior Enterprise |
-| Colors | Official five-color palette |
+| Colors | [Official five-color palette](color-palette.md) |
 
 Use rounded strokes and simple geometry. Preserve the composition, recognizable silhouette, scalability, and light and dark treatments. The interface should communicate technology, collaboration, progress, trust, professional development, simplicity, and engagement. Use expressive recognition details with the same clear hierarchy and interaction patterns as the rest of the product.
 

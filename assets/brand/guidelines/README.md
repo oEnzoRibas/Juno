@@ -8,4 +8,4 @@
 - Start with a full lockup width of 96 CSS px and a standalone symbol width of 24 CSS px. Measure the visible design and test at actual scale. Use the favicon-specific treatment in browser chrome. Confirm final minimum widths before release.
 - For an identifying image without adjacent text, provide the accessible name “Juno”. For a linked home logo without visible text, use a name such as “Juno home”. Mark graphics decorative when nearby text already supplies the same accessible name.
 
-See the [approved identity](../../../docs/design/brand-identity.md), accessibility guidance, and [proposed brand usage policy](../../../TRADEMARKS.md).
+See the [approved identity](../../../docs/design/brand-identity.md), [accessibility guidance](../../../docs/design/accessibility.md), and [proposed brand usage policy](../../../TRADEMARKS.md).
