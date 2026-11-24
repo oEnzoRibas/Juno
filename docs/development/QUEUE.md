@@ -4,7 +4,7 @@ This is the authoritative order and active assignment for Juno. Linked task reco
 
 ## Active
 
-No active implementation task.
+[JUNO-0012 — Approved Integration Hub interface mockup](tasks/JUNO-0012.md). The six earlier provider tasks are blocked.
 
 ## Pending
 
@@ -18,6 +18,12 @@ Provider tasks are blocked on a runnable Juno foundation, accepted Hub contracts
 | 4 | [JUNO-0009 — SharePoint provider feasibility and implementation](tasks/JUNO-0009.md) |
 | 5 | [JUNO-0010 — Slack provider feasibility and implementation](tasks/JUNO-0010.md) |
 | 6 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
+
+| 7 | [JUNO-0013 — Approved Integration Hub architecture visual](tasks/JUNO-0013.md) |
+
+| 8 | [JUNO-0014 — Phase 0 review guide](tasks/JUNO-0014.md) |
+| 9 | [JUNO-0015 — Phase 1 foundation planning](tasks/JUNO-0015.md) |
+| 10 | [JUNO-0016 — Native stack workflow](tasks/JUNO-0016.md) |
 
 ## Under review
 

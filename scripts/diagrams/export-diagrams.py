@@ -17,7 +17,8 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 
-ROOT = Path(__file__).resolve().parents[2] / "docs" / "architecture" / "diagrams"
+REPOSITORY = Path(__file__).resolve().parents[2]
+ROOTS = (REPOSITORY / "docs/architecture/diagrams", REPOSITORY / "docs/design/mockups")
 CREDIT = "Original project creator: Enzo Ribas"
 
 
@@ -84,7 +85,7 @@ def main():
     options = parser.parse_args()
     if options.timeout < 1:
         parser.error("--timeout must be a positive integer")
-    masters = [path.resolve() for path in options.masters] or sorted(ROOT.rglob("*.drawio"))
+    masters = [path.resolve() for path in options.masters] or sorted(path for root in ROOTS for path in root.rglob("*.drawio"))
     if not masters:
         parser.error("no Draw.io masters found")
     executable = None if options.check else shutil.which(options.drawio)
@@ -92,8 +93,8 @@ def main():
         parser.error("Draw.io Desktop unavailable. Supply --drawio or run --check.")
     errors = 0
     for path in masters:
-        if path.suffix != ".drawio" or not path.is_relative_to(ROOT):
-            print(f"{path}: expected a repository architecture master", file=sys.stderr)
+        if path.suffix != ".drawio" or not any(path.is_relative_to(root) for root in ROOTS):
+            print(f"{path}: expected a repository diagram or mockup master", file=sys.stderr)
             errors += 1
             continue
         try:
@@ -104,7 +105,7 @@ def main():
                 inspect_exports(path.with_suffix(".svg"), path.with_suffix(".pdf"), size)
             else:
                 export_one(executable, path, size, options.timeout)
-            print(f"Verified {path.relative_to(ROOT)}", flush=True)
+            print(f"Verified {path.relative_to(REPOSITORY)}", flush=True)
         except (OSError, ValueError, KeyError, ET.ParseError, subprocess.SubprocessError) as error:
             print(f"{path.name}: {error}", file=sys.stderr)
             errors += 1

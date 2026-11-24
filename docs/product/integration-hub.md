@@ -8,6 +8,8 @@ Juno must support organizational management, local authentication, gamification,
 
 ## Organization Settings → Integrations
 
+See the [approved interface mockup](../design/mockups/juno-integration-hub-ui.md) for the catalog layout and illustrative connection states.
+
 Authorized tenant administrators can browse, search and filter the provider catalog by category and capability. Show provider identity, implementation status, permissions, documentation and whether the organization has a connection. Show status with text and icons. Support keyboard navigation, accessible error feedback, and light and dark tenant themes.
 
 An authorized administrator can connect, configure, select permitted resources, tune sync and notifications, review permissions and health, inspect redacted errors and history, reconnect, disable, or disconnect. Provide confirmation and retention details for disconnect. Multiple connections to one provider require a concrete use case and independently scoped credentials. Tenant administrators cannot modify another organization's connections.
