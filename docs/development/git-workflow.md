@@ -8,6 +8,14 @@ Verify the current branch, staged, unstaged and untracked files, local history, 
 
 Use lowercase `<category>/<task-id>-<short-description>`, for example `docs/juno-0003-git-workflow`. Use actual task IDs. For a large task, document separate scopes and dependencies. Related tests and documentation belong with the implementation they validate. One PR should have one primary responsibility.
 
+## Worktree lifecycle and staging
+
+At the start and end of a session, fetch `origin` and check that the primary worktree tracks `origin/main`. Use a fast-forward-only update. If unpublished changes would block it, preserve and verify them in a recoverable local snapshot before advancing. Record the recovery reference in the handoff.
+
+When development stops in a task worktree, confirm that its tip is reachable from the corresponding remote task branch. Check for unpublished changes and preserve any needed local files, then remove the finished worktree with `git worktree remove`. Remove only the verified task directory. Local Git recovery references and remote task branches remain available.
+
+The shared `staging` branch is the pre-release integration branch. It starts from the current remote default branch. Updates to `staging` follow review and human approval. Independent development pull requests still target `main`. See the [worktree and staging record](tasks/JUNO-0033.md).
+
 ## Stage and commit
 
 Review the explicit diff, license and attribution, local files, links, secret findings and validation. Stage selected paths. Check the staged diff, then create one logical change per commit. Use the configured authorized Git identity. Include `Task: JUNO-NNNN`, relevant `Related-ADR: ADR-NNNN` and meaningful `AI-Assisted: Yes` disclosure. Preserve third-party and contributor authorship.
