@@ -13,6 +13,21 @@ git diff --cached --check
 
 See [containerized development](docker.md) for the approved Docker environment and planned onboarding. Phase 0 has no build, installation, migration, test runner, or service startup commands. [.env.example](../../.env.example) declares no runtime settings. Add future settings with purpose, expected values, default, required environments, and sensitivity. Store actual secrets in ignored files or an appropriate secret store.
 
+## Phase 1 workspace checks
+
+Use Node 24 and pnpm 11.25.0. The [dependency record](phase-1-dependencies-and-licenses.md) lists the workspace pins.
+
+```sh
+pnpm install --frozen-lockfile
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+pnpm --filter @juno/api start
+```
+
+In a second terminal, start the web service with `pnpm --filter @juno/web start`. The browser entry point is `http://localhost:3000`. The API exposes `GET /api/health` and `GET /api/openapi.json` on port 3001.
+
 ## Development records and standards
 
 See the [Phase 0 review guide](phase-0-review-guide.md), the [Phase 1 plan](phase-1-implementation-plan.md), the [technology comparison](phase-1-technology-comparison.md), and the [task dependency graph](phase-1-dependencies.md).

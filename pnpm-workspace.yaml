@@ -1,0 +1,7 @@
+packages:
+  - 'apps/*'
+
+allowBuilds:
+  '@parcel/watcher': false
+  '@scarf/scarf': false
+  '@swc/core': false

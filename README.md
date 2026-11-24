@@ -14,7 +14,7 @@ Juno is designed with the Brazilian Junior Enterprise movement in mind and for i
 
 ## Project status
 
-The `juno` repository is public and intended for community-driven development. This Phase 0 foundation documents the application plans. See the [roadmap](ROADMAP.md).
+The `juno` repository is public and intended for community-driven development. Phase 1 includes an independent web application and REST API. See the [roadmap](ROADMAP.md).
 
 Juno software and associated project documentation use the [MIT License](LICENSE) (SPDX `MIT`). Copyright (c) 2026 Enzo Ribas. See the [licensing decision](docs/architecture/adr/0002-mit-licensing.md) and [proposed brand usage policy](TRADEMARKS.md).
 
