@@ -10,4 +10,4 @@ Include the affected revision, impact, scope, and a description using synthetic 
 
 Maintain a private record of the report, triage severity and affected data, assign an owner, and coordinate remediation and disclosure. Restrict access to case details and preserve only the evidence needed. Publish a supported-version policy and a private reporting route before the first public release. During Phase 0, maintainers can review reports about the repository foundation.
 
-See the preliminary threat model for planned controls and validation requirements.
+See the [preliminary threat model](docs/security/threat-model.md) for planned controls and validation requirements.
