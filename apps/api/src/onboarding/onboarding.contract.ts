@@ -64,3 +64,16 @@ export class WorkspaceResponse extends WorkspaceSummary {
   @ApiProperty({ pattern: accentColor.source })
   accent!: string;
 }
+
+export class OnboardingAuditEvent {
+  @ApiProperty({ enum: ['tenant_created', 'invitation_issued', 'invitation_accepted'] })
+  event!: 'tenant_created' | 'invitation_issued' | 'invitation_accepted';
+
+  @ApiProperty({ format: 'date-time' })
+  occurredAt!: string;
+}
+
+export class OnboardingAuditResponse {
+  @ApiProperty({ type: [OnboardingAuditEvent], maxItems: 50 })
+  events!: OnboardingAuditEvent[];
+}

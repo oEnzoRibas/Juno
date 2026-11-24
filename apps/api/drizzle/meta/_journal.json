@@ -29,6 +29,13 @@
       "when": 1795536000003,
       "tag": "0003_tenant_onboarding",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1795536000004,
+      "tag": "0004_onboarding_audit_read",
+      "breakpoints": true
     }
   ]
 }

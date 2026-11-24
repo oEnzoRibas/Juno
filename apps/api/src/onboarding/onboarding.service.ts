@@ -4,6 +4,7 @@ import { sql } from 'drizzle-orm';
 import { AuthService } from '../auth/auth.service';
 import { digest, hashPassword } from '../auth/credentials';
 import { DatabaseService } from '../database/database.service';
+import type { OnboardingAuditEvent } from './onboarding.contract';
 
 type Role = 'administrator' | 'member';
 
@@ -58,6 +59,19 @@ export class OnboardingService {
       SELECT * FROM juno.workspaces_for_account(${actor.id}::uuid)
     `);
     return result.rows;
+  }
+
+  async audit(authorization: string | undefined, id: string) {
+    const actor = await this.auth.identity(authorization);
+    return this.db.transaction(async (tx) => {
+      await tx.execute(sql`SELECT set_config('juno.account_id', ${actor.id}, true), set_config('juno.tenant_id', ${id}, true)`);
+      const result = await tx.execute<{ events: OnboardingAuditEvent[] | null }>(
+        sql`SELECT juno.recent_onboarding_audit() AS events`,
+      );
+      const events = result.rows[0].events;
+      if (!events) throw new NotFoundException();
+      return { events };
+    });
   }
 
   async read(authorization: string | undefined, id: string) {
