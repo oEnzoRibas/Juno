@@ -1,36 +1,11 @@
 @import "tailwindcss";
-
-:root {
-  color-scheme: light dark;
-  --surface: #f7f7fb;
-  --panel: #ffffff;
-  --text: #10111a;
-  --muted: #53556a;
-  --border: #dcdcec;
-  --action: #5543cf;
-  --on-action: #ffffff;
-  --focus-ring: #5543cf;
-  --success-text: #166534;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface: #10111a;
-    --panel: #1a1b28;
-    --text: #f7f7fb;
-    --muted: #bfc0d4;
-    --border: #3c3e56;
-    --action: #a99bff;
-    --on-action: #10111a;
-    --focus-ring: #a99bff;
-    --success-text: #22c55e;
-  }
-}
+@import "../components/design-tokens.css";
+@import "../components/forms.css";
 
 body {
   background: var(--surface);
   color: var(--text);
-  font-family: system-ui, sans-serif;
+  font: var(--body-size) / var(--body-leading) var(--font-ui);
 }
 
 a {
@@ -44,52 +19,43 @@ a {
 }
 
 .public-shell {
-  width: min(100% - 2rem, 46rem);
+  width: min(100% - var(--space-8), 46rem);
   margin-inline: auto;
-  padding-block: clamp(2rem, 9vh, 6rem);
+  padding-block: clamp(var(--space-8), 9vh, 6rem);
 }
 
 .public-panel {
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-panel);
   background: var(--panel);
-  padding: clamp(1.25rem, 5vw, 3rem);
+  box-shadow: var(--elevation-panel);
+  padding: clamp(var(--space-4), 5vw, 3rem);
   overflow-wrap: anywhere;
 }
 
-.form-field {
-  display: grid;
-  gap: 0.5rem;
+.public-panel.border-t-8 {
+  border-block-start-width: var(--tenant-accent-width);
+}
+
+.public-panel :is(p[role="alert"], p[role="status"]) {
+  border-radius: var(--radius-control);
+  border: 1px solid currentColor;
+  padding: var(--space-3);
   font-weight: 600;
 }
 
-.form-field input,
-.form-field select {
-  border: 1px solid var(--muted);
-  border-radius: 0.375rem;
-  background: var(--surface);
-  padding: 0.6875rem 0.875rem;
-  font-weight: 400;
+.public-panel p[role="alert"] {
+  background: var(--danger-surface);
+  color: var(--danger-text);
 }
 
-.action-button {
-  display: inline-flex;
-  min-height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.375rem;
-  background: var(--action);
-  color: var(--on-action);
-  padding: 0.625rem 1rem;
-  font-weight: 600;
-  cursor: pointer;
+.public-panel p[role="status"] {
+  background: var(--success-surface);
+  color: var(--success-text);
 }
 
-.action-button:hover {
-  text-decoration: underline;
-}
-
-.action-button:disabled {
-  opacity: 0.65;
-  cursor: wait;
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
 }
