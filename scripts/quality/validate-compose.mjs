@@ -79,6 +79,16 @@ try {
     ]);
     run('Verify web locales, API health and OpenAPI', process.execPath, ['scripts/runtime-smoke.mjs'], { env: smokeEnv });
 
+    const journalQuery = [
+      'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-At',
+      '-c', 'SELECT count(*) FROM drizzle.__drizzle_migrations',
+    ];
+    const before = Number(compose('Read the migration journal', journalQuery, { capture: true }).trim());
+    if (!Number.isSafeInteger(before) || before < 1) throw new Error('No applied migrations were recorded');
+    compose('Rerun the one-shot migration', ['run', '--rm', '-T', 'migrate']);
+    const after = Number(compose('Verify the migration journal is unchanged', journalQuery, { capture: true }).trim());
+    if (after !== before) throw new Error('Rerunning migrations changed the migration journal');
+
     for (const sql of ['tenant-isolation.sql', 'invitation-expiry.sql']) {
       compose(`Run database regression ${sql}`, [
         'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-v', 'ON_ERROR_STOP=1',
