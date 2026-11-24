@@ -14,7 +14,7 @@ cd juno
 git switch -c docs/juno-nnnn-tenant-invite-rules
 ```
 
-Read the local setup and documentation standards, architecture overview, and relevant specification before editing. Use the issue forms for bugs, features, integrations, documentation, and architecture. Use [private security reporting](SECURITY.md) for vulnerabilities.
+Read the [local setup and documentation standards](docs/development/README.md), architecture overview, and relevant specification before editing. Use the issue forms for bugs, features, integrations, documentation, and architecture. Use [private security reporting](SECURITY.md) for vulnerabilities.
 
 ## Implement and submit
 
@@ -28,6 +28,6 @@ Use containerized development as the runtime onboarding reference and the visual
 
 Use the Git workflow for task branches, atomic commits, draft and ready PRs, and human-controlled merges.
 
-Use the development protocol for owner-requested work and check the definition of done before completion.
+Use the [development protocol](docs/development/PROTOCOL.md) for owner-requested work and check the [definition of done](docs/development/DEFINITION_OF_DONE.md) before completion.
 
 Read the [branching and release proposal](docs/governance/release.md), [AI disclosure](AI_DISCLOSURE.md), and [code of conduct](CODE_OF_CONDUCT.md).
