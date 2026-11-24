@@ -15,6 +15,8 @@ See [containerized development](docker.md) for the approved Docker environment a
 
 ## Development records and standards
 
+See the [Phase 0 review guide](phase-0-review-guide.md) for scoped pull requests, dependency order, and the live audit findings.
+
 | Record | Purpose |
 | --- | --- |
 | [QUEUE](QUEUE.md) and [STATE](STATE.md) | Live order and active assignment, plus the verified resumption point. |
