@@ -14,6 +14,8 @@
 | Validation actually run and result | |
 | Known limitations and blockers | |
 | Required next action | |
-| Verified acknowledgement | |
+| Assignment state and observed execution state | |
+| Last verified checkpoint and remaining work | |
+| Verified acknowledgement, revision and source | |
 
 Attach check commands and evidence where useful. Use synthetic data and redact secrets. A publication and a recipient acknowledgement are distinct events.

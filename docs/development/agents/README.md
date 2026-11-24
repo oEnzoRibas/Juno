@@ -8,4 +8,4 @@
 | JUNO-AGENT-02 | Product design, UX and frontend engineering | [Status](agent-02/STATUS.md) · [Worklog](agent-02/WORKLOG.md) |
 | JUNO-AGENT-03 | Platform engineering, DevOps, security and QA | [Status](agent-03/STATUS.md) · [Worklog](agent-03/WORKLOG.md) |
 
-Use the [coordination protocol](PROTOCOL.md), [ownership matrix](OWNERSHIP.md) and [handoff template](HANDOFF_TEMPLATE.md). Technical coordination is documented in [ADR-0011](../../architecture/adr/0011-three-agent-development.md).
+See the [last observed execution checkpoints](EXECUTION_STATE.md) for session status and acknowledgements. Use the [coordination protocol](PROTOCOL.md), [ownership matrix](OWNERSHIP.md) and [handoff template](HANDOFF_TEMPLATE.md). Technical coordination is documented in [ADR-0011](../../architecture/adr/0011-three-agent-development.md).

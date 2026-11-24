@@ -10,5 +10,5 @@
 | API availability | Nest serves `GET /api/openapi.json`. Current [route semantics](https://github.com/oEnzoRibas/Juno/blob/e6546726e23f7b0eee36be42b4a8de851c2f29c8/docs/architecture/tenant-onboarding.md) cover bearer sessions, provisioning, activation, organization listing and tenant access. Server actions keep session credentials server-side. |
 | Dependencies and validation | Phase 1 core dependency in #27. Verified Windows checks and two Playwright flows on Linux amd64 Compose. |
 | Known limits | shadcn/ui adoption, additional accessible primitives and broader visual review remain. Keep the existing shell and request contract changes through Agent 01. |
-| Next action | Finish JUNO-0035 first. When JUNO-0023 is released, extend the existing workspace and verify EN and pt-BR, keyboard, narrow layout and both themes. |
+| Next action | JUNO-0035 is awaiting review. Acknowledge the exact coordination revision and check the reserved JUNO-0023 baseline before extending the existing workspace and verify EN and pt-BR, keyboard, narrow layout and both themes. |
 | Acknowledgement | A separate agent records receipt when observed. |
