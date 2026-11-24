@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { locales, messages } from '../../../content/messages';
 import { signOut } from '../../sign-in/actions';
 import { localPath, type ShellLocale, type WorkspaceSummary } from './shell-data';
+import { directoryMessages } from './member-directory-messages';
 import styles from './application-shell.module.css';
 
 interface ShellProps {
@@ -12,13 +13,16 @@ interface ShellProps {
   current?: WorkspaceSummary;
   workspaces: WorkspaceSummary[];
   children: ReactNode;
+  section?: 'dashboard' | 'members';
 }
 
 /** Render navigation from the server-verified account and membership list. */
-export function ApplicationShell({ locale, platformAdmin, current, workspaces, children }: ShellProps) {
+export function ApplicationShell({ locale, platformAdmin, current, workspaces, children, section = 'dashboard' }: ShellProps) {
   const t = createTranslator({ locale, messages: messages[locale] });
   const alternate = locales[locale];
-  const path = current ? `/workspace/${current.id}` : '/session';
+  const dashboardPath = current ? `/workspace/${current.id}` : '/session';
+  const directoryPath = current ? `${dashboardPath}/members` : undefined;
+  const path = section === 'members' && directoryPath ? directoryPath : dashboardPath;
   return (
     <div className={styles.frame} lang={locale}>
       <a className={styles.skip} href="#shell-main">{t('skipToContent')}</a>
@@ -42,11 +46,18 @@ export function ApplicationShell({ locale, platformAdmin, current, workspaces, c
               {t('workspaces')}
             </Link>
             {current && (
-              <Link href={localPath(path, locale)} aria-current="page">
+              <Link href={localPath(dashboardPath, locale)} aria-current={section === 'dashboard' ? 'page' : undefined}>
                 {t('dashboard')}
               </Link>
             )}
-            {current?.role === 'administrator' && <a href="#member-invite">{t('inviteMember')}</a>}
+            {current?.role === 'administrator' && directoryPath && (
+              <>
+                <Link href={localPath(directoryPath, locale)} prefetch={false} aria-current={section === 'members' ? 'page' : undefined}>
+                  {directoryMessages[locale].members}
+                </Link>
+                <Link href={`${localPath(dashboardPath, locale)}#member-invite`}>{t('inviteMember')}</Link>
+              </>
+            )}
             {platformAdmin && <Link href={localPath('/platform', locale)}>{t('platformLink')}</Link>}
           </nav>
           {current && workspaces.length > 1 && (
