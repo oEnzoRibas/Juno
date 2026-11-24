@@ -21,3 +21,4 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 | 2026-11-24 | [JUNO-0006](tasks/JUNO-0006.md) through JUNO-0011 | No eligible provider implementation. Resume the first eligible provider after foundation, Hub contract approval and provider feasibility prerequisites. |
 | 2026-11-24 | [JUNO-0012](tasks/JUNO-0012.md) and [JUNO-0013](tasks/JUNO-0013.md) | Registered the approved reference work as two scopes. Selected JUNO-0012 after earlier blocked providers. The visual PR is explicitly stacked above draft PR #13. |
 | 2026-11-24 | [JUNO-0014](tasks/JUNO-0014.md)–[JUNO-0016](tasks/JUNO-0016.md) | Registered review guide, Phase 1 planning and native stack policy. Owner authorized immediate review-readiness review during the active visual task. |
+| 2026-11-24 | [JUNO-0012](tasks/JUNO-0012.md) | Compared the rendered mockup with the supplied reference and verified vector exports. PR #15 is ready for review. Selected JUNO-0013 next. |
