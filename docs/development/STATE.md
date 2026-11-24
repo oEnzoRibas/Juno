@@ -4,4 +4,4 @@
 
 **Integrated main:** `3053a7beab1ec657305634c77df46efe4ec472f1`. The authorized coordination, runtime, and design PRs were integrated. #36 audit runner follow-up, #37 shell and #38 UAT documentation remain open and separate from that authorization.
 
-The [post-UAT handoff](agents/agent-01/handoffs/juno-post-uat-integration.md) supplies exact assignments and checkpoints. Agent 01 advances the scoped member directory, Agent 02 owns shell integration, and Agent 03 owns independent validation. Check actual pull request and Actions status before advancing.
+The [organizational cycle handoff](agents/agent-01/handoffs/juno-organizational-cycle.md) supersedes the historical checkpoint. It pins the corrected pull requests, local preview and per-agent work. Main was revalidated with frozen install, lint, typecheck, four Vitest tests, six browser tests, SQL isolation and invitation regressions, and Compose smoke and migration rerun. The original UAT remains on ports 3300 and 4300. The separate shell candidate uses ports 3301 and 4301. Human acceptance is pending for the shell candidate.

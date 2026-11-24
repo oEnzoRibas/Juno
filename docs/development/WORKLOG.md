@@ -42,3 +42,5 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 - 2026-11-24. Validated the first end-to-end onboarding milestone using Compose, synthetic platform and tenant accounts, both Playwright scenarios, and PostgreSQL checks for tenant isolation and expired invitations.
 
 - 2026-11-24. Recorded owner-authorized integration of the accepted runtime and design scope, prepared the isolated main validation, and refreshed the three-agent handoff.
+
+- 2026-11-24. Revalidated integrated main; Agents 02 and 03 restored incremental #37 and #36 on main, and Agent 01 pinned the resulting shell preview separately from the previously accepted environment. Published the [parallel cycle handoff](agents/agent-01/handoffs/juno-organizational-cycle.md).

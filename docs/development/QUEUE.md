@@ -4,11 +4,11 @@ This is the authoritative task order for Juno. The [assignment registry](agents/
 
 ## Integrated baseline
 
-The approved foundation landed at `3053a7beab1ec657305634c77df46efe4ec472f1`. The [post-UAT handoff](agents/agent-01/handoffs/juno-post-uat-integration.md) records the active and successor claims. Platform regression and shell integrations #36 and #37 remain under review. Preserve the optional provider ordering.
+The approved foundation landed at `3053a7beab1ec657305634c77df46efe4ec472f1`. The [post-UAT handoff](agents/agent-01/handoffs/juno-organizational-cycle.md) records the active and successor claims. Platform regression and shell integrations #36 and #37 remain under review. Preserve the optional provider ordering.
 
 ## Active
 
-[JUNO-0028 — Organizational management foundation](tasks/JUNO-0028.md) has a validated [member directory increment](https://github.com/oEnzoRibas/Juno/pull/40) awaiting review. Further lifecycle work depends on approved policy. Agent 02 and Agent 03 retain the [published integration handoffs](agents/agent-01/handoffs/juno-post-uat-integration.md).
+[JUNO-0028 — Organizational management foundation](tasks/JUNO-0028.md) has a validated [member directory increment](https://github.com/oEnzoRibas/Juno/pull/40) awaiting review. Core is implementing member filters and detail. Membership lifecycle and delegated directorate authority need confirmed policy. Agent 02 and Agent 03 have released [parallel assignments](agents/agent-01/handoffs/juno-organizational-cycle.md).
 
 ## Pending
 

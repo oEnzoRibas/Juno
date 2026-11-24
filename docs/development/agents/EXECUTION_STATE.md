@@ -10,4 +10,4 @@ This record complements the [authoritative assignments](ASSIGNMENTS.md). Agent 0
 
 When resuming Agent 02 or 03, supply the exact revision of [PR #28's coordination branch](https://github.com/oEnzoRibas/Juno/pull/28), the assigned task row, and the matching handoff. Check local status and publication history first. Record the recipient, acknowledgement source and revision. The owner will send independent-session resumption instructions.
 
-The [post-UAT handoff](agent-01/handoffs/juno-post-uat-integration.md) records current owned tasks, exact reviewed commits and resumption gates. PRs #36 and #37 are published. A new acknowledgement or a running session has not been observed.
+The [organizational cycle handoff](agent-01/handoffs/juno-organizational-cycle.md) records current task ownership. Agent 02 and Agent 03 acknowledged their maintenance tasks through isolated task executions and reported corrected published commits. The owner reported that their prior implementation sessions completed. The acknowledgement status of the separate independent sessions for the successor tasks remains unverified.
