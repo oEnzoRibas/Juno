@@ -1,0 +1,70 @@
+/* Apply these primitives to native controls so labels and focus stay semantic. */
+.form-field {
+  display: grid;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  font-weight: 600;
+}
+
+.form-field :is(input, select) {
+  min-block-size: var(--control-height);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  border: 1px solid var(--control-border);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--text);
+  padding: var(--space-2) var(--space-3);
+  font-weight: 400;
+}
+
+.form-field input[type="color"] {
+  inline-size: 4rem;
+  padding: var(--space-2);
+  cursor: pointer;
+}
+
+.form-field input[readonly] {
+  background: var(--inactive-surface);
+}
+
+.action-button {
+  display: inline-flex;
+  min-block-size: var(--control-height);
+  max-inline-size: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: var(--action);
+  color: var(--on-action);
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.action-button:hover:not(:disabled) {
+  background: var(--action-hover);
+  text-decoration: underline;
+}
+
+.action-button:active:not(:disabled) {
+  background: var(--action-active);
+}
+
+.action-button:disabled {
+  background: var(--inactive-surface);
+  color: var(--inactive-text);
+  cursor: wait;
+}
+
+@media (forced-colors: active) {
+  .action-button {
+    border-color: ButtonText;
+  }
+
+  .action-button:disabled {
+    border-color: GrayText;
+  }
+}
