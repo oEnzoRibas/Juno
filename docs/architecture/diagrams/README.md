@@ -15,8 +15,11 @@
 
 ## Integration views
 
+The [approved Integration Hub architecture visual](integrations/juno-integration-hub-architecture.md) is the visual benchmark for the proposed Hub architecture.
+
 | View and status notes | Source | Web | Print |
 | --- | --- | --- | --- |
+| [Approved Integration Hub architecture](integrations/juno-integration-hub-architecture.md) | [Draw.io](integrations/juno-integration-hub-architecture.drawio) | [SVG](integrations/juno-integration-hub-architecture.svg) | [PDF](integrations/juno-integration-hub-architecture.pdf) |
 | [Integration ecosystem](integrations/juno-integration-ecosystem.md) | [Draw.io](integrations/juno-integration-ecosystem.drawio) | [SVG](integrations/juno-integration-ecosystem.svg) | [PDF](integrations/juno-integration-ecosystem.pdf) |
 | [Integration adapter architecture](integrations/juno-integration-adapter-architecture.md) | [Draw.io](integrations/juno-integration-adapter-architecture.drawio) | [SVG](integrations/juno-integration-adapter-architecture.svg) | [PDF](integrations/juno-integration-adapter-architecture.pdf) |
 | [Tenant integration isolation](integrations/juno-tenant-integration-isolation.md) | [Draw.io](integrations/juno-tenant-integration-isolation.drawio) | [SVG](integrations/juno-tenant-integration-isolation.svg) | [PDF](integrations/juno-tenant-integration-isolation.pdf) |

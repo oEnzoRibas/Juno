@@ -2,6 +2,8 @@
 
 **Status:** [Optionality accepted](../architecture/adr/0006-optional-integrations.md). [Implementation proposed](../architecture/adr/0007-integration-adapters.md).
 
+See the [approved architecture visual](../architecture/diagrams/integrations/juno-integration-hub-architecture.md) for the proposed platform, Hub and provider relationships.
+
 Core modules emit validated business events or call an explicit capability. The Hub resolves the tenant connection, authorized resources and adapter, then translates provider results to content references or normalized events. Keep SDKs, credentials, webhooks and persistence behind infrastructure adapters. Wire reviewed adapters through dependency injection. A missing capability returns an explicit unavailable result that allows a local workflow.
 
 | Capability | Contract responsibility |
