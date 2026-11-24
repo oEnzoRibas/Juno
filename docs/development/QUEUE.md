@@ -4,7 +4,7 @@ This is the authoritative order and active assignment for Juno. Linked task reco
 
 ## Active
 
-[JUNO-0014](tasks/JUNO-0014.md). Earlier provider tasks remain blocked.
+[JUNO-0015](tasks/JUNO-0015.md). Earlier provider tasks remain blocked.
 
 ## Pending
 
@@ -20,11 +20,11 @@ Provider tasks are blocked on a runnable Juno foundation, accepted Hub contracts
 | 6 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
 
 
-| 9 | [JUNO-0015 — Phase 1 foundation planning](tasks/JUNO-0015.md) |
 | 10 | [JUNO-0016 — Native stack workflow](tasks/JUNO-0016.md) |
 
 ## Under review
 
+- [JUNO-0014](tasks/JUNO-0014.md), [PR #17](https://github.com/oEnzoRibas/Juno/pull/17), ready for review.
 - [JUNO-0013](tasks/JUNO-0013.md), [PR #16](https://github.com/oEnzoRibas/Juno/pull/16), ready for review.
 - [JUNO-0012](tasks/JUNO-0012.md), [PR #15](https://github.com/oEnzoRibas/Juno/pull/15), ready for review.
 - [JUNO-0005](tasks/JUNO-0005.md), [draft PR #13](https://github.com/oEnzoRibas/Juno/pull/13).

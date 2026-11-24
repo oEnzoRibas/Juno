@@ -23,3 +23,4 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 | 2026-11-24 | [JUNO-0014](tasks/JUNO-0014.md)–[JUNO-0016](tasks/JUNO-0016.md) | Registered review guide, Phase 1 planning and native stack policy. Owner authorized immediate review-readiness review during the active visual task. |
 | 2026-11-24 | [JUNO-0012](tasks/JUNO-0012.md) | Compared the rendered mockup with the supplied reference and verified vector exports. PR #15 is ready for review. Selected JUNO-0013 next. |
 | 2026-11-24 | [JUNO-0013](tasks/JUNO-0013.md) | Published ready PR #16. Selected JUNO-0014. Human review pending. |
+| 2026-11-24 | [JUNO-0014](tasks/JUNO-0014.md) | Published ready PR #17. Selected JUNO-0015. Human review pending. |
