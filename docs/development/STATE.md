@@ -1,7 +1,7 @@
 # Development state
 
-**Checkpoint:** 2026-11-24, JUNO-0002 verified and closed. JUNO-0003 selected in FIFO order.
+**Checkpoint:** 2026-11-24, foundation PRs published. JUNO-0004 active.
 
-Read the [live queue](QUEUE.md), [active task](tasks/JUNO-0003.md), [worklog](WORKLOG.md), and [session protocol](PROTOCOL.md). Next, verify the GitHub destination and review open PRs, branch protections and local changes before organizing scoped branches.
+Read the [live queue](QUEUE.md), [active Integration Hub task](tasks/JUNO-0004.md), [Git workflow](git-workflow.md) and [foundation publication record](history/foundation-publication.md). The main checkout retains the original local foundation. The isolated publication worktree holds the focused branches.
 
-The local Phase 0 foundation, visual kit and editable diagrams remain in the working tree. Git tracked only `.gitattributes` at the 23689f7 baseline. Preserve untracked and concurrent contributor work. The owner authorized focused branches, commits, pushes and PRs in the [Git protocol brief](history/JUNO-0003-request.md). Merging remains human-controlled.
+Continue Integration Hub documentation on a task branch stacked on the foundation Git workflow PR. Record the dependency and keep the PR in draft while its parent is unmerged. Runtime provider tasks remain blocked on application foundations. Preserve the original working tree and verify review and checks before making status claims.

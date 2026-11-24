@@ -13,3 +13,5 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 | 2026-11-24 | [JUNO-0004](tasks/JUNO-0004.md) through JUNO-0011 | Registered Hub architecture, separate visual work and six required provider scopes. Provider runtime tasks are blocked on the foundation and feasibility. JUNO-0002 remained active. |
 | 2026-11-24 | [JUNO-0002](tasks/JUNO-0002.md) | Implemented container documentation and six native masters. Moved through IMPLEMENTED, VALIDATING and DOCUMENTING. Regenerated exports after fixing two canvas bounds and confirmed SVG and PDF rendering. Completed and archived. |
 | 2026-11-24 | [JUNO-0003](tasks/JUNO-0003.md) | Selected next in FIFO order and moved to IN_PROGRESS. Review Git history and the authorized remote before preparing focused foundation branches. |
+| 2026-11-24 | [JUNO-0003](tasks/JUNO-0003.md) | Local scope and validation complete. Published and verified PRs #1–#11 with explicit base dependencies. Moved to PR_DRAFT while the stack awaits review. |
+| 2026-11-24 | [JUNO-0004](tasks/JUNO-0004.md) | Selected next in FIFO order. Stack the Integration Hub documentation on PR #11. |
