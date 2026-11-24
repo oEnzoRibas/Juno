@@ -13,3 +13,5 @@ The maintainer preview combines reviewed or locally validated candidate revision
 Before an authorized update, record the old preview revision and take a private database backup if a schema change is planned. Verify migration compatibility using a disposable volume. Reuse the maintainer volume only after confirming the intended update and rollback strategy. Normal shutdown preserves data. A reset requires explicit authorization and must target only the recorded UAT project and volume.
 
 See the [editable workflow](../architecture/diagrams/development/juno-maintainer-uat.md) and [first preview record](history/JUNO-0037-uat-preview.md).
+
+Use the [versioned testing guide](uat-testing-guide.md) for the supported acceptance scenarios.

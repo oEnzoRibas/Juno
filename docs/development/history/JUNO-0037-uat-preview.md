@@ -23,3 +23,5 @@ Compose project `juno-uat` serves the frontend at `http://127.0.0.1:3300` and AP
 Frozen install, lint, type checking, four Vitest tests, six Playwright cases, Docker builds, readiness, migration rerun and PostgreSQL tenant and invitation policy checks passed on the composed application. A browser smoke using the persistent UAT fixtures confirmed both languages and themes, scoped access, dual membership and redacted audit. The maintainer acceptance decision is pending.
 
 The final preview tree also passed the third SQL regression for redacted onboarding audit and the complete six-case browser suite using the #36 runner. The persistent UAT database was preserved. A non-destructive backup check verified a readable PostgreSQL archive.
+
+The maintainer accepted this exact snapshot on 2026-11-24. See the [acceptance and integration record](JUNO-0037-maintainer-acceptance.md).
