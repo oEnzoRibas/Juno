@@ -15,7 +15,7 @@ See [containerized development](docker.md) for the approved Docker environment a
 
 ## Development records and standards
 
-See the [Phase 0 review guide](phase-0-review-guide.md) for scoped pull requests, dependency order, and the live audit findings.
+See the [Phase 0 review guide](phase-0-review-guide.md), the [Phase 1 plan](phase-1-implementation-plan.md), the [technology comparison](phase-1-technology-comparison.md), and the [task dependency graph](phase-1-dependencies.md).
 
 | Record | Purpose |
 | --- | --- |

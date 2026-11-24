@@ -15,3 +15,5 @@ Phase exits describe review gates. Dates and staffing are open. See the [decisio
 | 8. Advanced capabilities | SharePoint, Slack and Notion optional providers, advanced analytics, and operations | Approve provider access boundaries and analytics privacy thresholds before delivery. |
 
 Introduce reusable localization and accessibility patterns with the first interfaces, and safe tenant branding with the first tenant-facing screens. GitHub permission discovery can run before Phase 5 once authorized. Manual reporting and recognition provide independent delivery paths. GitHub, GitHub Projects, YouTube, SharePoint, Slack and Notion are required optional roadmap capabilities. See the [catalog and rollout](docs/integrations/provider-registry.md).
+
+The [Phase 1 implementation plan](docs/development/phase-1-implementation-plan.md) and [dependency graph](docs/development/phase-1-dependencies.md) identify the approvals, smallest runnable sequence, and provider-specific prerequisites.

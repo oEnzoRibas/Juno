@@ -8,19 +8,31 @@ This is the authoritative order and active assignment for Juno. Linked task reco
 
 ## Pending
 
-Provider tasks are blocked on a runnable Juno foundation, accepted Hub contracts, and provider feasibility and access.
+The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-authorized FIFO exception. Foundational implementation is blocked on approvals or on earlier runnable scopes. The six provider tasks retain their IDs and relative order.
 
 | Position | Task |
 | --- | --- |
-| 1 | [JUNO-0006 — GitHub provider feasibility and implementation](tasks/JUNO-0006.md) |
-| 2 | [JUNO-0007 — GitHub Projects provider feasibility and implementation](tasks/JUNO-0007.md) |
-| 3 | [JUNO-0008 — YouTube provider feasibility and implementation](tasks/JUNO-0008.md) |
-| 4 | [JUNO-0009 — SharePoint provider feasibility and implementation](tasks/JUNO-0009.md) |
-| 5 | [JUNO-0010 — Slack provider feasibility and implementation](tasks/JUNO-0010.md) |
-| 6 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
-
-
-| 10 | [JUNO-0016 — Native stack workflow](tasks/JUNO-0016.md) |
+| 1 | [JUNO-0016 — Native stack workflow](tasks/JUNO-0016.md) |
+| 2 | [JUNO-0017 — Application architecture decisions](tasks/JUNO-0017.md) |
+| 3 | [JUNO-0018 — Technology selection and compatibility](tasks/JUNO-0018.md) |
+| 4 | [JUNO-0019 — Monorepo foundation](tasks/JUNO-0019.md) |
+| 5 | [JUNO-0020 — Development containerization](tasks/JUNO-0020.md) |
+| 6 | [JUNO-0021 — Database and migration foundation](tasks/JUNO-0021.md) |
+| 7 | [JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) |
+| 8 | [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md) |
+| 9 | [JUNO-0024 — Authentication and invitations](tasks/JUNO-0024.md) |
+| 10 | [JUNO-0025 — Tenant context and database isolation](tasks/JUNO-0025.md) |
+| 11 | [JUNO-0026 — Authorization and audit foundation](tasks/JUNO-0026.md) |
+| 12 | [JUNO-0027 — Application shell](tasks/JUNO-0027.md) |
+| 13 | [JUNO-0028 — Organizational management foundation](tasks/JUNO-0028.md) |
+| 14 | [JUNO-0029 — Integration Hub foundation](tasks/JUNO-0029.md) |
+| 15 | [JUNO-0030 — Gamification foundation](tasks/JUNO-0030.md) |
+| 16 | [JUNO-0006 — GitHub provider feasibility and implementation](tasks/JUNO-0006.md) |
+| 17 | [JUNO-0007 — GitHub Projects provider feasibility and implementation](tasks/JUNO-0007.md) |
+| 18 | [JUNO-0008 — YouTube provider feasibility and implementation](tasks/JUNO-0008.md) |
+| 19 | [JUNO-0009 — SharePoint provider feasibility and implementation](tasks/JUNO-0009.md) |
+| 20 | [JUNO-0010 — Slack provider feasibility and implementation](tasks/JUNO-0010.md) |
+| 21 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
 
 ## Under review
 
