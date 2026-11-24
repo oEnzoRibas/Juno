@@ -1,6 +1,6 @@
 # Phase 1 application foundation plan
 
-**Status:** Proposed implementation plan under [JUNO-0015](tasks/JUNO-0015.md). No application, dependency install, migrations, or container builds were performed for this plan.
+**Status:** Owner-approved direction and first milestone. Implementation staging under [JUNO-0015](tasks/JUNO-0015.md). No application, dependency install, migrations, or container builds were performed for this plan.
 
 ## Approval boundary
 
@@ -10,7 +10,7 @@ Recommend evaluating a modular backend under one transaction scope. Compare Next
 
 ## Delivery increments
 
-1. **Decisions.** Select the first tenant workflow. One candidate is a tenant administrator inviting a member, that member joining the organization, and the server returning only projects authorized for that membership. Compare topology and data paths with synthetic tenants.
+1. **Decisions.** The accepted workflow provisions a tenant and branding, issues and activates a one-time invitation, signs in the invited member, and opens an authorized dashboard while denying access to another tenant. Compare topology and data paths with synthetic tenants.
 2. **Runnable baseline.** Create only real workspace entry points. Pin the runtime inside reproducible images. Document frontend, backend, PostgreSQL, migration, and optional-worker profiles with health checks, private networks, configurable loopback ports and separate data volumes.
 3. **Data and quality.** Demonstrate repeatable migrations, synthetic data, restore and least-privilege database access. Add formatting, lint, type-check, tests, docs and secret checks plus image build and cold startup. Check architectural import direction in CI when the runtime and fixtures exist.
 4. **Tenant and identity.** Establish global identity, invite activation and revocation, server-owned tenant context, non-bypassing database roles, tenant keys, scoped permissions, platform administration and redacted audit. Run two-tenant tests over direct and indirect data paths, storage, jobs and pooled context.

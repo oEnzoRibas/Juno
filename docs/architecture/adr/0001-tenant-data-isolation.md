@@ -1,6 +1,6 @@
 # ADR 0001 — Tenant data isolation
 
-**Status:** Proposed. **Review:** Architecture and security maintainers before Phase 1 implementation. **Proposal updated:** 2026-11-24 in [JUNO-0001](../../development/tasks/JUNO-0001.md).
+**Status:** Accepted isolation requirement. **Review:** Architecture and security maintainers before Phase 1 implementation. **Proposal updated:** 2026-11-24 in [JUNO-0001](../../development/tasks/JUNO-0001.md).
 
 ## Context
 
@@ -12,7 +12,7 @@ A small project needs a reproducible self-hosting path and strong isolation for 
 | Schema per tenant | Separate table namespaces with a shared server. | Correct schema selection and pool handling remain critical. More migration and restore work as tenant count grows. |
 | Database per tenant | Stronger administrative separation and simpler single-tenant restore boundaries. | More connection, credentials, migration, backup, and provisioning overhead. Shared operations require coordination. |
 
-## Recommendation
+## Accepted direction and implementation candidate
 
 Evaluate a shared relational schema with required tenant keys, composite constraints on tenant-owned relationships, and tenant-aware application authorization. Require a database-enforced second boundary. For PostgreSQL, evaluate row-level security using a runtime role without bypass privileges. Keep tenant scope scoped to a transaction where possible, and verify cleanup across pooled connections. Use a separate migration role. Document the backup implications and an exit path if data residency or dedicated isolation becomes necessary.
 

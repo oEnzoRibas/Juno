@@ -28,3 +28,4 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 | 2026-11-24 | [JUNO-0015](tasks/JUNO-0015.md) | Published ready PR #18. Selected JUNO-0016. Human review pending. |
 | 2026-11-24 | [JUNO-0016](tasks/JUNO-0016.md) | Published ready PR #19. No eligible implementation tasks remain. Human review pending. |
 | 2026-11-24 | [JUNO-0031](tasks/JUNO-0031.md) | Owner-authorized maintenance ran before Phase 1 application work. Preserved seven recovery refs, replayed and validated the dependent stack, and marked PR #12 ready. |
+| 2026-11-24 | [JUNO-0017](tasks/JUNO-0017.md) | Recorded owner architecture, technology and workflow approval. Started JUNO-0018 compatibility checks. |
