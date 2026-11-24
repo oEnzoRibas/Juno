@@ -1,3 +1,5 @@
 # JUNO-AGENT-02 status
 
 Read the [current registry](../ASSIGNMENTS.md) before implementation. The owner reported that the independent session ended after initial inspection. The diagrams were separately delivered in [PR #30](https://github.com/oEnzoRibas/Juno/pull/30). The published [checkpoint](https://github.com/oEnzoRibas/Juno/blob/15219bb0f001feb0b370c4d84ec2a31f5c431f83/docs/development/agents/agent-02/status/JUNO-0035.md) acknowledges the original registry and candidate API contract. The new JUNO-0023 claim awaits acknowledgement. See the [frontend baseline transfer](../agent-01/handoffs/juno-0023-frontend.md) for the subsequent design and application work.
+
+JUNO-0035 merged in PR #30. [JUNO-0023 is released](../agent-01/handoffs/juno-0023-0027-frontend-release.md) and awaits acknowledgement. JUNO-0027 is reserved until the design and authorization contracts are verified.
