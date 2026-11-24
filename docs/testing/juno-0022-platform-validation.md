@@ -1,6 +1,6 @@
 # JUNO-0022 platform validation
 
-Agent 03 verified [PR #27](https://github.com/oEnzoRibas/Juno/pull/27) at `e6546726e23f7b0eee36be42b4a8de851c2f29c8` under the [published assignment and transfer](https://github.com/oEnzoRibas/Juno/pull/28). The runner reuses the existing Compose services, HTTP smoke script, SQL regressions, and Playwright suite.
+Agent 03 first verified [PR #27](https://github.com/oEnzoRibas/Juno/pull/27) at `e6546726e23f7b0eee36be42b4a8de851c2f29c8` under the [published assignment and transfer](https://github.com/oEnzoRibas/Juno/pull/28). The CI increment independently validated the typed onboarding contract from [PR #29](https://github.com/oEnzoRibas/Juno/pull/29) at `efc97bbf9172568ce2fea9ab44efa682cb0e5e07`. The runner reuses the existing Compose services, HTTP smoke script, SQL regressions, and Playwright suite.
 
 ## Run locally
 
@@ -27,14 +27,20 @@ Windows host, Node 24.12.0, pnpm 11.25.0, Docker Engine 29.9.3 on Linux amd64, C
 | Independent environments | `juno-agent-03-audit` used ports 19300 and 19301. `juno-agent-03-peer` used ports 19400 and 19401, reused the built artifact and initialized its own database. Both used distinct internal network IDs, named volumes and generated credentials. A synthetic account inserted in the first database was absent from the second. |
 | Migration and PostgreSQL | Fresh startup reached schema version 4. A second migration run exited 0 with the same journal count. Existing SQL checks passed for tenant visibility, restricted writes, transaction cleanup, invitation expiry and direct table privileges. |
 | Browser and tooling | Two Playwright flows and four Vitest tests passed. ESLint and Node script syntax checks passed. The runner rejected duplicate ports with exit 1 before starting Compose. A deliberate missing-browser run returned exit 1 and removed its own containers, networks, volume and image tag. Gitleaks found no leaks in the scoped QA diff. |
-| Outage and unverified environments | The execution environment rejected the planned database-stop command. The outage behavior was skipped. ARM64 runtime, production deployment, live file watching, current-schema restore and GitHub Actions remain unverified in this validation. |
+| Outage and unverified environments | The execution environment rejected the planned database-stop command. The outage behavior was skipped. ARM64 runtime, production deployment, live file watching, current-schema restore and GitHub Actions were outside the initial local validation. |
 
-## CI handoff
+## GitHub Actions
 
-The prepared workflow is on `local/juno-0022-initial-workflows` at `2fa7bf1b29bd8b185a97cdc2db0ca367dbe8e8ec`. GitHub rejected its earlier publication because the OAuth credential lacked `workflow` scope. The current credential still lacks that scope. The reviewed PR had no Actions results.
+The [runtime workflow](../../.github/workflows/runtime.yml) is published in [PR #31](https://github.com/oEnzoRibas/Juno/pull/31), above the typed OpenAPI contract in [stack #14](https://github.com/oEnzoRibas/Juno/stack/14). See the [CI diagram](../architecture/diagrams/development/juno-ci-validation.md) and the GitHub Checks tab for the run tied to the reviewed head. The workflow starts on PRs and pushes to main. It runs on GitHub-hosted Ubuntu with read-only contents permission and without persisted Git credentials.
 
-| ID | Priority and routing | Evidence and next validation |
+The workspace job checks the committed range for whitespace and scans the diff with redacted Gitleaks output. For a pull request it compares the head with its merge base. For a push it uses the before and after commits. The job also performs a frozen install, lint, type checks, builds and Vitest. The Compose job installs Chromium and runs the same QA entry point documented above. [GitHub Actions event security](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target)
+
+The existing local draft at `2fa7bf1b29bd8b185a97cdc2db0ca367dbe8e8ec` was the starting point. GitHub accepted publication after the maintainer refreshed the OAuth credential with `workflow` scope. The preserved runner modification matched [PR #31](https://github.com/oEnzoRibas/Juno/pull/31)'s published runner before updating the base. The prior PR tip remains at `refs/juno-recovery/20261124T170607Z/pr-31-pre-ci`.
+
+| ID | Status | Evidence and next action |
 | --- | --- | --- |
-| JUNO-0022-CI-01 | Blocking for CI publication. Maintainer credentials, then Agent 03. | With an authorized credential, update the existing workflow draft, keep read-only permissions and the `pull_request` event, and invoke the local runner after installing the pinned dependencies and Chromium. Verify the first exact-head workflow result and fork policy. [GitHub Actions event security](https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target) |
-| JUNO-0022-CI-02 | Medium quality gap. Agent 03 with Agent 01 coordination. | The draft checks `git diff --check HEAD` after checkout. A clean worktree can pass even when the committed change has whitespace errors. Validate the applicable event base-to-head range and prove that an intentionally malformed committed patch fails in an isolated test. |
-| JUNO-0022-OPS-01 | Production readiness follow-up. Agent 03 with Agent 01 coordination. | The starter runtime inherits the workspace stage with development dependencies. Validate a minimal production image, SBOM and vulnerability scan before recommending production deployment. Validate an HTTPS ingress configuration, ARM64 execution and recovery at schema version 4 separately. |
+| JUNO-0022-CI-01 | Workflow published and verified | Both jobs passed in the [initial GitHub Actions run](https://github.com/oEnzoRibas/Juno/actions/runs/45445291466) for `8e418caaf5a618eb810b17d51b91c6a5be7a1d5f`. Check the PR for the latest head. |
+| JUNO-0022-CI-02 | Committed diff gate implemented | The workflow checks Git commits instead of the checked-out working tree. A committed whitespace fixture and a synthetic secret fixture each triggered the expected failure locally. |
+| JUNO-0022-OPS-01 | Production readiness follow-up | The starter runtime inherits the workspace stage with development dependencies. Validate a minimal production image, SBOM and vulnerability scan before recommending production deployment. Validate HTTPS ingress, ARM64 execution and recovery at schema version 4 separately. |
+
+The workflow passed `actionlint` 1.7.12. Against the published PR #29 contract, the local run passed the frozen install, lint, type checks, four Vitest tests, Compose build and startup, empty PostgreSQL migration and rerun, OpenAPI smoke, both SQL regressions, and both Playwright flows. Synthetic Compose resources were removed after the run. Previous isolation, negative-run and outage outcomes are recorded above.

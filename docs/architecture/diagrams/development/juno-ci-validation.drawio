@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="32.7.4">
+  <diagram id="juno-ci-validation" name="Continuous integration validation">
+    <mxGraphModel page="1" pageScale="1" pageWidth="1280" pageHeight="760" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cell-2" value="" style="shape=rectangle;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=none;strokeWidth=1;rounded=0;locked=1;selectable=0;movable=0;resizable=0;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1280" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="cell-3" value="" style="shape=stencil(zVTBcoMgEP2avZMlanpO46F/wShWGgMUNZq/7+CSREmdTDs99IRvebvvsYsA37e1sBKQaXGSwF8B8a3XBpCdZdEZB8iE6wbjjoAIyAbi7LYEa4LZjqBorSw6ilVqlCWF286ZoxxU2QW+0rV0qvO7/AB8Xxkn353pdUmYEgrTTAZonRIBeZakSZ5QYcB8nkAKyGZKwRiZmSIsSm2UloWwXkdYopCTR9qHURqQTcsq0Qqv7b9O5uw7OxJ3E4QvC2OL+ndy8vJ78pZH7M9elJ69iegBpwGPSJiH2V5wub9W73awlXq3/YC3aVQPML83jSb5ONu/uAzJv7kMmC5GdoXw/YCzJ+wnDaxU0/ygfbJplG3n8uFCXeUDDE9BMBNaHFvz2pHV+GcHzOkR4ocv);aspect=fixed;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="44" y="35" width="39.48" height="36.66" as="geometry" />
+        </mxCell>
+        <mxCell id="cell-4" value="" style="shape=stencil(xVjLbuMwDPwaHxuIpJ7HRbc57F8EqbsNmsaFkz727xepLMmiZSstAvTUmpmxRkNSDzd0e3zcvLQNisPmuW3od4P45/XQNSje2u2p6xsUm/703vVPDWKD4t1jJAnhA48+gBACm+NLuz356MPuo7334eOp757a9939aWDsDo9tvzudf6W7hm4fur7923evh/vhebffb7v9pwT/95PWIIEAgF/+tQ2uPfxlc37x+b/n7u08oQ+PBzIe+c8/q/NDxtzvDgt4MIITtq+9HwE4JQSM0z7ygT7iAmJ4BivVgCAfuZEDgjhiRuiNxFzoVwkolF22Amp47gQqlTuROMEJcpZZ4aTJrUiQ4IURy1NLjO8leYrf7rtjOw7kVYU6H5C0rFhDKrgJjBKckWf22JnYY8GYhBgCiFAZNlFCbYYqiAmJwoaAcfmoaa6UA+YbwrIyiK8MOQfeD1EVccTFU00U4P4h14U8B3NzLSSWV0aD67T4nFet8Y9XWsUc6pXTlvKO16pWdSCsHROBM6M1KNQYGMLKaJYYNDgGhrAEvdxyaGRpClIs0xTC1WjVZQG1uBYLwJhachgxbic0aZccGJuGiCVHYDk5ATirxdqswGAywjCmFVRSQpIpYbjY1Y4WvWS0yxKg5LVIgFWjGC8YpcIpIRilnS4ZlRqPip1N8639E+sOODQrRzqsm4PmsI7OlzbjhSpDVk4oclzYgpDvQaD1GEcMN38iIYEFIWmAIISsLAixwIUwXMiidovVxmkXLmOo5fVorm4W4w1hrdk+itJlpg5hJcJZL+7ZOsMRw80LEc4WhKQB4tnRFoVYJgQcFMuncmIGBzT1sbofaG2uxapvdMUG/Sat0Nc/segQGrVyQuZHbNC6tjaTFjAmAmfGM68FMQamDRXYVYQB4z5ra5s7Z4aFh+/tXPNcL3FTLu8lJ11ByKSX0MiSkCSYyrjLLeFMmLiOZck4yeOyKaVSWb7PzZScVLW7Pwkni3MKzJhnIXRpTujYJY8Dk7+6qiVnxqMdW7655pBpvtfNuBtx80KkMqXajwPEq6cseZIEUxn3BUsYEyauY1kyTvJYKblCqfzE2imFUytrJhfFWm9KsGNeuica/pFC6REuXhND86dPFRkuuhQ+hC18sMiIsZ/4csUEx4sIsXWTGUIcNy9EiJIjaYD4QYtKQpJgKuIud4QR440jWh4cyQWnGwdPTdmRQo18qYAbXPNPuA2u/edluvsP);aspect=fixed;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="88" y="39.1758" width="65.0879" height="31.7871" as="geometry" />
+        </mxCell>
+        <mxCell id="title" vertex="1" parent="1" value="Continuous integration validation" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=34;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="48" y="82" width="1150" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="intro" vertex="1" parent="1" value="GitHub Actions • Workspace checks and isolated Compose onboarding" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontStyle=0;fontColor=#62677D;">
+          <mxGeometry x="48" y="132" width="1150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="trigger" vertex="1" parent="1" value="" style="rounded=1;arcSize=10;whiteSpace=wrap;fillColor=#F1EEFF;strokeColor=#C7BCFF;">
+          <mxGeometry x="400" y="188" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="trigger-title" vertex="1" parent="1" value="Pull request or push to main" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="422" y="198" width="428" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="trigger-detail" vertex="1" parent="1" value="Read-only checkout on a GitHub-hosted runner" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#62677D;">
+          <mxGeometry x="422" y="231" width="428" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="workspace" vertex="1" parent="1" value="" style="rounded=1;arcSize=10;whiteSpace=wrap;fillColor=#F7F7FB;strokeColor=#DCE0EB;">
+          <mxGeometry x="58" y="342" width="515" height="167" as="geometry" />
+        </mxCell>
+        <mxCell id="compose" vertex="1" parent="1" value="" style="rounded=1;arcSize=10;whiteSpace=wrap;fillColor=#F7F7FB;strokeColor=#DCE0EB;">
+          <mxGeometry x="706" y="342" width="515" height="167" as="geometry" />
+        </mxCell>
+        <mxCell id="workspace-title" vertex="1" parent="1" value="Workspace and change checks" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="84" y="358" width="455" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="workspace-scope" vertex="1" parent="1" value="Committed diff • Redacted secret scan" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontStyle=0;fontColor=#5543CF;">
+          <mxGeometry x="84" y="395" width="455" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="workspace-tests" vertex="1" parent="1" value="Frozen install, lint, type checks, build and Vitest" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#62677D;">
+          <mxGeometry x="84" y="435" width="455" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="compose-title" vertex="1" parent="1" value="Compose onboarding checks" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="732" y="358" width="455" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="compose-scope" vertex="1" parent="1" value="Unique project • Synthetic data • Loopback ports" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontStyle=0;fontColor=#087D77;">
+          <mxGeometry x="732" y="395" width="455" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="compose-tests" vertex="1" parent="1" value="Build, health, migrations, OpenAPI, SQL and Playwright" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontStyle=0;fontColor=#62677D;">
+          <mxGeometry x="732" y="435" width="455" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="results" vertex="1" parent="1" value="" style="rounded=1;arcSize=10;whiteSpace=wrap;fillColor=#EAF5F5;strokeColor=#AFCFCD;">
+          <mxGeometry x="352" y="568" width="576" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="results-title" vertex="1" parent="1" value="Review the two check results" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=22;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="374" y="578" width="532" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="results-detail" vertex="1" parent="1" value="Compose cleanup runs after tests, including on failure." style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#62677D;">
+          <mxGeometry x="374" y="610" width="532" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="trigger-to-workspace" edge="1" parent="1" source="trigger" target="workspace" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#7565F5;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="trigger-to-compose" edge="1" parent="1" source="trigger" target="compose" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#7565F5;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="workspace-to-results" edge="1" parent="1" source="workspace" target="results" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#7565F5;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="compose-to-results" edge="1" parent="1" source="compose" target="results" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#7565F5;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attribution" vertex="1" parent="1" value="Juno • Original project creator: Enzo Ribas • Developed with AI assistance" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontStyle=0;fontColor=#62677D;">
+          <mxGeometry x="48" y="699" width="1170" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
