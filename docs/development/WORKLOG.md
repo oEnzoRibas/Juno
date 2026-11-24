@@ -15,3 +15,5 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 | 2026-11-24 | [JUNO-0003](tasks/JUNO-0003.md) | Selected next in FIFO order and moved to IN_PROGRESS. Review Git history and the authorized remote before preparing focused foundation branches. |
 | 2026-11-24 | [JUNO-0003](tasks/JUNO-0003.md) | Local scope and validation complete. Published and verified PRs #1–#11 with explicit base dependencies. Moved to PR_DRAFT while the stack awaits review. |
 | 2026-11-24 | [JUNO-0004](tasks/JUNO-0004.md) | Selected next in FIFO order. Stack the Integration Hub documentation on PR #11. |
+| 2026-11-24 | [JUNO-0004](tasks/JUNO-0004.md) | Verified scoped documentation locally, published draft PR #12 and recorded the unmerged dependency on #11. |
+| 2026-11-24 | [JUNO-0005](tasks/JUNO-0005.md) | Selected next in FIFO order on an explicit stack above PR #12. |

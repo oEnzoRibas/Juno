@@ -1,7 +1,7 @@
 # Development state
 
-**Checkpoint:** 2026-11-24, foundation PRs published. JUNO-0004 active.
+**Checkpoint:** 2026-11-24, Integration Hub draft opened. JUNO-0005 active.
 
-Read the [live queue](QUEUE.md), [active Integration Hub task](tasks/JUNO-0004.md), [Git workflow](git-workflow.md) and [foundation publication record](history/foundation-publication.md). The main checkout retains the original local foundation. The isolated publication worktree holds the focused branches.
+See the [queue](QUEUE.md), [active diagram task](tasks/JUNO-0005.md), and [worklog](WORKLOG.md). Stack the editorial diagram work on [draft PR #12](https://github.com/oEnzoRibas/Juno/pull/12). Finish native masters and companion notes, verify SVG and PDF exports, and preserve the distinct provider scopes.
 
-Continue Integration Hub documentation on a task branch stacked on the foundation Git workflow PR. Record the dependency and keep the PR in draft while its parent is unmerged. Runtime provider tasks remain blocked on application foundations. Preserve the original working tree and verify review and checks before making status claims.
+The main checkout retains original local work. Use the isolated publication worktree for Git operations. [Foundation review evidence](history/foundation-publication.md) and the [Git workflow](git-workflow.md) describe the review dependencies.
