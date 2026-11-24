@@ -8,7 +8,7 @@ The approved foundation landed at `3053a7beab1ec657305634c77df46efe4ec472f1`. Th
 
 ## Active
 
-[JUNO-0028 — Organizational management foundation](tasks/JUNO-0028.md) is active for the member directory increment. Agent 02 and Agent 03 retain the [published integration handoffs](agents/agent-01/handoffs/juno-post-uat-integration.md).
+[JUNO-0028 — Organizational management foundation](tasks/JUNO-0028.md) has a validated [member directory increment](https://github.com/oEnzoRibas/Juno/pull/40) awaiting review. Further lifecycle work depends on approved policy. Agent 02 and Agent 03 retain the [published integration handoffs](agents/agent-01/handoffs/juno-post-uat-integration.md).
 
 ## Pending
 
