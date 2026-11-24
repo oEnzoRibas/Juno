@@ -39,3 +39,7 @@ After any parent merges, fetch and compare current base and head SHAs. Recheck t
 ## Native stack follow-up
 
 After the scope audit, the official extension linked #12, #13 and #15–#18 to [native stack #14](https://github.com/oEnzoRibas/Juno/stack/14) without modifying their published heads. The PR #12 diff remains the merge and review-scope blocker for that dependent tail. See [ADR-0009](../architecture/adr/0009-stacked-pull-requests.md).
+
+## Completed stack repair
+
+The owner authorized controlled replay. PR #12 and six descendants now have linear ancestry, unchanged incremental patches, and local recovery refs. PR #12 is Ready for review. See the [maintenance record](history/JUNO-0031-stack-repair.md). The earlier draft audit above is historical.

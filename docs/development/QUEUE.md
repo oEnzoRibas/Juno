@@ -41,7 +41,7 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 - [JUNO-0013](tasks/JUNO-0013.md), [PR #16](https://github.com/oEnzoRibas/Juno/pull/16), ready for review.
 - [JUNO-0012](tasks/JUNO-0012.md), [PR #15](https://github.com/oEnzoRibas/Juno/pull/15), ready for review.
 - [JUNO-0005](tasks/JUNO-0005.md), [PR #13](https://github.com/oEnzoRibas/Juno/pull/13), ready with an open merge prerequisite.
-- [JUNO-0004](tasks/JUNO-0004.md), [draft PR #12](https://github.com/oEnzoRibas/Juno/pull/12), review diff needs repair.
+- [JUNO-0004](tasks/JUNO-0004.md), [PR #12](https://github.com/oEnzoRibas/Juno/pull/12), repaired and ready for review.
 - [JUNO-0003](tasks/JUNO-0003.md), native stack #14, with #1 merged before this session and #2–#11 ready. See the [live audit](phase-0-review-guide.md).
 
 ## Completed and cancelled records

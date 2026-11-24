@@ -24,6 +24,6 @@ Human approval controls merges. Preserve shared history and branch protection, a
 
 ## Review policy
 
-Recommend required PRs, checks, resolved conversations, and protection against force pushes and unauthorized deletion. Evaluate CODEOWNERS only with confirmed owners. The merge method is proposed in [ADR-0009](../architecture/adr/0009-stacked-pull-requests.md). Prefer preserving meaningful atomic commits. Reserve squash for an explicitly reviewed reason. See [release governance](../governance/release.md).
+Recommend required PRs, checks, resolved conversations, and protection against force pushes and unauthorized deletion. Evaluate CODEOWNERS only with confirmed owners. The owner-approved Rebase and merge preference is documented in [ADR-0009](../architecture/adr/0009-stacked-pull-requests.md). Prefer preserving meaningful atomic commits. Reserve squash for an explicitly reviewed reason. See [release governance](../governance/release.md).
 
 Evaluate commitlint, advisory local hooks and authoritative GitHub Actions checks for branch, title and message formats. Add [quality gates](../testing/README.md) only when executable. Record URL, base, branch, actual commit hashes, CI, review and merge status in the task or linked publication record, and keep [STATE](STATE.md) and [WORKLOG](WORKLOG.md) current.

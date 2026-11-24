@@ -2,7 +2,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Accepted workflow. Merge method still Proposed. |
+| Status | Accepted workflow and preferred compatible merge method. |
 | Date | 2026-11-24 |
 | Decision owner | Enzo Ribas, in the [owner brief](../../development/history/JUNO-0016-request.md) |
 | Prepared by | Codex, AI-assisted |
@@ -24,7 +24,7 @@ Independent branches permit separate review and integration. Genuine dependencie
 | Rebase and merge | Keeps meaningful changes recognizable and creates linear history. Recreates commit identities and needs downstream validation. |
 | Squash and merge | Keeps one summary per PR. Collapses individual commits and changes ancestry. |
 
-Recommend choosing between merge commits for durable identity and rebasing for linear atomic history. Reserve squash for a specific reviewed need. The owner has not accepted a default method.
+The owner selected Rebase and merge as the preferred method when supported by the native stack. It retains atomic changes and creates a linear history. Use another method only with explicit owner approval. No merge is authorized by this decision.
 
 ## Validation and enforcement
 
