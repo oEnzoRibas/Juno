@@ -8,7 +8,7 @@
 
 ## Worktree hygiene
 
-Fetch the remote and keep the primary worktree on `main` fast-forwarded to `origin/main`. Preserve unpublished changes before updating it. When leaving a task worktree, verify that its commits are on the authorized remote and remove the local worktree once no unpublished changes remain. Keep `staging` available for reviewed pre-release integration. See the [Git workflow](docs/development/git-workflow.md).
+Fetch the remote and keep the primary worktree on `main` fast-forwarded to `origin/main`. Preserve unpublished changes before updating it. When leaving a task worktree, verify that its commits are on the authorized remote and remove the local worktree once no unpublished changes remain. After a task PR merges, verify its published tip and open dependents before deleting its remote branch. Preserve shared branches. Keep `staging` available for reviewed pre-release integration. See the [Git workflow](docs/development/git-workflow.md).
 
 ## Licensing, attribution, and community
 

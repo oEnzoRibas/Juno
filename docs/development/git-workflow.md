@@ -12,7 +12,7 @@ Use lowercase `<category>/<task-id>-<short-description>`, for example `docs/juno
 
 At the start and end of a session, fetch `origin` and check that the primary worktree tracks `origin/main`. Use a fast-forward-only update. If unpublished changes would block it, preserve and verify them in a recoverable local snapshot before advancing. Record the recovery reference in the handoff.
 
-When development stops in a task worktree, confirm that its tip is reachable from the corresponding remote task branch. Check for unpublished changes and preserve any needed local files, then remove the finished worktree with `git worktree remove`. Remove only the verified task directory. Local Git recovery references and remote task branches remain available.
+When development stops in a task worktree, confirm that its tip is reachable from the corresponding remote task branch. Check for unpublished changes and preserve any needed local files, then remove the finished worktree with `git worktree remove`. Remove only the verified task directory. Keep the remote task branch until the PR merges. After a merge, the owner authorizes deletion of its remote task branch. Confirm the remote tip matches the merged head, the merge is present on the intended shared branch, and all open dependent PRs have been retargeted. Use an exact lease to avoid removing concurrently published work. Preserve `main`, `staging` and any other shared branches.
 
 The shared `staging` branch is the pre-release integration branch. It starts from the current remote default branch. Updates to `staging` follow review and human approval. Independent development pull requests still target `main`. See the [worktree and staging record](tasks/JUNO-0033.md).
 
@@ -28,7 +28,7 @@ Verify the push URL and repository, branch and base, tooling credentials, comple
 
 Independent PRs target main. For genuine dependencies, use the preceding PR's head as base and prefer native GitHub metadata. Use `gh stack link` with PR URLs to adopt eligible existing PRs without replacing them. Verify their order, heads and bases first. Record native stack ID and position, root, parent and child URLs, predecessors, review scope, readiness and current merge gates. Manual chains require the same explicit ancestry checks and bottom-up merge discipline. After each parent merges, fetch current refs and verify new base, merge base, incremental diff, duplicate patches, conflicts, approval and CI. Do not run a cascading rebase or force-push without authorization that covers rewritten published heads.
 
-Human approval controls merges. Preserve shared history and branch protection, and avoid direct pushes to main. Releases, deployments, permissions, visibility and remote branch deletion require separate authorization. If credentials or network access fail, preserve local commits, record the precise blocker and the prepared PR text, and capture the commands still required.
+Human approval controls merges. Preserve shared history and branch protection, and avoid direct pushes to main. Releases, deployments, permissions, visibility and remote branch deletions outside the merged-task policy require separate authorization. If credentials or network access fail, preserve local commits, record the precise blocker and the prepared PR text, and capture the commands still required.
 
 ## Review policy
 
