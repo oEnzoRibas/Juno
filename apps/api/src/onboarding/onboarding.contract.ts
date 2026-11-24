@@ -57,7 +57,18 @@ export class WorkspaceSummary extends WorkspaceIdResponse {
   role!: (typeof roles)[number];
 }
 
+export class WorkspaceCapabilities {
+  @ApiProperty({ description: 'Whether this active membership may invite a member to this workspace.' })
+  inviteMember!: boolean;
+
+  @ApiProperty({ description: 'Whether this active membership may read the onboarding audit.' })
+  readOnboardingAudit!: boolean;
+}
+
 export class WorkspaceResponse extends WorkspaceSummary {
+  @ApiProperty({ type: WorkspaceCapabilities })
+  capabilities!: WorkspaceCapabilities;
+
   @ApiProperty({ pattern: workspaceSlug.source })
   slug!: string;
 

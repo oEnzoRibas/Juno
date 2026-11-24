@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 
 const api = process.env.JUNO_SMOKE_API ?? 'http://127.0.0.1:3001';
 
-test('redacts onboarding audit data and requires an active administrator in that tenant', async ({ request }) => {
+test('derives tenant capabilities and redacts audit data for active administrators', async ({ request }) => {
   const platformEmail = process.env.JUNO_TEST_ADMIN_EMAIL;
   const platformPassword = process.env.JUNO_TEST_ADMIN_PASSWORD;
   if (!platformEmail || !platformPassword) throw new Error('Bootstrap a synthetic platform admin before running this test.');
@@ -44,7 +44,19 @@ test('redacts onboarding audit data and requires an active administrator in that
   const other = await provision(`audit-other-${suffix}`);
   const administrator = await inviteAndActivate(tenant, 'administrator');
   const member = await inviteAndActivate(tenant, 'member');
-  const auditPath = `${api}/api/tenants/${tenant}/audit`;
+  const workspacePath = `${api}/api/tenants/${tenant}`;
+  const auditPath = `${workspacePath}/audit`;
+  const adminWorkspace = await request.get(workspacePath, { headers: administrator });
+  expect(adminWorkspace.status()).toBe(200);
+  expect(adminWorkspace.headers()['cache-control']).toBe('no-store');
+  expect((await adminWorkspace.json()).capabilities).toEqual({ inviteMember: true, readOnboardingAudit: true });
+
+  const memberWorkspace = await request.get(workspacePath, { headers: member });
+  expect(memberWorkspace.status()).toBe(200);
+  expect((await memberWorkspace.json()).capabilities).toEqual({ inviteMember: false, readOnboardingAudit: false });
+  expect((await request.get(workspacePath)).status()).toBe(401);
+  expect((await request.get(workspacePath, { headers: platform })).status()).toBe(404);
+  expect((await request.get(`${api}/api/tenants/${other}`, { headers: administrator })).status()).toBe(404);
 
   expect((await request.get(auditPath)).status()).toBe(401);
   expect((await request.get(auditPath, { headers: platform })).status()).toBe(404);
@@ -69,4 +81,9 @@ test('redacts onboarding audit data and requires an active administrator in that
   expect(contract.security).toEqual([{ bearer: [] }]);
   expect(contract.responses['404']).toBeDefined();
   expect(document.components.schemas.OnboardingAuditResponse.properties.events.maxItems).toBe(50);
+  expect(document.components.schemas.WorkspaceResponse.properties.capabilities.$ref)
+    .toBe('#/components/schemas/WorkspaceCapabilities');
+  const capabilities = document.components.schemas.WorkspaceCapabilities;
+  expect(capabilities.required.sort()).toEqual(['inviteMember', 'readOnboardingAudit']);
+  expect(Object.values(capabilities.properties).map(({ type }) => type)).toEqual(['boolean', 'boolean']);
 });
