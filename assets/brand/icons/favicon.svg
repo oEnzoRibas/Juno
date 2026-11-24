@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="18 20 92 92">
+  <title>Juno favicon</title>
+  <desc>Original project creator: Enzo Ribas. Developed with AI assistance.</desc>
+  <style>
+    svg { color: #7565F5; }
+    @media (prefers-color-scheme: dark) { svg { color: #A99BFF; } }
+  </style>
+  <g transform="translate(21.5 25.5)" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 8 H59 V43 Q59 69 34 69 Q10 69 10 46"/>
+    <path d="M26 26 H76" stroke-width="5"/>
+    <circle cx="76" cy="26" r="3" fill="currentColor" stroke="none"/>
+  </g>
+</svg>

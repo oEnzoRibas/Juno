@@ -21,7 +21,7 @@ Juno serves Junior Enterprises with different budgets, infrastructure, and techn
 
 MIT permits commercial use, redistribution, modification, private use, and proprietary derivatives. Preserve the notices in copies or substantial portions. Contributors retain their rights to their original work. Third-party terms and notices continue to apply. Use `MIT` when package manifests and distribution metadata are introduced.
 
-Access to core functionality is a commitment of the official project. The proposed brand policy addresses project identity and affiliation. Any separate asset terms need an explicit scope and must preserve MIT software permissions.
+Access to core functionality is a commitment of the official project. The proposed [brand policy](../../../TRADEMARKS.md) addresses project identity and affiliation. Any separate asset terms need an explicit scope and must preserve MIT software permissions.
 
 ## Release verification
 

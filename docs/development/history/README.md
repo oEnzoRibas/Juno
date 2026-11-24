@@ -4,7 +4,7 @@ Completed and cancelled task records stay in [tasks](../tasks/) at their origina
 
 ## Before the persistent queue
 
-The owner previously requested the Phase 0 foundation and then approved MIT licensing, the visual identity and the public contribution strategy. The repository documents those outcomes in the changelog, [MIT ADR](../../architecture/adr/0002-mit-licensing.md), and brand identity. These pre-queue requests were delivered before IDs existed.
+The owner previously requested the Phase 0 foundation and then approved MIT licensing, the visual identity and the public contribution strategy. The repository documents those outcomes in the changelog, [MIT ADR](../../architecture/adr/0002-mit-licensing.md), and [brand identity](../../design/brand-identity.md). These pre-queue requests were delivered before IDs existed.
 
 ## Task records
 
