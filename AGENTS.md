@@ -13,6 +13,10 @@
 - Keep setup reproducible and maintainable for contributors with different skill levels and independent operators. Document dependencies, service costs and alternatives. See the [community strategy](docs/governance/community.md).
 - Preserve the [approved identity](docs/design/brand-identity.md) and source artwork. Use semantic tokens and validated, accessible, tenant-scoped overrides. See [tenant branding](docs/design/tenant-branding.md).
 
+## Coordination and task ownership
+
+For owner-authorized parallel work, read the [agent protocol](docs/development/agents/PROTOCOL.md) and verify the current [assignment registry](docs/development/agents/ASSIGNMENTS.md). Only Agent 01 controls IDs, assignments and the central queue. Use one isolated worktree per agent, honor reserved paths, and publish handoffs before changing a shared contract.
+
 ## During implementation
 
 - Review security and privacy implications, including trust boundaries, authorization, secret handling, data lifecycle, and audits. Never expose or commit secrets. Use synthetic data.

@@ -1,0 +1,13 @@
+# Platform engineering transfer
+
+| Field | Value |
+| --- | --- |
+| Source and destination | JUNO-AGENT-01 → JUNO-AGENT-03 |
+| Task | JUNO-0022 and ongoing container, CI, independent validation, security, self-hosting and recovery ownership |
+| Branch, exact revision and PR | `feat/juno-0028-tenant-onboarding`, `e6546726e23f7b0eee36be42b4a8de851c2f29c8`, [PR #27](https://github.com/oEnzoRibas/Juno/pull/27). Core Compose entered in [PR #23](https://github.com/oEnzoRibas/Juno/pull/23) at `654d0268647352430586b9ca2052c6ebfc5806b2`. |
+| Changed files | `Dockerfile`, `compose.yaml`, `compose.dev.yaml`, `scripts/runtime-smoke.mjs`, `apps/api/drizzle/test`, `tests/browser` |
+| Contracts | Node 24 and PostgreSQL 17 pinned in container sources. The health and readiness endpoints are `/api/health` and `/api/ready`. Compose runs a one-shot migration. API runtime and migration credentials are distinct. |
+| Dependencies and validation | Previously passed amd64 Compose cold/upgrade checks, readiness, two Playwright flows, PostgreSQL privilege and RLS checks, backup/restore regression at schema version 2 and a local secret scan. |
+| Known limits | GitHub rejected workflow publication for missing OAuth `workflow` scope. Draft workflow exists on `local/juno-0022-initial-workflows` at `2fa7bf1`. ARM64 runtime, production deployment and new-schema recovery are unverified. |
+| Next action | Extend local validation through the existing Compose stack and test suites without duplicating Docker or workflow implementations. Record the permission blocker and evidence. Coordinate container/migration contract changes with Agent 01. |
+| Acknowledgement | A separate agent records receipt when observed. |
