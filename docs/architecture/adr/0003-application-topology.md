@@ -2,7 +2,7 @@
 
 | Field | Value |
 | --- | --- |
-| Status | Proposed |
+| Status | Accepted |
 | Date | 2026-11-24 |
 | Decision owner | Enzo Ribas, with architecture and security review pending |
 | Prepared by | Codex, as AI-assisted decision preparation |
@@ -25,7 +25,7 @@ Prioritize predictable authorization, secure session handling, accessibility and
 
 ## Recommendation and rationale
 
-Evaluate a modular monolith as the common backend model. Compare the single-runtime and separate web/API variants using the same tenant workflow. Accept the smallest topology that meets the requirements and add a worker process only when durable work or isolation warrants it. Technology selection is pending.
+Evaluate a modular monolith as the common backend model. Compare the single-runtime and separate web/API variants using the same tenant workflow. Accept the smallest topology that meets the requirements and add a worker process only when durable work or isolation warrants it. The owner selected independent web and API applications, recorded in [ADR-0010](0010-phase-one-platform.md).
 
 ## Consequences
 
