@@ -1,0 +1,19 @@
+services:
+  api:
+    develop:
+      watch:
+        - action: rebuild
+          path: ./apps/api/src
+        - action: rebuild
+          path: ./pnpm-lock.yaml
+  web:
+    command: ["pnpm", "--filter", "@juno/web", "dev"]
+    environment:
+      NODE_ENV: development
+    develop:
+      watch:
+        - action: sync
+          path: ./apps/web/src
+          target: /workspace/apps/web/src
+        - action: rebuild
+          path: ./pnpm-lock.yaml

@@ -11,7 +11,7 @@ git diff --check
 git diff --cached --check
 ```
 
-See [containerized development](docker.md) for the approved Docker environment and planned onboarding. Phase 0 has no build, installation, migration, test runner, or service startup commands. [.env.example](../../.env.example) declares no runtime settings. Add future settings with purpose, expected values, default, required environments, and sensitivity. Store actual secrets in ignored files or an appropriate secret store.
+See [containerized development](docker.md) for the approved Docker environment and planned onboarding. The current workspace setup is below. [.env.example](../../.env.example) documents local Compose inputs. Add future settings with purpose, expected values, default, required environments, and sensitivity. Store actual secrets in ignored files or an appropriate secret store.
 
 ## Phase 1 workspace checks
 

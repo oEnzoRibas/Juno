@@ -1,19 +1,18 @@
 # Containerized development
 
-**Status:** Required architecture, planned implementation. The checkout has no runnable Dockerfiles or Compose configuration.
+Use Git and Docker with Linux containers and the Compose plugin. The starter was exercised on Linux amd64 through Docker Desktop on Windows. The pinned image manifests also include arm64. Run the same checks on arm64 before advertising platform support.
 
-## Prerequisites and target
+Copy [.env.example](../../.env.example) to `.env` and fill in distinct random passwords of at least 16 characters. Use synthetic values and keep the file local. The migration password initializes the development database. The runtime password is used by the API. `JUNO_WEB_PORT` and `JUNO_API_PORT` default to 3000 and 3001.
 
-Use Git, a Docker environment for Linux containers, and the Compose plugin with v2-style commands. Verify installed tools with `git --version`, `docker version`, and `docker compose version`. Target Linux, Windows with WSL2, and macOS on x86-64. Validate ARM64 when base images and native dependencies support it. Publish the supported platform matrix after validation. Evaluate bind-mount performance on WSL2 and macOS.
+```sh
+docker compose config --quiet
+docker compose up --build -d --wait
+node scripts/runtime-smoke.mjs
+docker compose down
+```
 
-The intended path is clone, copy safe values from `.env.example`, and use Compose to start the development stack. Evaluate a base plus an explicit development overlay and a unique project name such as `juno-example-dev` for each developer. Publish working commands after a clean-checkout run.
+Open `http://127.0.0.1:3000`. Set `JUNO_SMOKE_WEB` and `JUNO_SMOKE_API` to the custom origins when using different ports. Compose starts PostgreSQL, runs the one-shot migration, then starts the API and web. Shutting down preserves the named database volume.
 
-| Operation | Target behavior |
-| --- | --- |
-| Start and reload | Build from locked dependencies, bind-mount sources and expose configurable UI ports on loopback. |
-| Observe and debug | Follow logs and readiness. Enable a loopback debugger explicitly. |
-| Migrate and seed | Wait for the database, run controlled migrations and seed synthetic records in the developer project. |
-| Test | Run containerized quality gates with separate test instances, credentials and volumes. |
-| Stop and restart | Preserve volumes on ordinary shutdown. Restrict destructive reset procedures to a confirmed disposable environment. |
+For contributor reload, use `docker compose -f compose.yaml -f compose.dev.yaml up --watch`. The watch overlay syncs frontend source and rebuilds the API on source edits. To run a parallel project, set a different Compose project name and use separate local ports and credentials.
 
-Each contributor's stack runs independently with private service discovery and development-only credentials. See [container design](../architecture/containers.md) and [self-hosting](../deployment/README.md).
+The [container architecture](../architecture/containers.md) documents the service boundaries. See the [database runbook](../architecture/database-runtime.md) for roles and migration behavior. The base images pin the official Node 24 Bookworm Slim and PostgreSQL 17 Bookworm multi-platform digests in the Dockerfile and Compose file.

@@ -13,7 +13,7 @@ async function start(): Promise<void> {
     jsonDocumentUrl: '/api/openapi.json',
   });
   app.enableShutdownHooks();
-  await app.listen(process.env.PORT ?? 3001, '0.0.0.0');
+  await app.listen(Number(process.env.PORT ?? 3001), '0.0.0.0');
 }
 
 void start();
