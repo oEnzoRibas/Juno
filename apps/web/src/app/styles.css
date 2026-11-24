@@ -2,26 +2,57 @@
 
 :root {
   color-scheme: light dark;
-  --juno-background: #faf9fc;
-  --juno-text: #211631;
-  --juno-accent: #5f2aa0;
+  --surface: #f7f7fb;
+  --panel: #ffffff;
+  --text: #10111a;
+  --muted: #53556a;
+  --border: #dcdcec;
+  --action: #5543cf;
+  --on-action: #ffffff;
+  --focus-ring: #5543cf;
+  --success-text: #166534;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --juno-background: #171120;
-    --juno-text: #f4edf9;
-    --juno-accent: #d8b8ff;
+    --surface: #10111a;
+    --panel: #1a1b28;
+    --text: #f7f7fb;
+    --muted: #bfc0d4;
+    --border: #3c3e56;
+    --action: #a99bff;
+    --on-action: #10111a;
+    --focus-ring: #a99bff;
+    --success-text: #22c55e;
   }
 }
 
 body {
-  background: var(--juno-background);
-  color: var(--juno-text);
+  background: var(--surface);
+  color: var(--text);
   font-family: system-ui, sans-serif;
 }
 
 a {
-  color: var(--juno-accent);
+  color: var(--action);
   text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.public-shell {
+  width: min(100% - 2rem, 46rem);
+  margin-inline: auto;
+  padding-block: clamp(2rem, 9vh, 6rem);
+}
+
+.public-panel {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--panel);
+  padding: clamp(1.25rem, 5vw, 3rem);
+  overflow-wrap: anywhere;
 }

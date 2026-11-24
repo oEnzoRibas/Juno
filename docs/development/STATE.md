@@ -7,7 +7,7 @@
 | Phase 1 architecture approval | [#21](https://github.com/oEnzoRibas/Juno/pull/21), `2e665a43ebea7762a34dcc4a3a2396afe56afd33` |
 | Application workspace and test discovery | [#22](https://github.com/oEnzoRibas/Juno/pull/22), `3e7051ee50c54bdfb4d5780e6eb4c4d126ec965a` |
 | Compose and migration baseline | [#23](https://github.com/oEnzoRibas/Juno/pull/23), `654d0268647352430586b9ca2052c6ebfc5806b2` |
-| Database tenant schema and isolation | `feat/juno-0021-tenant-schema`, stacked on #23 |
+| Database tenant schema and isolation | [#24](https://github.com/oEnzoRibas/Juno/pull/24), `f4ee6617861192691ac3cb8dfd4c9e72b5652d3d` |
 
 A clean Compose project on Linux amd64 built and started the web, API and PostgreSQL containers. The migration succeeded on an empty database and on rerun. HTTP smoke checks verified both locales, OpenAPI, liveness and database-backed readiness. PostgreSQL role checks verified that the runtime lacks elevated role flags. Frozen install, lint, type checks, build and Vitest passed locally. GitHub rejected the separate workflow push because the active OAuth token lacks workflow scope. The workflow is retained on local branch `local/juno-0022-initial-workflows`.
 
