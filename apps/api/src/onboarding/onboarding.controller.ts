@@ -4,6 +4,7 @@ import {
   accentColor,
   ActivateInvitationBody,
   InvitationResponse,
+  OnboardingAuditResponse,
   IssueInvitationBody,
   ProvisionWorkspaceBody,
   WorkspaceIdResponse,
@@ -88,6 +89,19 @@ export class OnboardingController {
   @ApiResponse({ status: 401, description: 'A valid bearer token is required.' })
   list(@Headers('authorization') authorization?: string) {
     return this.onboarding.list(authorization);
+  }
+
+  @Get(':id/audit')
+  @Header('Cache-Control', 'no-store')
+  @ApiOperation({ summary: 'List the 50 most recent onboarding events for an active tenant administrator.' })
+  @ApiBearerAuth()
+  @ApiParam({ name: 'id', schema: { type: 'string', format: 'uuid' } })
+  @ApiOkResponse({ type: OnboardingAuditResponse })
+  @ApiResponse({ status: 400, description: 'Malformed workspace ID.' })
+  @ApiResponse({ status: 401, description: 'A valid bearer token is required.' })
+  @ApiResponse({ status: 404, description: 'The audit is unavailable to this account.' })
+  audit(@Headers('authorization') authorization: string | undefined, @Param('id', ParseUUIDPipe) id: string) {
+    return this.onboarding.audit(authorization, id);
   }
 
   @Get(':id')
