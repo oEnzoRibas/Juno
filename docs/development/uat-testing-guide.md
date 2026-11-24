@@ -21,3 +21,5 @@ Use the local private PowerShell credential helper under the Windows account tha
 From the dedicated worktree, set `$uatEnv` to its private Compose environment file. Start the pinned image with `docker compose --env-file $uatEnv -p juno-uat up --no-build -d --wait` and stop with `docker compose --env-file $uatEnv -p juno-uat down`. The standard stop retains `juno-uat_database`. Use the [preview protocol](maintainer-uat.md) for an explicitly authorized update or reset. Verify the volume and a private backup before replacing data.
 
 The candidate shell, member lifecycle, directorates, teams and projects are outside the first accepted preview. The application displays invitation links for manual sharing.
+
+See the [Application Shell candidate](uat-shell-candidate.md) for the isolated follow-up preview and separate acceptance checkpoint.
