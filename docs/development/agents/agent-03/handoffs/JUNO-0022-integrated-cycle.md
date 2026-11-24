@@ -1,0 +1,26 @@
+# JUNO-0022 integrated platform validation handoff
+
+| Field | Value |
+| --- | --- |
+| Owner and recipient | JUNO-AGENT-03 → JUNO-AGENT-01 |
+| Released assignment | [Cycle registry and handoff at 66d3011](https://github.com/oEnzoRibas/Juno/blob/66d30119a5f9d4aaaa4899e665bcbb507a4baa0d/docs/development/agents/agent-01/handoffs/juno-organizational-cycle.md) |
+| Integrated main | `3053a7beab1ec657305634c77df46efe4ec472f1` |
+| Recovery branch | `test/juno-0022-database-recovery` from integrated main |
+| Test procedure | [Database recovery validation](../../../../testing/juno-database-recovery.md) |
+
+## Earlier cycle checkpoints
+
+| Target | Independent result |
+| --- | --- |
+| Integrated main at `3053a7beab1ec657305634c77df46efe4ec472f1` | Frozen install, lint, types, four Vitest tests, fresh and repeated migrations, HTTP and OpenAPI, two SQL regressions and six Playwright scenarios passed on isolated Linux amd64 Compose. Production dependency audit reported zero advisories. [Main Actions run](https://github.com/oEnzoRibas/Juno/actions/runs/45461964074) passed. An earlier run is excluded from this evidence because its detached checkout moved during execution. |
+| Audit runner [PR #36](https://github.com/oEnzoRibas/Juno/pull/36) at `7c17cc435d863e5b43c4a8302b2ad8ec730828eb` | The replay on integrated main preserved both patches. [Retargeted Actions run](https://github.com/oEnzoRibas/Juno/actions/runs/45464742726) passed both jobs. |
+| Shell [PR #37](https://github.com/oEnzoRibas/Juno/pull/37) | The earlier Compose job failed when a required fixture was absent at `08f05293f644c51d537530a6bbbb642f1ae13117`. Both shell scenarios and the onboarding authorization test passed locally after supplying the fixture. Agent 02 corrected setup at `a7825a6b814013527414e7478fa77d5b2d3eb60c`. [Hosted retest](https://github.com/oEnzoRibas/Juno/actions/runs/45464933184) passed. |
+| Shell integration preview at `33c3cc6c52e7cffccba982efeaaa6239f507def9` | Fresh and repeated migrations, HTTP and OpenAPI, three SQL regressions, four Vitest tests and eight Playwright tests passed using a separate disposable environment. Covered session redirects and revocation, organization switching, administrative visibility, server denial, keyboard navigation, branding, narrow reflow, and EN/PT-BR. [Published handoff](https://github.com/oEnzoRibas/Juno/pull/39#issuecomment-7147878691) |
+| Member-directory [PR #40](https://github.com/oEnzoRibas/Juno/pull/40) at `7d7f7a447e56159bbdc7eb6587e7fcaaa564c23d` | The inherited runner passed, including seven Playwright scenarios. A standalone SQL attempt reached the database before the one-shot migration completed. After explicitly running migrations to completion in a fresh disposable project, both audit and directory SQL fixtures passed. The reusable directory-runner follow-up requires the published lookup pin. |
+
+
+## Recovery checkpoint
+
+The disposable validator demonstrated a generic readiness 503 and liveness 200 while PostgreSQL was stopped. The original API container returned to readiness 200 after database restart. All five migration records and the committed synthetic fixture persisted. The rolled-back fixture stayed absent. A second migration run made no changes to the journal. The runner removed its containers, networks, volume and image tag.
+
+The hosted runtime workflow remains responsible for ordinary builds, migration checks and browser regressions. This recovery rehearsal runs separately on the approved local Docker environment.
