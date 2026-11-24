@@ -32,3 +32,13 @@ Released on 2026-11-24 under the maintainer's extended execution authorization. 
 | 03, JUNO-0022 backup/restore and directory SQL | `test/juno-0022-database-backup-restore` from the published recovery head (pin after release). A follow-up directory runner change needs the exact directory lookup head. | Dedicated backup/restore validator and QA docs. Verify a synthetic logical dump into a separate disposable destination and rerun tenant denial checks. When released, add the existing directory SQL fixture to the reusable runner, preserving implementation-test authorship. |
 
 The next eligible task can start after the predecessor handoff and exact base pins are verified. Use a fresh lane worktree, and bring both contract pins to any cross-lane integration. Agent 01 controls manifests, lockfiles and the central registry. A branch assignment or published implementation does not establish that the owner's independent session is executing. Report acknowledgement, tests, blockers and final SHA separately.
+
+## Delivery checkpoint
+
+| Lane | Published result and successor |
+| --- | --- |
+| Agent 01 | Directory lookup [#41](https://github.com/oEnzoRibas/Juno/pull/41) `46b1a9408077d1a2564bdc403d158a8ebb294ec6`, based on #40. Profile update [#45](https://github.com/oEnzoRibas/Juno/pull/45) `b09f3224e94ecc8128c0d8ed77554f235db2f8a0`, based on #41. Both are in native stack #42. Membership lifecycle needs an agreed active/inactive transition, privileged account protection and retention rule. Directorate and team delegation and project assignments follow their product decisions. |
+| Agent 02 | Directory UI [#43](https://github.com/oEnzoRibas/Juno/pull/43) at `e5de071650154641b9f08e7c0ba212d5e71def0a` for this checkpoint. The lookup UI branch is released on that revision with #41 pinned above. Verify the latest frontend handoff before starting. The shell and backend are genuine runtime dependencies. Validate in a composed environment. The profile UI may consume the exact #45 contract after the lookup UI handoff. |
+| Agent 03 | Independent shell review and database recovery [#44](https://github.com/oEnzoRibas/Juno/pull/44) at `8ac2b9444c7fe078f906b1f8b8d63b2c91812671`, main base. The backup/restore successor is released from that exact head. For follow-up SQL integration use #45's schema 8 candidate, scope runner and evidence files to Agent 03, and include directory search/detail and the profile isolation and audit fixtures. |
+
+The [integration record](../../history/JUNO-0034-shell-candidate.md) records recovery, hosted checks, and the separate proposed UAT. #43 target #37 is its source dependency. The #40 runtime dependency remains a separate approval and integration gate. The two API increments do not belong to the shell UAT snapshot.

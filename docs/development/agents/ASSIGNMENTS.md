@@ -17,4 +17,4 @@ The [organizational cycle handoff](agent-01/handoffs/juno-organizational-cycle.m
 
 ## Next reservations
 
-Agent 01 owns the directory lookup. Agent 02 is released for the directory UI. Agent 03 owns independent shell QA and the subsequent database recovery task. See the cycle handoff for scope and promotion conditions.
+Agent 01 owns the delivered directory lookup and profile API. Agent 02 owns the directory review and released lookup UI. Agent 03 owns the recovery review, released backup/restore and independent SQL follow-up. See the cycle handoff for scope and promotion conditions.

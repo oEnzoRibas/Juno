@@ -44,3 +44,5 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 - 2026-11-24. Recorded owner-authorized integration of the accepted runtime and design scope, prepared the isolated main validation, and refreshed the three-agent handoff.
 
 - 2026-11-24. Revalidated integrated main; Agents 02 and 03 restored incremental #37 and #36 on main, and Agent 01 pinned the resulting shell preview separately from the previously accepted environment. Published the [parallel cycle handoff](agents/agent-01/handoffs/juno-organizational-cycle.md).
+
+- 2026-11-24. Published the directory filters and detail contract, organization profile write and audit, and candidate validation. Recorded Agent 02 directory UI and Agent 03 outage recovery handoffs with exact revisions.
