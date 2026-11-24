@@ -6,6 +6,10 @@
 2. Read the active task and related requirements, ADRs, security and testing docs. Resume its verified checkpoint. Register each new owner implementation request with a sequential ID, source requirements, dependencies and acceptance criteria. Append it in FIFO order and document any exception or blocker.
 3. Work documentation-first. Keep changes traceable to the task. Record significant decisions in ADRs and obtain required human approval. Follow the [Git workflow](docs/development/git-workflow.md). Use task branches, atomic Conventional Commits, scoped staging and focused PRs. Target main for independent work. Use native stacks for genuine dependencies where available, and mark locally validated work ready even while merge dependencies are open. Verify the authorized destination. Never push directly to main or merge without human approval.
 
+## Worktree hygiene
+
+Fetch the remote and keep the primary worktree on `main` fast-forwarded to `origin/main`. Preserve unpublished changes before updating it. When leaving a task worktree, verify that its commits are on the authorized remote and remove the local worktree once no unpublished changes remain. After a task PR merges, verify its published tip and open dependents before deleting its remote branch. Preserve shared branches. Keep `staging` available for reviewed pre-release integration. See the [Git workflow](docs/development/git-workflow.md).
+
 ## Licensing, attribution, and community
 
 - Keep the [MIT License](LICENSE), SPDX identifier `MIT`, and project metadata consistent. Check code, dependency, media, and font provenance and terms for open-source compatibility. Preserve copyright and license notices. See the [licensing decision](docs/architecture/adr/0002-mit-licensing.md).
