@@ -1,0 +1,25 @@
+name: Architecture proposal
+description: Propose a significant technical or operational decision.
+title: "[Architecture] "
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Context and constraints
+      description: Explain the problem, affected modules, and relevant requirements or ADRs.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and recommendation
+      description: Compare maintainability, tenant isolation, compatibility, and self-hosting impact.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence needed for acceptance
+      description: Describe the checks, migration or recovery needs, and unresolved decisions.
+    validations:
+      required: true

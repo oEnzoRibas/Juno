@@ -1,0 +1,25 @@
+name: Integration proposal
+description: Propose connecting Juno to an external service.
+title: "[Integration] "
+body:
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Tenant workflow
+      description: Describe the problem, affected roles, and the expected benefit.
+    validations:
+      required: true
+  - type: textarea
+    id: access
+    attributes:
+      label: Provider permissions and data
+      description: Describe required access, tenant isolation, stored data, and behavior on disconnect. Omit credentials and private data.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Costs, failure behavior, and alternatives
+      description: Include self-hosting implications, setup costs, provider limits, and the fallback workflow.
+    validations:
+      required: true

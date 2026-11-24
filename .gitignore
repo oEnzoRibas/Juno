@@ -1,0 +1,12 @@
+# Environment files and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local operating system files
+.DS_Store
+Thumbs.db
