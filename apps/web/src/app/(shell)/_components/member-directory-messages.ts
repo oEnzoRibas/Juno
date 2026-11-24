@@ -1,6 +1,9 @@
 export const directoryMessages = {
   en: {
     members: 'Members',
+    loading: 'Loading members',
+    error: 'Could not load the member directory.',
+    retry: 'Try again',
     description: 'View members’ roles and membership status.',
     email: 'Email address',
     status: 'Status',
@@ -15,6 +18,9 @@ export const directoryMessages = {
   },
   'pt-BR': {
     members: 'Membros',
+    loading: 'Carregando membros',
+    error: 'Não foi possível carregar a lista de membros.',
+    retry: 'Tentar novamente',
     description: 'Vínculos, funções e status dos membros da organização.',
     email: 'E-mail',
     status: 'Status',

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { locales, messages } from '../../../content/messages';
 import { signOut } from '../../sign-in/actions';
 import { localPath, type ShellLocale, type WorkspaceSummary } from './shell-data';
+import { DirectoryLink } from './member-directory-link';
 import { directoryMessages } from './member-directory-messages';
 import styles from './application-shell.module.css';
 
@@ -52,9 +53,8 @@ export function ApplicationShell({ locale, platformAdmin, current, workspaces, c
             )}
             {current?.role === 'administrator' && directoryPath && (
               <>
-                <Link href={localPath(directoryPath, locale)} prefetch={false} aria-current={section === 'members' ? 'page' : undefined}>
-                  {directoryMessages[locale].members}
-                </Link>
+                <DirectoryLink href={localPath(directoryPath, locale)} current={section === 'members'}
+                  label={directoryMessages[locale].members} loading={directoryMessages[locale].loading} />
                 <Link href={`${localPath(dashboardPath, locale)}#member-invite`}>{t('inviteMember')}</Link>
               </>
             )}
