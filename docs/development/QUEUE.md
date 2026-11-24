@@ -4,7 +4,7 @@ This is the authoritative order and active assignment for Juno. Linked task reco
 
 ## Active
 
-[JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) and [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md). [JUNO-0024 — Authentication and invitations](tasks/JUNO-0024.md) is in progress. Local quality checks are runnable, and workflow publication waits on credential scope.
+[JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) and [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md). The [first onboarding milestone](../architecture/tenant-onboarding.md) is awaiting review. Local quality checks are runnable, and workflow publication waits on credential scope.
 
 ## Pending
 
@@ -26,6 +26,10 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 | 21 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
 
 ## Under review
+
+- [JUNO-0024](tasks/JUNO-0024.md), local sign-in and invitation activation.
+- [JUNO-0025](tasks/JUNO-0025.md), authenticated tenant context and database denial.
+- JUNO-0033, [PR #25](https://github.com/oEnzoRibas/Juno/pull/25), independent repository worktree and staging protocol.
 
 - [JUNO-0021](tasks/JUNO-0021.md), tenant schema, forced row-level policies and verified database regression.
 

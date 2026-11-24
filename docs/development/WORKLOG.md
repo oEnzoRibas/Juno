@@ -38,3 +38,5 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 - 2026-11-24. JUNO-0021 added tenant and membership row-level security. The PostgreSQL regression passed after migration and after restoring a logical dump. Refreshed the editable isolation diagram and its exports.
 
 - 2026-11-24. JUNO-0024 local authentication passed unit checks and Playwright using Compose. Invitations, tenant administration and dashboard follow in the onboarding increment.
+
+- 2026-11-24. Validated the first end-to-end onboarding milestone using Compose, synthetic platform and tenant accounts, both Playwright scenarios, and PostgreSQL checks for tenant isolation and expired invitations.

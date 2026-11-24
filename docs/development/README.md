@@ -28,7 +28,7 @@ pnpm --filter @juno/api start
 
 In a second terminal, start the web service with `pnpm --filter @juno/web start`. The browser entry point is `http://localhost:3000`. The API exposes `GET /api/health` and `GET /api/openapi.json` on port 3001.
 
-The [local authentication runbook](../architecture/local-authentication.md) describes platform admin bootstrap, browser login, and session testing.
+The [local authentication runbook](../architecture/local-authentication.md) describes platform admin bootstrap, browser login, and session testing. The [onboarding runbook](../architecture/tenant-onboarding.md) documents tenant provisioning, branding, invitation activation and dashboard access.
 
 ## Development records and standards
 

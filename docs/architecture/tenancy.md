@@ -1,6 +1,6 @@
 # Tenant isolation and scoped authorization
 
-**Status:** PostgreSQL tenant and membership read policies implemented in [migration 0001](../../apps/api/drizzle/0001_tenant_schema.sql). Application authentication, context resolution and authorization follow. Each Junior Enterprise is a tenant. Tenant data includes members, placements, directorates, teams, projects, subprojects, roles, permissions, integrations, reports, learning, challenges, gamification rules, currency, rewards, branding, settings, and audit records.
+**Status:** PostgreSQL tenant and membership read policies implemented in [migration 0001](../../apps/api/drizzle/0001_tenant_schema.sql). The [onboarding slice](tenant-onboarding.md) resolves the actor from a verified local session, authorizes provisioning and invitation actions, and uses transaction-local scope for dashboard reads. Each Junior Enterprise is a tenant. Tenant data includes members, placements, directorates, teams, projects, subprojects, roles, permissions, integrations, reports, learning, challenges, gamification rules, currency, rewards, branding, settings, and audit records.
 
 | Data scope | Examples |
 | --- | --- |

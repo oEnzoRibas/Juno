@@ -1,8 +1,8 @@
 # Multi-tenant data isolation
 
-**Status:** PostgreSQL read isolation implemented. **Last meaningful update:** 2026-11-24.
+**Status:** Phase 1 onboarding and tenant guards implemented. **Last meaningful update:** 2026-11-24.
 
-The initial schema stores global identity separately from each tenant's membership and branding. PostgreSQL forces row-level security on tenant and membership reads. Policies require both transaction-local account and tenant context and an active membership. Authorized application context, platform provisioning, richer role checks and integration credentials are planned.
+The initial schema stores global identity separately from each tenant's membership and branding. PostgreSQL forces row-level security on tenant and membership reads. Policies require both transaction-local account and tenant context and an active membership. The onboarding API resolves the actor from its session, checks role boundaries and confines dashboard reads to transaction scope. Broader organization capabilities and integration credentials remain planned.
 
 The database regression script covers missing scope, cross-tenant reads, inactive membership, restricted writes and cleanup on a reused connection.
 
