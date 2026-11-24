@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+  --juno-background: #faf9fc;
+  --juno-text: #211631;
+  --juno-accent: #5f2aa0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --juno-background: #171120;
+    --juno-text: #f4edf9;
+    --juno-accent: #d8b8ff;
+  }
+}
+
+body {
+  background: var(--juno-background);
+  color: var(--juno-text);
+  font-family: system-ui, sans-serif;
+}
+
+a {
+  color: var(--juno-accent);
+  text-underline-offset: 0.2em;
+}

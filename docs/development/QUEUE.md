@@ -4,16 +4,14 @@ This is the authoritative order and active assignment for Juno. Linked task reco
 
 ## Active
 
-[JUNO-0018 — Technology selection and compatibility](tasks/JUNO-0018.md).
+[JUNO-0020 — Development containerization](tasks/JUNO-0020.md).
 
 ## Pending
 
-The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-authorized FIFO exception. Foundational implementation is blocked on approvals or on earlier runnable scopes. The six provider tasks retain their IDs and relative order.
+The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-authorized FIFO exception. Foundational implementation is ordered by their implementation dependencies. The six provider tasks retain their IDs and relative order.
 
 | Position | Task |
 | --- | --- |
-| 4 | [JUNO-0019 — Monorepo foundation](tasks/JUNO-0019.md) |
-| 5 | [JUNO-0020 — Development containerization](tasks/JUNO-0020.md) |
 | 6 | [JUNO-0021 — Database and migration foundation](tasks/JUNO-0021.md) |
 | 7 | [JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) |
 | 8 | [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md) |
@@ -32,6 +30,8 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 | 21 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
 
 ## Under review
+
+- [JUNO-0018](tasks/JUNO-0018.md) and [JUNO-0019](tasks/JUNO-0019.md), pinned and runnable workspace.
 
 - [JUNO-0017](tasks/JUNO-0017.md), owner-approved architecture direction.
 - [JUNO-0031](tasks/JUNO-0031.md), [PR #20](https://github.com/oEnzoRibas/Juno/pull/20).

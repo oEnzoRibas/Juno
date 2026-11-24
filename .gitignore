@@ -10,3 +10,11 @@
 # Local operating system files
 .DS_Store
 Thumbs.db
+
+# JavaScript workspace output
+node_modules/
+.next/
+.turbo/
+dist/
+next-env.d.ts
+*.tsbuildinfo
