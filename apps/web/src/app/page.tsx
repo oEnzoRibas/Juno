@@ -16,7 +16,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ l
       </header>
       <section aria-labelledby="setup-title" className="public-panel">
         <h1 id="setup-title" className="mb-4 text-3xl font-semibold tracking-tight sm:text-4xl">{t('title')}</h1>
-        <p className="text-lg text-[var(--muted)]">{t('description')}</p>
+        <p className="mb-6 text-lg text-[var(--muted)]">{t('description')}</p>
+        <Link href={locale === 'pt-BR' ? '/sign-in?lang=pt-BR' : '/sign-in'} className="action-button">{t('signIn')}</Link>
       </section>
     </main>
   );

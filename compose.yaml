@@ -58,6 +58,9 @@ services:
   web:
     <<: *juno-app
     command: ["pnpm", "--filter", "@juno/web", "start"]
+    environment:
+      JUNO_API_ORIGIN: http://api:3001
+      JUNO_ALLOW_INSECURE_LOCAL_COOKIE: '1'
     ports:
       - "127.0.0.1:${JUNO_WEB_PORT:-3000}:3000"
     depends_on:
