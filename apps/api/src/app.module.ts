@@ -7,7 +7,9 @@ import { OnboardingController } from './onboarding/onboarding.controller';
 import { OnboardingService } from './onboarding/onboarding.service';
 import { MemberDirectoryController } from './organization/member-directory.controller';
 import { MemberDirectoryService } from './organization/member-directory.service';
+import { OrganizationProfileController } from './organization/organization-profile.controller';
+import { OrganizationProfileService } from './organization/organization-profile.service';
 import { ReadyController } from './ready.controller';
 
-@Module({ controllers: [HealthController, ReadyController, AuthController, OnboardingController, MemberDirectoryController], providers: [DatabaseService, AuthService, OnboardingService, MemberDirectoryService] })
+@Module({ controllers: [HealthController, ReadyController, AuthController, OnboardingController, MemberDirectoryController, OrganizationProfileController], providers: [DatabaseService, AuthService, OnboardingService, MemberDirectoryService, OrganizationProfileService] })
 export class AppModule {}

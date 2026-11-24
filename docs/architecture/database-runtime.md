@@ -17,3 +17,5 @@ docker compose exec -T db psql -U juno_migrator -d juno -f - < apps/api/drizzle/
 The two migrations were exercised on an existing database. A logical dump of the migrated schema was restored into a separate database, and the same isolation checks passed there.
 
 Migration 0005 grants the non-login directory owner access to the membership and account metadata required for administrator reads. Migration 0006 retains that data dictionary and adds filtered and single-account lookups under the same forced tenant policy. The additive lookup requires schema version 7 and rewrites no tenant data. See [the directory contract](member-directory.md).
+
+Migration 0007 retains the current tenant fields and adds an append-only organization profile audit table. See the [organization profile contract and data dictionary](organization-profile.md).
