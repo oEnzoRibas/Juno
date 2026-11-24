@@ -36,3 +36,5 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 - 2026-11-24. JUNO-0020 Compose built and started on Linux amd64. Empty migration and rerun passed, as did HTTP smoke checks and the runtime role check. JUNO-0021 tenant schema and JUNO-0022 additional quality gates remain in progress.
 
 - 2026-11-24. JUNO-0021 added tenant and membership row-level security. The PostgreSQL regression passed after migration and after restoring a logical dump. Refreshed the editable isolation diagram and its exports.
+
+- 2026-11-24. JUNO-0024 local authentication passed unit checks and Playwright using Compose. Invitations, tenant administration and dashboard follow in the onboarding increment.

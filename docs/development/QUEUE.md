@@ -4,7 +4,7 @@ This is the authoritative task order for Juno. The [assignment registry](agents/
 
 ## Active
 
-[JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) and [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md). Authentication follows database and local quality checks, with workflow publication waiting on credential scope.
+[JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) and [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md). [JUNO-0024 — Authentication and invitations](tasks/JUNO-0024.md) is in progress. Local quality checks are runnable, and workflow publication waits on credential scope.
 
 ## Pending
 
@@ -12,7 +12,6 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 
 | Position | Task |
 | --- | --- |
-| 9 | [JUNO-0024 — Authentication and invitations](tasks/JUNO-0024.md) |
 | 10 | [JUNO-0025 — Tenant context and database isolation](tasks/JUNO-0025.md) |
 | 11 | [JUNO-0026 — Authorization and audit foundation](tasks/JUNO-0026.md) |
 | 12 | [JUNO-0027 — Application shell](tasks/JUNO-0027.md) |
