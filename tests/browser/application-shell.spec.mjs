@@ -30,9 +30,14 @@ async function invite(request, headers, id, email, role) {
 }
 
 test('shows a localized empty organization state and handles a revoked session', async ({ page, request }) => {
-  const email = process.env.JUNO_TEST_SHELL_EMPTY_EMAIL;
-  const password = process.env.JUNO_TEST_SHELL_EMPTY_PASSWORD;
-  if (!email || !password) throw new Error('Bootstrap a separate synthetic account for the empty shell case.');
+  const emptyEmail = process.env.JUNO_TEST_SHELL_EMPTY_EMAIL;
+  const emptyPassword = process.env.JUNO_TEST_SHELL_EMPTY_PASSWORD;
+  if (Boolean(emptyEmail) !== Boolean(emptyPassword)) {
+    throw new Error('Set both empty-shell fixture variables or leave both unset.');
+  }
+  const email = emptyEmail || process.env.JUNO_TEST_ADMIN_EMAIL;
+  const password = emptyPassword || process.env.JUNO_TEST_ADMIN_PASSWORD;
+  if (!email || !password) throw new Error('Bootstrap a synthetic platform administrator without organization memberships.');
 
   await page.goto('/session?lang=pt-BR');
   await expect(page).toHaveURL(/\/sign-in\?lang=pt-BR$/);

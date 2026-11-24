@@ -18,7 +18,7 @@ The shell consumes the session and tenant endpoints documented in [OpenAPI PR #2
 
 The [editable mockup](mockups/juno-application-shell.md) shows desktop and narrow layouts. The [agent handoff](../development/agents/agent-02/handoffs/JUNO-0027.md) records the reviewed build and browser evidence.
 
-Run Playwright against an isolated Compose project. Bootstrap two synthetic platform accounts using the [local authentication runbook](../architecture/local-authentication.md). Pass the ordinary platform test account as `JUNO_TEST_ADMIN_EMAIL` and `JUNO_TEST_ADMIN_PASSWORD`. Pass the second account as `JUNO_TEST_SHELL_EMPTY_EMAIL` and `JUNO_TEST_SHELL_EMPTY_PASSWORD` and leave it without organization memberships.
+Run Playwright against an isolated Compose project. The shared Compose validator bootstraps a synthetic platform administrator and supplies `JUNO_TEST_ADMIN_EMAIL` and `JUNO_TEST_ADMIN_PASSWORD`. This account has no organization memberships, and the test revokes only its own browser session. For a manual run where that administrator already has memberships, bootstrap a separate synthetic platform administrator via the [local authentication runbook](../architecture/local-authentication.md) and set both `JUNO_TEST_SHELL_EMPTY_EMAIL` and `JUNO_TEST_SHELL_EMPTY_PASSWORD`.
 
 ```sh
 pnpm exec playwright test tests/browser/application-shell.spec.mjs
