@@ -5,6 +5,7 @@
 !turbo.json
 !tsconfig.base.json
 !eslint.config.mjs
+!vitest.config.mjs
 !apps/
 !apps/api/
 !apps/api/**
