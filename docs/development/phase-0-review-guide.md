@@ -35,3 +35,7 @@ Fetched current refs and inspected branch ancestry, unique commits and path scop
 #12 is the exception. The updated #11 head and #12 diverged. Git's merge-base comparison shows 156 paths and 13 head commits, while the tip-to-tip comparison shows 22 paths. `git cherry` identifies eleven patch-equivalent foundation commits and two unique Hub commits. The current GitHub review diff obscures the actual scope. Retain draft status until the comparison is restored without losing owner work. A linear correction of published heads would require explicit authorization. Avoid creating replacement PRs.
 
 After any parent merges, fetch and compare current base and head SHAs. Recheck the merge base, `git cherry`, three-dot diff, file scope, conflicts, approval and CI. Squash and rebase change commit identity and can cause old equivalent patches to reappear. Retarget a child only when its resulting diff stays incremental. Native stack metadata on #1–#11 is verified separately from the manual continuation.
+
+## Native stack follow-up
+
+After the scope audit, the official extension linked #12, #13 and #15–#18 to [native stack #14](https://github.com/oEnzoRibas/Juno/stack/14) without modifying their published heads. The PR #12 diff remains the merge and review-scope blocker for that dependent tail. See [ADR-0009](../architecture/adr/0009-stacked-pull-requests.md).

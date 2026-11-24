@@ -13,6 +13,10 @@
 | [Platform and organization workspaces](juno-platform-workspaces.md) | [Draw.io](juno-platform-workspaces.drawio) | [SVG](juno-platform-workspaces.svg) | [PDF](juno-platform-workspaces.pdf) |
 | [Containerized development and deployment](juno-containerized-development.md) | [Draw.io](juno-containerized-development.drawio) | [SVG](juno-containerized-development.svg) | [PDF](juno-containerized-development.pdf) |
 
+## Development workflow
+
+- [Stacked pull request workflow](development/juno-stacked-pull-request-workflow.md)
+
 ## Integration views
 
 The [approved Integration Hub architecture visual](integrations/juno-integration-hub-architecture.md) is the visual benchmark for the proposed Hub architecture.

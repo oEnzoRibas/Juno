@@ -66,6 +66,14 @@ Link or attach relevant diagrams and screenshots.
 
 List dependent tasks, branches, PRs and required ordering.
 
+## Stack information
+
+Record stack name and native identifier if present, position, root branch, immediate parent, required predecessors, known children, merge order, and current dependency status. For independent work, state the main base.
+
+## Review instructions
+
+Describe the incremental scope, readiness, review focus, remaining merge gates, and scope evidence against the immediate parent.
+
 ## Breaking changes
 
 Document compatibility and migration.

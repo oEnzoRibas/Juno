@@ -12,6 +12,8 @@
 | Related architecture decisions | ADRs and their statuses |
 | Branch and base | Exact branch and base names |
 | Commits and PR | Actual hashes, number, URL and dependencies |
+| Stack and dependencies | Native ID or manual stack name, position, parent task and PR, predecessors and children |
+| Readiness and merge eligibility | Separate locally verified readiness from review approval, CI and satisfied merge dependencies |
 | Review, CI and merge | Recorded review, checks and verified merge status |
 | Completion date | Record on completion |
 

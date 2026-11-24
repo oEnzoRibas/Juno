@@ -4,7 +4,7 @@
 
 1. Read [STATE](docs/development/STATE.md), [QUEUE](docs/development/QUEUE.md), and the [development protocol](docs/development/PROTOCOL.md). Inspect tracked, staged, and untracked changes. Preserve existing work and reconcile claims with evidence.
 2. Read the active task and related requirements, ADRs, security and testing docs. Resume its verified checkpoint. Register each new owner implementation request with a sequential ID, source requirements, dependencies and acceptance criteria. Append it in FIFO order and document any exception or blocker.
-3. Work documentation-first. Keep changes traceable to the task. Record significant decisions in ADRs and obtain required human approval. Follow the [Git workflow](docs/development/git-workflow.md). Use task branches, atomic Conventional Commits, scoped staging and focused PRs. Verify the authorized destination. Never push directly to main or merge without human approval.
+3. Work documentation-first. Keep changes traceable to the task. Record significant decisions in ADRs and obtain required human approval. Follow the [Git workflow](docs/development/git-workflow.md). Use task branches, atomic Conventional Commits, scoped staging and focused PRs. Target main for independent work. Use native stacks for genuine dependencies where available, and mark locally validated work ready even while merge dependencies are open. Verify the authorized destination. Never push directly to main or merge without human approval.
 
 ## Licensing, attribution, and community
 

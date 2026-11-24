@@ -37,7 +37,7 @@ Exceptions to FIFO require an explicit owner decision, a critical security vulne
 
 Apply the [Git workflow](git-workflow.md). After local implementation and verification, use PR_DRAFT for a draft, AWAITING_REVIEW for ready work, CHANGES_REQUESTED for actionable review, APPROVED for documented human approval, and MERGED for a verified merge. A ready or approved PR does not establish merge or completion. Once published, mark COMPLETED only after the required acceptance and merge evidence is recorded. Earlier local-only tasks retain the status and authorization that applied at completion.
 
-Keep review-stage work in a separate review section of the authoritative queue. Independent work may continue. Block dependent tasks or document an explicit stack and correct base. Resume changes on the existing branch and record actual status transitions.
+Keep review-stage work in a separate review section of the authoritative queue. Independent work may continue. For genuine dependencies, use the verified native stack and correct base when available. Use the documented manual fallback or block when safe incremental review is impossible. Keep execution order separate from stack merge order. Resume changes on the existing branch and record actual status transitions.
 
 ## Checkpoint and hand off
 
