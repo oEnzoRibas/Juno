@@ -1,0 +1,35 @@
+name: Bug report
+description: Report an observed defect in Juno or its documentation.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: Use synthetic or redacted examples. For vulnerabilities, follow SECURITY.md and use a private channel.
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: Describe what happened and who was affected. Include context without identifying members or organizations.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Describe the expected result or link to the relevant requirement.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Provide sanitized steps and the relevant role or scope when applicable.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Revision or version
+      description: Provide a commit, version, or documentation file path.
+    validations:
+      required: true

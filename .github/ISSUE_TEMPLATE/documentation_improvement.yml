@@ -1,0 +1,18 @@
+name: Documentation improvement
+description: Suggest a change to a guide, reference, or example.
+title: "[Docs] "
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Document or missing topic
+      description: Provide the file, heading, or missing documentation area.
+    validations:
+      required: true
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Problem and desired improvement
+      description: Describe the intended audience and how to verify that the documentation helps them.
+    validations:
+      required: true
