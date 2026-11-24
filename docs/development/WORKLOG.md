@@ -31,3 +31,6 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 | 2026-11-24 | [JUNO-0017](tasks/JUNO-0017.md) | Recorded owner architecture, technology and workflow approval. Started JUNO-0018 compatibility checks. |
 
 - 2026-11-24. JUNO-0018 and JUNO-0019 passed frozen install, lint, type checks, Vitest and both application builds. Proceed to JUNO-0020.
+
+- 2026-11-24. JUNO-0032 restored incremental PRs #21 and #22 after earlier predecessor merges. GitHub topics were added and verified.
+- 2026-11-24. JUNO-0020 Compose built and started on Linux amd64. Empty migration and rerun passed, as did HTTP smoke checks and the runtime role check. JUNO-0021 tenant schema and JUNO-0022 additional quality gates remain in progress.

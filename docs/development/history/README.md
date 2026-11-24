@@ -11,4 +11,5 @@ The owner previously requested the Phase 0 foundation and then approved MIT lice
 | Task | Request source | Outcome |
 | --- | --- | --- |
 | [JUNO-0001](../tasks/JUNO-0001.md) | [Owner brief](JUNO-0001-request.md) | Completed on 2026-11-24. |
+| [JUNO-0032](../tasks/JUNO-0032.md) | Owner follow-up | [Phase 1 stack repair and repository topics](JUNO-0032-stack-repair.md). |
 | [JUNO-0002](../tasks/JUNO-0002.md) | [Owner brief](JUNO-0002-request.md) | Completed on 2026-11-24. |

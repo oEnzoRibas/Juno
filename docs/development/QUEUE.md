@@ -4,7 +4,7 @@ This is the authoritative task order for Juno. The [assignment registry](agents/
 
 ## Active
 
-[JUNO-0020 — Development containerization](tasks/JUNO-0020.md).
+[JUNO-0021 — Database and migration foundation](tasks/JUNO-0021.md).
 
 ## Pending
 
@@ -12,7 +12,6 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 
 | Position | Task |
 | --- | --- |
-| 6 | [JUNO-0021 — Database and migration foundation](tasks/JUNO-0021.md) |
 | 7 | [JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) |
 | 8 | [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md) |
 | 9 | [JUNO-0024 — Authentication and invitations](tasks/JUNO-0024.md) |
@@ -30,6 +29,8 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 | 21 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
 
 ## Under review
+
+- [JUNO-0020](tasks/JUNO-0020.md), Compose baseline with runtime migration and local smoke checks.
 
 - [JUNO-0018](tasks/JUNO-0018.md) and [JUNO-0019](tasks/JUNO-0019.md), pinned and runnable workspace.
 
