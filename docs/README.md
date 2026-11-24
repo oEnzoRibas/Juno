@@ -13,7 +13,7 @@ Phase 0 defines requirements and proposals. Published specifications use these s
 | Architecture | [Module boundaries](architecture/overview.md), [technology evaluation](architecture/technology-evaluation.md), [editable diagrams](architecture/diagrams/README.md), [container architecture](architecture/containers.md), [tenancy](architecture/tenancy.md), [ADRs](architecture/adr/README.md) |
 | Development | [Setup and troubleshooting](development/README.md), [Docker](development/docker.md), [visual standard](development/visual-documentation.md), [protocol](development/PROTOCOL.md), [Git workflow](development/git-workflow.md), [queue](development/QUEUE.md), [state](development/STATE.md), [documentation standard](development/DOCUMENTATION.md), [history](development/history/README.md) |
 | Security | [Threat model and privacy](security/threat-model.md), [Reporting policy](../SECURITY.md) |
-| Integrations | [GitHub, YouTube, and SharePoint evaluation](integrations/README.md) |
+| Integrations | [Integration Hub specification](product/integration-hub.md), [integration index](integrations/README.md), [provider catalog](integrations/provider-registry.md) |
 | Design | [Design system, tenant branding, accessibility, and localization](design/README.md), [brand assets](../assets/brand/README.md) |
 | Testing | [Validation strategy](testing/README.md) |
 | Deployment | [Planned operations and release readiness](deployment/README.md) |

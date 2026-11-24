@@ -21,6 +21,7 @@
 - Keep source, identifiers, and official technical documentation in English. Use translation keys and locale-aware formatting for English and Brazilian Portuguese. Verify accessibility in affected flows.
 - Docker and Compose are mandatory. Design reproducible, independent development and test environments and provider-independent production deployment. Validate infrastructure with the same containers when runnable. See [ADR-0005](docs/architecture/adr/0005-mandatory-containerization.md).
 - Maintain editable Draw.io masters and synchronized SVG and PDF exports for significant views. Update diagrams and infrastructure documentation with the affected changes. Preserve official branding and attribution. See the [visual standard](docs/development/visual-documentation.md).
+- Keep providers optional and tenant-scoped. Use capability contracts and reviewed adapters, protect credentials, and isolate failures from core behavior. Keep the [provider catalog](docs/integrations/provider-registry.md), security docs and affected diagrams accurate.
 - Enforce [architecture boundaries](docs/architecture/overview.md). Treat proposed ADRs and tools as candidates. Apply the [quality gates](docs/testing/README.md) as they become applicable and report actual results.
 
 ## Handoff

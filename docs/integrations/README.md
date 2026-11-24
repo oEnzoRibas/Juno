@@ -2,6 +2,14 @@
 
 **Status:** Planned. Core reporting, recognition and learning should have workflows that can operate independently of third-party availability. Before enabling a provider, document required accounts, permissions, setup, limits, expected costs, failure behavior, and a portable or manual alternative.
 
+## Integration Hub documentation
+
+- [Product specification](../product/integration-hub.md), [provider catalog](provider-registry.md), and [architecture](integration-architecture.md)
+- [Authentication](authentication.md), [security](security.md), and [synchronization and notifications](synchronization.md)
+- [Contributor guide](provider-development-guide.md)
+
+The Phase 0 repository has no functional providers. Required providers remain optional for each tenant.
+
 ## Adapter contracts
 
 Expose tenant-scoped ports for provider access and synchronization. Keep GitHub, GitHub Projects, YouTube and SharePoint calls inside adapters. Map provider data to validated activity or content references. Use fake adapters and synthetic fixtures to verify failure, retries, disconnect, limits, isolation and reconciliation. Keep credentials in secret storage with scoped access and rotation. Link durable background behavior to [ADR-0004](../architecture/adr/0004-durable-domain-events.md).
@@ -22,3 +30,11 @@ Evaluate allowlisted video and playlist references and an accessible fallback li
 ## SharePoint through Microsoft Graph
 
 Evaluate tenant-approved links first. For discovery, compare delegated access using the member's authorization with selected application permissions for explicitly approved sites. If using application access, determine how to enforce each member's underlying permission before displaying even titles, counts, or preview links. Avoid copying sensitive files by default. Test consent withdrawal, link changes, visibility, and credential rotation before enabling discovery. [Microsoft Graph selected permissions](https://learn.microsoft.com/en-us/graph/permissions-selected-overview)
+
+## Slack
+
+Evaluate Slack OAuth installation and scoped delivery to administrator-selected destinations. Start with opt-in achievement, challenge, report, completion and reward notifications. Keep content minimal and avoid reading private conversations. Test signing, channel authorization and rate limits. Juno's built-in notifications remain available. [Slack OAuth](https://docs.slack.dev/authentication/installing-with-oauth/) · [Slack posting](https://docs.slack.dev/reference/methods/chat.postMessage/)
+
+## Notion
+
+Evaluate authorized page and database references for documentation, learning and projects. Verify explicit pages shared with the connection and enforce viewer authorization before exposing titles or content. Prefer references over duplication. Document workspace permission changes, API versions, sync limitations and retention. [Notion authorization](https://developers.notion.com/guides/authorization/overview)

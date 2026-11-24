@@ -28,6 +28,10 @@ These are starting responsibilities. See [tenancy and authorization](../architec
 
 Reporting and analytics must preserve the origin of each data point. For example, a proposed report submission rate divides eligible members who submitted within a defined period by members with a submission obligation in that period. Show an unavailable value when the denominator is zero. GitHub counts and activity signals must never act as proxy productivity ratings. Review small cohorts and opt-out settings before tenant analytics are released.
 
+## Optional integrations
+
+Core organizational management, authentication, reporting, gamification, learning and rewards work without providers. Authorized tenant administrators manage optional adapters through [Organization Settings → Integrations](integration-hub.md). See the [provider catalog](../integrations/provider-registry.md) for the required optional capabilities and expansion candidates.
+
 ## Non-functional requirements
 
 | Area | Review and acceptance direction |

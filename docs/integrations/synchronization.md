@@ -1,0 +1,9 @@
+# Synchronization and notifications
+
+**Status:** Proposed. Use shared persistent jobs and consider the outbox in [ADR-0004](../architecture/adr/0004-durable-domain-events.md). Run on the approved [Docker architecture](../architecture/containers.md).
+
+Resolve tenant, provider and connection revision before work. Authenticate webhooks before durable intake. Use provider cursors or checkpoints for scoped incremental sync. Validate and normalize results before transactionally advancing a checkpoint. Reconcile missed events and record provenance. Apply timeouts, bounded exponential backoff with jitter, provider retry guidance, idempotency keys, and explicit retryable or terminal failures. Isolate provider workloads. Add circuit breaking only with operating evidence. Monitor age, failure rate and job backlog. Permit tenant-scoped repair and replay with audit.
+
+Core use cases commit before external delivery. A reviewed subscriber reads events such as ChallengePublished, ChallengeCompleted, AchievementUnlocked, ExperienceAwarded, RewardRedeemed, ReportSubmitted, ReportApproved, CourseCompleted and MemberJoined. Evaluate tenant event preferences and authorized destinations. Deliver via Slack or a compatible Teams or Discord adapter only when enabled. Enforce frequency limits, redact member data and deduplicate by event, tenant, connection and destination. External delivery failure must preserve the successful business operation and internal notifications.
+
+When troubleshooting, inspect authorized connection status, last successful checkpoint and redacted errors. Respect provider delay for throttling, reauthorize revoked connections and reconcile after repair. Test disabled workers, stale revisions, overlapping partial sync, retry after timeout, connection churn, and provider outages without affecting unrelated core work.

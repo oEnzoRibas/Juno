@@ -28,7 +28,7 @@ Compare the first two using the same synthetic workflow. Keep business modules i
 | Virtual economy | Tenant currency accounts and append-only ledger. |
 | Rewards | Catalog, stock, redemption approvals and fulfillment. Coordinate with the economy in a single transaction for balance and inventory changes. |
 | Learning | Courses, assessments, enrollment and qualifying completions. |
-| Integrations | Tenant connections, provider mapping, webhook intake, synchronization and health. |
+| Integration Hub | Optional tenant connections, capability registry, provider mapping, webhook intake, synchronization and health. |
 | Analytics | Authorized aggregation and suppression of sensitive small cohorts. |
 | Notifications | Delivery preferences, channel adapters, and delivery results. |
 | Branding | Validated theme configuration and tenant media references. |
@@ -47,4 +47,4 @@ Use domain-driven design where invariants require it, especially economy, author
 
 Compare clean setup and operator time, baseline resources and cost, version support, license provenance, health and restore, authorization testability, UI accessibility and localization. Validate the same invite and scoped request with two synthetic tenants. Demonstrate repeatable migrations, recovery and concurrent writes. Capture evidence before foundational decisions are accepted.
 
-See [tenant isolation](tenancy.md), [editable architecture diagrams](diagrams/README.md), [decision candidates](decision-candidates.md), and the [threat model](../security/threat-model.md).
+See the [Integration Hub architecture](../integrations/integration-architecture.md), [tenant isolation](tenancy.md), [editable architecture diagrams](diagrams/README.md), [decision candidates](decision-candidates.md), and the [threat model](../security/threat-model.md).
