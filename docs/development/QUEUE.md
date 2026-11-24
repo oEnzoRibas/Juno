@@ -4,7 +4,7 @@ This is the authoritative order and active assignment for Juno. Linked task reco
 
 ## Active
 
-[JUNO-0015](tasks/JUNO-0015.md). Earlier provider tasks remain blocked.
+[JUNO-0016](tasks/JUNO-0016.md). Earlier provider tasks remain blocked.
 
 ## Pending
 
@@ -12,7 +12,6 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 
 | Position | Task |
 | --- | --- |
-| 1 | [JUNO-0016 — Native stack workflow](tasks/JUNO-0016.md) |
 | 2 | [JUNO-0017 — Application architecture decisions](tasks/JUNO-0017.md) |
 | 3 | [JUNO-0018 — Technology selection and compatibility](tasks/JUNO-0018.md) |
 | 4 | [JUNO-0019 — Monorepo foundation](tasks/JUNO-0019.md) |
@@ -36,6 +35,7 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 
 ## Under review
 
+- [JUNO-0015](tasks/JUNO-0015.md), [PR #18](https://github.com/oEnzoRibas/Juno/pull/18), ready for review.
 - [JUNO-0014](tasks/JUNO-0014.md), [PR #17](https://github.com/oEnzoRibas/Juno/pull/17), ready for review.
 - [JUNO-0013](tasks/JUNO-0013.md), [PR #16](https://github.com/oEnzoRibas/Juno/pull/16), ready for review.
 - [JUNO-0012](tasks/JUNO-0012.md), [PR #15](https://github.com/oEnzoRibas/Juno/pull/15), ready for review.

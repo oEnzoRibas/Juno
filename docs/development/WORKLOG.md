@@ -25,3 +25,4 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 | 2026-11-24 | [JUNO-0013](tasks/JUNO-0013.md) | Published ready PR #16. Selected JUNO-0014. Human review pending. |
 | 2026-11-24 | [JUNO-0014](tasks/JUNO-0014.md) | Published ready PR #17. Selected JUNO-0015. Human review pending. |
 | 2026-11-24 | [JUNO-0015](tasks/JUNO-0015.md) | Registered JUNO-0017–0030 as separate foundation tasks. Applied the owner-authorized dependency exception ahead of providers JUNO-0006–0011. Preserved provider IDs and their original requirements. |
+| 2026-11-24 | [JUNO-0015](tasks/JUNO-0015.md) | Published ready PR #18. Selected JUNO-0016. Human review pending. |
