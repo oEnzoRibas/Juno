@@ -23,7 +23,7 @@
         <mxCell id="cell-7" value="ARCHITECTURE / 02" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=13;fontStyle=1;fontColor=#62677D;" vertex="1" parent="1">
           <mxGeometry x="949.46" y="41.78" width="202.54" height="15.6" as="geometry" />
         </mxCell>
-        <mxCell id="cell-8" value="PROPOSED" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#5543CF;" vertex="1" parent="1">
+        <mxCell id="cell-8" value="PARTIAL" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#5543CF;" vertex="1" parent="1">
           <mxGeometry x="1053.6" y="66.72" width="98.4" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-9" value="" style="edgeStyle=none;rounded=0;html=0;startArrow=none;strokeColor=#DCE0EB;strokeWidth=1;endArrow=none;" edge="1" parent="1">
@@ -41,7 +41,7 @@
         <mxCell id="cell-11" value="Juno — Original project creator: Enzo Ribas. Developed with AI assistance." style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="1">
           <mxGeometry x="48" y="748.72" width="747.84" height="14.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-12" value="Design reference • not implementation evidence" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="1">
+        <mxCell id="cell-12" value="PostgreSQL read policies implemented • application guards planned" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="1">
           <mxGeometry x="679.68" y="748.72" width="472.32" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-13" value="" style="shape=rectangle;whiteSpace=wrap;html=0;fillColor=#FAFAFE;strokeColor=#7565F5;strokeWidth=1.4;rounded=1;absoluteArcSize=1;arcSize=26;dashed=1;dashPattern=7 5;" vertex="1" parent="1">
@@ -81,7 +81,7 @@
         <mxCell id="cell-24" value="Organization A" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-21">
           <mxGeometry x="64" y="38.52" width="223.04" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-25" value="Own config and credentials" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-21">
+        <mxCell id="cell-25" value="Own membership and branding" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-21">
           <mxGeometry x="64" y="63.22" width="295.2" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-26" value="" style="edgeStyle=none;rounded=0;html=0;startArrow=none;strokeColor=#A7AEC1;strokeWidth=2;endArrow=block;endFill=1;endSize=5;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" parent="1" source="cell-21" target="cell-47">
@@ -104,7 +104,7 @@
         <mxCell id="cell-31" value="Organization B" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-28">
           <mxGeometry x="64" y="38.52" width="223.04" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-32" value="Own config and credentials" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-28">
+        <mxCell id="cell-32" value="Own membership and branding" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-28">
           <mxGeometry x="64" y="63.22" width="295.2" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-33" value="" style="edgeStyle=none;rounded=0;html=0;startArrow=none;strokeColor=#A7AEC1;strokeWidth=2;endArrow=block;endFill=1;endSize=5;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" parent="1" source="cell-28" target="cell-47">
@@ -122,7 +122,7 @@
         <mxCell id="cell-38" value="Organization C" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-35">
           <mxGeometry x="64" y="38.52" width="223.04" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-39" value="Own config and credentials" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-35">
+        <mxCell id="cell-39" value="Own membership and branding" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-35">
           <mxGeometry x="64" y="63.22" width="295.2" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-40" value="" style="edgeStyle=none;rounded=0;html=0;startArrow=none;strokeColor=#A7AEC1;strokeWidth=2;endArrow=block;endFill=1;endSize=5;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" parent="1" source="cell-35" target="cell-47">
@@ -145,7 +145,7 @@
         <mxCell id="cell-45" value="Juno platform" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-42">
           <mxGeometry x="64" y="14.52" width="209.1" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-46" value="Global administration" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-42">
+        <mxCell id="cell-46" value="Global administration planned" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-42">
           <mxGeometry x="64" y="39.22" width="226.32" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-47" value="" style="shape=rectangle;whiteSpace=wrap;html=0;fillColor=#FAFAFE;strokeColor=#087D77;strokeWidth=1.4;rounded=1;absoluteArcSize=1;arcSize=26;dashed=1;dashPattern=7 5;" vertex="1" parent="1">
@@ -163,7 +163,7 @@
         <mxCell id="cell-51" value="" style="shape=stencil(1ZTBcoMgEIafZq8ZWGq15yQe+haMkkqTiIMkpn36ji4dgyQ69tYT7vrtv78LAmLbVrJRgKyWZwViB4jvl9oAsqsqnLGATFrXGXsEREDWEYMvFFZhKNtGFY5yB31TJaVbZ81Rdbp0ntd1pax2/VuxB7E9GKs+rLnUJcVUUJjTYIDWoRBQsCzdpSkJA+b3BdQB2V0nvskIJTtDjk2KT7pWhWz6TrIhhLzE2KfRNSAblqfgkLP9IJDdCBOEfAWRnyX3DqswlLZo9bffE843nHP+8KvjzH8dXCP77v3T2VzVOL0smF76QH5k32bZUJcnK4T56wrl0HG0cXOWI3jW84L0xPSC9sR1ssZ1ssp1ssp1Mq/tj6WncWEiIf37tz2j/cX2JzpyApiPRzz+eQHz6UUImNMFLfY/);aspect=fixed;fillColor=none;strokeColor=none;" vertex="1" parent="cell-50">
           <mxGeometry x="6" y="6" width="18" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="cell-52" value="Tenant context" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-49">
+        <mxCell id="cell-52" value="Context (planned)" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-49">
           <mxGeometry x="32.28" y="50.72" width="157.44" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-53" value="" style="shape=rectangle;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#DCE0EB;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=16;" vertex="1" parent="cell-47">
@@ -175,7 +175,7 @@
         <mxCell id="cell-55" value="" style="shape=stencil(lZPBcoMgEIafZq8dWNqanpN46FswSBoaIw5iNG/fwUUTaE0nJ/yXb/dfFwCx7Y6y1YCskWcNYgeIn31jAdlFK28dIJPOD9adABGQDcTgK8ljKmXXauUpdjCjrijceWdPejCVj7xpjtoZH3bFHsT2YJ3+crZvKtKUoGw9NUDrlAgo2KbYFQUVBizvE8gB2Z0Tf9kQSu1MMZYl16bRSrbBSbaEUC+/sW9rGkA2LatgK4N7+DrbS5jtGHtBAq8kxR/1bzDyBC6egWejhVa9o0Z4xkfNY/kRU32Neh7ZKLI/iRr/M5zr8aweJqOY7ZZ2RLqdua8MQzwxOP74SFRtu0AvgfRA49Vam3pmlZ3R22P6PaE/MhiwvN0yuvzZdv6kAEt66mL/Aw==);aspect=fixed;fillColor=none;strokeColor=none;" vertex="1" parent="cell-54">
           <mxGeometry x="6" y="6" width="18" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="cell-56" value="RBAC" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-53">
+        <mxCell id="cell-56" value="RBAC (planned)" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-53">
           <mxGeometry x="66" y="50.72" width="90" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-57" value="" style="shape=rectangle;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=#DCE0EB;strokeWidth=1;rounded=1;absoluteArcSize=1;arcSize=16;" vertex="1" parent="cell-47">
@@ -187,7 +187,7 @@
         <mxCell id="cell-59" value="" style="shape=stencil(1VRBkoMgEHzNXC0Y3FXPSTzsLygkK5tELNRo9vVbOpiIxgfsCabpmZ5pKEAcmlLWGpBV8qZBHAHxq6ssILtr1VoHyKRre+sugAjIeuJgTGEZhrKptWoJO5tBFwQ3rbMX3Zui9XxTldqZdjwVJxCHs3X629muKiimBGWvUwO0TomAgqXJMUmoMGC+TCAFZAslHqVEpXYmjK2Sr6bSStajkqyJQr1saT/WVIBsWnaJE+ZGI5ANRPsgysM3xQIzeWgm595Mpxrz6y+FpxFPefp27C3yX52r5ag+7m72rl/2pW/tC+rvkdfzqs5RZR6yfRhHScYywgYkLFtgD48JTxG+JfTHIjjeVeVxhCzjofZc00vwz1AyXrY2684cH6+nDZ15snd8DE1/zhS+0r3aK/a6E8D8dbvbdwuYrz8BwJw+J3H6Aw==);aspect=fixed;fillColor=none;strokeColor=none;" vertex="1" parent="cell-58">
           <mxGeometry x="6" y="6" width="18" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="cell-60" value="Database RLS" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-57">
+        <mxCell id="cell-60" value="RLS (implemented)" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-57">
           <mxGeometry x="42.12" y="50.72" width="137.76" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-61" value="" style="edgeStyle=none;rounded=0;html=0;startArrow=none;strokeColor=#087D77;strokeWidth=2.5;endArrow=block;endFill=1;endSize=5;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" parent="1" source="cell-47" target="cell-63">
@@ -205,7 +205,7 @@
         <mxCell id="cell-66" value="PostgreSQL" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-63">
           <mxGeometry x="64" y="20.02" width="167.28" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-67" value="Tenant data / Integration scope" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-63">
+        <mxCell id="cell-67" value="Tenant and membership reads" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-63">
           <mxGeometry x="64" y="44.72" width="324.72" height="14.4" as="geometry" />
         </mxCell>
       </root>

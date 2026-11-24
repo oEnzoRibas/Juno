@@ -17,7 +17,7 @@ export class DatabaseService implements OnApplicationShutdown {
 
   async isReady(): Promise<boolean> {
     try {
-      const state = await this.db?.execute(sql`SELECT version FROM juno_runtime.schema_version WHERE version = 1`);
+      const state = await this.db?.execute(sql`SELECT version FROM juno_runtime.schema_version WHERE version = 2`);
       return state?.rowCount === 1;
     } catch {
       return false;

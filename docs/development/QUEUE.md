@@ -4,7 +4,7 @@ This is the authoritative task order for Juno. The [assignment registry](agents/
 
 ## Active
 
-[JUNO-0021 — Database and migration foundation](tasks/JUNO-0021.md).
+[JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) and [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md). Authentication follows database and local quality checks, with workflow publication waiting on credential scope.
 
 ## Pending
 
@@ -12,8 +12,6 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 
 | Position | Task |
 | --- | --- |
-| 7 | [JUNO-0022 — Automated quality gates](tasks/JUNO-0022.md) |
-| 8 | [JUNO-0023 — Design system baseline](tasks/JUNO-0023.md) |
 | 9 | [JUNO-0024 — Authentication and invitations](tasks/JUNO-0024.md) |
 | 10 | [JUNO-0025 — Tenant context and database isolation](tasks/JUNO-0025.md) |
 | 11 | [JUNO-0026 — Authorization and audit foundation](tasks/JUNO-0026.md) |
@@ -29,6 +27,8 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 | 21 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
 
 ## Under review
+
+- [JUNO-0021](tasks/JUNO-0021.md), tenant schema, forced row-level policies and verified database regression.
 
 - [JUNO-0020](tasks/JUNO-0020.md), Compose baseline with runtime migration and local smoke checks.
 
