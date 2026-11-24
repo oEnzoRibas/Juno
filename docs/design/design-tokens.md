@@ -1,6 +1,6 @@
 # Semantic design tokens
 
-**Status:** Proposed implementation mappings for the [approved palette](color-palette.md). Define CSS custom properties or an equivalent theme mechanism at the application boundary. Components consume roles such as `action` and `on-action`; tenant configuration supplies validated values through the same contract.
+**Status:** The Compose starter uses the light and dark values below for the [approved palette](color-palette.md). Define CSS custom properties or an equivalent theme mechanism at the application boundary. Components consume roles such as `action` and `on-action`; tenant configuration supplies validated values through the same contract.
 
 | Semantic role | Light | Dark |
 | --- | --- | --- |
