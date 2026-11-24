@@ -1,14 +1,28 @@
 # Architecture diagram index
 
-Last meaningful update: 2026-11-24 in [JUNO-0002](../../development/tasks/JUNO-0002.md). The six views are design references. Each master carries the creator credit and AI disclosure. See the [editable-source and export standard](../../development/visual-documentation.md). The [original exports](references/README.md) are preserved separately.
+**Last meaningful update:** 2026-11-24. [JUNO-0002](../../development/tasks/JUNO-0002.md) established the initial kit. [JUNO-0005](../../development/tasks/JUNO-0005.md) added the integration views and updated system architecture, gamification, and tenancy. See the [visual standard](../../development/visual-documentation.md) and [export tooling](../../../scripts/diagrams/README.md).
 
-| View and formats | Scope, status and boundary |
-| --- | --- |
-| System architecture ([Draw.io](juno-architecture-overview.drawio), [SVG](juno-architecture-overview.svg), [PDF](juno-architecture-overview.pdf)) | Proposed. The split web and API option links access roles, internal modules, private persistence and optional integrations. Names are candidates. [ADR-0003](../adr/0003-application-topology.md). |
-| Tenant isolation ([Draw.io](juno-multi-tenant-isolation.drawio), [SVG](juno-multi-tenant-isolation.svg), [PDF](juno-multi-tenant-isolation.pdf)) | Proposed. Tenant context, scoped authorization and database policies form separate checks. Platform administration does not grant tenant content access. [ADR-0001](../adr/0001-tenant-data-isolation.md). |
-| Gamification events ([Draw.io](juno-gamification-event-flow.drawio), [SVG](juno-gamification-event-flow.svg), [PDF](juno-gamification-event-flow.pdf)) | Proposed. Validated events feed tenant-scoped rules and auditable awards. Durable dispatch and outbox adoption require review. [ADR-0004](../adr/0004-durable-domain-events.md). |
-| Development queue ([Draw.io](juno-development-fifo-queue.drawio), [SVG](juno-development-fifo-queue.svg), [PDF](juno-development-fifo-queue.pdf)) | Illustrative. Example work enters FIFO and passes completion gates. The [live queue](../../development/QUEUE.md) governs actual work and exceptions. |
-| Platform workspaces ([Draw.io](juno-platform-workspaces.drawio), [SVG](juno-platform-workspaces.svg), [PDF](juno-platform-workspaces.pdf)) | Proposed. One platform hosts separate organizations, branding, and permitted modules. Access remains tenant-scoped. [Tenancy requirements](../tenancy.md) and [tenant branding](../../design/tenant-branding.md). |
-| Containerized development ([Draw.io](juno-containerized-development.drawio), [SVG](juno-containerized-development.svg), [PDF](juno-containerized-development.pdf)) | Docker requirement accepted. Service split and CI are proposed. Separate developer projects use private persistence and optional jobs or storage. [ADR-0005](../adr/0005-mandatory-containerization.md) and [container design](../containers.md). |
+## System and infrastructure views
 
-The [textual architecture sketches](../diagrams.md) cover additional proposed access, entity and business workflows. Promote significant sketches to Draw.io and synchronized exports as the corresponding scopes become active.
+| View and status notes | Source | Web | Print |
+| --- | --- | --- | --- |
+| [System architecture](juno-architecture-overview.md) | [Draw.io](juno-architecture-overview.drawio) | [SVG](juno-architecture-overview.svg) | [PDF](juno-architecture-overview.pdf) |
+| [Multi-tenant data isolation](juno-multi-tenant-isolation.md) | [Draw.io](juno-multi-tenant-isolation.drawio) | [SVG](juno-multi-tenant-isolation.svg) | [PDF](juno-multi-tenant-isolation.pdf) |
+| [Gamification event flow](juno-gamification-event-flow.md) | [Draw.io](juno-gamification-event-flow.drawio) | [SVG](juno-gamification-event-flow.svg) | [PDF](juno-gamification-event-flow.pdf) |
+| [Persistent development queue](juno-development-fifo-queue.md) | [Draw.io](juno-development-fifo-queue.drawio) | [SVG](juno-development-fifo-queue.svg) | [PDF](juno-development-fifo-queue.pdf) |
+| [Platform and organization workspaces](juno-platform-workspaces.md) | [Draw.io](juno-platform-workspaces.drawio) | [SVG](juno-platform-workspaces.svg) | [PDF](juno-platform-workspaces.pdf) |
+| [Containerized development and deployment](juno-containerized-development.md) | [Draw.io](juno-containerized-development.drawio) | [SVG](juno-containerized-development.svg) | [PDF](juno-containerized-development.pdf) |
+
+## Integration views
+
+| View and status notes | Source | Web | Print |
+| --- | --- | --- | --- |
+| [Integration ecosystem](integrations/juno-integration-ecosystem.md) | [Draw.io](integrations/juno-integration-ecosystem.drawio) | [SVG](integrations/juno-integration-ecosystem.svg) | [PDF](integrations/juno-integration-ecosystem.pdf) |
+| [Integration adapter architecture](integrations/juno-integration-adapter-architecture.md) | [Draw.io](integrations/juno-integration-adapter-architecture.drawio) | [SVG](integrations/juno-integration-adapter-architecture.svg) | [PDF](integrations/juno-integration-adapter-architecture.pdf) |
+| [Tenant integration isolation](integrations/juno-tenant-integration-isolation.md) | [Draw.io](integrations/juno-tenant-integration-isolation.drawio) | [SVG](integrations/juno-tenant-integration-isolation.svg) | [PDF](integrations/juno-tenant-integration-isolation.pdf) |
+| [Integration authorization flow](integrations/juno-integration-authorization-flow.md) | [Draw.io](integrations/juno-integration-authorization-flow.drawio) | [SVG](integrations/juno-integration-authorization-flow.svg) | [PDF](integrations/juno-integration-authorization-flow.pdf) |
+| [Integration synchronization flow](integrations/juno-integration-synchronization-flow.md) | [Draw.io](integrations/juno-integration-synchronization-flow.drawio) | [SVG](integrations/juno-integration-synchronization-flow.svg) | [PDF](integrations/juno-integration-synchronization-flow.pdf) |
+| [Integration notification flow](integrations/juno-integration-notification-flow.md) | [Draw.io](integrations/juno-integration-notification-flow.drawio) | [SVG](integrations/juno-integration-notification-flow.svg) | [PDF](integrations/juno-integration-notification-flow.pdf) |
+| [Integration security boundaries](integrations/juno-integration-security-boundaries.md) | [Draw.io](integrations/juno-integration-security-boundaries.drawio) | [SVG](integrations/juno-integration-security-boundaries.svg) | [PDF](integrations/juno-integration-security-boundaries.pdf) |
+
+The [supplied reference exports](references/README.md) remain available. The [Mermaid sketches](../diagrams.md) provide additional textual workflow examples. Promote significant views to the [accepted Draw.io standard](../adr/0008-editable-diagrams.md).

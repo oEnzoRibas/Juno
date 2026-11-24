@@ -6,7 +6,7 @@
 
 - [Product specification](../product/integration-hub.md), [provider catalog](provider-registry.md), and [architecture](integration-architecture.md)
 - [Authentication](authentication.md), [security](security.md), and [synchronization and notifications](synchronization.md)
-- [Contributor guide](provider-development-guide.md)
+- [Contributor guide](provider-development-guide.md) and [integration diagrams](../architecture/diagrams/README.md#integration-views)
 
 The Phase 0 repository has no functional providers. Required providers remain optional for each tenant.
 

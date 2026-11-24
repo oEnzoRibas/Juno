@@ -81,7 +81,7 @@
         <mxCell id="cell-24" value="Organization A" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-21">
           <mxGeometry x="64" y="38.52" width="223.04" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-25" value="Members / Projects / Rewards" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-21">
+        <mxCell id="cell-25" value="Own config and credentials" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-21">
           <mxGeometry x="64" y="63.22" width="295.2" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-26" value="" style="edgeStyle=none;rounded=0;html=0;startArrow=none;strokeColor=#A7AEC1;strokeWidth=2;endArrow=block;endFill=1;endSize=5;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" parent="1" source="cell-21" target="cell-47">
@@ -104,7 +104,7 @@
         <mxCell id="cell-31" value="Organization B" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-28">
           <mxGeometry x="64" y="38.52" width="223.04" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-32" value="Members / Projects / Rewards" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-28">
+        <mxCell id="cell-32" value="Own config and credentials" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-28">
           <mxGeometry x="64" y="63.22" width="295.2" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-33" value="" style="edgeStyle=none;rounded=0;html=0;startArrow=none;strokeColor=#A7AEC1;strokeWidth=2;endArrow=block;endFill=1;endSize=5;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" parent="1" source="cell-28" target="cell-47">
@@ -122,7 +122,7 @@
         <mxCell id="cell-38" value="Organization C" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-35">
           <mxGeometry x="64" y="38.52" width="223.04" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-39" value="Members / Projects / Rewards" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-35">
+        <mxCell id="cell-39" value="Own config and credentials" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-35">
           <mxGeometry x="64" y="63.22" width="295.2" height="14.4" as="geometry" />
         </mxCell>
         <mxCell id="cell-40" value="" style="edgeStyle=none;rounded=0;html=0;startArrow=none;strokeColor=#A7AEC1;strokeWidth=2;endArrow=block;endFill=1;endSize=5;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" parent="1" source="cell-35" target="cell-47">
@@ -205,7 +205,7 @@
         <mxCell id="cell-66" value="PostgreSQL" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=17;fontStyle=1;fontColor=#202338;" vertex="1" parent="cell-63">
           <mxGeometry x="64" y="20.02" width="167.28" height="20.4" as="geometry" />
         </mxCell>
-        <mxCell id="cell-67" value="Shared database / isolated rows" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-63">
+        <mxCell id="cell-67" value="Tenant data / Integration scope" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=12;fontStyle=0;fontColor=#62677D;" vertex="1" parent="cell-63">
           <mxGeometry x="64" y="44.72" width="324.72" height="14.4" as="geometry" />
         </mxCell>
       </root>

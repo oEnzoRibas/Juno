@@ -10,3 +10,4 @@
 - Recorded mandatory Docker and Compose and documented the container architecture. Integrated six editable architecture diagrams and the official logo kit.
 - Established the task branch, commit, pull request and review lifecycle.
 - Documented the optional Integration Hub, provider roadmap, and tenant-scoped adapter proposal.
+- Added seven editable integration diagrams, revised three affected views, and added reproducible export tooling.
