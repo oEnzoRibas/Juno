@@ -17,3 +17,5 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 | 2026-11-24 | [JUNO-0004](tasks/JUNO-0004.md) | Selected next in FIFO order. Stack the Integration Hub documentation on PR #11. |
 | 2026-11-24 | [JUNO-0004](tasks/JUNO-0004.md) | Verified scoped documentation locally, published draft PR #12 and recorded the unmerged dependency on #11. |
 | 2026-11-24 | [JUNO-0005](tasks/JUNO-0005.md) | Selected next in FIFO order on an explicit stack above PR #12. |
+| 2026-11-24 | [JUNO-0005](tasks/JUNO-0005.md) | Exported and verified ten updated views and checked all thirteen masters. Published draft PR #13 above #12. Moved to PR_DRAFT. |
+| 2026-11-24 | [JUNO-0006](tasks/JUNO-0006.md) through JUNO-0011 | No eligible provider implementation. Resume the first eligible provider after foundation, Hub contract approval and provider feasibility prerequisites. |
