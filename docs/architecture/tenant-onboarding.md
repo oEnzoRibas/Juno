@@ -17,6 +17,8 @@ The invitation expires after 24 hours. Reissuing a pending invitation replaces t
 | `GET /api/tenants` | The current account's active memberships. |
 | `GET /api/tenants/{id}` | Active membership in the request's tenant. Missing membership returns 404. |
 
+The API serves machine-readable request, response and bearer requirements at `GET /api/openapi.json`. Activation accepts a valid bearer session for existing accounts or a password for new accounts. The runtime smoke script checks the generated contract.
+
 The API derives the actor from a valid session. It sets the actor and requested tenant in one PostgreSQL transaction for dashboard reads. PostgreSQL RLS independently scopes tenant and membership rows. The provisioning, invitation and account-list database functions use a dedicated non-login owner, fixed search path and narrowly granted table privileges. The runtime cannot use the owner role directly. A platform administrator needs a separate membership to read a tenant dashboard. Provisioning and invitation audit rows contain actor, tenant, event and timestamp.
 
 Playwright covers UI provisioning, branding, member activation, role checks, concurrent token use and denial for another tenant. SQL regressions cover expiry, runtime privileges and pooled connection scope. See [design tokens](../design/design-tokens.md) and [tenant isolation](tenancy.md) for the current boundaries.
