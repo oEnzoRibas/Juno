@@ -85,7 +85,14 @@ export class OnboardingService {
       `);
       const workspace = result.rows[0];
       if (!workspace) throw new NotFoundException();
-      return workspace;
+      const isTenantAdministrator = workspace.role === 'administrator';
+      return {
+        ...workspace,
+        capabilities: {
+          inviteMember: isTenantAdministrator,
+          readOnboardingAudit: isTenantAdministrator,
+        },
+      };
     });
   }
 }
