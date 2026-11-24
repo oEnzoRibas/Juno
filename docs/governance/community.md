@@ -7,7 +7,7 @@ Juno is intended for public collaboration. Maintainers should prioritize small, 
 | Need | Proposed channel |
 | --- | --- |
 | Reproducible defect, feature, integration, or documentation change | Use the corresponding [issue form](../../.github/ISSUE_TEMPLATE). |
-| Technical proposal affecting major decisions | Start with the architecture issue form. Record accepted decisions in ADRs. |
+| Technical proposal affecting major decisions | Start with the architecture issue form. Record accepted decisions in [ADRs](../architecture/adr/README.md). |
 | Usage question, early idea, show-and-tell, or announcement | Enable GitHub Discussions when authorized. Start with Q&A, Ideas, Show and Tell, and Announcements. [GitHub Discussions documentation](https://docs.github.com/en/discussions) |
 | Security vulnerability or confidential finding | Follow [private security reporting](../../SECURITY.md). |
 | Code or documentation contribution | Describe the change and its validation using the pull request template. |

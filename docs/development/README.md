@@ -20,8 +20,8 @@ See containerized development for the approved Docker environment and planned on
 | [QUEUE](QUEUE.md) and [STATE](STATE.md) | Live order and active assignment, plus the verified resumption point. |
 | [WORKLOG](WORKLOG.md) and [history](history/README.md) | Chronological checkpoints and retained task records. |
 | [Task template](TASK_TEMPLATE.md) | Registration, acceptance criteria and evidence. |
-| [Definition of done](DEFINITION_OF_DONE.md) and quality gates | Completion criteria and applicable checks. |
-| [Documentation standard](DOCUMENTATION.md), Git workflow, and ADRs | Technical content, source attribution and decision records. |
+| [Definition of done](DEFINITION_OF_DONE.md) and [quality gates](../testing/README.md) | Completion criteria and applicable checks. |
+| [Documentation standard](DOCUMENTATION.md), Git workflow, and [ADRs](../architecture/adr/README.md) | Technical content, source attribution and decision records. |
 
 Inspect new files separately for UTF-8, whitespace, links and applicable form or diagram syntax. Git diff checks cover tracked or staged changes. Add a CI job only with a runnable clean-checkout command and a defined outcome.
 

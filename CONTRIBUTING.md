@@ -14,12 +14,12 @@ cd juno
 git switch -c docs/juno-nnnn-tenant-invite-rules
 ```
 
-Read the [local setup and documentation standards](docs/development/README.md), architecture overview, and relevant specification before editing. Use the issue forms for bugs, features, integrations, documentation, and architecture. Use [private security reporting](SECURITY.md) for vulnerabilities.
+Read the [local setup and documentation standards](docs/development/README.md), [architecture overview](docs/architecture/overview.md), and relevant specification before editing. Use the issue forms for bugs, features, integrations, documentation, and architecture. Use [private security reporting](SECURITY.md) for vulnerabilities.
 
 ## Implement and submit
 
 1. Keep changes focused. Write English source, identifiers, and technical documentation. Follow [.editorconfig](.editorconfig) and the conventions of the files you change. Document significant decisions in ADRs.
-2. Follow the testing standard. Add tests for changes in behavior, including denied authorization and tenant isolation where relevant. Use synthetic data and record actual results.
+2. Follow the [testing standard](docs/testing/README.md). Add tests for changes in behavior, including denied authorization and tenant isolation where relevant. Use synthetic data and record actual results.
 3. Preserve copyright and license notices. The [MIT License](LICENSE) applies to contributions to Juno software and its associated documentation. Contributors retain rights to their original work. The current contribution policy requires no copyright transfer. Flag uncertain third-party terms for review.
 4. Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Use an English type and scope, such as `docs(architecture):`, followed by a short imperative description. Example commit message `docs(auth): specify tenant invitation lifecycle`. For breaking changes, use `!` after the type or scope or a `BREAKING CHANGE:` footer and describe migration.
 5. Open a pull request against upstream `main`. Link the issue and relevant development task ID when assigned. Summarize impact, assumptions, tests, documentation, security, and meaningful AI assistance and verification. Respond to review and update the description if scope changes.

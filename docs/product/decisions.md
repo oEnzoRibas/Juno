@@ -15,6 +15,6 @@
 | Approve theme token mappings, typography and tenant override behavior. Assign localization ownership and confirm accessibility validation for the first interfaces. | Design and accessibility reviewers | First tenant-facing UI |
 | Agree on availability, retention, incident reporting, recovery objectives, and operator responsibilities. | Operations and privacy reviewers | First deployment handling member data |
 
-See architecture decision candidates for topology, tenancy, identity, platform tooling and approval evidence.
+See [architecture decision candidates](../architecture/decision-candidates.md) for topology, tenancy, identity, platform tooling and approval evidence.
 
 Role names identify review responsibilities and may be held by the same person during Phase 0. This repository has no runnable application, migrations, published API, environment settings, or live integrations. Maintain a technical debt record as soon as a deliberate implementation compromise is accepted. Record the consequence, owner, trigger for revisiting it, and removal criteria.

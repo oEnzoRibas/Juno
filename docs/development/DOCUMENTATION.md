@@ -14,7 +14,7 @@ Version-controlled Markdown in docs is the primary documentation source. Keep it
 | Delivery and operations | Test and setup commands, deployment, health checks, backups, restore drills, troubleshooting and incident procedures. |
 | Community and history | Contribution and governance rules, AI disclosure, changelog, task history, known limitations and technical debt. |
 
-Log deliberate technical debt with impact, owner, revisit trigger, and removal criteria. For requirements, capture actors, inputs, scope, lifecycle, failure behavior and observable acceptance criteria. Give each document an implementation or proposal status when ambiguous. Use the approved ADR convention for significant decisions.
+Log deliberate technical debt with impact, owner, revisit trigger, and removal criteria. For requirements, capture actors, inputs, scope, lifecycle, failure behavior and observable acceptance criteria. Give each document an implementation or proposal status when ambiguous. Use the approved [ADR convention](../architecture/adr/README.md) for significant decisions.
 
 ## Source code documentation
 
@@ -43,4 +43,4 @@ Use the existing [MIT license](../../LICENSE), [project attribution](../../AUTHO
 
 ## Publishing and diagrams
 
-Use editable architecture diagrams to show boundaries and workflows with accompanying text. Apply the visual documentation standard. Keep source in Git, label proposals, and update affected figures with implementation. Evaluate the publishing options in the technology comparison. Keep generated references reproducible from source.
+Use editable architecture diagrams to show boundaries and workflows with accompanying text. Apply the visual documentation standard. Keep source in Git, label proposals, and update affected figures with implementation. Evaluate the publishing options in the [technology comparison](../architecture/technology-evaluation.md). Keep generated references reproducible from source.

@@ -9,7 +9,7 @@
 - **Directorate and project managers:** manage assigned teams, projects, reports, and activities within delegated scopes.
 - **Member:** participates in activities, submits reports, learns, tracks progression, and redeems rewards.
 
-These are starting responsibilities. See tenancy and authorization for the policy direction.
+These are starting responsibilities. See [tenancy and authorization](../architecture/tenancy.md) for the policy direction.
 
 ## Functional requirements
 
@@ -39,4 +39,4 @@ Reporting and analytics must preserve the origin of each data point. For example
 | Reliability | Use atomic writes for financial-style ledger operations and defined retry and reconciliation behavior for external data. Agree on availability, recovery, and load targets before deployment planning is accepted. |
 | Maintainability and portability | Document contracts, decisions, migrations, and provider dependencies. Require reproducible setup and a practical self-hosting path independent of project-operated infrastructure. Document provider requirements, limits, costs and alternatives. Validate dependency licenses before adoption. |
 
-See [gamification rules](gamification.md), the module map, and the [decision register](decisions.md).
+See [gamification rules](gamification.md), the [module map](../architecture/overview.md), and the [decision register](decisions.md).

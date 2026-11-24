@@ -6,7 +6,7 @@ The repository is the authority for Juno's workflow. This protocol governs devel
 
 1. Read AGENTS.md, [STATE.md](STATE.md), and [QUEUE.md](QUEUE.md) before implementation.
 2. Verify the repository and inspect the working tree with `git status --short --branch`, `git diff`, `git diff --cached`, and an inventory of untracked files. Preserve human and contributor changes.
-3. Read the active task, relevant ADRs and module docs. Compare the last checkpoint with files and actual validation. Investigate discrepancies and record the reconciliation before proceeding.
+3. Read the active task, relevant [ADRs](../architecture/adr/README.md) and module docs. Compare the last checkpoint with files and actual validation. Investigate discrepancies and record the reconciliation before proceeding.
 4. Resume the active assignment from the last verified checkpoint. If it is blocked, record what would unblock it and follow the exception policy below.
 
 ## Register and select work

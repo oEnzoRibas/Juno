@@ -10,4 +10,4 @@ A task may move to COMPLETED only when the implementation and evidence meet ever
 - Record actual branch, base, commit, review, CI and merge evidence when the Git workflow applies. An open pull request remains in a review state.
 - Resolve critical validation failures. When a mandatory check cannot run, retain an appropriate incomplete or BLOCKED state with the reason and resumption condition.
 
-Use the quality gate plan to select checks. Documentation-only work requires documentation and repository checks. Runtime verification applies when the task produces runtime behavior.
+Use the [quality gate plan](../testing/README.md) to select checks. Documentation-only work requires documentation and repository checks. Runtime verification applies when the task produces runtime behavior.

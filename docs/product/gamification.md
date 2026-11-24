@@ -20,4 +20,4 @@ Proposed lifecycle for a challenge submission is registered → submitted → ap
 - Proposed states are requested, approved, fulfilled, and canceled. Decide between holding funds at request and spending funds at approval, and define which transitions return stock or release funds. A cancellation uses a compensating entry when a debit has posted. Audit the actor and reason and forbid a second reversal of the same debit.
 - The currency is internal, nonfinancial, and tenant-specific. Test concurrent requests for the last item, retries after timeouts, insufficient balance, and cancellation races.
 
-See the [decision register](decisions.md), the validation strategy, and the durable domain events proposal.
+See the [decision register](decisions.md), the [validation strategy](../testing/README.md), and the [durable domain events proposal](../architecture/adr/0004-durable-domain-events.md).
