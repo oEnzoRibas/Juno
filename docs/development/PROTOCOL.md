@@ -4,7 +4,7 @@ The repository is the authority for Juno's workflow. This protocol governs devel
 
 ## Recover a session
 
-1. Read AGENTS.md, [STATE.md](STATE.md), and [QUEUE.md](QUEUE.md) before implementation.
+1. Read [AGENTS.md](../../AGENTS.md), [STATE.md](STATE.md), and [QUEUE.md](QUEUE.md) before implementation.
 2. Verify the repository and inspect the working tree with `git status --short --branch`, `git diff`, `git diff --cached`, and an inventory of untracked files. Preserve human and contributor changes.
 3. Read the active task, relevant [ADRs](../architecture/adr/README.md) and module docs. Compare the last checkpoint with files and actual validation. Investigate discrepancies and record the reconciliation before proceeding.
 4. Resume the active assignment from the last verified checkpoint. If it is blocked, record what would unblock it and follow the exception policy below.
@@ -35,7 +35,7 @@ Exceptions to FIFO require an explicit owner decision, a critical security vulne
 
 ## Git and review states
 
-Apply the Git workflow. After local implementation and verification, use PR_DRAFT for a draft, AWAITING_REVIEW for ready work, CHANGES_REQUESTED for actionable review, APPROVED for documented human approval, and MERGED for a verified merge. A ready or approved PR does not establish merge or completion. Once published, mark COMPLETED only after the required acceptance and merge evidence is recorded. Earlier local-only tasks retain the status and authorization that applied at completion.
+Apply the [Git workflow](git-workflow.md). After local implementation and verification, use PR_DRAFT for a draft, AWAITING_REVIEW for ready work, CHANGES_REQUESTED for actionable review, APPROVED for documented human approval, and MERGED for a verified merge. A ready or approved PR does not establish merge or completion. Once published, mark COMPLETED only after the required acceptance and merge evidence is recorded. Earlier local-only tasks retain the status and authorization that applied at completion.
 
 Keep review-stage work in a separate review section of the authoritative queue. Independent work may continue. Block dependent tasks or document an explicit stack and correct base. Resume changes on the existing branch and record actual status transitions.
 

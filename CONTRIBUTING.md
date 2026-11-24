@@ -26,7 +26,7 @@ Read the [local setup and documentation standards](docs/development/README.md), 
 
 Use [containerized development](docs/development/docker.md) as the runtime onboarding reference and the [visual standard](docs/development/visual-documentation.md) for architecture diagrams.
 
-Use the Git workflow for task branches, atomic commits, draft and ready PRs, and human-controlled merges.
+Use the [Git workflow](docs/development/git-workflow.md) for task branches, atomic commits, draft and ready PRs, and human-controlled merges.
 
 Use the [development protocol](docs/development/PROTOCOL.md) for owner-requested work and check the [definition of done](docs/development/DEFINITION_OF_DONE.md) before completion.
 

@@ -1,6 +1,6 @@
 # Technical documentation standard
 
-Version-controlled Markdown in docs is the primary documentation source. Keep it readable in a text editor and in a browser without proprietary office software. Write official technical text, identifiers and comments in English. Use relative links, descriptive headings, synthetic examples and explicit status. Update the task and impacted docs in the same change as behavior. Preserve exact commands and versions when reproducibility depends on them.
+Version-controlled Markdown in [docs](../README.md) is the primary documentation source. Keep it readable in a text editor and in a browser without proprietary office software. Write official technical text, identifiers and comments in English. Use relative links, descriptive headings, synthetic examples and explicit status. Update the task and impacted docs in the same change as behavior. Preserve exact commands and versions when reproducibility depends on them.
 
 ## What to maintain
 
