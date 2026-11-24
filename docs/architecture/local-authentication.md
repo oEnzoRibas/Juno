@@ -18,4 +18,4 @@ The web app calls the API from the server and stores its session in an HttpOnly,
 
 The local smoke test uses a disposable browser profile and synthetic bootstrap account. Set `JUNO_TEST_ADMIN_EMAIL` and `JUNO_TEST_ADMIN_PASSWORD` in the local process, then run `pnpm exec playwright test`. Set `JUNO_SMOKE_WEB` and `JUNO_SMOKE_API` for non-default origins. Install Chromium with `pnpm exec playwright install chromium`, or set `JUNO_BROWSER_CHANNEL=chrome` to use installed Chrome. Avoid uploading artifacts that include synthetic credentials or session cookies.
 
-Tenant invitations, membership-based API authorization and tenant dashboard views build on this authentication layer. See [tenant isolation](tenancy.md) and [security reports](../../SECURITY.md).
+The [onboarding workflow](tenant-onboarding.md) uses authenticated tenant context, role-gated invitations and a workspace dashboard. See [tenant isolation](tenancy.md) and [security reports](../../SECURITY.md).

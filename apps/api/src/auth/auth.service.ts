@@ -35,6 +35,10 @@ export class AuthService {
     await this.db.execute(sql`DELETE FROM juno.login_budget WHERE bucket < ${bucket - 1}`);
   }
 
+  async limitActivation(source: string): Promise<void> {
+    await this.takeBudget('activation:' + source, 120);
+  }
+
   async signIn(email: string, password: string, source: string): Promise<{ token: string; expiresAt: string }> {
     await this.takeBudget(`source:${source}`, 120);
     await this.takeBudget(`email:${email}`, 12);

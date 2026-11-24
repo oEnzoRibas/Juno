@@ -22,6 +22,13 @@
       "when": 1795536000002,
       "tag": "0002_local_auth",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795536000003,
+      "tag": "0003_tenant_onboarding",
+      "breakpoints": true
     }
   ]
 }

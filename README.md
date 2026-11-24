@@ -22,7 +22,7 @@ Juno software and associated project documentation use the [MIT License](LICENSE
 
 ![Proposed Juno architecture showing user access, a modular backend, persistence and optional integrations](docs/architecture/diagrams/juno-architecture-overview.svg)
 
-Docker and Docker Compose are required for the planned runtime. See the [architecture diagrams](docs/architecture/diagrams/README.md), [containerized development](docs/development/docker.md), and [self-hosting](docs/deployment/README.md).
+Docker and Docker Compose run the Phase 1 tenant onboarding milestone. Follow the [onboarding runbook](docs/architecture/tenant-onboarding.md) to exercise the first organization. See the [architecture diagrams](docs/architecture/diagrams/README.md), [containerized development](docs/development/docker.md), and [self-hosting](docs/deployment/README.md).
 
 ## Start here
 
