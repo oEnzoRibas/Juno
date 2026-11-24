@@ -1,0 +1,15 @@
+# Post-merge synchronization
+
+Observed 2026-11-24, with `main` at `a018317ac89e7ba9a04cf47ae656e1eb53ae8308`. GitHub marked #21, #25, #28 and #30 merged. Each merge commit is an ancestor of remote main. No additional integration was performed.
+
+| Lane | Review order and comparison evidence |
+| --- | --- |
+| Native stack #14 | [#22](https://github.com/oEnzoRibas/Juno/pull/22) 30 files and 2 commits → [#23](https://github.com/oEnzoRibas/Juno/pull/23) 35/1 → [#24](https://github.com/oEnzoRibas/Juno/pull/24) 18/1 → [#26](https://github.com/oEnzoRibas/Juno/pull/26) 34/2 → [#27](https://github.com/oEnzoRibas/Juno/pull/27) 35/2 → [#29](https://github.com/oEnzoRibas/Juno/pull/29) 6/1 → [#31](https://github.com/oEnzoRibas/Juno/pull/31) 9/7 → [#34](https://github.com/oEnzoRibas/Juno/pull/34) 10/1. |
+| Frontend | [#33](https://github.com/oEnzoRibas/Juno/pull/33) at `0e28185e918d7f745b95e98037851c1a69aa377c`, based on #27, 9 files and 3 commits. The application shell will consume this pinned design revision. |
+| Coordination | [#32](https://github.com/oEnzoRibas/Juno/pull/32) targets main independently. |
+
+GitHub and local three-dot path and commit counts agreed. Git composed all nine comparisons without conflicts and whitespace checks passed. The stack root #22 uses the merged #21 commit as its merge base. Newer main commits belong to independent coordination, diagram and worktree changes. The merge tree is clean and the 30-file PR diff is in scope, so no cascading rebase was needed.
+
+The #34 comparison used #31 as its GitHub base but still branched from #29. Agent 01 replayed only the owned audit commit to match the actual QA parent. The original `98571756958394d4a87458bf28fc7be85532ed58` remains recoverable at `refs/juno-recovery/20261124T171647Z/pr-34`. Its replacement `0b31c5e22e7d64488340f454f6d6bf67d6d7f302` directly descends from `ea14d2eb8d17671f2e44b886ebdd617cf2d5068d`. The composed tree, binary incremental patch, author metadata and message were verified before an exact force-with-lease push. No other agent head was rewritten.
+
+Agent 03's #31 workflow was published and both jobs passed at `ea14d2eb8d17671f2e44b886ebdd617cf2d5068d`. The active GitHub CLI credential includes `workflow`. The previous credential blocker is resolved. Preserve earlier recovery checkpoint `fed91526ff2624260d174864d0072005dff0a400`.
