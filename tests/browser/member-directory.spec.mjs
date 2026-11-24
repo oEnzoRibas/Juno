@@ -49,6 +49,27 @@ test('only the tenant administrator can read the member directory', async ({ req
   for (const item of page.items) {
     expect(Object.keys(item).sort()).toEqual(['accountId', 'active', 'email', 'joinedAt', 'role']);
   }
+  const memberEntry = page.items.find(({ email }) => email === member.email);
+  const params = new URLSearchParams({ emailPrefix: member.email.toUpperCase().slice(0, -4), role: 'member', active: 'true' });
+  const filtered = await request.get(`${endpoint}?${params}`, { headers: administrator.headers });
+  expect(filtered.status()).toBe(200);
+  expect(await filtered.json()).toEqual({ items: [memberEntry], nextCursor: null });
+  const empty = await request.get(`${endpoint}?emailPrefix=%25`, { headers: administrator.headers });
+  expect(await empty.json()).toEqual({ items: [], nextCursor: null });
+  const inactive = await request.get(`${endpoint}?active=false`, { headers: administrator.headers });
+  expect(await inactive.json()).toEqual({ items: [], nextCursor: null });
+  for (const invalid of ['role=owner', 'active=1', 'emailPrefix=', 'role=member&role=administrator']) {
+    expect((await request.get(`${endpoint}?${invalid}`, { headers: administrator.headers })).status()).toBe(400);
+  }
+
+  const detail = await request.get(`${endpoint}/${memberEntry.accountId}`, { headers: administrator.headers });
+  expect(detail.status()).toBe(200);
+  expect(detail.headers()['cache-control']).toBe('no-store');
+  expect(await detail.json()).toEqual(memberEntry);
+  expect((await request.get(`${endpoint}/${memberEntry.accountId}`, { headers: member.headers })).status()).toBe(404);
+  expect((await request.get(`${root}/tenants/${other}/members/${memberEntry.accountId}`, { headers: administrator.headers })).status()).toBe(404);
+  expect((await request.get(`${endpoint}/00000000-0000-4000-8000-000000000000`, { headers: administrator.headers })).status()).toBe(404);
+
   const next = await request.get(`${endpoint}?after=${page.items.at(-1).accountId}`, { headers: administrator.headers });
   expect(await next.json()).toEqual({ items: [], nextCursor: null });
   expect((await request.get(`${endpoint}?after=invalid`, { headers: administrator.headers })).status()).toBe(400);

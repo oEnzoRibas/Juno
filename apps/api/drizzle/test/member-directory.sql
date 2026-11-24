@@ -18,6 +18,7 @@ SET LOCAL ROLE juno_app;
 DO $check$
 DECLARE first_page jsonb;
 DECLARE second_page jsonb;
+DECLARE filtered_page jsonb;
 BEGIN
   IF juno.read_member_directory(NULL) IS NOT NULL THEN RAISE EXCEPTION 'Missing context allowed access'; END IF;
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000001', true);
@@ -33,11 +34,18 @@ BEGIN
       SELECT 1 FROM jsonb_array_elements(second_page->'items') AS item
       WHERE item->>'email' = 'directory-fixture-53@example.invalid'
     ) THEN RAISE EXCEPTION 'Directory page, scope or inactive record differs'; END IF;
+  filtered_page := juno.search_member_directory(NULL, 'DIRECTORY-FIXTURE-', 'member', false, NULL);
+  IF jsonb_array_length(filtered_page->'items') IS DISTINCT FROM 1
+    OR filtered_page->'items'->0->>'accountId' IS DISTINCT FROM '20000000-0000-4000-8100-000000000002'
+  THEN RAISE EXCEPTION 'Filtered inactive member differs'; END IF;
+  filtered_page := juno.search_member_directory(NULL, NULL, NULL, NULL, '20000000-0000-4000-8100-000000000053');
+  IF jsonb_array_length(filtered_page->'items') IS DISTINCT FROM 0
+  THEN RAISE EXCEPTION 'Other tenant detail was visible'; END IF;
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000002', true);
   IF juno.read_member_directory(NULL) IS NOT NULL THEN RAISE EXCEPTION 'Tenant crossover allowed'; END IF;
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000001', true);
   PERFORM set_config('juno.account_id', '20000000-0000-4000-8100-000000000003', true);
-  IF juno.read_member_directory(NULL) IS NOT NULL THEN RAISE EXCEPTION 'Regular member access allowed'; END IF;
+  IF juno.search_member_directory(NULL, NULL, NULL, NULL, '20000000-0000-4000-8100-000000000003') IS NOT NULL THEN RAISE EXCEPTION 'Regular member access allowed'; END IF;
   BEGIN
     PERFORM email FROM juno.account;
     RAISE EXCEPTION 'Runtime role can read accounts directly';
