@@ -16,6 +16,8 @@ git switch -c docs/juno-nnnn-tenant-invite-rules
 
 Read the [local setup and documentation standards](docs/development/README.md), [architecture overview](docs/architecture/overview.md), and relevant specification before editing. Use the issue forms for bugs, features, integrations, documentation, and architecture. Use [private security reporting](SECURITY.md) for vulnerabilities.
 
+When contributing through a designated development agent, follow the [coordination registry](docs/development/agents/README.md) and its worktree, ownership and handoff rules.
+
 ## Implement and submit
 
 1. Keep changes focused. Write English source, identifiers, and technical documentation. Follow [.editorconfig](.editorconfig) and the conventions of the files you change. Document significant decisions in ADRs.

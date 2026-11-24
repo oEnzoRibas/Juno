@@ -1,6 +1,6 @@
 # Development queue
 
-This is the authoritative order and active assignment for Juno. Linked task records are authoritative for lifecycle status and blockers. [STATE.md](STATE.md) records resumption instructions. [WORKLOG.md](WORKLOG.md) records significant transitions.
+This is the authoritative task order for Juno. The [assignment registry](agents/ASSIGNMENTS.md) governs active ownership, path reservations and parallel execution. Linked task records are authoritative for lifecycle status and blockers. [STATE.md](STATE.md) records resumption instructions. [WORKLOG.md](WORKLOG.md) records significant transitions.
 
 ## Active
 
@@ -43,6 +43,10 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 - [JUNO-0005](tasks/JUNO-0005.md), [PR #13](https://github.com/oEnzoRibas/Juno/pull/13), ready with an open merge prerequisite.
 - [JUNO-0004](tasks/JUNO-0004.md), [PR #12](https://github.com/oEnzoRibas/Juno/pull/12), repaired and ready for review.
 - [JUNO-0003](tasks/JUNO-0003.md), native stack #14, with #1 merged before this session and #2–#11 ready. See the [live audit](phase-0-review-guide.md).
+
+## Coordination work
+
+The owner authorized [JUNO-0034](tasks/JUNO-0034.md), [JUNO-0035](tasks/JUNO-0035.md) and [JUNO-0036](tasks/JUNO-0036.md) under parallel FIFO. Record bypasses in the assignment registry without changing the established provider order.
 
 ## Completed and cancelled records
 
