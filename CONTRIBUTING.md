@@ -24,7 +24,7 @@ Read the [local setup and documentation standards](docs/development/README.md), 
 4. Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Use an English type and scope, such as `docs(architecture):`, followed by a short imperative description. Example commit message `docs(auth): specify tenant invitation lifecycle`. For breaking changes, use `!` after the type or scope or a `BREAKING CHANGE:` footer and describe migration.
 5. Open a pull request against upstream `main`. Link the issue and relevant development task ID when assigned. Summarize impact, assumptions, tests, documentation, security, and meaningful AI assistance and verification. Respond to review and update the description if scope changes.
 
-Use containerized development as the runtime onboarding reference and the [visual standard](docs/development/visual-documentation.md) for architecture diagrams.
+Use [containerized development](docs/development/docker.md) as the runtime onboarding reference and the [visual standard](docs/development/visual-documentation.md) for architecture diagrams.
 
 Use the Git workflow for task branches, atomic commits, draft and ready PRs, and human-controlled merges.
 

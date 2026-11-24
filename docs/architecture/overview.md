@@ -1,6 +1,6 @@
 # Architecture evaluation
 
-**Status:** Proposed. Use a small vertical slice to evaluate tenant provisioning, invitation, and one tenant-scoped management workflow. Optimize for tenant isolation, contributor onboarding, accessibility, maintainability, and independent self-hosting. Docker and Compose are required by ADR-0005. See the [topology ADR](adr/0003-application-topology.md) and [technology comparison](technology-evaluation.md).
+**Status:** Proposed. Use a small vertical slice to evaluate tenant provisioning, invitation, and one tenant-scoped management workflow. Optimize for tenant isolation, contributor onboarding, accessibility, maintainability, and independent self-hosting. Docker and Compose are required by [ADR-0005](adr/0005-mandatory-containerization.md). See the [topology ADR](adr/0003-application-topology.md) and [technology comparison](technology-evaluation.md).
 
 ## Topology options
 

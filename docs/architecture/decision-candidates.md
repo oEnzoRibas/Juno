@@ -9,7 +9,7 @@
 | Identity and authorization | Evaluate session, recovery, MFA, revocation, tenant switching and scoped delegation. | Threat assessment, policy matrix and invite and deactivation workflows. |
 | API and workspace | Choose the REST and schema approach where API consumers justify it. Decide workspace package boundaries after topology. | Stable contract, authorization tests, generated-reference drift check, import boundary proof. |
 | [ADR-0004](adr/0004-durable-domain-events.md) | Decide if durable processing warrants an outbox and worker. Preserve atomic economy writes. | Failure and replay, deduplication, rule history, audit, concurrency, and recovery costs. |
-| Deployment and observability | Choose the service layout, backup and restore, object storage and job operations within the accepted Docker baseline. | Measured hardware, maintenance effort, data controls, failure recovery and portable self-hosting. |
+| Deployment and observability | Choose the service layout, backup and restore, object storage and job operations within the [accepted Docker baseline](adr/0005-mandatory-containerization.md). | Measured hardware, maintenance effort, data controls, failure recovery and portable self-hosting. |
 | Documentation and test tooling | Choose a Markdown publication path and incremental quality gates. Apply the [Draw.io standard](../development/visual-documentation.md) after application and repository needs are known. | Accessible diagrams, link and API checks, dependency review and reproducible CI. |
 
 Start with the product's first tenant workflow and approval for a bounded validation spike. See [product decisions](../product/decisions.md), [technology evaluation](technology-evaluation.md), and the [live queue](../development/QUEUE.md).

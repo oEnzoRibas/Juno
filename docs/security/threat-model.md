@@ -23,4 +23,4 @@ Audit events should connect actor, tenant, action, target, outcome, reason when 
 
 Inventory purpose, fields, recipient, retention and deletion for each data flow. Map operator and tenant responsibilities, mechanisms for access, correction and deletion requests, integration subprocessors, and incident notifications before using real member information. Reconcile deletion with documented retention needs and backup expiry. Review Brazil's LGPD and deployment-specific obligations with an appropriate reviewer. This threat model proposes engineering controls. [Official LGPD text](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
 
-See [testing](../testing/README.md), deployment, and [private reporting](../../SECURITY.md).
+See [testing](../testing/README.md), [deployment](../deployment/README.md), and [private reporting](../../SECURITY.md).
