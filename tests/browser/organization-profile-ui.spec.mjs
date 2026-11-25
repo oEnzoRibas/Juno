@@ -62,7 +62,14 @@ test('updates an organization profile and preserves membership and tenant bounda
   const otherAdmin = await invite(other, 'administrator', 'other-admin');
 
   await webSignIn(page, operator.email, operator.secret);
-  expect((await page.goto(settings + '?lang=pt-BR'))?.status()).toBe(200);
+  await page.getByRole('link', { name, exact: true }).click();
+  const settingsLink = page.getByRole('navigation').getByRole('link', { name: 'Configurações da organização' });
+  await expect(settingsLink).toHaveAttribute('href', settings + '?lang=pt-BR');
+  await settingsLink.focus();
+  await expect(settingsLink).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(settings + '?lang=pt-BR');
+  await expect(settingsLink).toHaveAttribute('aria-current', 'page');
   const panel = page.getByRole('region', { name: 'Perfil da organização' });
   const field = panel.getByRole('textbox', { name: 'Nome da organização' });
   const accent = panel.getByRole('textbox', { name: 'Cor de destaque' });
@@ -91,6 +98,8 @@ test('updates an organization profile and preserves membership and tenant bounda
 
   await page.getByRole('link', { name: 'English', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Organization profile' })).toBeVisible();
+  await expect(page).toHaveURL(settings);
+  await expect(page.getByRole('link', { name: 'Organization settings', exact: true })).toHaveAttribute('aria-current', 'page');
   await page.setViewportSize({ width: 320, height: 790 });
   await page.emulateMedia({ colorScheme: 'dark' });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
@@ -115,6 +124,10 @@ test('updates an organization profile and preserves membership and tenant bounda
     try {
       const visitor = await context.newPage();
       await webSignIn(visitor, account.email, account.secret);
+      if (account === member) {
+        await visitor.getByRole('link', { name: updatedName, exact: true }).click();
+        await expect(visitor.getByRole('link', { name: 'Configurações da organização' })).toHaveCount(0);
+      }
       expect((await visitor.goto(settings + '?lang=pt-BR'))?.status()).toBe(404);
       await expect(visitor.getByRole('heading', { name: 'Organização indisponível' })).toBeVisible();
       await expect(visitor.getByText(updatedName, { exact: true })).toHaveCount(0);

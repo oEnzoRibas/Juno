@@ -14,7 +14,7 @@ interface ShellProps {
   current?: WorkspaceSummary;
   workspaces: WorkspaceSummary[];
   children: ReactNode;
-  section?: 'dashboard' | 'members';
+  section?: 'dashboard' | 'members' | 'settings';
   localePath?: (locale: ShellLocale) => string;
 }
 
@@ -24,7 +24,8 @@ export function ApplicationShell({ locale, platformAdmin, current, workspaces, c
   const alternate = locales[locale];
   const dashboardPath = current ? `/workspace/${current.id}` : '/session';
   const directoryPath = current ? `${dashboardPath}/members` : undefined;
-  const path = section === 'members' && directoryPath ? directoryPath : dashboardPath;
+  const settingsPath = current ? `${dashboardPath}/settings` : undefined;
+  const path = (section === 'members' ? directoryPath : section === 'settings' ? settingsPath : undefined) ?? dashboardPath;
   return (
     <div className={styles.frame} lang={locale}>
       <a className={styles.skip} href="#shell-main">{t('skipToContent')}</a>
@@ -56,6 +57,11 @@ export function ApplicationShell({ locale, platformAdmin, current, workspaces, c
               <>
                 <DirectoryLink href={localPath(directoryPath, locale)} current={section === 'members'}
                   label={directoryMessages[locale].members} loading={directoryMessages[locale].loading} />
+                {settingsPath && (
+                  <Link href={localPath(settingsPath, locale)} aria-current={section === 'settings' ? 'page' : undefined}>
+                    {t('organizationSettings')}
+                  </Link>
+                )}
                 <Link href={`${localPath(dashboardPath, locale)}#member-invite`}>{t('inviteMember')}</Link>
               </>
             )}

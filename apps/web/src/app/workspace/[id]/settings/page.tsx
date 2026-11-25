@@ -18,7 +18,7 @@ export default async function OrganizationSettings({ params, searchParams }: {
 
   return (
     <ApplicationShell locale={locale} platformAdmin={account.platformAdmin} current={workspace} workspaces={workspaces}
-      localePath={alternate => localPath(workspacePath + '/settings', alternate)}>
+      section="settings">
       <section className="public-panel border-t-8" style={{ borderTopColor: workspace.accent }} aria-labelledby="profile-title">
         <Link href={localPath(workspacePath, locale)} className="mb-6 inline-block underline">{copy.dashboard}</Link>
         <p className="mb-2 break-words text-sm font-semibold text-[var(--muted)]">{workspace.name}</p>
