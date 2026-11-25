@@ -35,3 +35,7 @@ The [approved Integration Hub architecture visual](integrations/juno-integration
 | [Integration security boundaries](integrations/juno-integration-security-boundaries.md) | [Draw.io](integrations/juno-integration-security-boundaries.drawio) | [SVG](integrations/juno-integration-security-boundaries.svg) | [PDF](integrations/juno-integration-security-boundaries.pdf) |
 
 The [supplied reference exports](references/README.md) remain available. The [Mermaid sketches](../diagrams.md) provide additional textual workflow examples. Promote significant views to the [accepted Draw.io standard](../adr/0008-editable-diagrams.md).
+
+## Maintainer preview
+
+- [Maintainer acceptance preview](development/juno-maintainer-uat.md)
