@@ -48,6 +48,8 @@ try {
     JUNO_DATABASE_PASSWORD: randomBytes(32).toString('hex'),
   };
   const admin = { email: `qa-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
+  const profileAdmin = { email: `qa-profile-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
+  const profileRun = randomBytes(6).toString('hex');
   const smokeEnv = {
     ...process.env,
     JUNO_SMOKE_WEB: `http://127.0.0.1:${webPort}`,
@@ -101,7 +103,9 @@ try {
     const after = Number(compose('Verify the migration journal is unchanged', journalQuery, { capture: true }).trim());
     if (after !== before) throw new Error('Rerunning migrations changed the migration journal');
 
-    for (const sql of ['tenant-isolation.sql', 'invitation-expiry.sql', 'onboarding-audit.sql', 'member-directory.sql']) {
+    for (const sql of [
+      'tenant-isolation.sql', 'invitation-expiry.sql', 'onboarding-audit.sql', 'member-directory.sql', 'organization-profile.sql',
+    ]) {
       compose(`Run database regression ${sql}`, [
         'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-v', 'ON_ERROR_STOP=1',
       ], { input: readFileSync(join(root, 'apps/api/drizzle/test', sql)) });
@@ -110,13 +114,36 @@ try {
     compose('Bootstrap a synthetic platform administrator', [
       'run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin',
     ], { input: JSON.stringify(admin) });
+    compose('Bootstrap the dedicated synthetic profile administrator', [
+      'run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin',
+    ], { input: JSON.stringify(profileAdmin) });
     run('Run Playwright and save the structured review report', process.execPath, [
       playwright, 'test', '--workers=1',
     ], { env: {
       ...smokeEnv,
       JUNO_TEST_ADMIN_EMAIL: admin.email,
       JUNO_TEST_ADMIN_PASSWORD: admin.password,
+      JUNO_TEST_PROFILE_ADMIN_EMAIL: profileAdmin.email,
+      JUNO_TEST_PROFILE_ADMIN_PASSWORD: profileAdmin.password,
+      JUNO_TEST_PROFILE_RUN: profileRun,
     } });
+    const audit = JSON.parse(compose('Inspect persisted profile and audit after concurrent HTTP requests', [
+      'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-At', '-v', 'ON_ERROR_STOP=1',
+      '-v', `profile_slug=profile-atlas-${profileRun}`, '-v', `profile_actor=profile-administrator-${profileRun}@example.invalid`,
+    ], { capture: true, input: `
+      SELECT json_build_object(
+        'name', tenant.name, 'accent', tenant.accent_hex,
+        'events', count(audit.id), 'actorEvents', count(audit.id) FILTER (WHERE actor.email = :'profile_actor')
+      ) FROM juno.tenant AS tenant
+      LEFT JOIN juno.organization_profile_audit AS audit ON audit.tenant_id = tenant.id
+      LEFT JOIN juno.account AS actor ON actor.id = audit.actor_id
+      WHERE tenant.slug = :'profile_slug'
+      GROUP BY tenant.id;
+    ` }).trim() || 'null');
+    if (audit?.name !== 'Atlas Júnior' || audit.accent !== '#AABBCC' || audit.events !== 1 || audit.actorEvents !== 1) {
+      throw new Error('Concurrent profile audit mismatch: expected normalized profile and one event for the authorized actor');
+    }
+    console.info(`[PASS] Concurrent identical profile requests persist one audit event for the authorized actor | Expected 1 | Actual ${audit.actorEvents}`);
   } finally {
     try {
       compose(`Remove disposable project ${project}`, ['down', '--volumes', '--remove-orphans']);
