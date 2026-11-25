@@ -47,6 +47,7 @@ try {
     JUNO_DATABASE_PASSWORD: randomBytes(32).toString('hex'),
   };
   const admin = { email: `qa-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
+  const secondaryAdmin = { email: `qa-secondary-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
   const smokeEnv = {
     ...process.env,
     JUNO_SMOKE_WEB: `http://127.0.0.1:${webPort}`,
@@ -104,12 +105,19 @@ try {
     compose('Bootstrap a synthetic platform administrator', [
       'run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin',
     ], { input: JSON.stringify(admin) });
+    compose('Bootstrap a separate synthetic platform administrator for shell and profile tests', [
+      'run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin',
+    ], { input: JSON.stringify(secondaryAdmin) });
     run('Run the login and tenant onboarding browser flows', process.execPath, [
       playwright, 'test', '--workers=1',
     ], { env: {
       ...smokeEnv,
       JUNO_TEST_ADMIN_EMAIL: admin.email,
       JUNO_TEST_ADMIN_PASSWORD: admin.password,
+      JUNO_TEST_SHELL_EMPTY_EMAIL: secondaryAdmin.email,
+      JUNO_TEST_SHELL_EMPTY_PASSWORD: secondaryAdmin.password,
+      JUNO_TEST_PROFILE_ADMIN_EMAIL: secondaryAdmin.email,
+      JUNO_TEST_PROFILE_ADMIN_PASSWORD: secondaryAdmin.password,
     } });
   } finally {
     try {
