@@ -1,6 +1,6 @@
 # Organization profile interface
 
-Implemented for JUNO-0028. The [editable Draw.io source](juno-organization-profile-ui.drawio), [SVG](juno-organization-profile-ui.svg) and [PDF](juno-organization-profile-ui.pdf) show the saved state in Brazilian Portuguese on desktop and the edit form in English on a narrow dark layout. The examples use synthetic organization names and a decorative accent.
+Implemented for JUNO-0028. The [editable Draw.io source](juno-organization-profile-ui.drawio), [SVG](juno-organization-profile-ui.svg) and [PDF](juno-organization-profile-ui.pdf) show the saved state in Brazilian Portuguese on desktop and the edit form in English on a narrow dark layout. The examples use synthetic organization names and a decorative accent. The highlighted settings entry is available to an active administrator of the organization. On narrow screens, the existing navigation grid wraps the links and keeps the active state visible.
 
 Input labels, the format hint, visible focus, and success and error announcements use the existing accessible form primitives. The organization accent changes the decorative border. Form controls retain the Juno design tokens in both themes.
 
