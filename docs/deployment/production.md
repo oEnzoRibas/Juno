@@ -64,3 +64,5 @@ This source-build reference leaves official release publication and provider cho
 ## Qualification evidence
 
 A disposable Linux amd64 Compose installation on 2026-11-24 verified private API and PostgreSQL, loopback-only web ingress, migrations, readiness, local administrator bootstrap, two fictional organizations, invitation activation and cross-tenant denial. Chromium signed in through a local TLS reverse proxy using an isolated self-signed test certificate. The session cookie was Secure, HttpOnly, SameSite=Strict and used the required host prefix. A normal stop/start preserved both organizations. The disposable project was removed after verification. Public DNS, certificate renewal, supported upgrade pairs, release image publishing and a production load target were outside the rehearsal.
+
+See the [independent installation and restore qualification](../testing/juno-production-installation.md) for the reproducible test and release gates.
