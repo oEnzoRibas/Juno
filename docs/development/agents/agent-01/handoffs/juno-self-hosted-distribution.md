@@ -1,6 +1,6 @@
 # Independent installation handoff
 
-The approved independent distribution model is in [ADR 0012](../../../architecture/adr/0012-self-hosted-distribution.md). The governing task is [JUNO-0038](../../../development/tasks/JUNO-0038.md). Agent 01 owns architectural decisions and the central queue. Publication of a claim does not establish an executing session.
+The approved independent distribution model is in [ADR 0012](../../../../architecture/adr/0012-self-hosted-distribution.md). The governing task is [JUNO-0038](../../../tasks/JUNO-0038.md). Agent 01 owns architectural decisions and the central queue. Publication of a claim does not establish an executing session.
 
 | Owner | Branch and authorized base | Scope and acceptance |
 | --- | --- | --- |
