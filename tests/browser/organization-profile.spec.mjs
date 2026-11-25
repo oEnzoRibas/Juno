@@ -13,6 +13,15 @@ test('an active organization administrator can update only their own workspace p
     return { authorization: `Bearer ${(await response.json()).token}` };
   }
 
+  const openapi = await request.get(`${root}/openapi.json`);
+  expect(openapi.status()).toBe(200);
+  const contract = await openapi.json();
+  const operation = contract.paths['/api/tenants/{id}/profile'].put;
+  expect(operation.security).toEqual([{ bearer: [] }]);
+  expect(Object.keys(operation.responses)).toEqual(expect.arrayContaining(['200', '400', '401', '404']));
+  expect(contract.components.schemas.OrganizationProfileInput.required).toEqual(['name', 'accent']);
+  expect(contract.components.schemas.OrganizationProfile.required).toEqual(expect.arrayContaining(['id', 'name', 'accent']));
+
   const platform = await signIn(email, password);
   const suffix = randomBytes(6).toString('hex');
   async function tenant(label) {
