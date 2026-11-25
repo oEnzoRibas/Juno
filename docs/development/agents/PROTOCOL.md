@@ -1,5 +1,7 @@
 # Development coordination protocol
 
+When handing off an executable PR, identify the reviewed commit, actual image or legacy provenance limitation, Compose project, exact startup and cleanup, frontend-to-API verification, synthetic account setup and retrieval, expected outcomes and tests actually run. Provide a separate ref and runbook for any integrated preview. Coordination claims must distinguish CI, agent execution and maintainer observations.
+
 Agent 01 allocates IDs and updates the [central queue](../QUEUE.md) and the [assignment registry](ASSIGNMENTS.md). A single registry branch may be used while the coordination change awaits review. Use its published revision as the current operating record. Agent worktrees record their status and evidence under their agent directory.
 
 Select the earliest eligible task for each free owner. Up to three agents can hold one active implementation claim each. Review-stage work releases its execution slot. Later independent work may advance past a blocked or review-stage task. Record the reason, unchanged priority, and condition for resumption. An active claim includes its ID, owner, scope, reserved paths, branch, exact base SHA, dependencies and necessary handoffs. Publish the claim before the assignee edits. Verify a clean status and independent worktree. A silent session never releases a claim. Reassignment requires a documented decision and preservation of existing work.

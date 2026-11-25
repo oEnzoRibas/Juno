@@ -14,6 +14,8 @@ Embed representative implementation evidence with its exact revision or UAT. Use
 
 Provide prerequisites, copyable exact checkout and dependency steps, commands, environment and URLs, and safe credential retrieval if applicable. Provide numbered scenarios with expected and negative outcomes, troubleshooting, and cleanup. Link the pinned shared UAT for integrated workflows.
 
+For executable changes, distinguish the exact-head automated run, the exact-head persistent manual environment, and any separate integrated UAT. Include image/build revision and Compose project verification, an actual frontend-to-backend probe, synthetic fixture preparation and credential retrieval, expected output or exit code, and which cleanup is automatic. State unavailable provenance and blocked runtime dependencies. For documentation-only changes, provide exact-revision document and visual review steps.
+
 ## Validation results
 
 | Source | Revision and scope | Result or run link |

@@ -1,5 +1,7 @@
 # Testing strategy
 
+Use [exact-head review and runtime identity](juno-review-runtime.md) to verify the running source and API connection. The specific PR gives startup, fixture, scenario and cleanup instructions.
+
 **Status:** Proposed application validation. Phase 0 checks documentation, repository configuration and provenance. No application test runner exists.
 
 | Level | Planned evidence |

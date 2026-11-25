@@ -1,5 +1,7 @@
 # Development worklog
 
+- 2026-11-25: Recorded the maintainer's independent PR #40 execution and image/checkout mismatch, reproduced the missing SQL regression, and corrected exact-head review instructions. Registered parallel review tooling, image provenance and runtime indicator work as JUNO-0041 through JUNO-0043. See the [incident record](history/JUNO-0042-pr-40-runtime-review.md).
+
 Append dated entries for meaningful changes, lifecycle transitions, reordered or blocked work, and verification results. Link the task and record the next action or resumption condition when relevant.
 
 | Date | Task | Event and evidence |

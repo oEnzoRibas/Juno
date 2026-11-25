@@ -1,5 +1,7 @@
 # Maintainer UAT testing guide
 
+A UAT preview is an independently pinned composition. Its URL does not identify the checkout or image built for a PR. Record the exact snapshot and included PR revisions, Compose project, running image IDs, observed schema and frontend-to-API readiness. Historical snapshots without baked metadata must retain that limitation. Verify new builds with the [runtime identity guide](../testing/juno-review-runtime.md). Preserve prior previews and data unless the maintainer authorizes replacement.
+
 Use the exact commits and environment in the [preview checkpoint](history/JUNO-0037-uat-preview.md). The approved Windows preview runs on loopback only.
 
 | Entry point | URL |

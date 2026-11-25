@@ -55,3 +55,7 @@ See the [history index](history/README.md). IDs are never reused.
 ## GitHub traceability maintenance
 
 [JUNO-0040](tasks/JUNO-0040.md) tracks retrospective issue and PR associations and their permanent workflow. The [traceability index](traceability.md) links historical work and registered tasks. The existing queue remains authoritative.
+
+## Reproducible review correction
+
+The maintainer's independent PR #40 findings authorize a parallel correction without changing product dependencies or provider order. In registered order: [JUNO-0041](tasks/JUNO-0041.md) isolated review tooling, [JUNO-0042](tasks/JUNO-0042.md) build provenance and review protocol, and [JUNO-0043](tasks/JUNO-0043.md) runtime information UI. [Reservations and dependencies](agents/ASSIGNMENTS.md#reproducible-review-and-runtime-identification) govern parallel work.

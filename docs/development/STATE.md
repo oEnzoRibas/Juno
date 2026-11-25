@@ -1,5 +1,7 @@
 # Development state
 
+**Review reproducibility checkpoint, 2026-11-25:** Main synchronized to `37cc0a9e0b9f1c5f240b02cccb1aa84fb183b2ad` after the maintainer integrated #57/#58/#60 and #102. The [PR #40 correction](history/JUNO-0042-pr-40-runtime-review.md) records verified human and agent results, exact source and runtime limitations. Use the [current ownership release](agents/ASSIGNMENTS.md#reproducible-review-and-runtime-identification) for JUNO-0041 through JUNO-0043. Retain all accepted and in-review UAT snapshots.
+
 **Checkpoint:** 2026-11-24. The maintainer accepted UAT commit `5a8947feceab0867d9ba81c3d3a163200ff8c1cf` and explicitly approved the corresponding integration. The running preview is preserved.
 
 **Integrated main:** `3053a7beab1ec657305634c77df46efe4ec472f1`. The authorized coordination, runtime, and design PRs were integrated. #36 audit runner follow-up, #37 shell and #38 UAT documentation remain open and separate from that authorization.
