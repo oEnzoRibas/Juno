@@ -17,3 +17,5 @@ Phase exits describe review gates. Dates and staffing are open. See the [decisio
 Introduce reusable localization and accessibility patterns with the first interfaces, and safe tenant branding with the first tenant-facing screens. GitHub permission discovery can run before Phase 5 once authorized. Manual reporting and recognition provide independent delivery paths. GitHub, GitHub Projects, YouTube, SharePoint, Slack and Notion are required optional roadmap capabilities. See the [catalog and rollout](docs/integrations/provider-registry.md).
 
 The [Phase 1 implementation plan](docs/development/phase-1-implementation-plan.md) and [dependency graph](docs/development/phase-1-dependencies.md) identify the approvals, smallest runnable sequence, and provider-specific prerequisites.
+
+The [self-hosted distribution milestone](docs/development/tasks/JUNO-0038.md) adds a hardened reference install, first-run guidance, and independently exercised backups and updates. Optional release images follow artifact review and explicit maintainer approval.

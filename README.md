@@ -4,13 +4,13 @@
 
 **Manage. Engage. Evolve.**
 
-Juno is a community-driven, MIT-licensed Junior Enterprise Management Platform. Its mission is to give Junior Enterprises access to management, organizational development, gamification, and learning tools regardless of their size, budget, or technical experience. Each organization will have its own workspace, members, settings, and branding.
+Juno is an independently self-hosted, MIT-licensed Junior Enterprise Management Platform with multi-tenant workspaces and a SaaS-style user experience. Its mission is to give Junior Enterprises access to management, organizational development, gamification, and learning tools regardless of their size, budget, or technical experience. Each organization will have its own workspace, members, settings, and branding.
 
 Juno was created by Enzo Ribas and is developed with the assistance of artificial intelligence.
 
 **Free to use. Open to contribute. Built to evolve.**
 
-Juno is designed with the Brazilian Junior Enterprise movement in mind and for international adoption. The official project will keep core functionality freely accessible and support independent self-hosting. Initial application locales are English and Brazilian Portuguese. Source code and official technical documentation use English.
+Juno is designed with the Brazilian Junior Enterprise movement in mind and for international adoption. The upstream project distributes software and documentation. Junior Enterprises and independent operators host single- or multi-organization installations with their own administrators, infrastructure and data. Core workflows operate without an upstream account, subscription or required external integration. See the [distribution decision](docs/architecture/adr/0012-self-hosted-distribution.md). Initial application locales are English and Brazilian Portuguese. Source code and official technical documentation use English.
 
 ## Project status
 
