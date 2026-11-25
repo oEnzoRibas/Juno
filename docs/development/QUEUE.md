@@ -48,3 +48,8 @@ See the [history index](history/README.md). IDs are never reused.
 ## Independent review readiness
 
 [JUNO-0039](tasks/JUNO-0039.md) tracks the maintainer review preparation and reproducibility check. Implementation retains its existing review gates and owners.
+
+
+## GitHub traceability maintenance
+
+[JUNO-0040](tasks/JUNO-0040.md) tracks retrospective issue and PR associations and their permanent workflow. The [traceability index](traceability.md) links historical work and registered tasks. The existing queue remains authoritative.

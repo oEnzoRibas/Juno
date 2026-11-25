@@ -26,3 +26,9 @@ body:
     attributes:
       label: Related requirements or roadmap phase
       description: Link related issues, specifications, or decisions if known.
+
+  - type: input
+    id: development_task
+    attributes:
+      label: Related JUNO task or GitHub issue
+      description: Link existing work if known. Coordinators can assign a task ID after triage.
