@@ -44,3 +44,9 @@ The existing local draft at `2fa7bf1b29bd8b185a97cdc2db0ca367dbe8e8ec` was the s
 | JUNO-0022-OPS-01 | Production readiness follow-up | The starter runtime inherits the workspace stage with development dependencies. Validate a minimal production image, SBOM and vulnerability scan before recommending production deployment. Validate HTTPS ingress, ARM64 execution and recovery at schema version 4 separately. |
 
 The workflow passed `actionlint` 1.7.12. Against the published PR #29 contract, the local run passed the frozen install, lint, type checks, four Vitest tests, Compose build and startup, empty PostgreSQL migration and rerun, OpenAPI smoke, both SQL regressions, and both Playwright flows. Synthetic Compose resources were removed after the run. Previous isolation, negative-run and outage outcomes are recorded above.
+
+## Schema 8 SQL coverage
+
+The disposable Compose runner applies migration 0007 on the [organization profile candidate](https://github.com/oEnzoRibas/Juno/pull/45) at `588489f6ef2ef7bb141d868d097f0761bcec8f65`. It executes the database fixtures for tenant reads, invitation expiry, onboarding audit, the member directory, and organization profile updates. Each fixture uses synthetic data and rolls back. A fixture error stops the run before browser checks.
+
+The directory fixture covers paging, filters, member detail, and denial for regular members and foreign tenants. The profile fixture covers the active administrator requirement, denied cross-tenant writes, audit integrity, and one audit record for a repeated update. The onboarding audit fixture carries forward the [independently reviewed coverage](https://github.com/oEnzoRibas/Juno/pull/36) so the schema 8 candidate also exercises it.
