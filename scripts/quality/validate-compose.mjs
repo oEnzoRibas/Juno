@@ -41,13 +41,15 @@ try {
     ...process.env,
     COMPOSE_PROJECT_NAME: project,
     COMPOSE_PROFILES: '',
+    COMPOSE_ANSI: 'never',
     JUNO_WEB_PORT: webPort,
     JUNO_API_PORT: apiPort,
     JUNO_MIGRATION_PASSWORD: randomBytes(32).toString('hex'),
     JUNO_DATABASE_PASSWORD: randomBytes(32).toString('hex'),
   };
   const admin = { email: `qa-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
-  const secondaryAdmin = { email: `qa-secondary-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
+  const profileAdmin = { email: `qa-profile-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
+  const profileRun = randomBytes(6).toString('hex');
   const smokeEnv = {
     ...process.env,
     JUNO_SMOKE_WEB: `http://127.0.0.1:${webPort}`,
@@ -75,9 +77,20 @@ try {
   }
 
   try {
-    compose(`Build and start disposable project ${project}`, [
-      'up', '--build', '--wait', '--wait-timeout', '120',
-    ]);
+    run('Identify the source checkout (no baked Git SHA in this image)', 'git', ['rev-parse', 'HEAD', 'HEAD^{tree}']);
+    compose(`Build a single runtime image for ${project}`, ['build', 'migrate']);
+    compose(`Start disposable project ${project}`, ['up', '--no-build', '--wait', '--wait-timeout', '120']);
+    const imageId = run('Read the local build image identity', 'docker', ['image', 'inspect', image, '--format', '{{.Id}}'], { capture: true }).trim();
+    for (const service of ['web', 'api']) {
+      const container = compose(`Find ${service} in ${project}`, ['ps', '-q', service], { capture: true }).trim();
+      const running = run(`Read ${service} runtime image`, 'docker', ['inspect', container, '--format', '{{.Image}}'], { capture: true }).trim();
+      if (running !== imageId) throw new Error(`Unexpected running ${service} image`);
+      console.info(`${service}: ${running}`);
+    }
+    compose('Verify the actual web-to-API connection', ['exec', '-T', 'web', 'node', '-e',
+      'const o=process.env.JUNO_API_ORIGIN;fetch(new URL("/api/ready",o)).then(async r=>{const data=await r.json();if(!r.ok||data.status!=="ready")process.exit(1);console.log(`Web API readiness: ${r.status}`)}).catch(()=>process.exit(1))']);
+    compose('Read the connected database schema', ['exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-Atc',
+      'SELECT max(version) FROM juno_runtime.schema_version']);
     run('Verify web locales, API health and OpenAPI', process.execPath, ['scripts/runtime-smoke.mjs'], { env: smokeEnv });
 
     const journalQuery = [
@@ -91,11 +104,7 @@ try {
     if (after !== before) throw new Error('Rerunning migrations changed the migration journal');
 
     for (const sql of [
-      'tenant-isolation.sql',
-      'invitation-expiry.sql',
-      'onboarding-audit.sql',
-      'member-directory.sql',
-      'organization-profile.sql',
+      'tenant-isolation.sql', 'invitation-expiry.sql', 'onboarding-audit.sql', 'member-directory.sql', 'organization-profile.sql',
     ]) {
       compose(`Run database regression ${sql}`, [
         'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-v', 'ON_ERROR_STOP=1',
@@ -105,20 +114,36 @@ try {
     compose('Bootstrap a synthetic platform administrator', [
       'run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin',
     ], { input: JSON.stringify(admin) });
-    compose('Bootstrap a separate synthetic platform administrator for shell and profile tests', [
+    compose('Bootstrap the dedicated synthetic profile administrator', [
       'run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin',
-    ], { input: JSON.stringify(secondaryAdmin) });
-    run('Run the login and tenant onboarding browser flows', process.execPath, [
+    ], { input: JSON.stringify(profileAdmin) });
+    run('Run Playwright and save the structured review report', process.execPath, [
       playwright, 'test', '--workers=1',
     ], { env: {
       ...smokeEnv,
       JUNO_TEST_ADMIN_EMAIL: admin.email,
       JUNO_TEST_ADMIN_PASSWORD: admin.password,
-      JUNO_TEST_SHELL_EMPTY_EMAIL: secondaryAdmin.email,
-      JUNO_TEST_SHELL_EMPTY_PASSWORD: secondaryAdmin.password,
-      JUNO_TEST_PROFILE_ADMIN_EMAIL: secondaryAdmin.email,
-      JUNO_TEST_PROFILE_ADMIN_PASSWORD: secondaryAdmin.password,
+      JUNO_TEST_PROFILE_ADMIN_EMAIL: profileAdmin.email,
+      JUNO_TEST_PROFILE_ADMIN_PASSWORD: profileAdmin.password,
+      JUNO_TEST_PROFILE_RUN: profileRun,
     } });
+    const audit = JSON.parse(compose('Inspect persisted profile and audit after concurrent HTTP requests', [
+      'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-At', '-v', 'ON_ERROR_STOP=1',
+      '-v', `profile_slug=profile-atlas-${profileRun}`, '-v', `profile_actor=profile-administrator-${profileRun}@example.invalid`,
+    ], { capture: true, input: `
+      SELECT json_build_object(
+        'name', tenant.name, 'accent', tenant.accent_hex,
+        'events', count(audit.id), 'actorEvents', count(audit.id) FILTER (WHERE actor.email = :'profile_actor')
+      ) FROM juno.tenant AS tenant
+      LEFT JOIN juno.organization_profile_audit AS audit ON audit.tenant_id = tenant.id
+      LEFT JOIN juno.account AS actor ON actor.id = audit.actor_id
+      WHERE tenant.slug = :'profile_slug'
+      GROUP BY tenant.id;
+    ` }).trim() || 'null');
+    if (audit?.name !== 'Atlas Júnior' || audit.accent !== '#AABBCC' || audit.events !== 1 || audit.actorEvents !== 1) {
+      throw new Error('Concurrent profile audit mismatch: expected normalized profile and one event for the authorized actor');
+    }
+    console.info(`[PASS] Concurrent identical profile requests persist one audit event for the authorized actor | Expected 1 | Actual ${audit.actorEvents}`);
   } finally {
     try {
       compose(`Remove disposable project ${project}`, ['down', '--volumes', '--remove-orphans']);

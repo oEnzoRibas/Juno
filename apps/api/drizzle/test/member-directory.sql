@@ -19,8 +19,12 @@ DO $check$
 DECLARE first_page jsonb;
 DECLARE second_page jsonb;
 DECLARE filtered_page jsonb;
+DECLARE filtered_tail jsonb;
 BEGIN
-  IF juno.read_member_directory(NULL) IS NOT NULL THEN RAISE EXCEPTION 'Missing context allowed access'; END IF;
+  IF juno.read_member_directory(NULL) IS NOT NULL
+    OR juno.search_member_directory(NULL, NULL, NULL, NULL, NULL) IS NOT NULL
+    THEN RAISE EXCEPTION 'Missing context allowed access'; END IF;
+  RAISE NOTICE '[PASS] Missing SQL scope receives neither directory nor search results';
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000001', true);
   PERFORM set_config('juno.account_id', '20000000-0000-4000-8100-000000000001', true);
   first_page := juno.read_member_directory(NULL);
@@ -34,22 +38,41 @@ BEGIN
       SELECT 1 FROM jsonb_array_elements(second_page->'items') AS item
       WHERE item->>'email' = 'directory-fixture-53@example.invalid'
     ) THEN RAISE EXCEPTION 'Directory page, scope or inactive record differs'; END IF;
+  RAISE NOTICE '[PASS] Directory parent preserves 50+2 bounded rows, cursor and inactive metadata';
+  filtered_page := juno.search_member_directory(NULL, 'DIRECTORY-FIXTURE-', NULL, true, NULL);
+  filtered_tail := juno.search_member_directory((filtered_page->>'nextCursor')::uuid, 'DIRECTORY-FIXTURE-', NULL, true, NULL);
+  IF jsonb_array_length(filtered_page->'items') IS DISTINCT FROM 50
+    OR jsonb_array_length(filtered_tail->'items') IS DISTINCT FROM 1
+    OR filtered_tail->>'nextCursor' IS NOT NULL
+    OR filtered_page->>'nextCursor' IS DISTINCT FROM '20000000-0000-4000-8100-000000000051'
+    THEN RAISE EXCEPTION 'Filtered cursor or page differs'; END IF;
+  RAISE NOTICE '[PASS] Active prefix filter preserves the cursor and excludes inactive rows | Expected 50+1 | Actual %+%',
+    jsonb_array_length(filtered_page->'items'), jsonb_array_length(filtered_tail->'items');
   filtered_page := juno.search_member_directory(NULL, 'DIRECTORY-FIXTURE-', 'member', false, NULL);
   IF jsonb_array_length(filtered_page->'items') IS DISTINCT FROM 1
     OR filtered_page->'items'->0->>'accountId' IS DISTINCT FROM '20000000-0000-4000-8100-000000000002'
   THEN RAISE EXCEPTION 'Filtered inactive member differs'; END IF;
+  RAISE NOTICE '[PASS] Case-insensitive prefix, role and inactive state identify the expected own member';
+  IF jsonb_array_length(juno.search_member_directory(NULL, 'directory-fixture-%', NULL, NULL, NULL)::jsonb->'items') IS DISTINCT FROM 0
+    OR jsonb_array_length(juno.search_member_directory(NULL, 'directory_fixture-', NULL, NULL, NULL)::jsonb->'items') IS DISTINCT FROM 0
+    THEN RAISE EXCEPTION 'Wildcard characters were not treated literally'; END IF;
+  RAISE NOTICE '[PASS] SQL prefix comparison treats percent and underscore literally';
   filtered_page := juno.search_member_directory(NULL, NULL, NULL, NULL, '20000000-0000-4000-8100-000000000053');
   IF jsonb_array_length(filtered_page->'items') IS DISTINCT FROM 0
   THEN RAISE EXCEPTION 'Other tenant detail was visible'; END IF;
+  RAISE NOTICE '[PASS] Own-tenant search excludes the foreign account identifier';
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000002', true);
   IF juno.read_member_directory(NULL) IS NOT NULL THEN RAISE EXCEPTION 'Tenant crossover allowed'; END IF;
+  RAISE NOTICE '[PASS] Foreign tenant directory is denied';
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000001', true);
   PERFORM set_config('juno.account_id', '20000000-0000-4000-8100-000000000003', true);
   IF juno.search_member_directory(NULL, NULL, NULL, NULL, '20000000-0000-4000-8100-000000000003') IS NOT NULL THEN RAISE EXCEPTION 'Regular member access allowed'; END IF;
+  RAISE NOTICE '[PASS] Regular member is denied own-tenant detail';
   BEGIN
     PERFORM email FROM juno.account;
     RAISE EXCEPTION 'Runtime role can read accounts directly';
-  EXCEPTION WHEN insufficient_privilege THEN NULL;
+  EXCEPTION WHEN insufficient_privilege THEN
+    RAISE NOTICE '[PASS] Runtime role lacks direct account email access';
   END;
 END
 $check$;
