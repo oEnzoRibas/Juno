@@ -89,7 +89,13 @@ try {
     const after = Number(compose('Verify the migration journal is unchanged', journalQuery, { capture: true }).trim());
     if (after !== before) throw new Error('Rerunning migrations changed the migration journal');
 
-    for (const sql of ['tenant-isolation.sql', 'invitation-expiry.sql']) {
+    for (const sql of [
+      'tenant-isolation.sql',
+      'invitation-expiry.sql',
+      'onboarding-audit.sql',
+      'member-directory.sql',
+      'organization-profile.sql',
+    ]) {
       compose(`Run database regression ${sql}`, [
         'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-v', 'ON_ERROR_STOP=1',
       ], { input: readFileSync(join(root, 'apps/api/drizzle/test', sql)) });
