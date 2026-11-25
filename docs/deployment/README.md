@@ -1,6 +1,6 @@
 # Container-based self-hosting
 
-**Status:** Reference deployment approved. Implementation and operator commands are planned. [ADR-0005](../architecture/adr/0005-mandatory-containerization.md) requires Docker Compose as the initial deployment baseline. Junior Enterprises may operate it on their own Linux container host or a provider of their choice. Determine host capacity, disk, supported CPU architectures and operator effort from the first tested deployment.
+**Status:** Independent distribution and the Compose reference are approved. The development stack already supports isolated local operation and administrator bootstrap. Production trust and recovery requirements remain tracked under [JUNO-0038](../development/tasks/JUNO-0038.md). The [distribution decision](../architecture/adr/0012-self-hosted-distribution.md) applies to both single-organization and multi-organization installations. [ADR-0005](../architecture/adr/0005-mandatory-containerization.md) requires Docker Compose as the initial deployment baseline. Junior Enterprises may operate it on their own Linux container host or a provider of their choice. Determine host capacity, disk, supported CPU architectures and operator effort from the first tested deployment.
 
 ## Operator runbook requirements
 
