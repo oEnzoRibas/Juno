@@ -10,6 +10,8 @@ The approved foundation landed at `3053a7beab1ec657305634c77df46efe4ec472f1`. Th
 
 [JUNO-0028 — Organizational management foundation](tasks/JUNO-0028.md) has a validated [member directory increment](https://github.com/oEnzoRibas/Juno/pull/40) awaiting review. Core delivered member filters, detail and the auditable organization profile API in [#41 and #45](https://github.com/oEnzoRibas/Juno/pull/45). Membership lifecycle and delegated directorate authority need confirmed policy. Agent 02 and Agent 03 have released [parallel assignments](agents/agent-01/handoffs/juno-organizational-cycle.md).
 
+[JUNO-0038 — Independent self-hosted distribution](tasks/JUNO-0038.md) is released alongside organization management. Dependencies and reservations are in the distribution handoff.
+
 ## Pending
 
 The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-authorized FIFO exception. Foundational implementation is ordered by their implementation dependencies. The six provider tasks retain their IDs and relative order.
@@ -48,3 +50,8 @@ See the [history index](history/README.md). IDs are never reused.
 ## Independent review readiness
 
 [JUNO-0039](tasks/JUNO-0039.md) tracks the maintainer review preparation and reproducibility check. Implementation retains its existing review gates and owners.
+
+
+## GitHub traceability maintenance
+
+[JUNO-0040](tasks/JUNO-0040.md) tracks retrospective issue and PR associations and their permanent workflow. The [traceability index](traceability.md) links historical work and registered tasks. The existing queue remains authoritative.

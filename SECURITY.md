@@ -11,3 +11,7 @@ Include the affected revision, impact, scope, and a description using synthetic 
 Maintain a private record of the report, triage severity and affected data, assign an owner, and coordinate remediation and disclosure. Restrict access to case details and preserve only the evidence needed. Publish a supported-version policy and a private reporting route before the first public release. During Phase 0, maintainers can review reports about the repository foundation.
 
 See the [preliminary threat model](docs/security/threat-model.md) for planned controls and validation requirements.
+
+## Independent installations
+
+Deployment operators manage infrastructure, tenant access, data protection, TLS, patching, backups and availability. Bootstrap administrators belong to their installation. Upstream receives no automatic administrator access or tenant data. Use the [deployment guidance](docs/deployment/README.md) and report reproducible software vulnerabilities through the private reporting route above.

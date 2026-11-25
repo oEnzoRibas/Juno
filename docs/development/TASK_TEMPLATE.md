@@ -49,3 +49,10 @@ List tests required, exact checks executed, actual results, and skips or failure
 ## Remaining work and handoff
 
 Record open decisions, limitations, blockers, next action and working tree considerations. Link STATE and WORKLOG. Mark inapplicable items and explain why where it affects review.
+
+
+## GitHub records
+
+- Issue link and intended scope
+- Related delivery PRs and current review state
+- Labels used and verified completion evidence

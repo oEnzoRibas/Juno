@@ -15,6 +15,10 @@
 
 The [organizational cycle handoff](agent-01/handoffs/juno-organizational-cycle.md) supplies the active and pre-authorized claims, exact pins, path reservations and acceptance gates. It supersedes the historical post-UAT snapshot. The scopes remain isolated. The owner authorized this dependency-aware FIFO exception. The six provider tasks preserve their previous order and gates.
 
+## Self-hosted distribution
+
+[JUNO-0038](../tasks/JUNO-0038.md) follows the exact [distribution handoff](agent-01/handoffs/juno-self-hosted-distribution.md). The PR revision that introduces the handoff is the initial platform base. Existing organization and integration reservations remain in effect.
+
 ## Next reservations
 
 Agent 01 owns the delivered directory lookup and profile API. Agent 02 owns the directory review and released lookup UI. Agent 03 owns the recovery review, released backup/restore and independent SQL follow-up. See the cycle handoff for scope and promotion conditions.
