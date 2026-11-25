@@ -43,3 +43,8 @@ The owner authorized [JUNO-0034](tasks/JUNO-0034.md), [JUNO-0035](tasks/JUNO-003
 ## Completed and cancelled records
 
 See the [history index](history/README.md). IDs are never reused.
+
+
+## Independent review readiness
+
+[JUNO-0039](tasks/JUNO-0039.md) tracks the maintainer review preparation and reproducibility check. Implementation retains its existing review gates and owners.
