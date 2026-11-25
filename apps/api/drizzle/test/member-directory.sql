@@ -20,6 +20,7 @@ DECLARE first_page jsonb;
 DECLARE second_page jsonb;
 BEGIN
   IF juno.read_member_directory(NULL) IS NOT NULL THEN RAISE EXCEPTION 'Missing context allowed access'; END IF;
+  RAISE NOTICE '[PASS] Runtime without tenant and actor context receives no directory';
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000001', true);
   PERFORM set_config('juno.account_id', '20000000-0000-4000-8100-000000000001', true);
   first_page := juno.read_member_directory(NULL);
@@ -33,15 +34,20 @@ BEGIN
       SELECT 1 FROM jsonb_array_elements(second_page->'items') AS item
       WHERE item->>'email' = 'directory-fixture-53@example.invalid'
     ) THEN RAISE EXCEPTION 'Directory page, scope or inactive record differs'; END IF;
+  RAISE NOTICE '[PASS] Owning administrator sees bounded pages, stable cursor and inactive metadata | Expected 50+2 rows | Actual %+%',
+    jsonb_array_length(first_page->'items'), jsonb_array_length(second_page->'items');
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000002', true);
   IF juno.read_member_directory(NULL) IS NOT NULL THEN RAISE EXCEPTION 'Tenant crossover allowed'; END IF;
+  RAISE NOTICE '[PASS] Owning administrator receives no directory in foreign tenant';
   PERFORM set_config('juno.tenant_id', '10000000-0000-4000-8100-000000000001', true);
   PERFORM set_config('juno.account_id', '20000000-0000-4000-8100-000000000003', true);
   IF juno.read_member_directory(NULL) IS NOT NULL THEN RAISE EXCEPTION 'Regular member access allowed'; END IF;
+  RAISE NOTICE '[PASS] Regular member receives no own-tenant directory';
   BEGIN
     PERFORM email FROM juno.account;
     RAISE EXCEPTION 'Runtime role can read accounts directly';
-  EXCEPTION WHEN insufficient_privilege THEN NULL;
+  EXCEPTION WHEN insufficient_privilege THEN
+    RAISE NOTICE '[PASS] Runtime role lacks direct account email access';
   END;
 END
 $check$;
