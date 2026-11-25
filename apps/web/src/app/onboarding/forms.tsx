@@ -1,27 +1,44 @@
 'use client';
 
 import { useActionState, useEffect, useState } from 'react';
+import Link from 'next/link';
 import { createTranslator } from 'next-intl';
 import { messages } from '../../content/messages';
 import { activate, invite, provision, type Result } from './actions';
 
 type Locale = 'en' | 'pt-BR';
 
-export function InviteForm({ workspace, locale, platform }: { workspace: string; locale: Locale; platform: boolean }) {
+export function InviteForm({ workspace, locale, platform, cancelHref }: {
+  workspace: string; locale: Locale; platform: boolean; cancelHref?: string;
+}) {
   const [state, action, pending] = useActionState(invite.bind(null, workspace), {} as Result);
   const [origin, setOrigin] = useState('');
+  const [copyFeedback, setCopyFeedback] = useState<'done' | 'error'>();
   useEffect(() => { setOrigin(window.location.origin); }, []);
   const t = createTranslator({ locale, messages: messages[locale] });
   const lang = locale === 'pt-BR' ? '?lang=pt-BR' : '';
 
   return (
-    <form action={action} className="grid max-w-lg gap-4">
+    <form action={action} onSubmit={() => setCopyFeedback(undefined)} className="grid max-w-lg gap-4">
       {state.error && <p role="alert">{t('inviteError')}</p>}
       {state.value && (
-        <label className="form-field">
-          {t('invitationLink')}
-          <input value={`${origin}/activate${lang}#token=${state.value}`} readOnly />
-        </label>
+        <div className="grid gap-2">
+          <label className="form-field">
+            {t('invitationLink')}
+            <input value={`${origin}/activate${lang}#token=${state.value}`} readOnly />
+          </label>
+          <div>
+            <button className="action-button" type="button" disabled={pending || !origin} onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(origin + '/activate' + lang + '#token=' + state.value);
+                setCopyFeedback('done');
+              } catch {
+                setCopyFeedback('error');
+              }
+            }}>{t('copyInvitation')}</button>
+          </div>
+          {copyFeedback && <p role="status">{t(copyFeedback === 'done' ? 'invitationCopied' : 'copyInvitationError')}</p>}
+        </div>
       )}
       <label className="form-field">
         {t('email')}
@@ -36,17 +53,22 @@ export function InviteForm({ workspace, locale, platform }: { workspace: string;
           </select>
         </label>
       ) : <input type="hidden" name="role" value="member" />}
-      <div><button type="submit" className="action-button" disabled={pending}>{t('issueInvite')}</button></div>
+      <div className="flex flex-wrap items-center gap-4">
+        <button type="submit" className="action-button" disabled={pending}>{t('issueInvite')}</button>
+        {cancelHref && <Link href={cancelHref} className="underline" onClick={event => event.currentTarget.closest('form')?.reset()}>
+          {t('cancelProvision')}
+        </Link>}
+      </div>
     </form>
   );
 }
 
-export function ProvisionForm({ locale }: { locale: Locale }) {
+export function ProvisionForm({ locale, cancelHref }: { locale: Locale; cancelHref?: string }) {
   const [state, action, pending] = useActionState(provision, {} as Result);
   const t = createTranslator({ locale, messages: messages[locale] });
   return (
     <div className="grid gap-10">
-      <form action={action} className="grid max-w-lg gap-4">
+      {!state.value && <form action={action} className="grid max-w-lg gap-4">
         {state.error && <p role="alert">{t('provisionError')}</p>}
         <label className="form-field">
           {t('organizationName')}
@@ -54,14 +76,19 @@ export function ProvisionForm({ locale }: { locale: Locale }) {
         </label>
         <label className="form-field">
           {t('slug')}
-          <input name="slug" maxLength={63} required pattern={'[a-z0-9]+(\\-[a-z0-9]+)*'} />
+          <input aria-describedby="organization-slug-hint" name="slug" maxLength={63} required pattern={'[a-z0-9]+(\\-[a-z0-9]+)*'} />
         </label>
+        <p id="organization-slug-hint" className="text-sm text-[var(--muted)]">{t('slugHint')}</p>
         <label className="form-field">
           {t('accent')}
-          <input name="accent" type="color" defaultValue="#7565f5" required />
+          <input aria-describedby="organization-accent-hint" name="accent" type="color" defaultValue="#7565f5" required />
         </label>
-        <div><button type="submit" className="action-button" disabled={pending}>{t('createWorkspace')}</button></div>
-      </form>
+        <p id="organization-accent-hint" className="text-sm text-[var(--muted)]">{t('accentHint')}</p>
+        <div className="flex flex-wrap items-center gap-4">
+          <button type="submit" className="action-button" disabled={pending}>{t('createWorkspace')}</button>
+          {cancelHref && <Link href={cancelHref} className="underline">{t('cancelProvision')}</Link>}
+        </div>
+      </form>}
       {state.value && (
         <section aria-labelledby="first-invite">
           <p role="status" className="mb-3">{t('workspaceCreated')}</p>

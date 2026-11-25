@@ -1,7 +1,32 @@
-declare const styles: Readonly<Record<
-  'frame' | 'header' | 'headerInner' | 'headerActions' | 'wordmark' | 'utilityLink' |
-  'layout' | 'rail' | 'nav' | 'cards' | 'switcher' | 'main' | 'skip',
-  string
->>;
-
+declare const styles: {
+  readonly accountControls: string;
+  readonly accountMenu: string;
+  readonly back: string;
+  readonly breadcrumbs: string;
+  readonly cards: string;
+  readonly dashboard: string;
+  readonly dashboardGrid: string;
+  readonly desktopIcon: string;
+  readonly desktopToggle: string;
+  readonly drawer: string;
+  readonly drawerInner: string;
+  readonly frame: string;
+  readonly header: string;
+  readonly headerActions: string;
+  readonly layout: string;
+  readonly main: string;
+  readonly mobileToggle: string;
+  readonly nav: string;
+  readonly navLabel: string;
+  readonly pageTitle: string;
+  readonly preferences: string;
+  readonly preview: string;
+  readonly rail: string;
+  readonly role: string;
+  readonly sectionPanel: string;
+  readonly skip: string;
+  readonly switcher: string;
+  readonly utilityLink: string;
+  readonly wordmark: string;
+};
 export default styles;

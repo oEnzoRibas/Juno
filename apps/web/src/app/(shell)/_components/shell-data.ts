@@ -20,6 +20,7 @@ export interface WorkspaceSummary {
 export interface WorkspaceDetail extends WorkspaceSummary {
   slug: string;
   accent: string;
+  capabilities?: { inviteMember: boolean };
 }
 
 export function shellLocale(lang?: string): ShellLocale {

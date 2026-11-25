@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { createTranslator } from 'next-intl';
 import Link from 'next/link';
-import { messages } from '../../../content/messages';
+import { messages } from '../../../../content/messages';
 
 function LocalizedUnavailable() {
   const locale = useSearchParams().get('lang') === 'pt-BR' ? 'pt-BR' : 'en';
