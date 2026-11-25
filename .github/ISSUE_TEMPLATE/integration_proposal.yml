@@ -23,3 +23,9 @@ body:
       description: Include self-hosting implications, setup costs, provider limits, and the fallback workflow.
     validations:
       required: true
+
+  - type: input
+    id: development_task
+    attributes:
+      label: Related JUNO task or GitHub issue
+      description: Link existing work if known. Coordinators can assign a task ID after triage.
