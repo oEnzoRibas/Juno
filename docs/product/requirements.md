@@ -1,6 +1,6 @@
 # Product vision and requirements
 
-**Status:** Planned. Juno helps independent Junior Enterprises organize work, recognize member contributions, and develop members' skills. A Junior Enterprise administers its own structure and policies. Core workflows must serve technical and non-technical members and remain useful without external integrations. Juno starts with the Brazilian Junior Enterprise movement and supports international adoption. The official project keeps core functionality freely accessible and supports independent deployments.
+**Status:** Planned. Juno helps independent Junior Enterprises organize work, recognize member contributions, and develop members' skills. A Junior Enterprise administers its own structure and policies. Core workflows must serve technical and non-technical members and remain useful without external integrations. Juno starts with the Brazilian Junior Enterprise movement and supports international adoption. The upstream project distributes MIT-licensed software. Each single- or multi-organization installation has its own operator and platform administrators. Core workflows require no upstream account, central database, subscription, telemetry, or proprietary provider. See [ADR 0012](../architecture/adr/0012-self-hosted-distribution.md).
 
 ## Actors
 
