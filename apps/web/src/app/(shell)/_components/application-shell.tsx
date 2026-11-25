@@ -15,10 +15,11 @@ interface ShellProps {
   workspaces: WorkspaceSummary[];
   children: ReactNode;
   section?: 'dashboard' | 'members';
+  localePath?: (locale: ShellLocale) => string;
 }
 
 /** Render navigation from the server-verified account and membership list. */
-export function ApplicationShell({ locale, platformAdmin, current, workspaces, children, section = 'dashboard' }: ShellProps) {
+export function ApplicationShell({ locale, platformAdmin, current, workspaces, children, section = 'dashboard', localePath }: ShellProps) {
   const t = createTranslator({ locale, messages: messages[locale] });
   const alternate = locales[locale];
   const dashboardPath = current ? `/workspace/${current.id}` : '/session';
@@ -31,7 +32,7 @@ export function ApplicationShell({ locale, platformAdmin, current, workspaces, c
         <div className={styles.headerInner}>
           <Link href={localPath('/session', locale)} aria-label="Juno" className={styles.wordmark}>juno.</Link>
           <div className={styles.headerActions}>
-            <Link href={localPath(path, alternate.lang)} lang={alternate.lang} hrefLang={alternate.lang} className={styles.utilityLink}>
+            <Link href={localePath ? localePath(alternate.lang) : localPath(path, alternate.lang)} lang={alternate.lang} hrefLang={alternate.lang} className={styles.utilityLink}>
               {alternate.label}
             </Link>
             <form action={signOut.bind(null, locale)}>

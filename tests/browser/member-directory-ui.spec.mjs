@@ -88,6 +88,46 @@ test('lists authorized tenant members, handles cursor navigation and keeps denia
   await expect(page.getByRole('heading', { name: 'Members' })).toBeVisible();
   await expect(page.getByRole('columnheader', { name: 'Joined' })).toBeVisible();
 
+  await page.goto(`${directoryUrl}?lang=pt-BR&after=${rows.at(-1).accountId}`);
+  await page.getByLabel('Início do e-mail').fill(member.email.toUpperCase());
+  await page.getByRole('combobox', { name: 'Função', exact: true }).selectOption('member');
+  await page.getByRole('combobox', { name: 'Status', exact: true }).selectOption('true');
+  await page.getByRole('button', { name: 'Aplicar filtros' }).click();
+  await expect(page.getByRole('link', { name: member.email, exact: true })).toBeVisible();
+  expect(new URL(page.url()).searchParams.has('after')).toBe(false);
+  await expect(page.getByText(administrator.email)).toHaveCount(0);
+  await page.setViewportSize({ width: 1280, height: 820 });
+  await page.emulateMedia({ colorScheme: 'light' });
+  await testInfo.attach('member-lookup-filters', {
+    body: await page.screenshot({ path: testInfo.outputPath('member-lookup-filters.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('link', { name: member.email, exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Detalhes do membro' })).toBeVisible();
+  await expect(page.getByRole('main').getByText(member.email, { exact: true })).toBeVisible();
+  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Member details' })).toBeVisible();
+  await page.setViewportSize({ width: 375, height: 820 });
+  await page.emulateMedia({ colorScheme: 'dark' });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+  await testInfo.attach('member-lookup-detail', {
+    body: await page.screenshot({ path: testInfo.outputPath('member-lookup-detail.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('link', { name: 'Back to members' }).click();
+  await expect(page.getByLabel('Email starts with')).toHaveValue(member.email.toUpperCase());
+  await expect(page.getByRole('combobox', { name: 'Role', exact: true })).toHaveValue('member');
+  await page.getByRole('combobox', { name: 'Status', exact: true }).selectOption('false');
+  await page.getByRole('button', { name: 'Apply filters' }).click();
+  await expect(page.getByText('No memberships on this page.')).toBeVisible();
+  await page.getByRole('link', { name: 'Clear filters' }).click();
+  await expect(page.getByRole('link', { name: administrator.email, exact: true })).toBeVisible();
+
+  const detailPath = `${directoryUrl}/${rows.find(row => row.email === member.email).accountId}`;
+  const foreignDetail = `/workspace/${other}/members/${rows.at(-1).accountId}`;
+  expect((await page.goto(`${foreignDetail}?lang=pt-BR`))?.status()).toBe(404);
+  await expect(page.getByText(member.email)).toHaveCount(0);
+
   for (const path of [`/workspace/${other}/members?lang=pt-BR`, `${directoryUrl}?lang=pt-BR&after=wrong`]) {
     expect((await page.goto(path))?.status()).toBe(404);
     await expect(page.getByRole('heading', { name: 'Organização indisponível' })).toBeVisible();
@@ -102,6 +142,8 @@ test('lists authorized tenant members, handles cursor navigation and keeps denia
     await expect(memberPage.getByRole('link', { name: 'Membros', exact: true })).toHaveCount(0);
     expect((await memberPage.goto(`${directoryUrl}?lang=pt-BR`))?.status()).toBe(404);
     await expect(memberPage.getByText(administrator.email)).toHaveCount(0);
+    expect((await memberPage.goto(`${detailPath}?lang=pt-BR`))?.status()).toBe(404);
+    await expect(memberPage.getByText(member.email)).toHaveCount(0);
   } finally {
     await memberContext.close();
   }

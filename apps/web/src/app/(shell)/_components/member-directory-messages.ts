@@ -1,6 +1,13 @@
 export const directoryMessages = {
   en: {
     members: 'Members',
+    detail: 'Member details',
+    back: 'Back to members',
+    prefix: 'Email starts with',
+    allRoles: 'All roles',
+    allStatuses: 'All statuses',
+    filter: 'Apply filters',
+    clear: 'Clear filters',
     loading: 'Loading members',
     error: 'Could not load the member directory.',
     retry: 'Try again',
@@ -18,6 +25,13 @@ export const directoryMessages = {
   },
   'pt-BR': {
     members: 'Membros',
+    detail: 'Detalhes do membro',
+    back: 'Voltar para membros',
+    prefix: 'Início do e-mail',
+    allRoles: 'Todas as funções',
+    allStatuses: 'Todos os status',
+    filter: 'Aplicar filtros',
+    clear: 'Limpar filtros',
     loading: 'Carregando membros',
     error: 'Não foi possível carregar a lista de membros.',
     retry: 'Tentar novamente',
