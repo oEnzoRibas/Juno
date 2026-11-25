@@ -10,6 +10,7 @@ services:
     command: ["pnpm", "--filter", "@juno/web", "dev"]
     environment:
       NODE_ENV: development
+      JUNO_REVIEW_LIVE_SOURCE: '1'
     develop:
       watch:
         - action: sync

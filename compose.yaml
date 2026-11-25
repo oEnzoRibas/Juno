@@ -39,6 +39,8 @@ services:
     command: ["pnpm", "--filter", "@juno/api", "start"]
     environment:
       PORT: 3001
+      JUNO_REVIEW_BUILD_INFO: ${JUNO_REVIEW_BUILD_INFO:-0}
+      JUNO_REVIEW_ENVIRONMENT: ${COMPOSE_PROJECT_NAME:-juno}
       JUNO_DATABASE_PASSWORD: ${JUNO_DATABASE_PASSWORD:?Set JUNO_DATABASE_PASSWORD in .env}
       JUNO_DATABASE_HOST: db
     networks:
@@ -61,6 +63,9 @@ services:
     environment:
       JUNO_API_ORIGIN: http://api:3001
       JUNO_ALLOW_INSECURE_LOCAL_COOKIE: '1'
+      JUNO_REVIEW_BUILD_INFO: ${JUNO_REVIEW_BUILD_INFO:-0}
+      JUNO_REVIEW_ENVIRONMENT: ${COMPOSE_PROJECT_NAME:-juno}
+      JUNO_REVIEW_EXPECTED_API_REVISION: ${JUNO_REVIEW_EXPECTED_API_REVISION:-}
     ports:
       - "127.0.0.1:${JUNO_WEB_PORT:-3000}:3000"
     depends_on:

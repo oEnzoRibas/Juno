@@ -24,6 +24,15 @@ export class DatabaseService implements OnApplicationShutdown {
     }
   }
 
+  async schemaVersion(): Promise<number | null> {
+    try {
+      const result = await this.db?.execute<{ version: number | null }>(sql`SELECT max(version) AS version FROM juno_runtime.schema_version`);
+      return result?.rows[0]?.version ?? null;
+    } catch {
+      return null;
+    }
+  }
+
   async onApplicationShutdown(): Promise<void> {
     await this.pool?.end();
   }

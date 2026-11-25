@@ -11,6 +11,9 @@
 !apps/api/**
 !apps/web/
 !apps/web/**
+!scripts/
+!scripts/build/
+!scripts/build/stamp-image.mjs
 **/node_modules
 **/.next
 **/.turbo
