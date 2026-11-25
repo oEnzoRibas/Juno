@@ -19,6 +19,11 @@ The [organizational cycle handoff](agent-01/handoffs/juno-organizational-cycle.m
 
 Agent 01 owns the delivered directory lookup and profile API. Agent 02 owns the directory review and released lookup UI. Agent 03 owns the recovery review, released backup/restore and independent SQL follow-up. See the cycle handoff for scope and promotion conditions.
 
+
 ## Integration consolidation
 
 Use the [current consolidation handoff](agent-01/handoffs/juno-integration-consolidation.md) for the settings, quality, formatting and review reservations. It supersedes earlier checkpoint pins for these changes.
+
+## Maintainer review preparation
+
+[JUNO-0039](../tasks/JUNO-0039.md) covers the observed 15 open reviews. Agent 01 owns backend, architecture, governance, dependency verification, description publication and final consistency. Agent 02 verifies frontend #37/#43/#48/#51 and product/evidence #53/#54 diagrams, screenshots, acceptance criteria and accessibility. Agent 03 verifies #49/#52/#55/#58 CI, operational and independent commands and evidence. Both lanes delivered read-only audits. Agent 01 retains authority for PR edits. Agent 02 confirmed the redesigned Shell's environment-specific revision indicator. Other preview identities are surfaced through the inventory without modifying their snapshots. Existing implementation reservations remain in effect.
