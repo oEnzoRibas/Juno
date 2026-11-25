@@ -116,7 +116,9 @@ function confirmOwnership(state) {
 }
 
 function dockerEngine() {
-  return run('Identify Docker Engine', 'docker', ['info', '--format', '{{.ID}}'], { capture: true }).trim();
+  const id = run('Identify Docker Engine', 'docker', ['info', '--format', '{{.ID}}'], { capture: true }).trim();
+  if (!id) throw new Error('Docker Engine did not return an identity.');
+  return id;
 }
 
 function removeSource(state, disposable) {
@@ -223,7 +225,6 @@ async function status(state) {
 }
 
 async function start(state) {
-  state.engine = dockerEngine();
   writePrivate(join(state.directory, 'state.json'), JSON.stringify(state));
   const envFile = join(state.directory, 'compose.env');
   writePrivate(envFile, [
@@ -269,6 +270,8 @@ async function main() {
   const [action, ...args] = process.argv.slice(2);
   if (!['start', 'status', 'test', 'stop', 'credentials', 'directory'].includes(action)) throw new Error('Choose start, status, test, stop, credentials or directory.');
   const { pr, sha, webPort, apiPort } = parseArguments(args);
+  // Fail without creating a checkout or registering private state when Docker is unavailable.
+  const engine = action === 'start' ? dockerEngine() : undefined;
   const repo = repository();
   const directory = join(repo.directory, `pr-${pr}`);
   if (!['start', 'test'].includes(action) && (sha || webPort || apiPort)) throw new Error('This command only accepts --pr.');
@@ -309,7 +312,7 @@ async function main() {
     if (action === 'start') ensureDirectory(destination, true);
     let state;
     try {
-      state = createCheckout(destination, repo, pr, sha, ports);
+      state = createCheckout(destination, repo, pr, sha, { ...ports, engine });
       if (action === 'test') test(state);
       else await start(state);
     } catch (error) {

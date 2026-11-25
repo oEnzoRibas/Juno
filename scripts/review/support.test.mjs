@@ -1,4 +1,9 @@
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, readdirSync, rmdirSync } from 'node:fs';
 import { createServer } from 'node:net';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { assertPublishedPorts, choosePorts, parseArguments, parseJsonLines } from './support.mjs';
 
@@ -23,6 +28,24 @@ describe('review arguments and isolated ports', () => {
       await expect(choosePorts(listener.address().port)).rejects.toThrow('could not be reserved');
     } finally {
       await new Promise(resolve => listener.close(resolve));
+    }
+  });
+
+  it('fails the persistent Docker preflight before creating any review state', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'juno-review-preflight-'));
+    const cli = fileURLToPath(new URL('./cli.mjs', import.meta.url));
+    const env = { ...process.env, TMPDIR: directory, TEMP: directory, TMP: directory };
+    for (const key of Object.keys(env)) {
+      if (key.toLowerCase() === 'path') delete env[key];
+    }
+    env.PATH = directory;
+    try {
+      const result = spawnSync(process.execPath, [cli, 'start', '--pr', '40'], { cwd: directory, env, encoding: 'utf8' });
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('Identify Docker Engine failed');
+      expect(readdirSync(directory)).toEqual([]);
+    } finally {
+      rmdirSync(directory);
     }
   });
 
