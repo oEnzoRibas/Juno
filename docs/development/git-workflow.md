@@ -35,3 +35,12 @@ Human approval controls merges. Preserve shared history and branch protection, a
 Recommend required PRs, checks, resolved conversations, and protection against force pushes and unauthorized deletion. Evaluate CODEOWNERS only with confirmed owners. The owner-approved Rebase and merge preference is documented in [ADR-0009](../architecture/adr/0009-stacked-pull-requests.md). Prefer preserving meaningful atomic commits. Reserve squash for an explicitly reviewed reason. See [release governance](../governance/release.md).
 
 Evaluate commitlint, advisory local hooks and authoritative GitHub Actions checks for branch, title and message formats. Add [quality gates](../testing/README.md) only when executable. Record URL, base, branch, actual commit hashes, CI, review and merge status in the task or linked publication record, and keep [STATE](STATE.md) and [WORKLOG](WORKLOG.md) current.
+
+
+## Maintainer review standard
+
+Every contribution uses the [PR template](../../.github/pull_request_template.md). Before presenting a PR as ready, record its scope, current native stack or independent base, exact head and base commits, reviewable incremental diff, owner and respective checks. Explain the delivery in accessible language and describe the changed boundaries or contracts. Preserve commit history and update the description in place.
+
+Embed relevant, versioned and sanitized evidence. Use actual screenshots for implemented UI, labeled proposals for concept review, and diagrams or terminal and Actions evidence for backend, quality and infrastructure work. List copyable checkout commands, dependencies, prerequisites, a safe environment, acceptance and negative scenarios, expected results and cleanup. Link actual Actions jobs, and state their checked base. Separate local, integrated, independent and human results. A green historical run proves only its tested input. Record blockers and pending decisions and give the maintainer a concrete checklist. Native stack mergeability does not override review gates.
+
+When several PRs implement one workflow, link an exact shared [UAT snapshot](uat-testing-guide.md#review-environment-inventory) so the maintainer can review it once. Preserve historical UAT and research evidence. A design approval covers the design, and a later interaction acceptance covers the specified runtime snapshot.

@@ -29,3 +29,8 @@ When a test runner is implemented, document exact setup and commands, fixture re
 Use GitHub Actions with the same containerized definitions as contributors when they are runnable. Evaluate GHCR for official image distribution through a separately authorized workflow. [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
 
 Give each gate a repository command, reproducible environment and expected result before enabling CI. Prioritize fast pull request checks and isolate slower provider tests. Document failures and obtain appropriate approval before suppressing an applicable gate. Keep mandatory unverified work incomplete under the [definition of done](../development/DEFINITION_OF_DONE.md).
+
+
+## Independent PR reproduction
+
+Record the exact checkout, dependencies, commands, test data handling, expected and negative results, cleanup and run links in each PR. Separate hosted, local, integrated and independent checks from human approval. Use disposable projects for automated checks and a pinned [UAT inventory](../development/uat-testing-guide.md#review-environment-inventory) for maintainer tests. Document a red check or incomplete run and its actual scope.
