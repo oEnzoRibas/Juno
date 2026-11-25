@@ -3,8 +3,8 @@ import { expect, test } from '@playwright/test';
 
 test('updates an organization profile and preserves membership and tenant boundaries', async ({ page, browser, request }, testInfo) => {
   const api = (process.env.JUNO_SMOKE_API ?? 'http://127.0.0.1:3001') + '/api';
-  const admin = process.env.JUNO_TEST_ADMIN_EMAIL;
-  const password = process.env.JUNO_TEST_ADMIN_PASSWORD;
+  const admin = process.env.JUNO_TEST_PROFILE_ADMIN_EMAIL ?? process.env.JUNO_TEST_ADMIN_EMAIL;
+  const password = process.env.JUNO_TEST_PROFILE_ADMIN_PASSWORD ?? process.env.JUNO_TEST_ADMIN_PASSWORD;
   if (!admin || !password) throw new Error('Bootstrap the synthetic platform administrator first.');
   const suffix = randomBytes(6).toString('hex');
   const name = 'Estúdio Aurora';
