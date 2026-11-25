@@ -18,3 +18,5 @@
 See [architecture decision candidates](../architecture/decision-candidates.md) for topology, tenancy, identity, platform tooling and approval evidence.
 
 Role names identify review responsibilities and may be held by the same person during Phase 0. This repository has no runnable application, migrations, published API, environment settings, or live integrations. Maintain a technical debt record as soon as a deliberate implementation compromise is accepted. Record the consequence, owner, trigger for revisiting it, and removal criteria.
+
+The [membership lifecycle decision brief](membership-lifecycle-decisions.md) records the pending reactivation, final administrator, delegation and retention choices.
