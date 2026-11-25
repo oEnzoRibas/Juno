@@ -44,7 +44,7 @@ export class AuthService {
     await this.takeBudget(`email:${email}`, 12);
     const lookup = await this.db.execute<CredentialsRow>(sql`SELECT * FROM juno.credential_for_email(${email})`);
     const account = lookup.rows[0];
-    if (!await passwordMatches(password, account?.password_hash) || !account) throw new UnauthorizedException();
+    if (!(await passwordMatches(password, account?.password_hash)) || !account) throw new UnauthorizedException();
 
     const token = randomBytes(32).toString('hex');
     const expiresAt = new Date(Date.now() + 8 * 60 * 60 * 1_000).toISOString();

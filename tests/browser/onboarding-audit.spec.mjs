@@ -6,7 +6,8 @@ const api = process.env.JUNO_SMOKE_API ?? 'http://127.0.0.1:3001';
 test('derives tenant capabilities and redacts audit data for active administrators', async ({ request }) => {
   const platformEmail = process.env.JUNO_TEST_ADMIN_EMAIL;
   const platformPassword = process.env.JUNO_TEST_ADMIN_PASSWORD;
-  if (!platformEmail || !platformPassword) throw new Error('Bootstrap a synthetic platform admin before running this test.');
+  if (!platformEmail || !platformPassword)
+    throw new Error('Bootstrap a synthetic platform admin before running this test.');
 
   async function login(email, password) {
     const response = await request.post(`${api}/api/auth/sign-in`, { data: { email, password } });
@@ -30,7 +31,8 @@ test('derives tenant capabilities and redacts audit data for active administrato
     const email = `audit-${role}-${suffix}@example.invalid`;
     const password = randomBytes(18).toString('hex');
     const invite = await request.post(`${api}/api/tenants/${tenantId}/invitations`, {
-      headers: platform, data: { email, role },
+      headers: platform,
+      data: { email, role },
     });
     expect(invite.status()).toBe(201);
     const activation = await request.post(`${api}/api/tenants/activation`, {
@@ -69,7 +71,11 @@ test('derives tenant capabilities and redacts audit data for active administrato
   const body = await response.json();
   expect(Object.keys(body)).toEqual(['events']);
   expect(body.events.map(({ event }) => event)).toEqual([
-    'invitation_accepted', 'invitation_issued', 'invitation_accepted', 'invitation_issued', 'tenant_created',
+    'invitation_accepted',
+    'invitation_issued',
+    'invitation_accepted',
+    'invitation_issued',
+    'tenant_created',
   ]);
   for (const entry of body.events) {
     expect(Object.keys(entry).sort()).toEqual(['event', 'occurredAt']);
@@ -81,8 +87,9 @@ test('derives tenant capabilities and redacts audit data for active administrato
   expect(contract.security).toEqual([{ bearer: [] }]);
   expect(contract.responses['404']).toBeDefined();
   expect(document.components.schemas.OnboardingAuditResponse.properties.events.maxItems).toBe(50);
-  expect(document.components.schemas.WorkspaceResponse.properties.capabilities.$ref)
-    .toBe('#/components/schemas/WorkspaceCapabilities');
+  expect(document.components.schemas.WorkspaceResponse.properties.capabilities.$ref).toBe(
+    '#/components/schemas/WorkspaceCapabilities',
+  );
   const capabilities = document.components.schemas.WorkspaceCapabilities;
   expect(capabilities.required.sort()).toEqual(['inviteMember', 'readOnboardingAudit']);
   expect(Object.values(capabilities.properties).map(({ type }) => type)).toEqual(['boolean', 'boolean']);

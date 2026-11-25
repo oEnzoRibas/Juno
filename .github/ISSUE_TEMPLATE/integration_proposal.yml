@@ -1,6 +1,6 @@
 name: Integration proposal
 description: Propose connecting Juno to an external service.
-title: "[Integration] "
+title: '[Integration] '
 body:
   - type: textarea
     id: workflow

@@ -1,13 +1,13 @@
 # ADR-0008 — Editable architecture diagrams
 
-| Field | Value |
-| --- | --- |
-| Status | Accepted diagram standard. Optional container export remains proposed. |
-| Date | 2026-11-24 |
+| Field                       | Value                                                                                                                                                 |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Status                      | Accepted diagram standard. Optional container export remains proposed.                                                                                |
+| Date                        | 2026-11-24                                                                                                                                            |
 | Decision owner and approver | Enzo Ribas in [JUNO-0002](../../development/history/JUNO-0002-request.md) and the [integration brief](../../development/history/JUNO-0004-request.md) |
-| Prepared by | Codex with owner-supplied visual references |
-| Related tasks | [JUNO-0002](../../development/tasks/JUNO-0002.md), [JUNO-0005](../../development/tasks/JUNO-0005.md) |
-| Related ADRs | [ADR-0005](0005-mandatory-containerization.md), [ADR-0007](0007-integration-adapters.md) |
+| Prepared by                 | Codex with owner-supplied visual references                                                                                                           |
+| Related tasks               | [JUNO-0002](../../development/tasks/JUNO-0002.md), [JUNO-0005](../../development/tasks/JUNO-0005.md)                                                  |
+| Related ADRs                | [ADR-0005](0005-mandatory-containerization.md), [ADR-0007](0007-integration-adapters.md)                                                              |
 
 ## Context and alternatives
 

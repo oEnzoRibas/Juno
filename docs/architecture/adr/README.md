@@ -1,16 +1,16 @@
 # Architecture decision records
 
-| ID | Status | Subject |
-| --- | --- | --- |
-| [ADR-0001](0001-tenant-data-isolation.md) | Accepted isolation requirement | Tenant data isolation |
-| [ADR-0002](0002-mit-licensing.md) | Accepted | MIT licensing for Juno |
-| [ADR-0003](0003-application-topology.md) | Accepted | Application topology |
-| [ADR-0004](0004-durable-domain-events.md) | Proposed | Durable domain events |
-| [ADR-0005](0005-mandatory-containerization.md) | Accepted | Mandatory Docker and Compose |
-| [ADR-0006](0006-optional-integrations.md) | Accepted | Optional integration ecosystem |
-| [ADR-0007](0007-integration-adapters.md) | Proposed | Integration adapters and failure isolation |
-| [ADR-0008](0008-editable-diagrams.md) | Accepted | Editable architecture diagram standard |
-| [ADR-0009](0009-stacked-pull-requests.md) | Accepted | Native stack and review-readiness workflow |
+| ID                                             | Status                         | Subject                                    |
+| ---------------------------------------------- | ------------------------------ | ------------------------------------------ |
+| [ADR-0001](0001-tenant-data-isolation.md)      | Accepted isolation requirement | Tenant data isolation                      |
+| [ADR-0002](0002-mit-licensing.md)              | Accepted                       | MIT licensing for Juno                     |
+| [ADR-0003](0003-application-topology.md)       | Accepted                       | Application topology                       |
+| [ADR-0004](0004-durable-domain-events.md)      | Proposed                       | Durable domain events                      |
+| [ADR-0005](0005-mandatory-containerization.md) | Accepted                       | Mandatory Docker and Compose               |
+| [ADR-0006](0006-optional-integrations.md)      | Accepted                       | Optional integration ecosystem             |
+| [ADR-0007](0007-integration-adapters.md)       | Proposed                       | Integration adapters and failure isolation |
+| [ADR-0008](0008-editable-diagrams.md)          | Accepted                       | Editable architecture diagram standard     |
+| [ADR-0009](0009-stacked-pull-requests.md)      | Accepted                       | Native stack and review-readiness workflow |
 
 Development process decision: [ADR-0011](0011-three-agent-development.md), accepted three-agent engineering and coordination.
 

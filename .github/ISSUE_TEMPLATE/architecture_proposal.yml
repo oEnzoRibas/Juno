@@ -1,6 +1,6 @@
 name: Architecture proposal
 description: Propose a significant technical or operational decision.
-title: "[Architecture] "
+title: '[Architecture] '
 body:
   - type: textarea
     id: context

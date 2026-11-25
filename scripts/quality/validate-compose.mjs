@@ -60,9 +60,9 @@ try {
     return run(description, 'docker', [...composeArgs, ...args], { ...options, env: composeEnv });
   }
 
-  const config = JSON.parse(compose('Validate the resolved Compose configuration', [
-    'config', '--format', 'json',
-  ], { capture: true }));
+  const config = JSON.parse(
+    compose('Validate the resolved Compose configuration', ['config', '--format', 'json'], { capture: true }),
+  );
   if (!config.networks.database.internal || config.services.db.ports?.length) {
     throw new Error('The database must stay on an internal network without host ports');
   }
@@ -74,14 +74,23 @@ try {
   }
 
   try {
-    compose(`Build and start disposable project ${project}`, [
-      'up', '--build', '--wait', '--wait-timeout', '120',
-    ]);
-    run('Verify web locales, API health and OpenAPI', process.execPath, ['scripts/runtime-smoke.mjs'], { env: smokeEnv });
+    compose(`Build and start disposable project ${project}`, ['up', '--build', '--wait', '--wait-timeout', '120']);
+    run('Verify web locales, API health and OpenAPI', process.execPath, ['scripts/runtime-smoke.mjs'], {
+      env: smokeEnv,
+    });
 
     const journalQuery = [
-      'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-At',
-      '-c', 'SELECT count(*) FROM drizzle.__drizzle_migrations',
+      'exec',
+      '-T',
+      'db',
+      'psql',
+      '-U',
+      'juno_migrator',
+      '-d',
+      'juno',
+      '-At',
+      '-c',
+      'SELECT count(*) FROM drizzle.__drizzle_migrations',
     ];
     const before = Number(compose('Read the migration journal', journalQuery, { capture: true }).trim());
     if (!Number.isSafeInteger(before) || before < 1) throw new Error('No applied migrations were recorded');
@@ -90,27 +99,34 @@ try {
     if (after !== before) throw new Error('Rerunning migrations changed the migration journal');
 
     for (const sql of ['tenant-isolation.sql', 'invitation-expiry.sql']) {
-      compose(`Run database regression ${sql}`, [
-        'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-v', 'ON_ERROR_STOP=1',
-      ], { input: readFileSync(join(root, 'apps/api/drizzle/test', sql)) });
+      compose(
+        `Run database regression ${sql}`,
+        ['exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-v', 'ON_ERROR_STOP=1'],
+        { input: readFileSync(join(root, 'apps/api/drizzle/test', sql)) },
+      );
     }
 
-    compose('Bootstrap a synthetic platform administrator', [
-      'run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin',
-    ], { input: JSON.stringify(admin) });
-    run('Run the login and tenant onboarding browser flows', process.execPath, [
-      playwright, 'test', '--workers=1',
-    ], { env: {
-      ...smokeEnv,
-      JUNO_TEST_ADMIN_EMAIL: admin.email,
-      JUNO_TEST_ADMIN_PASSWORD: admin.password,
-    } });
+    compose(
+      'Bootstrap a synthetic platform administrator',
+      ['run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin'],
+      { input: JSON.stringify(admin) },
+    );
+    run('Run the login and tenant onboarding browser flows', process.execPath, [playwright, 'test', '--workers=1'], {
+      env: {
+        ...smokeEnv,
+        JUNO_TEST_ADMIN_EMAIL: admin.email,
+        JUNO_TEST_ADMIN_PASSWORD: admin.password,
+      },
+    });
   } finally {
     try {
       compose(`Remove disposable project ${project}`, ['down', '--volumes', '--remove-orphans']);
-      const tags = run('Check for the disposable runtime image', 'docker', [
-        'image', 'ls', '--filter', `reference=${image}`, '--format', '{{.Repository}}:{{.Tag}}',
-      ], { capture: true });
+      const tags = run(
+        'Check for the disposable runtime image',
+        'docker',
+        ['image', 'ls', '--filter', `reference=${image}`, '--format', '{{.Repository}}:{{.Tag}}'],
+        { capture: true },
+      );
       if (tags.trim() === image) {
         run('Remove the disposable runtime image tag', 'docker', ['image', 'rm', image]);
       }

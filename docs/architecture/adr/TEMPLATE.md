@@ -1,13 +1,13 @@
 # ADR-NNNN — Decision title
 
-| Field | Value |
-| --- | --- |
-| Status | Proposed |
-| Date | YYYY-MM-DD |
-| Decision owner or approver | Pending review or actual name |
-| Prepared by | Actual preparer. Describe AI assistance where applicable. |
-| Related tasks | Link relevant JUNO records |
-| Related ADRs | Link dependencies or superseded decisions |
+| Field                      | Value                                                     |
+| -------------------------- | --------------------------------------------------------- |
+| Status                     | Proposed                                                  |
+| Date                       | YYYY-MM-DD                                                |
+| Decision owner or approver | Pending review or actual name                             |
+| Prepared by                | Actual preparer. Describe AI assistance where applicable. |
+| Related tasks              | Link relevant JUNO records                                |
+| Related ADRs               | Link dependencies or superseded decisions                 |
 
 ## Context and problem
 

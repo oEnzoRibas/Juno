@@ -6,11 +6,11 @@
 
 A small project needs a reproducible self-hosting path and strong isolation for independent Junior Enterprises. Tenants share product capabilities and may have different backup or data-location requirements. No persistence stack has been accepted.
 
-| Option | Benefits | Costs |
-| --- | --- | --- |
+| Option                                             | Benefits                                                                             | Costs                                                                                                                  |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
 | Shared database and schema with tenant-scoped rows | One schema and deployment, straightforward migrations, low baseline operator effort. | A missing or stale tenant constraint can cross boundaries. Requires layered controls and care with per-tenant restore. |
-| Schema per tenant | Separate table namespaces with a shared server. | Correct schema selection and pool handling remain critical. More migration and restore work as tenant count grows. |
-| Database per tenant | Stronger administrative separation and simpler single-tenant restore boundaries. | More connection, credentials, migration, backup, and provisioning overhead. Shared operations require coordination. |
+| Schema per tenant                                  | Separate table namespaces with a shared server.                                      | Correct schema selection and pool handling remain critical. More migration and restore work as tenant count grows.     |
+| Database per tenant                                | Stronger administrative separation and simpler single-tenant restore boundaries.     | More connection, credentials, migration, backup, and provisioning overhead. Shared operations require coordination.    |
 
 ## Accepted direction and implementation candidate
 

@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "../components/design-tokens.css";
-@import "../components/forms.css";
+@import 'tailwindcss';
+@import '../components/design-tokens.css';
+@import '../components/forms.css';
 
 body {
   background: var(--surface);
@@ -37,19 +37,19 @@ a {
   border-block-start-width: var(--tenant-accent-width);
 }
 
-.public-panel :is(p[role="alert"], p[role="status"]) {
+.public-panel :is(p[role='alert'], p[role='status']) {
   border-radius: var(--radius-control);
   border: 1px solid currentColor;
   padding: var(--space-3);
   font-weight: 600;
 }
 
-.public-panel p[role="alert"] {
+.public-panel p[role='alert'] {
   background: var(--danger-surface);
   color: var(--danger-text);
 }
 
-.public-panel p[role="status"] {
+.public-panel p[role='status'] {
   background: var(--success-surface);
   color: var(--success-text);
 }

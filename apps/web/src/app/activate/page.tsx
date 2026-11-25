@@ -12,9 +12,15 @@ export default async function Activate({ searchParams }: { searchParams: Promise
   return (
     <main lang={locale} className="public-shell">
       <section className="public-panel" aria-labelledby="activation-title">
-        <h1 id="activation-title" className="mb-6 text-3xl font-semibold">{t('activate')}</h1>
+        <h1 id="activation-title" className="mb-6 text-3xl font-semibold">
+          {t('activate')}
+        </h1>
         <ActivationForm locale={locale} signedIn={signedIn} />
-        {!signedIn && <Link href={locale === 'pt-BR' ? '/sign-in?lang=pt-BR' : '/sign-in'} className="mt-5 inline-block underline">{t('existingAccount')}</Link>}
+        {!signedIn && (
+          <Link href={locale === 'pt-BR' ? '/sign-in?lang=pt-BR' : '/sign-in'} className="mt-5 inline-block underline">
+            {t('existingAccount')}
+          </Link>
+        )}
       </section>
     </main>
   );

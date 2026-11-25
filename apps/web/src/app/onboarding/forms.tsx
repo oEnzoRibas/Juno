@@ -10,7 +10,9 @@ type Locale = 'en' | 'pt-BR';
 export function InviteForm({ workspace, locale, platform }: { workspace: string; locale: Locale; platform: boolean }) {
   const [state, action, pending] = useActionState(invite.bind(null, workspace), {} as Result);
   const [origin, setOrigin] = useState('');
-  useEffect(() => { setOrigin(window.location.origin); }, []);
+  useEffect(() => {
+    setOrigin(window.location.origin);
+  }, []);
   const t = createTranslator({ locale, messages: messages[locale] });
   const lang = locale === 'pt-BR' ? '?lang=pt-BR' : '';
 
@@ -35,8 +37,14 @@ export function InviteForm({ workspace, locale, platform }: { workspace: string;
             <option value="member">{t('member')}</option>
           </select>
         </label>
-      ) : <input type="hidden" name="role" value="member" />}
-      <div><button type="submit" className="action-button" disabled={pending}>{t('issueInvite')}</button></div>
+      ) : (
+        <input type="hidden" name="role" value="member" />
+      )}
+      <div>
+        <button type="submit" className="action-button" disabled={pending}>
+          {t('issueInvite')}
+        </button>
+      </div>
     </form>
   );
 }
@@ -60,12 +68,20 @@ export function ProvisionForm({ locale }: { locale: Locale }) {
           {t('accent')}
           <input name="accent" type="color" defaultValue="#7565f5" required />
         </label>
-        <div><button type="submit" className="action-button" disabled={pending}>{t('createWorkspace')}</button></div>
+        <div>
+          <button type="submit" className="action-button" disabled={pending}>
+            {t('createWorkspace')}
+          </button>
+        </div>
       </form>
       {state.value && (
         <section aria-labelledby="first-invite">
-          <p role="status" className="mb-3">{t('workspaceCreated')}</p>
-          <h2 id="first-invite" className="mb-4 text-xl font-semibold">{t('firstInvite')}</h2>
+          <p role="status" className="mb-3">
+            {t('workspaceCreated')}
+          </p>
+          <h2 id="first-invite" className="mb-4 text-xl font-semibold">
+            {t('firstInvite')}
+          </h2>
           <InviteForm key={state.value} workspace={state.value} platform locale={locale} />
         </section>
       )}
@@ -85,7 +101,14 @@ export function ActivationForm({ locale, signedIn }: { locale: Locale; signedIn:
       {state.error && <p role="alert">{t('activationError')}</p>}
       <label className="form-field">
         {t('invitationCode')}
-        <input name="token" value={token} onChange={event => setToken(event.target.value)} maxLength={64} autoComplete="off" required />
+        <input
+          name="token"
+          value={token}
+          onChange={(event) => setToken(event.target.value)}
+          maxLength={64}
+          autoComplete="off"
+          required
+        />
       </label>
       {!signedIn && (
         <label className="form-field">
@@ -93,7 +116,11 @@ export function ActivationForm({ locale, signedIn }: { locale: Locale; signedIn:
           <input name="password" type="password" autoComplete="new-password" minLength={12} maxLength={256} required />
         </label>
       )}
-      <div><button type="submit" className="action-button" disabled={pending}>{t('activate')}</button></div>
+      <div>
+        <button type="submit" className="action-button" disabled={pending}>
+          {t('activate')}
+        </button>
+      </div>
     </form>
   );
 }

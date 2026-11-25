@@ -3,8 +3,10 @@ import { bearerDigest, digest, hashPassword, parseCredentials, passwordMatches }
 
 describe('local credentials', () => {
   it('normalizes email and preserves whitespace in the password', () => {
-    expect(parseCredentials({ email: ' DEMO@example.invalid ', password: ' synthetic pass ' }))
-      .toEqual({ email: 'demo@example.invalid', password: ' synthetic pass ' });
+    expect(parseCredentials({ email: ' DEMO@example.invalid ', password: ' synthetic pass ' })).toEqual({
+      email: 'demo@example.invalid',
+      password: ' synthetic pass ',
+    });
     expect(parseCredentials({ email: 'demo@example.invalid', password: 'a'.repeat(257) })).toBeUndefined();
   });
 

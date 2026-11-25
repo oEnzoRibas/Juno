@@ -7,5 +7,8 @@ import { OnboardingController } from './onboarding/onboarding.controller';
 import { OnboardingService } from './onboarding/onboarding.service';
 import { ReadyController } from './ready.controller';
 
-@Module({ controllers: [HealthController, ReadyController, AuthController, OnboardingController], providers: [DatabaseService, AuthService, OnboardingService] })
+@Module({
+  controllers: [HealthController, ReadyController, AuthController, OnboardingController],
+  providers: [DatabaseService, AuthService, OnboardingService],
+})
 export class AppModule {}

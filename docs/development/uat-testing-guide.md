@@ -2,13 +2,13 @@
 
 Use the exact commits and environment in the [preview checkpoint](history/JUNO-0037-uat-preview.md). The approved Windows preview runs on loopback only.
 
-| Entry point | URL |
-| --- | --- |
-| English web | `http://127.0.0.1:3300/` |
-| Brazilian Portuguese web | `http://127.0.0.1:3300/?lang=pt-BR` |
-| Sign in | `http://127.0.0.1:3300/sign-in` |
-| API readiness | `http://127.0.0.1:4300/api/ready` |
-| OpenAPI | `http://127.0.0.1:4300/api/openapi.json` |
+| Entry point              | URL                                      |
+| ------------------------ | ---------------------------------------- |
+| English web              | `http://127.0.0.1:3300/`                 |
+| Brazilian Portuguese web | `http://127.0.0.1:3300/?lang=pt-BR`      |
+| Sign in                  | `http://127.0.0.1:3300/sign-in`          |
+| API readiness            | `http://127.0.0.1:4300/api/ready`        |
+| OpenAPI                  | `http://127.0.0.1:4300/api/openapi.json` |
 
 Use the local private PowerShell credential helper under the Windows account that set up the preview. The companion local operator guide holds the machine-specific path. The helper reads Windows DPAPI-encrypted accounts and invitations. Never commit the credential store or put passwords, tokens, or live invitation links in screenshots or reviews.
 

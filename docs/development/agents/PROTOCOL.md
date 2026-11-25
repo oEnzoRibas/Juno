@@ -8,16 +8,16 @@ Select the earliest eligible task for each free owner. Up to three agents can ho
 
 Record task ownership separately from execution. An assignment authorizes work within its reserved paths. Starting a separate Codex session requires evidence. Store the source, timestamp, acknowledged registry revision, last verified worktree or branch, exact commit, validation and next action in the [execution checkpoint](EXECUTION_STATE.md). Keep separate records when the owner reports on an independent session and a delegated execution publishes work for the same assigned role.
 
-| State | Evidence and effect |
-| --- | --- |
-| Task assigned | Agent 01 published an owner, task, reserved paths, branch, base revision, dependencies and handoff. |
-| Assignment acknowledged | The named recipient confirms receipt and identifies the registry revision and base. |
-| Agent executing | Observed action or an explicit current status confirms the session is active in its isolated worktree. |
-| Agent paused | The recipient reports a voluntary stop or a deliberate checkpoint. Preserve the claim and its next action. |
-| Agent interrupted | An external stop or interruption was observed or reported. Preserve uncommitted work and record the last verified checkpoint. |
-| Agent blocked | A specific dependency, permission or other condition prevents progress. Record validation and the resumption condition. |
-| Agent awaiting review | A scope has been published for review, with exact commit, PR and validation. Update related task claims to reflect the review stage. |
-| Task completed | The task's acceptance, review and applicable merge requirements were verified. A stopped session does not complete its assigned task. |
+| State                   | Evidence and effect                                                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Task assigned           | Agent 01 published an owner, task, reserved paths, branch, base revision, dependencies and handoff.                                   |
+| Assignment acknowledged | The named recipient confirms receipt and identifies the registry revision and base.                                                   |
+| Agent executing         | Observed action or an explicit current status confirms the session is active in its isolated worktree.                                |
+| Agent paused            | The recipient reports a voluntary stop or a deliberate checkpoint. Preserve the claim and its next action.                            |
+| Agent interrupted       | An external stop or interruption was observed or reported. Preserve uncommitted work and record the last verified checkpoint.         |
+| Agent blocked           | A specific dependency, permission or other condition prevents progress. Record validation and the resumption condition.               |
+| Agent awaiting review   | A scope has been published for review, with exact commit, PR and validation. Update related task claims to reflect the review stage.  |
+| Task completed          | The task's acceptance, review and applicable merge requirements were verified. A stopped session does not complete its assigned task. |
 
 Publish and consume the canonical registry from its exact Git revision, including an accepted or owner-authorized coordination change in an open PR. Independent eligible work may proceed against its own verified base while governance review is open. Shared code dependencies still require the exact upstream contract and base. Pause and interruption never grant a second owner access to edit reserved paths. The returning agent verifies its worktree, branch and checkpoint, then acknowledges the latest published revision before resuming. Agent 01 documents any deliberate reassignment and handoff.
 
