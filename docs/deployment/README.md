@@ -12,3 +12,7 @@
 6. **Troubleshoot.** Document how to identify failed migrations, readiness problems, routing or certificate errors, full disks, stalled jobs and restore failures using verified commands.
 
 For each external provider, record requirements, permissions, cost and a portable or disabled workflow. Include the [MIT License](../../LICENSE) and required third-party notices with distribution. See [container design](../architecture/containers.md), [threat model](../security/threat-model.md), and [release policy](../governance/release.md).
+
+## Production reference
+
+The [versioned installation procedure](production.md) provides a separate Compose profile, private configuration, HTTPS proxy guidance and explicit administrator bootstrap. Backup, upgrade, release artifact and supported-platform qualifications remain tracked by JUNO-0038.
