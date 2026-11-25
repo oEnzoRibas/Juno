@@ -47,7 +47,7 @@ The issue titles mirror task IDs. Existing issues were searched across all state
 | [JUNO-0037](tasks/JUNO-0037.md) | [#98](https://github.com/oEnzoRibas/Juno/issues/98) | [#38](https://github.com/oEnzoRibas/Juno/pull/38), [#54](https://github.com/oEnzoRibas/Juno/pull/54), [#56](https://github.com/oEnzoRibas/Juno/pull/56) | 01 | Task record | See task record · Issue open | 1 merged, 2 open | See task |
 | [JUNO-0038](https://github.com/oEnzoRibas/Juno/blob/61af9f018f8bd6c2714f74ced0477d39fd92f8d5/docs/development/tasks/JUNO-0038.md) | [#99](https://github.com/oEnzoRibas/Juno/issues/99) | [#57](https://github.com/oEnzoRibas/Juno/pull/57), [#58](https://github.com/oEnzoRibas/Juno/pull/58), [#60](https://github.com/oEnzoRibas/Juno/pull/60) | 01, 03 | JUNO-0020, JUNO-0022, JUNO-0024 | See task record · Issue open | 3 open | 0012 |
 | [JUNO-0039](tasks/JUNO-0039.md) | [#100](https://github.com/oEnzoRibas/Juno/issues/100) | [#61](https://github.com/oEnzoRibas/Juno/pull/61) | 01 | Task record | Review preparation delivered, maintainer acceptance pending · Issue open | 1 merged | See task |
-| [JUNO-0040](tasks/JUNO-0040.md) | [#101](https://github.com/oEnzoRibas/Juno/issues/101) | This documentation delivery (linked on GitHub) | 01 | Task record | AWAITING_REVIEW · Issue open | No verified PR | See task |
+| [JUNO-0040](tasks/JUNO-0040.md) | [#101](https://github.com/oEnzoRibas/Juno/issues/101) | [#102](https://github.com/oEnzoRibas/Juno/pull/102) | 01 | Task record | AWAITING_REVIEW · Issue open | 1 open | See task |
 
 ## Exact PR evidence at the audit checkpoint
 
