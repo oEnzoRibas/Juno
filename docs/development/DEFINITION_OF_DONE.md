@@ -16,3 +16,8 @@ Use the [quality gate plan](../testing/README.md) to select checks. Documentatio
 ## Ready for maintainer review
 
 The description satisfies the [maintainer review standard](git-workflow.md#maintainer-review-standard). Relevant visual evidence is visible on GitHub. Checkout and validation steps are reproducible on pinned revisions with synthetic fixtures. CI, local and human outcomes are separately identified. Pending policy, unmet dependencies, and failing checks remain explicit. Passing technical checks do not establish human acceptance.
+
+
+## Issue traceability
+
+Verify the development task, corresponding issue, PR association in both directions and accurate labels. Close an issue only after the complete recorded scope and its applicable approval are verified. A merged increment can leave its parent task open. Follow the [traceability workflow](git-workflow.md#issue-and-pr-traceability).

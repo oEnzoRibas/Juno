@@ -44,3 +44,8 @@ Keep review-stage work in a separate review section of the authoritative queue. 
 After a meaningful milestone, architecture decision, migration, dependency, security or integration change, failed or successful validation, blocker, or completion, update the task and STATE. Log the transition or event in WORKLOG. Record what changed, why, how, requirements met, relevant alternatives, affected files and docs, tests, and limitations.
 
 Before ending a session, persist the active task and status, files changed, completed and remaining work, ADRs, documentation, actual results and failures, open questions, next action, and Git considerations. Update the queue if selection changed. Link terminal task records from [history](history/README.md). Subsequent sessions must be able to resume from these files and Git evidence.
+
+
+## Task registration on GitHub
+
+After recording scope and criteria, reuse or create the related GitHub issue before implementation. Enter its link in the task or [traceability index](traceability.md), record dependencies, owner and actual lifecycle, and assign the appropriate shared labels. Link delivery PRs without closing unfinished scope. See the [Git workflow](git-workflow.md#issue-and-pr-traceability).

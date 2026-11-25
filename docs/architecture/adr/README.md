@@ -10,6 +10,7 @@
 | [ADR-0006](0006-optional-integrations.md) | Accepted | Optional integration ecosystem |
 | [ADR-0007](0007-integration-adapters.md) | Proposed | Integration adapters and failure isolation |
 | [ADR-0008](0008-editable-diagrams.md) | Accepted | Editable architecture diagram standard |
+| [ADR-0012](0012-self-hosted-distribution.md) | Accepted | Independent self-hosted distribution |
 | [ADR-0009](0009-stacked-pull-requests.md) | Accepted | Native stack and review-readiness workflow |
 
 Development process decision: [ADR-0011](0011-three-agent-development.md), accepted three-agent engineering and coordination.

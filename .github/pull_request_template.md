@@ -38,3 +38,9 @@ Identify pending decisions, excluded behavior, blockers and remaining validation
 - [ ] Follow the PR-specific acceptance and negative scenarios and compare the expected outcomes.
 - [ ] Review applicable visual evidence and the actual test and CI results.
 - [ ] Confirm human gates, dependencies, security, attribution and documentation before approving integration.
+
+
+## Development traceability
+
+- Canonical JUNO task and GitHub issue: `Refs #N` for a partial or stacked delivery. Use `Closes #N` only for the complete verified scope.
+- Add the PR link to the issue. Apply the relevant type, area, documentation, owner, review and current validation labels.
