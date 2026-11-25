@@ -29,7 +29,7 @@ async function invite(request, headers, id, email, role) {
   return (await response.json()).token;
 }
 
-test('shows a localized empty organization state and handles a revoked session', async ({ page, request }) => {
+test('shows a localized empty organization state and handles a revoked session', async ({ page, request }, testInfo) => {
   const emptyEmail = process.env.JUNO_TEST_SHELL_EMPTY_EMAIL;
   const emptyPassword = process.env.JUNO_TEST_SHELL_EMPTY_PASSWORD;
   if (Boolean(emptyEmail) !== Boolean(emptyPassword)) {
@@ -44,6 +44,16 @@ test('shows a localized empty organization state and handles a revoked session',
   await signIn(page, email, password);
   await expect(page.getByText('Você ainda não participa de uma organização.', { exact: false })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Abrir a administração da plataforma' })).toBeVisible();
+  await page.getByRole('link', { name: 'Abrir a administração da plataforma' }).click();
+  await expect(page.getByRole('heading', { name: 'Criar organização' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Abrir a administração da plataforma' })).toHaveAttribute('aria-current', 'page');
+  await testInfo.attach('shell-redesign-platform', {
+    body: await page.screenshot({ path: testInfo.outputPath('shell-redesign-platform.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('link', { name: 'Cancelar', exact: true }).click();
+  await expect(page).toHaveURL(/\/session\?lang=pt-BR$/);
+
   const cookie = (await page.context().cookies()).find(({ name }) => name.endsWith('juno_session'));
   expect(Boolean(cookie?.httpOnly)).toBe(true);
   const revoked = await request.post(`${api}/api/auth/sign-out`, { headers: { authorization: `Bearer ${cookie?.value}` } });
@@ -52,7 +62,7 @@ test('shows a localized empty organization state and handles a revoked session',
   await expect(page).toHaveURL(/\/sign-in\?lang=pt-BR$/);
 });
 
-test('switches organizations with server-derived roles, preserves branding, and handles neutral denial', async ({ page, request }) => {
+test('switches organizations with server-derived roles, preserves branding, and handles neutral denial', async ({ page, request }, testInfo) => {
   const adminEmail = process.env.JUNO_TEST_ADMIN_EMAIL;
   const adminPassword = process.env.JUNO_TEST_ADMIN_PASSWORD;
   if (!adminEmail || !adminPassword) throw new Error('Bootstrap a synthetic platform administrator.');
@@ -84,7 +94,28 @@ test('switches organizations with server-derived roles, preserves branding, and 
   await expect(page.getByRole('link', { name: 'Pular para o conteúdo' })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('main')).toBeFocused();
-  const switcher = page.locator('details');
+  const navigation = page.getByRole('navigation', { name: 'Navegação da organização' });
+  const crumbs = page.getByRole('navigation', { name: 'Caminho de navegação' });
+  await expect(crumbs.getByText(firstName, { exact: true })).toBeVisible();
+  await expect(crumbs.getByText('Painel', { exact: true })).toHaveAttribute('aria-current', 'page');
+
+  await testInfo.attach('shell-redesign-desktop', {
+    body: await page.screenshot({ path: testInfo.outputPath('shell-redesign-desktop.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('button', { name: 'Recolher menu lateral' }).click();
+  await expect(page.getByRole('button', { name: 'Expandir menu lateral' })).toHaveAttribute('aria-expanded', 'false');
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Expandir menu lateral' })).toBeVisible();
+  await navigation.getByRole('link', { name: 'Painel', exact: true }).focus();
+  await expect(navigation.getByText('Painel', { exact: true })).toBeVisible();
+  await testInfo.attach('shell-redesign-collapsed', {
+    body: await page.screenshot({ path: testInfo.outputPath('shell-redesign-collapsed.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('button', { name: 'Expandir menu lateral' }).click();
+
+  const switcher = page.locator('#shell-sidebar details');
   await switcher.locator('summary').focus();
   await page.keyboard.press('Enter');
   await expect(switcher.getByRole('link', { name: firstName })).toHaveAttribute('aria-current', 'true');
@@ -99,7 +130,31 @@ test('switches organizations with server-derived roles, preserves branding, and 
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   await page.getByRole('link', { name: 'English', exact: true }).click();
   await expect(page).toHaveURL(new RegExp(`/workspace/${second}$`));
-  await expect(page.getByRole('navigation', { name: 'Workspace navigation' })).toBeVisible();
+  const hamburger = page.getByRole('button', { name: 'Open navigation' });
+  await hamburger.focus();
+  await page.keyboard.press('Enter');
+  const drawer = page.getByRole('dialog', { name: 'Open navigation' });
+  await expect(drawer.getByRole('navigation', { name: 'Workspace navigation' })).toBeVisible();
+  await expect(drawer.getByRole('button', { name: 'Close navigation' })).toBeFocused();
+  await expect(drawer.getByRole('link', { name: 'Invite a member' })).toHaveCount(0);
+  await testInfo.attach('shell-redesign-drawer', {
+    body: await page.screenshot({ path: testInfo.outputPath('shell-redesign-drawer.png') }),
+    contentType: 'image/png',
+  });
+  await page.keyboard.press('Escape');
+  await expect(drawer).toBeHidden();
+  await expect(hamburger).toBeFocused();
+  const account = page.getByLabel('Account menu', { exact: true });
+  await account.click();
+  await page.getByRole('combobox', { name: 'Theme' }).selectOption('light');
+  await expect(page.locator('[data-theme="light"]')).toHaveCSS('background-color', 'rgb(247, 247, 251)');
+  await page.keyboard.press('Escape');
+  await expect(account).toBeFocused();
+  await page.reload();
+  await expect(page.locator('[data-theme="light"]')).toBeVisible();
+  await account.click();
+  await page.getByRole('combobox', { name: 'Theme' }).selectOption('system');
+  await page.keyboard.press('Escape');
 
   for (const id of [denied, 'invalid']) {
     const response = await page.goto(`/workspace/${id}?lang=pt-BR`);
