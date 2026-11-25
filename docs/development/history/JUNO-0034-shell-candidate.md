@@ -1,0 +1,14 @@
+# Integrated foundation and Application Shell candidate
+
+Recorded on 2026-11-24. GitHub reports the eleven previously authorized PRs merged in order #32, #22, #23, #24, #26, #27, #29, #31, #34, #35 and #33. Their result is on `main` at `3053a7beab1ec657305634c77df46efe4ec472f1`. Native stack #14 is closed. The previous human acceptance applies to `5a8947feceab0867d9ba81c3d3a163200ff8c1cf`. The new preview is awaiting human acceptance.
+
+| Review | Original recovery head | Corrected review head | Checks |
+| --- | --- | --- | --- |
+| [#36](https://github.com/oEnzoRibas/Juno/pull/36) | `85bc9c2fb5bac2e762fa8d8b7579708a3b34287c`, `refs/juno-recovery/20261124T000000Z/pr-36` | `7c17cc435d863e5b43c4a8302b2ad8ec730828eb`, main, three paths | [Both jobs passed](https://github.com/oEnzoRibas/Juno/actions/runs/45464742726) |
+| [#37](https://github.com/oEnzoRibas/Juno/pull/37) | `eba9c149d5fab7dcea416c05c8036b41858c4452`, `refs/juno-recovery/20261124T185249Z/pr-37-pre-repair` | `a7825a6b814013527414e7478fa77d5b2d3eb60c`, main, 17 paths and four commits | [Both jobs passed](https://github.com/oEnzoRibas/Juno/actions/runs/45464933184) |
+
+Rebase integration replaced the previously reviewed shell parent with a different commit lineage. Agent 02 isolated the original three commits after the old design boundary, replayed those exact changes onto integrated main, verified binary patches and commit metadata, and published with an exact remote lease. The new base surfaced a fixture mismatch in CI. The fourth commit aligned the isolated empty-account browser case with the disposable harness. It leaves production sources and visual artifacts as replayed. Agent 03 preserved the original regression changes and appended exact retargeting evidence.
+
+Candidate commit `33c3cc6c52e7cffccba982efeaaa6239f507def9`, tree `190ae67fbe4fa1011793ac4272c98ffac5b1cd44`, includes only those corrected heads and integrated main. Both preview APIs reported readiness separately. The exact candidate passed eight Playwright tests, three SQL regressions, readiness/OpenAPI smoke and idempotent migrations. The running candidate's seeded role, access, theme and locale checks passed. Agent 03's separate shell review and recovery evidence are in [PR #44](https://github.com/oEnzoRibas/Juno/pull/44). The versioned operator guide is in [PR #38](https://github.com/oEnzoRibas/Juno/pull/38).
+
+Once the maintainer explicitly accepts the new exact candidate and authorizes merge, review #36 then #37 against those tested revisions. If either head or main changes, revalidate the affected integration. Separate organization, documentation and recovery increments require their own approval.
