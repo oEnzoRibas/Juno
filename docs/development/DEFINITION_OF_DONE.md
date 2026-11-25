@@ -11,3 +11,8 @@ A task may move to COMPLETED only when the implementation and evidence meet ever
 - Resolve critical validation failures. When a mandatory check cannot run, retain an appropriate incomplete or BLOCKED state with the reason and resumption condition.
 
 Use the [quality gate plan](../testing/README.md) to select checks. Documentation-only work requires documentation and repository checks. Runtime verification applies when the task produces runtime behavior.
+
+
+## Ready for maintainer review
+
+The description satisfies the [maintainer review standard](git-workflow.md#maintainer-review-standard). Relevant visual evidence is visible on GitHub. Checkout and validation steps are reproducible on pinned revisions with synthetic fixtures. CI, local and human outcomes are separately identified. Pending policy, unmet dependencies, and failing checks remain explicit. Passing technical checks do not establish human acceptance.

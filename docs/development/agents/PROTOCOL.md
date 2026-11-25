@@ -28,3 +28,12 @@ When revisions conflict, stop edits to the shared path, publish the conflict and
 Handoffs record contract revisions, exact SHA, PR, files, dependencies, validation, limits and next action. A receiving owner verifies evidence and records acknowledgement when observed. Repository publication is the shared channel. Account for separate tool state and conversational memory. Read the [ownership rules](OWNERSHIP.md) before touching shared inputs.
 
 All agents update their own module documentation, code conventions, diagrams when relevant, and test evidence. Use TSDoc and TypeDoc when applicable. Follow [Juno documentation standards](../DOCUMENTATION.md), [Google developer documentation style](https://developers.google.com/style) and concise Doxygen-inspired API descriptions. Keep technical content, commits and PR bodies in English. Preserve MIT terms, Enzo Ribas's original creator attribution and AI-assistance disclosure. Human owners approve changes requiring a project decision and control merges.
+
+## Maintainer acceptance testing
+
+Use an explicitly pinned local [maintainer preview](../maintainer-uat.md) for owner acceptance. Agent publication never replaces the running preview or its volume. Keep each agent’s assigned work and environment independent.
+
+
+## Maintainer review coordination
+
+Agent 01 maintains scope, integration, governance and the published registry. Agent 02 verifies frontend evidence, concepts, interaction captures and accessibility review. Agent 03 verifies disposable infrastructure, security, testing and reproducibility. Each lane hands off exact refs, dependencies and evidence. Agent 01 checks coverage and cross-lane consistency before applying the [review standard](../git-workflow.md#maintainer-review-standard). An assigned or completed task does not imply a running independent session.
