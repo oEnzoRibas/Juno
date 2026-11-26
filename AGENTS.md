@@ -23,6 +23,7 @@ For owner-authorized parallel work, read the [agent protocol](docs/development/a
 
 ## During implementation
 
+- Run `pnpm format:check`, `pnpm lint`, and the applicable type checks and tests before publishing changes. Keep repository-wide formatting in a separate commit from functional work. See the [formatting rules and protected files](docs/development/formatting.md).
 - For frontend changes, follow the [approved Design System V2](docs/design/design-system-v2-implementation.md). Reuse shared components and tokens, and verify responsive, accessible, localized states before presenting a change.
 
 - Review security and privacy implications, including trust boundaries, authorization, secret handling, data lifecycle, and audits. Never expose or commit secrets. Use synthetic data.
