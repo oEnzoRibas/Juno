@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
-import { apiRequest, sessionCookie } from '../../../../server/juno-api';
-import { localPath, type ShellLocale } from '../../../(shell)/_components/shell-data';
+import { apiRequest, sessionCookie } from '../../../../../server/juno-api';
+import { localPath, type ShellLocale } from '../../../_components/shell-data';
 
 interface DirectoryEntry {
   accountId: string;

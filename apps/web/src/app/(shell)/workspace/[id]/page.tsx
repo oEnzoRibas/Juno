@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { createTranslator } from 'next-intl';
 import { PageHeading, Panel } from '../../../../components/ui';
 import { messages } from '../../../../content/messages';
+import { MemberDirectoryNavigation } from '../../_components/member-directory-navigation';
 import { ApplicationShell } from '../../_components/application-shell';
 import { loadShell, localPath, shellLocale } from '../../_components/shell-data';
 import { InviteForm } from '../../../onboarding/forms';
@@ -28,6 +29,7 @@ export default async function Workspace({
       platformAdmin={account.platformAdmin}
       accountEmail={account.email}
       current={workspace}
+      additionalNavigation={<MemberDirectoryNavigation workspace={workspace} locale={locale} />}
       workspaces={workspaces}
       canInvite={canInvite}
     >

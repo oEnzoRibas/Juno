@@ -1,3 +1,7 @@
+.directoryPanel {
+  border-block-start-width: var(--tenant-accent-width);
+}
+
 .tableRegion {
   max-inline-size: 100%;
   overflow-x: auto;
@@ -72,7 +76,7 @@
   font-size: 0.875rem;
 }
 
-@media (max-width: 48rem) {
+@media (width < 768px) {
   .scrollHint {
     display: block;
   }
