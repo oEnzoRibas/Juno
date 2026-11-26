@@ -1,5 +1,6 @@
 const rows = {
   lab: 'Playground V2|Playground V2',
+  reviewOptions: 'Playground options|Opções do playground',
   disclaimer: 'Interactive prototype · fictional data|Protótipo interativo · dados fictícios',
   screen: 'Screen|Tela',
   viewport: 'Viewport|Largura',

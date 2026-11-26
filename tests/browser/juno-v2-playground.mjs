@@ -11,11 +11,33 @@ p.on('pageerror', (e) => faults.push(String(e)));
 p.on('request', (r) => {
   if (!r.url().startsWith('http://127.0.0.1:3304/')) external.push(r.url());
 });
-const screen = (name) => p.locator('select[name=screen]').selectOption(name);
+const reviewToggle = p.locator('#review-toggle');
+const reviewOptions = p.locator('#review-options');
+async function option(name, value) {
+  await reviewToggle.click();
+  const control = reviewOptions.locator('select[name=' + name + ']');
+  await control.focus();
+  await control.selectOption(value);
+  if (name !== 'screen') await p.keyboard.press('Escape');
+  await expect(reviewOptions).toBeHidden();
+}
+const screen = (name) => option('screen', name);
 const action = (name) => p.locator('button[data-action="' + name + '"]:visible').first();
 const proof = [];
 try {
   await p.goto('http://127.0.0.1:3304/');
+  await expect(reviewOptions).toBeHidden();
+  await reviewToggle.focus();
+  await p.keyboard.press('Enter');
+  await expect(reviewOptions).toBeVisible();
+  await p.keyboard.press('Tab');
+  await expect(reviewOptions.locator('select[name=screen]')).toBeFocused();
+  await p.keyboard.press('Escape');
+  await expect(reviewOptions).toBeHidden();
+  await expect(reviewToggle).toBeFocused();
+  await reviewToggle.click();
+  await p.locator('#screen-title').click();
+  await expect(reviewOptions).toBeHidden();
   await p.evaluate(() => document.fonts.ready);
   expect(await p.evaluate(() => [...document.fonts].some((f) => f.family === 'Nunito' && f.status === 'loaded'))).toBe(
     true,
@@ -72,16 +94,26 @@ try {
   await action('confirm').click();
   await p.getByRole('button', { name: 'Confirmar', exact: true }).click();
   await expect(p.locator('#announcements')).toContainText('Ação de exemplo concluída.');
-  await p.locator('select[name=theme]').first().selectOption('dark');
-  await p.locator('select[name=palette]').selectOption('teal');
-  await p.locator('select[name=lang]').first().selectOption('en');
-  await p.locator('select[name=font]').selectOption('system');
+  await option('theme', 'dark');
+  await option('palette', 'teal');
+  await option('lang', 'en');
+  await expect(p.locator('#announcements')).toBeEmpty();
+  await option('font', 'system');
   await expect(p.locator('html')).toHaveAttribute('lang', 'en');
   await expect(p.locator('html')).toHaveAttribute('data-font', 'system');
   if (out) await p.screenshot({ path: join(out, 'desktop-components.png'), fullPage: true });
   for (const width of [320, 375, 390, 768, 1024, 1280, 1920]) {
     await p.setViewportSize({ width, height: 900 });
+    await reviewToggle.click();
+    const menuFits = await reviewOptions.evaluate((menu) => {
+      const bounds = menu.getBoundingClientRect();
+      return bounds.left >= 0 && bounds.right <= innerWidth && bounds.top >= 0 && bounds.bottom <= innerHeight;
+    });
+    expect(menuFits).toBe(true);
+    await p.keyboard.press('Escape');
+    await expect(reviewOptions).toBeHidden();
     await screen('library');
+    await expect(p.locator('#screen-title')).toBeFocused();
     await action('tip').click();
     const overflow = await p.locator('#popover').evaluate((el) => {
       const r = el.getBoundingClientRect();
@@ -95,10 +127,10 @@ try {
       document: document.documentElement.scrollWidth,
     }));
     expect(widthResult.document).toBeLessThanOrEqual(widthResult.viewport);
-    proof.push({ ...widthResult, popoverWithinViewport: !overflow });
+    proof.push({ ...widthResult, popoverWithinViewport: !overflow, optionsMenuWithinViewport: menuFits });
   }
   await p.setViewportSize({ width: 1280, height: 900 });
-  await p.locator('select[name=width]').selectOption('320');
+  await option('width', '320');
   await screen('dashboard');
   await expect(p.locator('#preview')).toHaveCSS('width', '320px');
   const drawer = action('drawer');
@@ -117,8 +149,13 @@ try {
   await p.locator('.bottom [data-action=account]').click();
   await expect(p.getByRole('heading', { name: 'Account', exact: true })).toBeVisible();
   await p.setViewportSize({ width: 390, height: 900 });
-  await p.locator('select[name=width]').selectOption('auto');
+  await option('width', 'auto');
   if (out) await p.screenshot({ path: join(out, 'mobile-account.png'), fullPage: true });
+  await reviewToggle.click();
+  if (out) await p.screenshot({ path: join(out, 'mobile-options.png') });
+  await p.locator('#screen-title').click({ position: { x: 4, y: 4 }, force: true });
+  await p.keyboard.press('Escape');
+  await expect(reviewOptions).toBeHidden();
   expect(faults).toEqual([]);
   expect(external).toEqual([]);
   if (out)

@@ -114,11 +114,11 @@ const badge = (status) => '<span class="badge ' + (status === 'active' ? 'good' 
 const date = (iso) =>
   new Intl.DateTimeFormat(state.lang, { dateStyle: 'medium', timeZone: 'UTC' }).format(new Date(iso));
 
-function reviewBar() {
+function reviewControls() {
   return (
     '<div class="review-title">' +
     brand +
-    '<div><strong class="title">' +
+    '<div><strong id="review-title" class="title">' +
     t('lab') +
     '</strong><br><small>' +
     t('disclaimer') +
@@ -442,7 +442,8 @@ function authentication() {
     '</button></form></section></main>'
   );
 }
-const review = document.querySelector('#review');
+const reviewToggle = document.querySelector('#review-toggle');
+const reviewOptions = document.querySelector('#review-options');
 const preview = document.querySelector('#preview');
 const announcement = document.querySelector('#announcements');
 let noticeTimer, feedbackTimer, releasePopover;
@@ -459,16 +460,17 @@ function applyAppearance() {
   preview.dataset.palette = state.palette;
   preview.style.setProperty('--preview-width', state.width === 'auto' ? '1440px' : state.width + 'px');
 }
-function render(focus) {
+function render(focus, scope = document) {
   releasePopover?.();
   document.documentElement.lang = state.lang;
   applyAppearance();
-  review.innerHTML = reviewBar();
+  reviewToggle.innerHTML = icon('menu') + '<span>' + t('reviewOptions') + '</span>';
+  reviewOptions.innerHTML = reviewControls();
   preview.innerHTML =
     (state.screen === 'auth' ? authentication() : shell(content())) +
     '<dialog id="overlay" aria-labelledby="overlay-title"></dialog><div popover id="popover" role="dialog" aria-labelledby="popover-title"></div>';
   if (focus === 'screen-title') document.querySelector('#screen-title')?.focus();
-  else if (focus) document.querySelector('select[name="' + focus + '"]')?.focus();
+  else if (focus) scope.querySelector('select[name="' + focus + '"]')?.focus();
 }
 function go(screen) {
   state.screen = screen;
@@ -550,13 +552,16 @@ document.addEventListener('change', (event) => {
     return;
   }
   if (name === 'screen') {
+    reviewOptions.hidePopover();
     go(value);
     return;
   }
   if (!['lang', 'theme', 'font', 'palette', 'width'].includes(name)) return;
   state[name] = value;
   if (name === 'lang') {
-    render(name);
+    clearTimeout(noticeTimer);
+    announcement.textContent = '';
+    render(name, control.closest('#review-options') ?? preview);
     return;
   }
   applyAppearance();

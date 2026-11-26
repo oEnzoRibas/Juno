@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Juno · Design System V2 Playground</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="playground.mjs"></script>
   </head>
   <body>
-    <header id="review"></header>
+    <header id="review">
+      <button
+        id="review-toggle"
+        class="btn secondary"
+        type="button"
+        popovertarget="review-options"
+        aria-haspopup="dialog"
+      ></button>
+      <section id="review-options" popover role="dialog" aria-labelledby="review-title"></section>
+    </header>
     <div id="stage"><div id="preview"></div></div>
     <div id="announcements" role="status" aria-live="polite"></div>
   </body>

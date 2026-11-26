@@ -15,7 +15,9 @@ Open [http://127.0.0.1:3304/](http://127.0.0.1:3304/). The preview needs Python 
 
 ## Review the proposal
 
-| Use the review bar     | Try inside the preview                                                                                                                                                                                                   |
+Open **Playground options** (Portuguese **Opções do playground**) to switch the preview settings. Press Escape or click outside to dismiss the menu. Choosing a screen closes it and moves focus to the screen heading.
+
+| In Playground options  | Try inside the preview                                                                                                                                                                                                   |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Screen                 | Sign in using an address such as `demo@example.invalid` and any synthetic password, choose an organization, or jump to the dashboard, members, account, platform administration, or component library.                   |
 | Viewport               | Compare the expanded and compact rails, then select 390 or 320 px for bottom navigation and the workspace drawer. The preview width is capped by available window space. Resize the browser for actual viewport testing. |
@@ -41,6 +43,7 @@ Set `JUNO_PLAYGROUND_EVIDENCE` to a directory path to regenerate the images and 
 - [Platform administration, Portuguese, light, coral, Nunito](evidence/desktop-platform.png)
 - [Component library, English, dark, teal, system UI](evidence/desktop-components.png)
 - [Mobile account at 390 px, English, dark, teal, system UI](evidence/mobile-account.png)
+- [Mobile options menu at 390 px](evidence/mobile-options.png)
 - [Playwright measurements](evidence/validation.json)
 - [Maintainer-supplied visual references](references/README.md)
 - [Reference investigation](../design-system-v2-reference.md#published-product-evidence)
