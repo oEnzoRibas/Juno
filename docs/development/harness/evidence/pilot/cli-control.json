@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "caseId": "sql-fixture-coverage",
+  "variant": "control",
+  "conditions": {
+    "inputSha256": "a36dc23f5863f599168da9ccc0653d0e1d0e87545330d12eee6cc47835a363a1",
+    "model": "gpt-6.2-sol",
+    "reasoningEffort": "medium",
+    "toolProfile": "Codex CLI read-only, web disabled, existing ChatGPT login, ignore user config",
+    "environment": "Codex CLI 0.169.1 Windows; same isolated Juno workflow checkout; input embedded"
+  },
+  "skill": {
+    "requested": null,
+    "loaded": []
+  },
+  "response": {
+    "missingFixtures": [
+      "organization-profile.sql"
+    ],
+    "duplicateFixtures": [
+      "member-directory.sql"
+    ],
+    "coverage": "incomplete",
+    "humanAcceptance": "pending"
+  },
+  "metrics": {
+    "elapsedMs": 5192,
+    "inputTokens": 16720,
+    "outputTokens": 42,
+    "skillContextTokens": null,
+    "toolCalls": 0,
+    "humanInterventions": 0,
+    "recoveryAttempts": 0
+  },
+  "failureModes": [],
+  "human": null
+}

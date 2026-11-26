@@ -1,0 +1,24 @@
+{
+  "variant": "skill-assisted",
+  "delivery": "explicitSkillInputAccepted",
+  "completed": true,
+  "methods": [
+    "userMessage",
+    "agentMessage"
+  ],
+  "usage": {
+    "elapsedMs": 2730,
+    "inputTokens": 18794,
+    "outputTokens": 16,
+    "skillContextTokens": null,
+    "toolCalls": 0,
+    "humanInterventions": 0,
+    "recoveryAttempts": 0
+  },
+  "response": null,
+  "final": "A fixture on disk or a green process cannot establish coverage.",
+  "model": "gpt-6.2-sol",
+  "effort": "medium",
+  "catalogVerification": true,
+  "visibleSkillEvent": false
+}
