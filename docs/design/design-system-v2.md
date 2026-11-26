@@ -71,6 +71,6 @@ After approval, Agent 03 independently validates units, server integration and b
 
 ## Decision still requested
 
-Approve the default purple, mobile three-destination navigation plus direct account page, restrained tactile action style and visual hierarchy before implementation. Scope approval remains necessary for a locally hosted Nunito font, for the exact tablet breakpoint, and for future upstream logo/palette contracts. Protected Duolingo views and native runtime interaction remain unverified. The concept previews are not interactive implementations.
+Approve the default purple, mobile three-destination navigation plus direct account page, restrained tactile action style and visual hierarchy before implementation. Scope approval remains necessary for a locally hosted Nunito font, for the exact tablet breakpoint, and for future upstream logo/palette contracts. Protected Duolingo views and native runtime interaction remain unverified. Compare these decisions in the [isolated interactive playground](style/README.md). Explicit approval of that prototype is required before production frontend work.
 
 Juno — Original project creator: Enzo Ribas. Developed with AI assistance. Project license MIT.

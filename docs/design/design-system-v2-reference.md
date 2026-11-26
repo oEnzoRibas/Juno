@@ -12,6 +12,20 @@ Access date 2026-11-25, America/Sao_Paulo. The browser used Chromium on desktop 
 | [Shape language](https://blog.duolingo.com/shape-language-duolingos-art-style/) | Official historical article. Its description of the 2018 visual shift supports rounded geometry and stronger separations. It supplies no present-day numerical spec. |
 | Public authentication | Direct guessed /log_in returned an error page. Attempt to open the visible account CTA in the browser timed out. No direct claims are made about the authentication fields or modal behavior. |
 
+## Published product evidence
+
+The follow-up sought actual product screens. Direct inspection of the signed-in web interface and its interaction states remains limited by the absence of an authorized authenticated session. The official screenshots below document authenticated product surfaces. Their publication dates, viewport sizes, and recorded state may differ from a current session.
+
+| Official source | Product evidence | Decision for Juno |
+| --- | --- | --- |
+| [Account and privacy settings walkthrough](https://blog.duolingo.com/introvert-language-learning-tips/) | The desktop web instructions open Settings from More in the side rail. The mobile browser instructions use the Profile tab in the bottom navigation and the settings gear. The published images show entry points and settings grouping. | Use a persistent labeled desktop rail and a dedicated mobile account page. Keep language and theme visibly labeled. |
+| [Product walkthrough](https://blog.duolingo.com/duolingo-101-how-to-learn-a-language-on-duolingo/) | The native app walkthrough shows a repeated bottom navigation, a profile settings entry, and grouped preferences. Compact labels and prominent action controls stand out in the published compositions. | Preserve stable mobile destinations and move deeper workspace administration into a contextual drawer. |
+| [Core tabs design study](https://blog.duolingo.com/core-tabs-redesign/) | Published native screens show recurring header, spacing, typography, selected tabs, and rounded card treatments. | Use consistent canvas rhythm, quieter administrative surfaces, and bolder headings while retaining Juno's table density. |
+| [Server-driven UI case study](https://blog.duolingo.com/server-driven-ui/) | The article documents reusable native card composition. It does not specify browser tokens or interaction states. | Define independent Juno card, button, spacing and feedback rules and exercise them in the playground. |
+
+Authenticated web compact behavior, proportions at breakpoints, exact font metrics, tactile depth, focus, hover, pressed and disabled states could not be measured. The playground tests Juno's proposed behavior directly using its own design tokens. An authorized session or a maintainer-led demonstration would allow direct comparison of the remaining product states.
+
+
 ## Comparison matrix
 
 **Direct web** means measured in the public Chrome run. **Published native** means a still or narrative from the source above. **Unverified** means no reference behavior was established. All V2 implementation guidance in the final column is an original proposal.
