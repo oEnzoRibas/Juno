@@ -36,7 +36,10 @@ export function accountPath(locale: ShellLocale, workspace?: string, platform = 
   const query = new URLSearchParams();
   if (workspace) query.set('workspace', workspace);
   if (platform) query.set('from', 'platform');
-  if (returnTo && workspace) query.set('returnTo', returnTo);
+  if (returnTo && workspace) {
+    const path = accountWorkspaceReturn(workspace, locale, returnTo);
+    if (path.startsWith('/workspace/' + workspace + '/')) query.set('returnTo', path);
+  }
   if (locale === 'pt-BR') query.set('lang', locale);
   return query.size ? '/account?' + query.toString() : '/account';
 }

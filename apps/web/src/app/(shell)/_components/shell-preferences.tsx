@@ -1,6 +1,8 @@
 'use client';
 
 import { createContext, useContext, useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
+import { useRouter } from 'next/navigation';
+import type { ShellLocale } from './shell-data';
 import { ShellIcon } from './shell-icon';
 import styles from './application-shell.module.css';
 
@@ -80,6 +82,37 @@ export function OrganizationSwitcher({ label, name, children }: { label: string;
         {children}
       </ul>
     </details>
+  );
+}
+
+export function LanguagePicker({
+  label,
+  locale,
+  destinations,
+}: {
+  label: string;
+  locale: ShellLocale;
+  destinations: Record<ShellLocale, string>;
+}) {
+  const router = useRouter();
+  return (
+    <label className="form-field">
+      {label}
+      <select
+        value={locale}
+        onChange={(event) => {
+          const next = event.target.value;
+          if (next === 'en' || next === 'pt-BR') router.push(destinations[next]);
+        }}
+      >
+        <option value="en" lang="en">
+          English
+        </option>
+        <option value="pt-BR" lang="pt-BR">
+          Português (Brasil)
+        </option>
+      </select>
+    </label>
   );
 }
 

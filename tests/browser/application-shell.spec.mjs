@@ -152,7 +152,7 @@ test('switches organizations with server-derived roles, preserves branding, and 
     'href',
     '/workspace/' + second + '?lang=pt-BR',
   );
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('combobox', { name: 'Idioma' }).selectOption('en');
   await expect(page.getByRole('heading', { name: 'Your account' })).toBeVisible();
   await page.getByRole('link', { name: 'Back to workspace' }).click();
   await expect(page).toHaveURL(new RegExp(`/workspace/${second}$`));

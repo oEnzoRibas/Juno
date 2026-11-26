@@ -72,7 +72,9 @@ test('provisions a branded tenant, activates its administrator and enforces tena
     await signIn(tenantPage, email, password);
     await tenantPage.getByRole('link', { name: organization }).click();
     await expect(tenantPage.getByRole('heading', { name: organization })).toBeVisible();
-    await expect(tenantPage.getByText('Administrador', { exact: true })).toBeVisible();
+    await expect(
+      tenantPage.getByRole('region', { name: 'Seu vínculo' }).getByText('Administrador', { exact: true }),
+    ).toBeVisible();
     await expect(tenantPage.locator('section[aria-labelledby="workspace-title"]')).toHaveCSS(
       'border-top-color',
       'rgb(85, 67, 207)',

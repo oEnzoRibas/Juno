@@ -4,10 +4,13 @@ import { expect, test } from '@playwright/test';
 function luminance(color) {
   const rgb = color.match(/^rgb\((\d+), (\d+), (\d+)\)$/);
   if (!rgb) throw new Error('Expected an opaque RGB color');
-  const channels = rgb.slice(1).map(Number).map((value) => {
-    const channel = value / 255;
-    return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
-  });
+  const channels = rgb
+    .slice(1)
+    .map(Number)
+    .map((value) => {
+      const channel = value / 255;
+      return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+    });
   return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
 }
 
@@ -29,15 +32,24 @@ for (const theme of ['light', 'dark']) {
     const status = page.getByRole('status').filter({ hasText: 'Convite aceito' });
 
     await expect(page.getByRole('heading', { name: 'Entrar' })).toBeVisible();
-    await expect(page.locator('body')).toHaveCSS('background-color', theme === 'light' ? 'rgb(247, 247, 251)' : 'rgb(16, 17, 26)');
+    await expect(page.locator('body')).toHaveCSS(
+      'background-color',
+      theme === 'light' ? 'rgb(248, 245, 253)' : 'rgb(24, 18, 34)',
+    );
     await page.keyboard.press('Tab');
     await expect(page.getByRole('link', { name: 'Juno' })).toBeFocused();
     await page.keyboard.press('Tab');
+    await expect(page.getByRole('link', { name: 'English' })).toBeFocused();
+    await page.keyboard.press('Tab');
     await expect(email).toBeFocused();
-    await expect(email).toHaveCSS('outline-width', '2px');
+    await expect(email).toHaveCSS('outline-width', '3px');
     const field = await email.evaluate((element) => {
       const style = getComputedStyle(element);
-      return { border: style.borderTopColor, focus: style.outlineColor, panel: getComputedStyle(element.closest('section')).backgroundColor };
+      return {
+        border: style.borderTopColor,
+        focus: style.outlineColor,
+        panel: getComputedStyle(element.closest('section')).backgroundColor,
+      };
     });
     expect(contrast(field.border, field.panel)).toBeGreaterThanOrEqual(3);
     expect(contrast(field.focus, field.panel)).toBeGreaterThanOrEqual(3);
@@ -45,11 +57,17 @@ for (const theme of ['light', 'dark']) {
     await page.keyboard.press('Tab');
     await expect(password).toBeFocused();
     await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: 'Mostrar' })).toBeFocused();
+    await page.keyboard.press('Tab');
     await expect(submit).toBeFocused();
-    const buttonsAndMessages = await Promise.all([submit, alert, status].map((locator) => locator.evaluate((element) => {
-      const style = getComputedStyle(element);
-      return [style.color, style.backgroundColor];
-    })));
+    const buttonsAndMessages = await Promise.all(
+      [submit, alert, status].map((locator) =>
+        locator.evaluate((element) => {
+          const style = getComputedStyle(element);
+          return [style.color, style.backgroundColor];
+        }),
+      ),
+    );
     for (const [text, surface] of buttonsAndMessages) {
       expect(contrast(text, surface)).toBeGreaterThanOrEqual(4.5);
     }
@@ -84,19 +102,25 @@ test('preserves separate tenant accents and shared accessible controls', async (
   await page.waitForURL('**/session');
 
   try {
-    for (const [index, accent, rendered] of [[1, '#FFFFFF', 'rgb(255, 255, 255)'], [2, '#10111A', 'rgb(16, 17, 26)']]) {
+    for (const [index, accent, rendered] of [
+      [1, '#FFFFFF', 'rgb(255, 255, 255)'],
+      [2, '#10111A', 'rgb(16, 17, 26)'],
+    ]) {
       const name = `Design system tenant ${index} ${suffix}`;
       const created = await request.post(`${api}/api/tenants`, {
-        headers, data: { name, slug: `design-${index}-${suffix}`, accent },
+        headers,
+        data: { name, slug: `design-${index}-${suffix}`, accent },
       });
       expect(created.status()).toBe(201);
       const { id } = await created.json();
       const invitation = await request.post(`${api}/api/tenants/${id}/invitations`, {
-        headers, data: { email, role: 'administrator' },
+        headers,
+        data: { email, role: 'administrator' },
       });
       expect(invitation.status()).toBe(201);
       const activation = await request.post(`${api}/api/tenants/activation`, {
-        headers, data: { token: (await invitation.json()).token },
+        headers,
+        data: { token: (await invitation.json()).token },
       });
       expect(activation.status()).toBe(201);
 
@@ -107,8 +131,10 @@ test('preserves separate tenant accents and shared accessible controls', async (
         const panel = page.getByRole('region', { name });
         await expect(panel).toHaveCSS('border-top-color', rendered);
         await expect(panel).toHaveCSS('border-top-width', '8px');
-        await expect(page.getByRole('button', { name: 'Create invitation' })).toHaveCSS('background-color',
-          theme === 'light' ? 'rgb(85, 67, 207)' : 'rgb(169, 155, 255)');
+        await expect(page.getByRole('button', { name: 'Create invitation' })).toHaveCSS(
+          'background-color',
+          theme === 'light' ? 'rgb(99, 50, 186)' : 'rgb(201, 174, 255)',
+        );
       }
     }
   } finally {

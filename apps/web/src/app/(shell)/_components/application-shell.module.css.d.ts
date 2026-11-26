@@ -22,7 +22,6 @@ declare const styles: {
   readonly nav: string;
   readonly navLabel: string;
   readonly pageTitle: string;
-  readonly preferenceRow: string;
   readonly preferences: string;
   readonly preview: string;
   readonly rail: string;

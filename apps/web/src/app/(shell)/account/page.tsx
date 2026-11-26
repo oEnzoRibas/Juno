@@ -1,12 +1,12 @@
 import { createTranslator } from 'next-intl';
 import Link from 'next/link';
 import { Button, PageHeading, Panel } from '../../../components/ui';
-import { locales, messages } from '../../../content/messages';
+import { messages } from '../../../content/messages';
 import { signOut } from '../../sign-in/actions';
 import { ApplicationShell } from '../_components/application-shell';
 import { accountPath, accountWorkspaceReturn, loadShell, localPath, shellLocale } from '../_components/shell-data';
 import { ShellIcon } from '../_components/shell-icon';
-import { ThemePicker } from '../_components/shell-preferences';
+import { LanguagePicker, ThemePicker } from '../_components/shell-preferences';
 import styles from '../_components/application-shell.module.css';
 
 export default async function Account({
@@ -22,7 +22,6 @@ export default async function Account({
   const back = current
     ? accountWorkspaceReturn(current.id, locale, query.returnTo)
     : localPath(platform ? '/platform' : '/session', locale);
-  const alternate = locales[locale];
   const t = createTranslator({ locale, messages: messages[locale] });
   return (
     <ApplicationShell
@@ -40,18 +39,14 @@ export default async function Account({
       <Panel className={styles.accountPanel} aria-labelledby="preferences-title">
         <h2 id="preferences-title">{t('preferences')}</h2>
         <p className={styles.accountEmail}>{account.email}</p>
-        <div className={styles.preferenceRow}>
-          <span>{t('languageLabel')}</span>
-          <Link
-            className="action-button"
-            data-variant="secondary"
-            href={accountPath(alternate.lang, current?.id, platform, query.returnTo)}
-            lang={alternate.lang}
-            hrefLang={alternate.lang}
-          >
-            {alternate.label}
-          </Link>
-        </div>
+        <LanguagePicker
+          label={t('languageLabel')}
+          locale={locale}
+          destinations={{
+            en: accountPath('en', current?.id, platform, query.returnTo),
+            'pt-BR': accountPath('pt-BR', current?.id, platform, query.returnTo),
+          }}
+        />
         <ThemePicker label={t('themeLabel')} system={t('themeSystem')} light={t('themeLight')} dark={t('themeDark')} />
         <form action={signOut.bind(null, locale)}>
           <Button type="submit" variant="secondary">
