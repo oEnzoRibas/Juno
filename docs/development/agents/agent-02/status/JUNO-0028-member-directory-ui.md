@@ -6,3 +6,7 @@
 | JUNO-0028 member directory UI | Awaiting review in [PR #43](https://github.com/oEnzoRibas/Juno/pull/43) | [Frontend handoff](../handoffs/JUNO-0028-member-directory-ui.md). The isolated Compose runtime pairs the frontend with the exact API revision from #40. |
 
 The authorized follow-up covers the member directory. The same registry pins the next lookup UI on the published directory UI and API lookup heads.
+
+## V2 stack checkpoint
+
+The [adapted #43 directory](https://github.com/oEnzoRibas/Juno/pull/43) is locally validated and awaits review. See the [updated handoff](../handoffs/JUNO-0028-member-directory-ui.md#v2-adaptation) for exact ancestry, runtime captures and checks. The dependent filter and detail scope in #48 awaits the coordinated release.
