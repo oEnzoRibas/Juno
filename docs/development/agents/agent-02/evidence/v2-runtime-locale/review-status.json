@@ -1,0 +1,39 @@
+{
+  "pr": 37,
+  "checkout": {
+    "revision": "bd8108b92665ad3fd3e846b9b535ccd1de19156e",
+    "tree": "1f4e15d69dab73097cdb5849bc0e17f62d21ee60",
+    "dirty": false
+  },
+  "project": "juno-review-pr37-866f5c19-9682-489e-9c0e-d095933aeace",
+  "web": "http://127.0.0.1:3307",
+  "api": "http://127.0.0.1:4307",
+  "schemaVersion": 8,
+  "frontendConnection": {
+    "origin": "http://api:3001",
+    "status": 200
+  },
+  "containers": {
+    "api": {
+      "state": "running",
+      "health": "healthy",
+      "imageId": "sha256:95515691b70b85a5faa172f47512d14db6c1504848d2a1e58a405193408454df",
+      "buildRevision": null,
+      "buildTime": null,
+      "sourceTree": null,
+      "sourceState": null,
+      "pullRequests": null
+    },
+    "web": {
+      "state": "running",
+      "health": "healthy",
+      "imageId": "sha256:95515691b70b85a5faa172f47512d14db6c1504848d2a1e58a405193408454df",
+      "buildRevision": null,
+      "buildTime": null,
+      "sourceTree": null,
+      "sourceState": null,
+      "pullRequests": null
+    }
+  },
+  "runtimeProvenance": "unavailable"
+}

@@ -6,21 +6,22 @@ The maintainer approved the [interactive Design System V2 baseline](https://gith
 
 | Input or observation | Value                                                                                                                                                       |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Runtime checkout     | `e1d91b710272388dcb610bec3b3067a24b0a0ac7`                                                                                                                  |
-| Git tree             | `68a2e4e52bc26402682930f2d131df5605b51cf9`                                                                                                                  |
+| Runtime checkout     | `bd8108b92665ad3fd3e846b9b535ccd1de19156e`                                                                                                                  |
+| Git tree             | `1f4e15d69dab73097cdb5849bc0e17f62d21ee60`                                                                                                                  |
 | Integrated main      | `1bed595` including corrected schema 8 validation and the review launcher                                                                                   |
-| Web                  | [Português (Brasil)](http://127.0.0.1:3306/sign-in?lang=pt-BR) · [English](http://127.0.0.1:3306/sign-in)                                                   |
-| API                  | [Readiness](http://127.0.0.1:4306/api/ready) · [OpenAPI](http://127.0.0.1:4306/api/openapi.json)                                                            |
-| Runtime checks       | See [review status](../evidence/v2-runtime/review-status.json) for project, both image identities, schema and internal readiness.                           |
+| Web                  | [Português (Brasil)](http://127.0.0.1:3307/sign-in?lang=pt-BR) · [English](http://127.0.0.1:3307/sign-in)                                                   |
+| API                  | [Readiness](http://127.0.0.1:4307/api/ready) · [OpenAPI](http://127.0.0.1:4307/api/openapi.json)                                                            |
+| Runtime checks       | See [review status](../evidence/v2-runtime-locale/review-status.json) for project, both image identities, schema and internal readiness.                    |
 | Build provenance     | The launcher built the clean, detached checkout. The runtime image IDs are recorded. The runtime lacks baked revision and source-tree metadata at this pin. |
 
 Use a separate browser profile if another local Juno preview is open. A cookie can be shared across ports on the same host. The preview uses its own Compose project, private database network and synthetic database volume.
 
 ## Open or reproduce
 
-From the checkout that includes [the review CLI](../../../../../scripts/review/README.md), open a private terminal to retrieve the locally generated platform, Alpha administrator, Alpha member and Beta administrator accounts.
+Open a private PowerShell terminal in the dedicated review controller checkout. On the original machine, its path relative to the Codex session directory is `work/juno-v2-review-controller`. The [review CLI](../../../../../scripts/review/README.md) stores the project and the synthetic platform, Alpha and Beta accounts under that checkout's own namespace. The original repository continues to address the earlier UAT on ports 3306 and 4306.
 
 ```powershell
+Set-Location -LiteralPath '.\work\juno-v2-review-controller'
 node scripts/review/cli.mjs status --pr 37
 node scripts/review/cli.mjs credentials --pr 37
 ```
@@ -28,19 +29,19 @@ node scripts/review/cli.mjs credentials --pr 37
 The extra synthetic account `dual@review-v2.example.invalid` is a Beta administrator and a regular member of V2 Secondary Workspace. On the original Windows machine, retrieve that account with this command from the Codex session directory.
 
 ```powershell
-$dual = Import-Clixml -LiteralPath '.\work\juno-uat-v2-private\official-dual.clixml'
+$dual = Import-Clixml -LiteralPath '.\work\juno-uat-v2-private\final-dual.clixml'
 $dual.GetNetworkCredential().Password
 ```
 
 With no existing review for #37 and while the live PR head equals the runtime pin, the launcher builds and seeds the exact revision.
 
 ```powershell
-pnpm review:start --pr 37 --sha e1d91b710272388dcb610bec3b3067a24b0a0ac7 --web-port 3306 --api-port 4306
+pnpm review:start --pr 37 --sha bd8108b92665ad3fd3e846b9b535ccd1de19156e --web-port 3307 --api-port 4307
 ```
 
-The launcher requires the pin to be the live PR head. If the head has advanced, keep the running exact-revision preview or create a new detached review checkout at `e1d91b710272388dcb610bec3b3067a24b0a0ac7` for historical reproduction. Use the pinned repository's [Compose setup](../../../docker.md) with a new private environment file, unique project, separate volume and free loopback ports. Bootstrap a synthetic administrator with the existing [operator command](../../../docker.md) and seed new fictional data. The launcher uses local Docker and GitHub CLI access. Review-ready evidence can be published in a later documentation commit while this environment stays pinned.
+The launcher requires the pin to be the live PR head. If the head has advanced, keep the running exact-revision preview or create a new detached review checkout at `bd8108b92665ad3fd3e846b9b535ccd1de19156e` for historical reproduction. Use the pinned repository's [Compose setup](../../../docker.md) with a new private environment file, unique project, separate volume and free loopback ports. Bootstrap a synthetic administrator with the existing [operator command](../../../docker.md) and seed new fictional data. The launcher uses local Docker and GitHub CLI access. Review-ready evidence can be published in a later documentation commit while this environment stays pinned.
 
-Use `node scripts/review/cli.mjs stop --pr 37` only to end and remove the isolated review project, including its synthetic database and checkout. Export any needed review evidence first. Leave the other UAT projects intact.
+From the dedicated controller checkout, use `node scripts/review/cli.mjs stop --pr 37` only to end and remove the isolated review project, including its synthetic database and checkout. Export any needed review evidence first. Leave the other UAT projects intact.
 
 ## Review checklist
 
@@ -52,13 +53,13 @@ Use `node scripts/review/cli.mjs stop --pr 37` only to end and remove the isolat
 
 ## Runtime evidence
 
-| Approved prototype or historical input                                                  | Exact-runtime capture and scope                                                                                                                                                                                  |
-| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Prior shell desktop UAT](../evidence/shell-review/juno-shell-redesign-workspace.png)   | [V2 dashboard](../evidence/v2-runtime/desktop-dashboard.png), with a verified organization and invitation capability.                                                                                            |
-| [Approved platform composition](../../../../design/style/evidence/desktop-platform.png) | [Runtime provisioning](../evidence/v2-runtime/desktop-platform.png), with the real accent input, slug and server action.                                                                                         |
-| [Approved dark mobile account](../../../../design/style/evidence/mobile-account.png)    | [Runtime account](../evidence/v2-runtime/mobile-account.png), with localized preferences and actual session exit.                                                                                                |
-| [Approved access board](../../../../design/mockups/juno-v2-access.md)                   | [Desktop sign-in](../evidence/v2-runtime/desktop-sign-in.png), [mobile activation](../evidence/v2-runtime/mobile-activation.png) and [organization selection](../evidence/v2-runtime/desktop-organizations.png). |
-| [Approved navigation board](../../../../design/mockups/juno-v2-navigation.md)           | [Compact tablet](../evidence/v2-runtime/tablet-compact.png), [mobile workspace drawer](../evidence/v2-runtime/mobile-workspace-drawer.png).                                                                      |
+| Approved prototype or historical input                                                  | Exact-runtime capture and scope                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Prior shell desktop UAT](../evidence/shell-review/juno-shell-redesign-workspace.png)   | [V2 dashboard](../evidence/v2-runtime-locale/desktop-dashboard.png), with a verified organization and invitation capability.                                                                                                          |
+| [Approved platform composition](../../../../design/style/evidence/desktop-platform.png) | [Runtime provisioning](../evidence/v2-runtime-locale/desktop-platform.png), with the real accent input, slug and server action.                                                                                                       |
+| [Approved dark mobile account](../../../../design/style/evidence/mobile-account.png)    | [Runtime account](../evidence/v2-runtime-locale/mobile-account.png), with localized preferences and actual session exit.                                                                                                              |
+| [Approved access board](../../../../design/mockups/juno-v2-access.md)                   | [Desktop sign-in](../evidence/v2-runtime-locale/desktop-sign-in.png), [mobile activation](../evidence/v2-runtime-locale/mobile-activation.png) and [organization selection](../evidence/v2-runtime-locale/desktop-organizations.png). |
+| [Approved navigation board](../../../../design/mockups/juno-v2-navigation.md)           | [Compact tablet](../evidence/v2-runtime-locale/tablet-compact.png), [mobile workspace drawer](../evidence/v2-runtime-locale/mobile-workspace-drawer.png).                                                                             |
 
 Production uses Nunito for display and system UI for readable data and controls. The verified tenant accent remains decorative. The account page retains the approved dedicated route. Runtime captures omit playground tools and use real provision and invitation workflows with synthetic data. Assistive-technology verification is a separate review activity.
 
@@ -75,11 +76,11 @@ pnpm test
 node scripts/quality/validate-compose.mjs
 ```
 
-The schema 8 runner verifies the build, HTTP and OpenAPI, idempotent migrations, five SQL regressions, the browser suite and the concurrent profile audit assertion. [Browser observations](../evidence/v2-runtime/browser-observations.json) record the exact pinned preview's sampled contrast and drawer containment.
+The schema 8 runner verifies the build, HTTP and OpenAPI, idempotent migrations, five SQL regressions, the browser suite and the concurrent profile audit assertion. [Browser observations](../evidence/v2-runtime-locale/browser-observations.json) record the exact pinned preview's sampled contrast and drawer containment.
 
-Agent 02 passed lint, type checking and 15 Vitest cases on the V2 runtime pin. The exact pin's [GitHub workspace job](https://github.com/oEnzoRibas/Juno/actions/runs/45731564818/job/139614576866) and [Compose job](https://github.com/oEnzoRibas/Juno/actions/runs/45731564818/job/139614576541) passed. Local full Compose QA used the previous application-identical checkout bb3d1c99333eb8d5ee913da2843295ffcc039028. All five SQL fixtures and ten browser tests passed, followed by the persisted concurrent-profile audit check. The additive merge brought only review tooling, root script entries and coordination documentation. See the [local structured browser report](../evidence/v2-runtime/local-compose-scenarios.json).
+Agent 03 independently verified the [previous implementation pin](https://github.com/oEnzoRibas/Juno/commit/e1d91b710272388dcb610bec3b3067a24b0a0ac7); its original [runtime and screenshot record](https://github.com/oEnzoRibas/Juno/blob/20165d959475b6d4ff45822de0055bc21b416a87/docs/development/agents/agent-02/handoffs/JUNO-0027-v2-runtime.md) remains available. The review covered 15 unit tests, five SQL regressions, ten Playwright cases and 43 dedicated browser checks, including all seven widths, native 200% zoom and keyboard containment. It identified an incorrect page-level language declaration.
 
-Agent 03 is validating the pinned application independently. Final human runtime acceptance remains pending.
+The current pin declares the validated locale on the server-rendered HTML and updates it during client navigation. The Next.js proxy forwards the validated locale to the document renderer. Existing session, permissions and tenant boundaries remain enforced by the server. Local Compose passed all five SQL regressions, eleven Playwright scenarios and the persisted concurrent-profile audit assertion. See the [structured scenario results](../evidence/v2-runtime-locale/local-compose-scenarios.json). Its [GitHub CI run](https://github.com/oEnzoRibas/Juno/actions/runs/45732540431) passed both jobs. Agent 03 independently verified nine raw HTML responses, eight protected-route redirects, and two in-document language switches on this exact SHA. See the [independent locale checks](../evidence/v2-runtime-locale/independent-locale-checks.json). Final human runtime acceptance is pending.
 
 The [shared frontend contract](../../../../design/design-system-v2-implementation.md#extend-and-synchronize) covers the dependent #43, #48 and #51 adoption order. These branches require Agent 01's stable pin release and their own validation. The evidence records human visual approval, runtime implementation, technical QA and final acceptance as separate milestones.
 
