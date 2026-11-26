@@ -118,7 +118,7 @@ test('updates an organization profile and preserves membership and tenant bounda
   await expect(mobileName).toBeFocused();
   for (const control of [
     mobileName,
-    page.getByRole('textbox', { name: 'Accent color' }),
+    page.getByRole('textbox', { name: 'Workspace accent' }),
     page.getByRole('button', { name: 'Save profile' }),
   ]) {
     const bounds = await control.boundingBox();

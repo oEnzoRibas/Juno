@@ -1,4 +1,4 @@
-import type { ShellLocale } from '../../../(shell)/_components/shell-data';
+import type { ShellLocale } from '../../../_components/shell-data';
 
 const en = {
   title: 'Organization profile',
