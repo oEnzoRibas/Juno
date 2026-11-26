@@ -23,3 +23,9 @@ body:
       description: Describe the checks, migration or recovery needs, and unresolved decisions.
     validations:
       required: true
+
+  - type: input
+    id: development_task
+    attributes:
+      label: Related JUNO task or GitHub issue
+      description: Link existing work if known. Coordinators can assign a task ID after triage.

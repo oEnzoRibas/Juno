@@ -33,3 +33,13 @@ Use the [Git workflow](docs/development/git-workflow.md) for task branches, atom
 Use the [development protocol](docs/development/PROTOCOL.md) for owner-requested work and check the [definition of done](docs/development/DEFINITION_OF_DONE.md) before completion.
 
 Read the [branching and release proposal](docs/governance/release.md), [AI disclosure](AI_DISCLOSURE.md), and [code of conduct](CODE_OF_CONDUCT.md).
+
+
+## Evidence for maintainer review
+
+Use the [pull request template](.github/pull_request_template.md) and follow the [maintainer review standard](docs/development/git-workflow.md#maintainer-review-standard). Provide exact refs, readable scope and dependencies, evidence embedded in the description, reproducible test instructions and a human acceptance checklist. Update the same pull request as its evidence or status changes.
+
+
+## Issues and PR traceability
+
+Register or reuse a [GitHub issue](https://github.com/oEnzoRibas/Juno/issues) for the work, record observable acceptance criteria, and link the task and issue in the PR. Use the [traceability workflow](docs/development/git-workflow.md#issue-and-pr-traceability) and existing labels. Use closing keywords only when the complete issue scope is delivered.

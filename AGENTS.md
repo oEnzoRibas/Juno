@@ -35,3 +35,13 @@ For owner-authorized parallel work, read the [agent protocol](docs/development/a
 ## Handoff
 
 After meaningful milestones, validation and blockers, checkpoint the task and [STATE](docs/development/STATE.md) and log transitions in [WORKLOG](docs/development/WORKLOG.md). Persist changed files, decisions, security and tenant impact, actual checks and failures, limitations, remaining approvals, queue state, and the next action. Apply the [definition of done](docs/development/DEFINITION_OF_DONE.md) before closing a task.
+
+
+## Pull request readiness
+
+Complete the [maintainer review standard](docs/development/git-workflow.md#maintainer-review-standard) and the [PR template](.github/pull_request_template.md) before requesting review. Human and AI contributors follow the same requirements. Prioritize reproducible evidence on exact commits, declare open gates, and keep coordinated UAT snapshots pinned.
+
+
+## Issue linkage and labels
+
+Before creating an implementation branch, verify the registered task, issue, acceptance criteria and owner with Agent 01. Apply the shared labels and include the issue in the pull request. Follow the [issue and PR traceability workflow](docs/development/git-workflow.md#issue-and-pr-traceability). Keep review state and CI evidence current, and update an issue's disposition only after its verified closure criteria are satisfied.
