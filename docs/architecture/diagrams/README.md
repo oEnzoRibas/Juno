@@ -12,6 +12,8 @@
 | [Persistent development queue](juno-development-fifo-queue.md) | [Draw.io](juno-development-fifo-queue.drawio) | [SVG](juno-development-fifo-queue.svg) | [PDF](juno-development-fifo-queue.pdf) |
 | [Platform and organization workspaces](juno-platform-workspaces.md) | [Draw.io](juno-platform-workspaces.drawio) | [SVG](juno-platform-workspaces.svg) | [PDF](juno-platform-workspaces.pdf) |
 | [Containerized development and deployment](juno-containerized-development.md) | [Draw.io](juno-containerized-development.drawio) | [SVG](juno-containerized-development.svg) | [PDF](juno-containerized-development.pdf) |
+| [Organization profile](juno-organization-profile.md) | [Draw.io](juno-organization-profile.drawio) | [SVG](juno-organization-profile.svg) | [PDF](juno-organization-profile.pdf) |
+| [Independent self-hosted distribution](juno-self-hosted-distribution.md) | [Draw.io](juno-self-hosted-distribution.drawio) | [SVG](juno-self-hosted-distribution.svg) | [PDF](juno-self-hosted-distribution.pdf) |
 
 ## Development workflow
 

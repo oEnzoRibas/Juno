@@ -12,7 +12,13 @@
     "dev": "turbo run dev",
     "typecheck": "turbo run typecheck",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "review:start": "node scripts/review/cli.mjs start",
+    "review:status": "node scripts/review/cli.mjs status",
+    "review:test": "node scripts/review/cli.mjs test",
+    "review:credentials": "node scripts/review/cli.mjs credentials",
+    "review:directory": "node scripts/review/cli.mjs directory",
+    "review:stop": "node scripts/review/cli.mjs stop"
   },
   "devDependencies": {
     "@playwright/test": "1.65.1",

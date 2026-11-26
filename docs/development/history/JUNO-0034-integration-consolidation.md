@@ -8,6 +8,8 @@ PRs #38 and #39 were also merged by the maintainer. Their merge commits `09c5c8a
 
 ## Batch review order
 
+This section records the original integration planning checkpoint and its then-open review gates. See the [remaining review checkpoint](#remaining-review-checkpoint) for the current stack state.
+
 | Batch | Reviews | Eligibility |
 | --- | --- | --- |
 | A | #46, backup and restore | Independent on integrated main. The rebased branch at `ef8a1dfc2c44779721de3daf187ac40e561dbc47` has green hosted checks. #44 approval covers the recovery validator only. |
@@ -26,3 +28,13 @@ After the functional batches have converged, let Agent 03 regenerate the formatt
 The live formatting rehearsal on current main found three #44 files that fail the gate. Running the pinned formatter changed exactly those three files and made the gate pass. Combining the stale mechanical patch with the organization candidate would conflict in four functional source or QA files. Reapply tooling and regenerate mechanical changes from the accepted functional tree instead.
 
 The local regeneration at 4c180189ba119d8ccf75d952457d15c07dd6dfa1 separated tooling, 179 mechanical changes, and the CI gate. Frozen install, formatting, lint, type checks and four unit tests passed. The mechanical commit did not touch any applied migration, generated metadata, lockfile, Draw.io master, SVG export or binary asset. The only lockfile addition comes from the formatter tooling commit.
+
+## Remaining review checkpoint
+
+On 2026-11-25, `main` at `1bed5952bc121b45d2be4e998ae1d256473919e9` includes #46 backup and restore, #36 audit regression, #57–#60 self-hosting, the corrected [backend stack #42](https://github.com/oEnzoRibas/Juno/stack/42), #54 historical frontend evidence, #111 V2 coordination and #109 isolated review tooling. Stack #42 integrates the member directory, filters/detail, profile writes and schema-8 validation with all five SQL fixtures, dedicated profile identity and structured browser checks. [JUNO-0044](JUNO-0044-stack42-review.md) separates the maintainer's original observations from corrective QA and hosted evidence.
+
+The historical [Organization candidate](../uat-organization-candidate.md) and [#54 evidence](https://github.com/oEnzoRibas/Juno/pull/54) record their original composition. The maintainer's approval of the V2 playground authorizes application implementation. V2 runtime acceptance and merge approval remain pending. Agent 02 retains the live #37 and the subsequent [stack #50](https://github.com/oEnzoRibas/Juno/stack/50) adaptation after a stable independent QA release. Agent 03 owns #55 and the formatting refresh. [JUNO-0045](../tasks/JUNO-0045.md) tracks scope and current status.
+
+#106 and #107 keep their independent [stack #108](https://github.com/oEnzoRibas/Juno/stack/108). Use the merged launcher only on a checkout that contains it. OCI provenance requires the new archive provider in the selected revision. Existing historic images retain their previous evidence and limitations. Rehearse V2 composition separately before visual acceptance of the runtime indicator.
+
+#52's current conflict paths include the runtime module, ADR index, assignments, root package manifest and schema-8 Compose runner. Preserve the historical formatter commits. When the functional baseline stabilizes, synchronize with the then-current main, keep functional source and regenerate a separate mechanical commit. Validate protected blob IDs, the pnpm lockfile, formatter idempotence and demonstrated failures, workspace tests, fresh Compose and CI. The repository-wide formatting pass is deferred to that checkpoint.
