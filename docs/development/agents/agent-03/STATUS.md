@@ -1,6 +1,10 @@
 # JUNO-AGENT-03 status
 
-Read the [current registry](../ASSIGNMENTS.md) and [platform transfer](../agent-01/handoffs/juno-0022-platform.md) before implementation. The owner reported a manual interruption during initial independent validation. No independent-session acknowledgement of the new coordination revision is verified. The last validated isolated delivery is `fed91526ff2624260d174864d0072005dff0a400`. Preserve the later uncommitted runner changes for the owner of JUNO-0022. Use the existing Compose runtime and keep dependency on an approved workflow credential visible.
+Read the [current registry](../ASSIGNMENTS.md) before implementation. The initial independent session was interrupted. A later session recovered and verified the Compose validation at `fed91526ff2624260d174864d0072005dff0a400`. The workflow subsequently shipped through [PR #31](https://github.com/oEnzoRibas/Juno/pull/31). The [JUNO-0022 checkpoint](JUNO-0022-STATUS.md) records the later integration evidence.
+
+## JUNO-0022 organization validation
+
+The [independent integration review](handoffs/JUNO-0022-integrated-quality-review.md) holds the historical backup, schema-8, Compose, formatter and benchmark observations. The [corrected schema-8 review](handoffs/JUNO-0022-schema8-sql.md) records the separate #42 corrective cycle and dedicated profile fixture now integrated through [PR #49](https://github.com/oEnzoRibas/Juno/pull/49). Coordinate later fixture or formatting changes through the shared registry.
 
 ## JUNO-0038 production qualification
 
