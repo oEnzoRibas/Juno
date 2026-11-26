@@ -29,7 +29,10 @@ async function invite(request, headers, id, email, role) {
   return (await response.json()).token;
 }
 
-test('shows a localized empty organization state and handles a revoked session', async ({ page, request }) => {
+test('shows a localized empty organization state and handles a revoked session', async ({
+  page,
+  request,
+}, testInfo) => {
   const emptyEmail = process.env.JUNO_TEST_SHELL_EMPTY_EMAIL;
   const emptyPassword = process.env.JUNO_TEST_SHELL_EMPTY_PASSWORD;
   if (Boolean(emptyEmail) !== Boolean(emptyPassword)) {
@@ -37,22 +40,41 @@ test('shows a localized empty organization state and handles a revoked session',
   }
   const email = emptyEmail || process.env.JUNO_TEST_ADMIN_EMAIL;
   const password = emptyPassword || process.env.JUNO_TEST_ADMIN_PASSWORD;
-  if (!email || !password) throw new Error('Bootstrap a synthetic platform administrator without organization memberships.');
+  if (!email || !password)
+    throw new Error('Bootstrap a synthetic platform administrator without organization memberships.');
 
   await page.goto('/session?lang=pt-BR');
   await expect(page).toHaveURL(/\/sign-in\?lang=pt-BR$/);
   await signIn(page, email, password);
   await expect(page.getByText('Você ainda não participa de uma organização.', { exact: false })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Abrir a administração da plataforma' })).toBeVisible();
+  await page.getByRole('link', { name: 'Abrir a administração da plataforma' }).click();
+  await expect(page.getByRole('heading', { name: 'Criar organização' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Abrir a administração da plataforma' })).toHaveAttribute(
+    'aria-current',
+    'page',
+  );
+  await testInfo.attach('shell-redesign-platform', {
+    body: await page.screenshot({ path: testInfo.outputPath('shell-redesign-platform.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('link', { name: 'Cancelar', exact: true }).click();
+  await expect(page).toHaveURL(/\/session\?lang=pt-BR$/);
+
   const cookie = (await page.context().cookies()).find(({ name }) => name.endsWith('juno_session'));
   expect(Boolean(cookie?.httpOnly)).toBe(true);
-  const revoked = await request.post(`${api}/api/auth/sign-out`, { headers: { authorization: `Bearer ${cookie?.value}` } });
+  const revoked = await request.post(`${api}/api/auth/sign-out`, {
+    headers: { authorization: `Bearer ${cookie?.value}` },
+  });
   expect(revoked.status()).toBe(204);
   await page.reload();
   await expect(page).toHaveURL(/\/sign-in\?lang=pt-BR$/);
 });
 
-test('switches organizations with server-derived roles, preserves branding, and handles neutral denial', async ({ page, request }) => {
+test('switches organizations with server-derived roles, preserves branding, and handles neutral denial', async ({
+  page,
+  request,
+}, testInfo) => {
   const adminEmail = process.env.JUNO_TEST_ADMIN_EMAIL;
   const adminPassword = process.env.JUNO_TEST_ADMIN_PASSWORD;
   if (!adminEmail || !adminPassword) throw new Error('Bootstrap a synthetic platform administrator.');
@@ -67,10 +89,14 @@ test('switches organizations with server-derived roles, preserves branding, and 
   const second = await provision(request, admin, `shell-b-${suffix}`, secondName, '#A99BFF');
   const denied = await provision(request, admin, `shell-c-${suffix}`, 'Another protected organization', '#FFFFFF');
   const firstToken = await invite(request, admin, first, email, 'administrator');
-  expect((await request.post(`${api}/api/tenants/activation`, { data: { token: firstToken, password } })).status()).toBe(201);
+  expect(
+    (await request.post(`${api}/api/tenants/activation`, { data: { token: firstToken, password } })).status(),
+  ).toBe(201);
   const member = await loginApi(request, email, password);
   const secondToken = await invite(request, admin, second, email, 'member');
-  expect((await request.post(`${api}/api/tenants/activation`, { headers: member, data: { token: secondToken } })).status()).toBe(201);
+  expect(
+    (await request.post(`${api}/api/tenants/activation`, { headers: member, data: { token: secondToken } })).status(),
+  ).toBe(201);
 
   await signIn(page, email, password);
   await expect(page.getByRole('link', { name: 'Abrir a administração da plataforma' })).toHaveCount(0);
@@ -84,7 +110,28 @@ test('switches organizations with server-derived roles, preserves branding, and 
   await expect(page.getByRole('link', { name: 'Pular para o conteúdo' })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('main')).toBeFocused();
-  const switcher = page.locator('details');
+  const navigation = page.getByRole('navigation', { name: 'Navegação da organização' });
+  const crumbs = page.getByRole('navigation', { name: 'Caminho de navegação' });
+  await expect(crumbs.getByText(firstName, { exact: true })).toBeVisible();
+  await expect(crumbs.getByText('Painel', { exact: true })).toHaveAttribute('aria-current', 'page');
+
+  await testInfo.attach('shell-redesign-desktop', {
+    body: await page.screenshot({ path: testInfo.outputPath('shell-redesign-desktop.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('button', { name: 'Recolher menu lateral' }).click();
+  await expect(page.getByRole('button', { name: 'Expandir menu lateral' })).toHaveAttribute('aria-expanded', 'false');
+  await page.reload();
+  await expect(page.getByRole('button', { name: 'Expandir menu lateral' })).toBeVisible();
+  await navigation.getByRole('link', { name: 'Painel', exact: true }).focus();
+  await expect(navigation.getByText('Painel', { exact: true })).toBeVisible();
+  await testInfo.attach('shell-redesign-collapsed', {
+    body: await page.screenshot({ path: testInfo.outputPath('shell-redesign-collapsed.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('button', { name: 'Expandir menu lateral' }).click();
+
+  const switcher = page.locator('#shell-sidebar details');
   await switcher.locator('summary').focus();
   await page.keyboard.press('Enter');
   await expect(switcher.getByRole('link', { name: firstName })).toHaveAttribute('aria-current', 'true');
@@ -97,9 +144,77 @@ test('switches organizations with server-derived roles, preserves branding, and 
   await page.emulateMedia({ colorScheme: 'dark' });
   await page.setViewportSize({ width: 320, height: 760 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  const mobileNavigation = page.getByRole('navigation', { name: 'Navegação principal' });
+  await expect(mobileNavigation.getByRole('link', { name: 'Painel' })).toHaveAttribute('aria-current', 'page');
+  await mobileNavigation.getByRole('link', { name: 'Sua conta' }).click();
+  await expect(page.getByRole('heading', { name: 'Sua conta' })).toBeVisible();
+  await expect(page.locator('main').getByRole('link', { name: 'Voltar ao espaço de trabalho' })).toHaveAttribute(
+    'href',
+    '/workspace/' + second + '?lang=pt-BR',
+  );
+  await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
+  await page.getByRole('combobox', { name: 'Idioma' }).selectOption('en');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await expect(page.getByRole('heading', { name: 'Your account' })).toBeVisible();
+  await page.getByRole('link', { name: 'Back to workspace' }).click();
   await expect(page).toHaveURL(new RegExp(`/workspace/${second}$`));
-  await expect(page.getByRole('navigation', { name: 'Workspace navigation' })).toBeVisible();
+  const hamburger = page.getByRole('button', { name: 'Open navigation' });
+  await hamburger.focus();
+  await page.keyboard.press('Enter');
+  const drawer = page.getByRole('dialog', { name: 'Open navigation' });
+  await expect(drawer.getByRole('navigation', { name: 'Workspace navigation' })).toBeVisible();
+  await expect(drawer.getByRole('button', { name: 'Close navigation' })).toBeFocused();
+  await expect(drawer.getByRole('link', { name: 'Invite a member' })).toHaveCount(0);
+  await testInfo.attach('shell-redesign-drawer', {
+    body: await page.screenshot({ path: testInfo.outputPath('shell-redesign-drawer.png') }),
+    contentType: 'image/png',
+  });
+  await page.keyboard.press('Escape');
+  await expect(drawer).toBeHidden();
+  await expect(hamburger).toBeFocused();
+  const openAccount = () =>
+    page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link', { name: 'Your account' }).click();
+  await openAccount();
+  const preferences = page.getByRole('region', { name: 'Preferences' });
+  const theme = preferences.getByRole('combobox', { name: 'Theme' });
+  await theme.selectOption('light');
+  await expect(page.locator('[data-theme="light"]')).toHaveCSS('background-color', 'rgb(248, 245, 253)');
+  await page.reload();
+  await expect(theme).toHaveValue('light');
+  await theme.selectOption('dark');
+  await expect(page.locator('[data-theme="dark"]')).toHaveCSS('background-color', 'rgb(24, 18, 34)');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+
+  for (const width of [320, 375, 390, 768, 1024, 1280, 1920]) {
+    await page.setViewportSize({ width, height: 850 });
+    await expect(preferences).toBeVisible();
+    const regions = [page.getByRole('banner'), page.getByRole('main'), preferences, theme];
+    if (width < 768) regions.push(page.getByRole('navigation', { name: 'Main navigation' }));
+    for (const region of regions) {
+      const bounds = await region.boundingBox();
+      expect(bounds?.x).toBeGreaterThanOrEqual(0);
+      expect(bounds.x + bounds.width).toBeLessThanOrEqual(width + 1);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+  }
+
+  await page.setViewportSize({ width: 390, height: 850 });
+  await testInfo.attach('v2-mobile-account', {
+    body: await page.screenshot({ path: testInfo.outputPath('v2-mobile-account.png') }),
+    contentType: 'image/png',
+  });
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = '200%';
+  });
+  await expect(theme).toBeVisible();
+  const enlarged = await theme.boundingBox();
+  expect(enlarged?.x).toBeGreaterThanOrEqual(0);
+  expect(enlarged.x + enlarged.width).toBeLessThanOrEqual(391);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = '';
+  });
+  await theme.selectOption('system');
 
   for (const id of [denied, 'invalid']) {
     const response = await page.goto(`/workspace/${id}?lang=pt-BR`);
@@ -107,8 +222,9 @@ test('switches organizations with server-derived roles, preserves branding, and 
     await expect(page.getByRole('heading', { name: 'Organização indisponível' })).toBeVisible();
     await expect(page.getByText('Another protected organization')).toHaveCount(0);
   }
-  await page.getByRole('link', { name: 'Suas organizações' }).click();
+  await page.getByRole('main').getByRole('link', { name: 'Suas organizações' }).click();
   await expect(page).toHaveURL(/\/session\?lang=pt-BR$/);
+  await page.getByRole('navigation', { name: 'Navegação principal' }).getByRole('link', { name: 'Sua conta' }).click();
   await page.getByRole('button', { name: 'Sair' }).click();
   await expect(page).toHaveURL(/\/sign-in\?lang=pt-BR$/);
 });

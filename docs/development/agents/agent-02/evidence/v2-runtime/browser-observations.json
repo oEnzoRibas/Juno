@@ -1,0 +1,20 @@
+{
+  "revision": "e1d91b710272388dcb610bec3b3067a24b0a0ac7",
+  "measurements": [
+    {
+      "theme": "light",
+      "signInActionContrast": 7.79
+    },
+    {
+      "theme": "dark",
+      "signInActionContrast": 9.11
+    }
+  ],
+  "drawer": {
+    "x": 0,
+    "y": 0,
+    "width": 281.59375,
+    "height": 850
+  },
+  "pageErrors": []
+}

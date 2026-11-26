@@ -35,3 +35,21 @@ Human approval controls merges. Preserve shared history and branch protection, a
 Recommend required PRs, checks, resolved conversations, and protection against force pushes and unauthorized deletion. Evaluate CODEOWNERS only with confirmed owners. The owner-approved Rebase and merge preference is documented in [ADR-0009](../architecture/adr/0009-stacked-pull-requests.md). Prefer preserving meaningful atomic commits. Reserve squash for an explicitly reviewed reason. See [release governance](../governance/release.md).
 
 Evaluate commitlint, advisory local hooks and authoritative GitHub Actions checks for branch, title and message formats. Add [quality gates](../testing/README.md) only when executable. Record URL, base, branch, actual commit hashes, CI, review and merge status in the task or linked publication record, and keep [STATE](STATE.md) and [WORKLOG](WORKLOG.md) current.
+
+
+## Maintainer review standard
+
+Every contribution uses the [PR template](../../.github/pull_request_template.md). Before presenting a PR as ready, record its scope, current native stack or independent base, exact head and base commits, reviewable incremental diff, owner and respective checks. Explain the delivery in accessible language and describe the changed boundaries or contracts. Preserve commit history and update the description in place.
+
+Embed relevant, versioned and sanitized evidence. Use actual screenshots for implemented UI, labeled proposals for concept review, and diagrams or terminal and Actions evidence for backend, quality and infrastructure work. List copyable checkout commands, dependencies, prerequisites, a safe environment, acceptance and negative scenarios, expected results and cleanup. Link actual Actions jobs, and state their checked base. Separate local, integrated, independent and human results. A green historical run proves only its tested input. Record blockers and pending decisions and give the maintainer a concrete checklist. Native stack mergeability does not override review gates.
+
+When several PRs implement one workflow, link an exact shared [UAT snapshot](uat-testing-guide.md#review-environment-inventory) so the maintainer can review it once. Preserve historical UAT and research evidence. A design approval covers the design, and a later interaction acceptance covers the specified runtime snapshot.
+
+
+## Issue and PR traceability
+
+1. Register the task in the canonical queue. Search existing issues by task ID and scope. Reuse an appropriate issue or register one with scope, acceptance criteria, dependencies and owner.
+2. Apply one primary `type:` and the applicable `area:`, `docs:`, `agent:`, `priority:`, `review:` and `validation:` labels. Keep at most one lifecycle `status:` on an item. Use priority only when supported by the actual queue. Preserve the community labels. A feature with documentation uses its feature type plus the useful documentation labels.
+3. Use issue-linked branches and atomic Conventional Commits. Open the associated PR, label it, link it from the issue, and include the canonical task and issue in the PR description. Use a non-closing reference for an increment. Use `Closes #N` only for the complete issue scope targeting the default branch.
+4. Publish the [review evidence](#maintainer-review-standard). GitHub's current check and review results are authoritative. Use validation labels only for the corresponding verified revision. Use UAT acceptance labels only when a matching human record establishes the accepted scope. Merger status is separate from task completion.
+5. Obtain explicit human authorization, then update or close the issue when its acceptance criteria are satisfied. The [traceability index](traceability.md) links originals, retrospective records, issues and deliveries. Retrospective creation and closure dates are GitHub administrative events. Preserve historical merge dates and evidence independently.

@@ -19,8 +19,13 @@ async function login(request, email, password) {
   return { authorization: `Bearer ${(await result.json()).token}` };
 }
 
-test('provisions a branded tenant, activates its administrator and enforces tenant isolation', async ({ browser, page, request }) => {
-  if (!platformEmail || !platformPassword) throw new Error('Bootstrap a synthetic platform admin before running this test.');
+test('provisions a branded tenant, activates its administrator and enforces tenant isolation', async ({
+  browser,
+  page,
+  request,
+}) => {
+  if (!platformEmail || !platformPassword)
+    throw new Error('Bootstrap a synthetic platform admin before running this test.');
   const suffix = randomBytes(6).toString('hex');
   const organization = `Studio ${suffix}`;
   const email = `administrator-${suffix}@example.invalid`;
@@ -44,7 +49,9 @@ test('provisions a branded tenant, activates its administrator and enforces tena
   await expect(page.getByText('Organização criada.')).toBeVisible();
   await page.getByLabel('E-mail', { exact: true }).fill(email);
   await page.getByRole('button', { name: 'Criar convite' }).click();
-  await expect(page.getByLabel('Link de convite de uso único')).toHaveValue(/\/activate\?lang=pt-BR#token=[a-f0-9]{64}$/);
+  await expect(page.getByLabel('Link de convite de uso único')).toHaveValue(
+    /\/activate\?lang=pt-BR#token=[a-f0-9]{64}$/,
+  );
   const link = await page.getByLabel('Link de convite de uso único').inputValue();
   const invitation = new URLSearchParams(new URL(link).hash.slice(1)).get('token');
 
@@ -54,14 +61,24 @@ test('provisions a branded tenant, activates its administrator and enforces tena
     await tenantPage.goto(link);
     const code = tenantPage.getByLabel('Código do convite');
     await expect(code).toHaveValue(/^[a-f0-9]{64}$/);
+    await tenantPage.getByRole('link', { name: 'English' }).click();
+    await expect(tenantPage.getByRole('heading', { name: 'Accept invitation' })).toBeVisible();
+    await expect(tenantPage.getByLabel('Invitation code')).toHaveValue(/^[a-f0-9]{64}$/);
+    await tenantPage.getByRole('link', { name: 'Português (Brasil)' }).click();
+    await expect(code).toHaveValue(/^[a-f0-9]{64}$/);
     await tenantPage.getByLabel('Escolha uma senha').fill(password);
     await tenantPage.getByRole('button', { name: 'Aceitar convite' }).click();
     await expect(tenantPage.getByText('Convite aceito. Entre para abrir sua organização.')).toBeVisible();
     await signIn(tenantPage, email, password);
     await tenantPage.getByRole('link', { name: organization }).click();
     await expect(tenantPage.getByRole('heading', { name: organization })).toBeVisible();
-    await expect(tenantPage.getByText('Administrador', { exact: true })).toBeVisible();
-    await expect(tenantPage.locator('section[aria-labelledby="workspace-title"]')).toHaveCSS('border-top-color', 'rgb(85, 67, 207)');
+    await expect(
+      tenantPage.getByRole('region', { name: 'Seu vínculo' }).getByText('Administrador', { exact: true }),
+    ).toBeVisible();
+    await expect(tenantPage.locator('section[aria-labelledby="workspace-title"]')).toHaveCSS(
+      'border-top-color',
+      'rgb(85, 67, 207)',
+    );
 
     const headers = await login(request, email, password);
     const own = await request.get(`${api}/api/tenants`, { headers });
@@ -70,32 +87,56 @@ test('provisions a branded tenant, activates its administrator and enforces tena
     expect(workspaces).toHaveLength(1);
     expect(workspaces[0].name).toBe(organization);
     expect((await request.get(`${api}/api/tenants/${otherId}`, { headers })).status()).toBe(404);
-    expect((await request.post(`${api}/api/tenants/${otherId}/invitations`, {
-      headers, data: { email: `cross-${suffix}@example.invalid`, role: 'member' },
-    })).status()).toBe(403);
-    expect((await request.post(`${api}/api/tenants`, {
-      headers, data: { slug: `unexpected-${suffix}`, name: 'Unexpected', accent: '#A99BFF' },
-    })).status()).toBe(403);
-    expect((await request.post(`${api}/api/tenants/activation`, {
-      data: { token: invitation, password },
-    })).status()).toBe(400);
+    expect(
+      (
+        await request.post(`${api}/api/tenants/${otherId}/invitations`, {
+          headers,
+          data: { email: `cross-${suffix}@example.invalid`, role: 'member' },
+        })
+      ).status(),
+    ).toBe(403);
+    expect(
+      (
+        await request.post(`${api}/api/tenants`, {
+          headers,
+          data: { slug: `unexpected-${suffix}`, name: 'Unexpected', accent: '#A99BFF' },
+        })
+      ).status(),
+    ).toBe(403);
+    expect(
+      (
+        await request.post(`${api}/api/tenants/activation`, {
+          data: { token: invitation, password },
+        })
+      ).status(),
+    ).toBe(400);
 
     const ownId = workspaces[0].id;
     const memberEmail = `member-${suffix}@example.invalid`;
     const result = await request.post(`${api}/api/tenants/${ownId}/invitations`, {
-      headers, data: { email: memberEmail, role: 'member' },
+      headers,
+      data: { email: memberEmail, role: 'member' },
     });
     expect(result.status()).toBe(201);
     const memberToken = (await result.json()).token;
     const memberPass = randomBytes(18).toString('hex');
-    const attempts = await Promise.all([1, 2].map(() => request.post(`${api}/api/tenants/activation`, {
-      data: { token: memberToken, password: memberPass },
-    })));
-    expect(attempts.map(result => result.status()).sort()).toEqual([201, 400]);
+    const attempts = await Promise.all(
+      [1, 2].map(() =>
+        request.post(`${api}/api/tenants/activation`, {
+          data: { token: memberToken, password: memberPass },
+        }),
+      ),
+    );
+    expect(attempts.map((result) => result.status()).sort()).toEqual([201, 400]);
     const memberHeaders = await login(request, memberEmail, memberPass);
-    expect((await request.post(`${api}/api/tenants/${ownId}/invitations`, {
-      headers: memberHeaders, data: { email: `denied-${suffix}@example.invalid`, role: 'member' },
-    })).status()).toBe(403);
+    expect(
+      (
+        await request.post(`${api}/api/tenants/${ownId}/invitations`, {
+          headers: memberHeaders,
+          data: { email: `denied-${suffix}@example.invalid`, role: 'member' },
+        })
+      ).status(),
+    ).toBe(403);
 
     const crossTenantPage = await tenantPage.goto(new URL(`/workspace/${otherId}`, link).toString());
     expect(crossTenantPage?.status()).toBe(404);
