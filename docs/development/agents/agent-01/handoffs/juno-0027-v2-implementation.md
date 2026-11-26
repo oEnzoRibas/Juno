@@ -1,0 +1,32 @@
+# JUNO-0027 Design System V2 implementation handoff
+
+On 2026-11-25 the maintainer approved the [interactive playground at `7e434d664e8ad02963684406efd6932fd11b2663`](https://github.com/oEnzoRibas/Juno/tree/7e434d664e8ad02963684406efd6932fd11b2663/docs/design/style) and authorized Agent 02 to implement it in the existing [PR #37](https://github.com/oEnzoRibas/Juno/pull/37). This supersedes the prior visual hold. Application behavior and merge authorization require separate maintainer decisions. The prototype, earlier UAT evidence and review history remain distinct. Record runtime choices against the playground and keep demonstration-only theme/font selectors, data and mock capabilities out of the application. Reuse the current decorative tenant-accent contract and semantic colors. Any separate deployment-wide font, palette or backend policy remains a product decision unless explicitly in scope.
+
+## Published baseline and reservations
+
+| Owner | Scope and exact starting point |
+| --- | --- |
+| Agent 01 | Registry, acceptance record, #88/#89 linkage and native stack verification. Main `f527519b0f944631131a8464ce67d9662745ffde` integrates organization backend stack #42, including current schema 8, scoped member and profile APIs, SQL assertions, dedicated profile credentials and summary reporting. Main also contains the exact-revision review standard. |
+| Agent 02 | Sole implementation owner in `feat/juno-0027-application-shell` (#37). Approved head `7e434d664e8ad02963684406efd6932fd11b2663`; integrate current main as an additive merge that preserves both ancestors. Reserve frontend application paths in `apps/web/**`, the Shell browser specs, V2 design/evidence and the JUNO-0027 task record under implementation. Preserve production URL contracts and server-side authentication, membership and capability boundaries. |
+| Agent 03 | Independent runtime, accessibility and security QA after Agent 02 publishes a stable pin. Own shared `scripts/quality/**`, CI, regression infrastructure and optional provenance integration. Agent 03 verified that Shell setup does not add tenant memberships to the fixture platform account. Agent 02 may add the paired `JUNO_TEST_SHELL_ADMIN_*` consumer and minimal producer in #37 as one scoped test commit for Agent 03 review. No other shared runner changes are reserved for #37. |
+
+The review launcher (#109), baked OCI/runtime provenance (#106), and runtime UI indicator (#107) remain separate open deliveries at this checkpoint. Preserve the review requirements already on main. For #37, record the exact checkout and tree, Compose project/source, both running image IDs, web-to-API readiness and schema 8. If there is no baked metadata in the exact build, mark that limitation. Do not borrow evidence from a different preview or make these separate PRs mandatory for the frontend release. Use separate disposable or newly pinned review projects. Preserve existing UATs and the maintainer's current review project.
+
+## Implementation and QA handoff
+
+1. Publish an Agent 02 implementation checkpoint with exact SHA, main ancestry, changed contracts and routes, built image evidence, startup/teardown instructions, and before/after captures from real application flows. Keep shared tokens and the Shell navigation slot/interface stable before dependent adaptation. Production approval is pending until the maintainer reviews a real build.
+2. Use the schema-8 runner as the validation baseline. Execute frozen install, lint, types, build, Vitest, migrations and rerun, all five SQL fixtures (each once), named scenario output and existing Playwright. Keep the required profile fixture separate. Provision a distinct Shell fixture only where Shell tests consume it, ensure both paths use it explicitly, and preserve existing rate limits and assertions. Keep downstream-only fixtures in the consuming branch.
+3. Agent 03 independently verifies the stable #37 and then the final composed stack. Test EN/PT-BR, light/dark, desktop/compact rail, mobile bottom navigation and drawer, account settings, context and long content, keyboard focus/escape/return, 320/375/390/768/1024/1280/1920 widths, 200% resize/zoom, form errors and status announcements. Check tenant member/administrator/platform/anonymous access and synthetic credentials. Report manual screen-reader coverage separately. Publish exact pins and report links before requesting runtime acceptance.
+
+## Native frontend stack #50 adaptation
+
+| PR and observed head | Adapt after the exact previous head is released |
+| --- | --- |
+| [#37](https://github.com/oEnzoRibas/Juno/pull/37) · `7e434d664e8ad02963684406efd6932fd11b2663` | Implement approved V2 in the existing branch. Authentication, organization selection, shell, account and existing administration use live functionality. Expose stable navigation/token contracts and document relevant route organization. |
+| [#43](https://github.com/oEnzoRibas/Juno/pull/43) · `e5de071650154641b9f08e7c0ba212d5e71def0a` | After #37's stable V2 implementation pin, reconcile the shared `application-shell.tsx` conflict with a capability-gated Members entry and adapt list screens into the approved shell route group while preserving public URLs. Use the integrated member-directory API and verify denied states. |
+| [#48](https://github.com/oEnzoRibas/Juno/pull/48) · `145cb9f726cc8d34b2c4c416ef0c08624b6dd562` | Build on the adapted #43. Apply V2 form/table conventions to filters, cursor and detail. Preserve URL query, locale and return state. Validate authorized and foreign member lookup against integrated APIs. |
+| [#51](https://github.com/oEnzoRibas/Juno/pull/51) · `fcd343c6c94242dfae9fbf78d7a3bcdc242c3087` | Build on the adapted #48. Mount existing settings with its current URL and permissions, adopt V2 fields/status, and verify normalization, persisted name/accent, access denial and inherited audit checks. |
+
+#43 currently has a confirmed shared Shell conflict. #48 and #51 have historical runtime check failures. Their ownership stays with Agent 02 and adaptation waits for an exact, stable implementation pin with QA release from Agent 01. Use additive synchronization on the existing PR branches with recovery refs and incremental comparisons. A stable implementation pin can release adaptation before merge. Final runtime acceptance of the composed stack remains a separate human gate.
+
+Original project creator: Enzo Ribas. Developed with AI assistance.

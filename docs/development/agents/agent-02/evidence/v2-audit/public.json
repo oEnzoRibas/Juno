@@ -1,0 +1,158 @@
+[
+  {
+    "path": "/",
+    "width": 390,
+    "status": 200,
+    "url": "https://www.duolingo.com/",
+    "headings": [
+      "O jeito mais divertido de aprender idiomas, xadrez e muito mais!",
+      "grátis. divertido. eficaz.",
+      "baseado na ciência",
+      "mantenha a motivação"
+    ],
+    "controls": [
+      {
+        "label": "JÁ TENHO UMA CONTA",
+        "height": 50,
+        "radius": "12px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      },
+      {
+        "label": "TESTE UMA SEMANA GRÁTIS",
+        "height": 50,
+        "radius": "12px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      }
+    ]
+  },
+  {
+    "path": "/learn",
+    "width": 390,
+    "status": 200,
+    "url": "https://www.duolingo.com/",
+    "headings": [
+      "O jeito mais divertido de aprender idiomas, xadrez e muito mais!",
+      "grátis. divertido. eficaz.",
+      "baseado na ciência",
+      "mantenha a motivação"
+    ],
+    "controls": [
+      {
+        "label": "JÁ TENHO UMA CONTA",
+        "height": 50,
+        "radius": "12px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      },
+      {
+        "label": "TESTE UMA SEMANA GRÁTIS",
+        "height": 50,
+        "radius": "12px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      }
+    ]
+  },
+  {
+    "path": "/log_in",
+    "width": 390,
+    "status": 200,
+    "url": "https://www.duolingo.com/errors/404.html",
+    "headings": [
+      "Error 404"
+    ],
+    "controls": []
+  },
+  {
+    "path": "/",
+    "width": 1280,
+    "status": 200,
+    "url": "https://www.duolingo.com/",
+    "headings": [
+      "O jeito mais divertido de aprender idiomas, xadrez e muito mais!",
+      "grátis. divertido. eficaz.",
+      "baseado na ciência",
+      "mantenha a motivação"
+    ],
+    "controls": [
+      {
+        "label": "IDIOMA DO SITE: PORTUGUÊS",
+        "height": 17,
+        "radius": "0px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      },
+      {
+        "label": "JÁ TENHO UMA CONTA",
+        "height": 50,
+        "radius": "12px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      },
+      {
+        "label": "TESTE UMA SEMANA GRÁTIS",
+        "height": 50,
+        "radius": "12px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      }
+    ]
+  },
+  {
+    "path": "/learn",
+    "width": 1280,
+    "status": 200,
+    "url": "https://www.duolingo.com/",
+    "headings": [
+      "O jeito mais divertido de aprender idiomas, xadrez e muito mais!",
+      "grátis. divertido. eficaz.",
+      "baseado na ciência",
+      "mantenha a motivação"
+    ],
+    "controls": [
+      {
+        "label": "IDIOMA DO SITE: PORTUGUÊS",
+        "height": 17,
+        "radius": "0px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      },
+      {
+        "label": "JÁ TENHO UMA CONTA",
+        "height": 50,
+        "radius": "12px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      },
+      {
+        "label": "TESTE UMA SEMANA GRÁTIS",
+        "height": 50,
+        "radius": "12px",
+        "shadow": "none",
+        "font": "duolingo-sans, sans-serif",
+        "weight": "700"
+      }
+    ]
+  },
+  {
+    "path": "/log_in",
+    "width": 1280,
+    "status": 200,
+    "url": "https://www.duolingo.com/errors/404.html",
+    "headings": [
+      "Error 404"
+    ],
+    "controls": []
+  }
+]

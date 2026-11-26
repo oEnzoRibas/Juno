@@ -25,3 +25,9 @@ pnpm exec playwright test tests/browser/application-shell.spec.mjs
 ```
 
 The tests cover empty accounts, revoked sessions, keyboard focus, role-appropriate navigation, workspace switches, locale changes, two tenant accents, narrow reflow, and neutral access denial.
+
+## Revised navigation
+
+The authenticated route group shares a preference layout across session, workspace and platform. Each protected page renders the shared shell from its latest server-authorized session and workspace data. The desktop rail stays visible while content scrolls. At narrow widths, a native modal drawer provides focus containment, Escape dismissal and focus restoration. The browser stores rail and theme preferences, while the API remains the authority for memberships and write permissions.
+
+Platform provisioning and the first invitation use the authenticated administrative layout. Workspace invitations continue to use the existing dashboard fragment. Both display the server-confirmed invitation link with a labeled copy action and a manual fallback. [Revised Shell acceptance guide and screenshots](../development/agents/agent-02/handoffs/JUNO-0027-redesign-uat.md).

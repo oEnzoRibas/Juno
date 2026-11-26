@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="32.7.4">
+  <diagram id="juno-database-recovery-validation" name="Database recovery validation">
+    <mxGraphModel page="1" pageScale="1" pageWidth="1280" pageHeight="655">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cell-2" value="" style="shape=rectangle;whiteSpace=wrap;html=0;fillColor=#FFFFFF;strokeColor=none;strokeWidth=1;rounded=0;locked=1;selectable=0;movable=0;resizable=0;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1280" height="655" as="geometry" />
+        </mxCell>
+        <mxCell id="cell-3" value="" style="shape=stencil(zVTBcoMgEP2avZMlanpO46F/wShWGgMUNZq/7+CSREmdTDs99IRvebvvsYsA37e1sBKQaXGSwF8B8a3XBpCdZdEZB8iE6wbjjoAIyAbi7LYEa4LZjqBorSw6ilVqlCWF286ZoxxU2QW+0rV0qvO7/AB8Xxkn353pdUmYEgrTTAZonRIBeZakSZ5QYcB8nkAKyGZKwRiZmSIsSm2UloWwXkdYopCTR9qHURqQTcsq0Qqv7b9O5uw7OxJ3E4QvC2OL+ndy8vJ78pZH7M9elJ69iegBpwGPSJiH2V5wub9W73awlXq3/YC3aVQPML83jSb5ONu/uAzJv7kMmC5GdoXw/YCzJ+wnDaxU0/ygfbJplG3n8uFCXeUDDE9BMBNaHFvz2pHV+GcHzOkR4ocv);aspect=fixed;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="44" y="35" width="39.48" height="36.66" as="geometry" />
+        </mxCell>
+        <mxCell id="cell-4" value="" style="shape=stencil(xVjLbuMwDPwaHxuIpJ7HRbc57F8EqbsNmsaFkz727xepLMmiZSstAvTUmpmxRkNSDzd0e3zcvLQNisPmuW3od4P45/XQNSje2u2p6xsUm/703vVPDWKD4t1jJAnhA48+gBACm+NLuz356MPuo7334eOp757a9939aWDsDo9tvzudf6W7hm4fur7923evh/vhebffb7v9pwT/95PWIIEAgF/+tQ2uPfxlc37x+b/n7u08oQ+PBzIe+c8/q/NDxtzvDgt4MIITtq+9HwE4JQSM0z7ygT7iAmJ4BivVgCAfuZEDgjhiRuiNxFzoVwkolF22Amp47gQqlTuROMEJcpZZ4aTJrUiQ4IURy1NLjO8leYrf7rtjOw7kVYU6H5C0rFhDKrgJjBKckWf22JnYY8GYhBgCiFAZNlFCbYYqiAmJwoaAcfmoaa6UA+YbwrIyiK8MOQfeD1EVccTFU00U4P4h14U8B3NzLSSWV0aD67T4nFet8Y9XWsUc6pXTlvKO16pWdSCsHROBM6M1KNQYGMLKaJYYNDgGhrAEvdxyaGRpClIs0xTC1WjVZQG1uBYLwJhachgxbic0aZccGJuGiCVHYDk5ATirxdqswGAywjCmFVRSQpIpYbjY1Y4WvWS0yxKg5LVIgFWjGC8YpcIpIRilnS4ZlRqPip1N8639E+sOODQrRzqsm4PmsI7OlzbjhSpDVk4oclzYgpDvQaD1GEcMN38iIYEFIWmAIISsLAixwIUwXMiidovVxmkXLmOo5fVorm4W4w1hrdk+itJlpg5hJcJZL+7ZOsMRw80LEc4WhKQB4tnRFoVYJgQcFMuncmIGBzT1sbofaG2uxapvdMUG/Sat0Nc/segQGrVyQuZHbNC6tjaTFjAmAmfGM68FMQamDRXYVYQB4z5ra5s7Z4aFh+/tXPNcL3FTLu8lJ11ByKSX0MiSkCSYyrjLLeFMmLiOZck4yeOyKaVSWb7PzZScVLW7Pwkni3MKzJhnIXRpTujYJY8Dk7+6qiVnxqMdW7655pBpvtfNuBtx80KkMqXajwPEq6cseZIEUxn3BUsYEyauY1kyTvJYKblCqfzE2imFUytrJhfFWm9KsGNeuica/pFC6REuXhND86dPFRkuuhQ+hC18sMiIsZ/4csUEx4sIsXWTGUIcNy9EiJIjaYD4QYtKQpJgKuIud4QR440jWh4cyQWnGwdPTdmRQo18qYAbXPNPuA2u/edluvsP);aspect=fixed;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="88" y="39.1758" width="65.0879" height="31.7871" as="geometry" />
+        </mxCell>
+        <mxCell id="title" vertex="1" parent="1" value="PostgreSQL recovery validation" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=34;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="48" y="80" width="1130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" vertex="1" parent="1" value="Disposable Docker Compose projects • Synthetic data only" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontStyle=0;fontColor=#62677D;">
+          <mxGeometry x="48" y="135" width="1130" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="restart-label" vertex="1" parent="1" value="Controlled outage and restart" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=19;fontStyle=1;fontColor=#5543CF;">
+          <mxGeometry x="48" y="201" width="1150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="healthy" vertex="1" parent="1" value="" style="rounded=1;arcSize=11;html=0;fillColor=#F1EEFF;strokeColor=#C7BCFF;">
+          <mxGeometry x="48" y="237" width="335" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="healthy-title" vertex="1" parent="1" value="Healthy project" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="66" y="250" width="290" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="healthy-detail" vertex="1" parent="1" value="Apply migrations and commit a fixture" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#53596C;">
+          <mxGeometry x="66" y="288" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="outage" vertex="1" parent="1" value="" style="rounded=1;arcSize=11;html=0;fillColor=#FFF3EB;strokeColor=#DDBBA7;">
+          <mxGeometry x="472" y="237" width="335" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="outage-title" vertex="1" parent="1" value="PostgreSQL stopped" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="490" y="250" width="290" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="outage-detail" vertex="1" parent="1" value="Readiness 503 • Liveness 200" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#53596C;">
+          <mxGeometry x="490" y="288" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="recovery" vertex="1" parent="1" value="" style="rounded=1;arcSize=11;html=0;fillColor=#EAF5F5;strokeColor=#AFCFCD;">
+          <mxGeometry x="896" y="237" width="335" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="recovery-title" vertex="1" parent="1" value="Same API container ready" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="914" y="250" width="290" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="recovery-detail" vertex="1" parent="1" value="Verify fixture and migration journal" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#53596C;">
+          <mxGeometry x="914" y="288" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="restart-1" edge="1" parent="1" source="healthy" target="outage" style="edgeStyle=orthogonalEdgeStyle;html=0;rounded=1;endArrow=block;endFill=1;strokeColor=#7565F5;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="restart-2" edge="1" parent="1" source="outage" target="recovery" style="edgeStyle=orthogonalEdgeStyle;html=0;rounded=1;endArrow=block;endFill=1;strokeColor=#7565F5;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="restore-label" vertex="1" parent="1" value="Logical backup and restore" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=19;fontStyle=1;fontColor=#5543CF;">
+          <mxGeometry x="48" y="388" width="1150" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="source" vertex="1" parent="1" value="" style="rounded=1;arcSize=11;html=0;fillColor=#F1EEFF;strokeColor=#C7BCFF;">
+          <mxGeometry x="48" y="425" width="335" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="source-title" vertex="1" parent="1" value="Source database" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="66" y="438" width="290" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="source-detail" vertex="1" parent="1" value="Dump synthetic data and schema" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#53596C;">
+          <mxGeometry x="66" y="476" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="archive" vertex="1" parent="1" value="" style="rounded=1;arcSize=11;html=0;fillColor=#F7F7FB;strokeColor=#DCE0EB;">
+          <mxGeometry x="472" y="425" width="335" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="archive-title" vertex="1" parent="1" value="In-memory archive" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="490" y="438" width="290" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="archive-detail" vertex="1" parent="1" value="Check the archive table of contents" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#53596C;">
+          <mxGeometry x="490" y="476" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="target" vertex="1" parent="1" value="" style="rounded=1;arcSize=11;html=0;fillColor=#EAF5F5;strokeColor=#AFCFCD;">
+          <mxGeometry x="896" y="425" width="335" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="target-title" vertex="1" parent="1" value="Separate restore database" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontStyle=1;fontColor=#10111A;">
+          <mxGeometry x="914" y="438" width="290" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="target-detail" vertex="1" parent="1" value="Verify data, journal and tenant policies" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontStyle=0;fontColor=#53596C;">
+          <mxGeometry x="914" y="476" width="290" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="restore-1" edge="1" parent="1" source="source" target="archive" style="edgeStyle=orthogonalEdgeStyle;html=0;rounded=1;endArrow=block;endFill=1;strokeColor=#7565F5;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="restore-2" edge="1" parent="1" source="archive" target="target" style="edgeStyle=orthogonalEdgeStyle;html=0;rounded=1;endArrow=block;endFill=1;strokeColor=#7565F5;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="credit" vertex="1" parent="1" value="Juno • Original project creator: Enzo Ribas • Developed with AI assistance" style="text;html=0;whiteSpace=nowrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontStyle=0;fontColor=#62677D;">
+          <mxGeometry x="48" y="600" width="1165" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,109 @@
+.directoryPanel {
+  border-block-start-width: var(--tenant-accent-width);
+}
+
+.tableRegion {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+}
+
+.table {
+  inline-size: 100%;
+  min-inline-size: 31rem;
+  border-collapse: collapse;
+  text-align: start;
+}
+
+.table thead {
+  background: var(--surface);
+}
+
+.table :is(th, td) {
+  padding: var(--space-3);
+  border-block-end: 1px solid var(--border);
+  text-align: start;
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child > * {
+  border-block-end: 0;
+}
+
+.table tbody th {
+  inline-size: 37%;
+  font-weight: 600;
+}
+
+.active,
+.inactive {
+  display: inline-block;
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-control);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.active {
+  color: var(--success-text);
+  background: var(--success-surface);
+}
+
+.inactive {
+  color: var(--inactive-text);
+  background: var(--inactive-surface);
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-block-start: var(--space-3);
+}
+
+.pagination a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--control-height);
+  text-decoration: underline;
+}
+
+.scrollHint {
+  display: none;
+  margin-block-end: var(--space-2);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+@media (width < 768px) {
+  .scrollHint {
+    display: block;
+  }
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+  gap: var(--space-3);
+  align-items: end;
+}
+
+.filterActions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filterActions a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--control-height);
+  text-decoration: underline;
+}
+
+.table tbody th a {
+  text-decoration: underline;
+}

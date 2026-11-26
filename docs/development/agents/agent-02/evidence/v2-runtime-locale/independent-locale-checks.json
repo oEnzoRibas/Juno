@@ -1,0 +1,156 @@
+{
+  "head": "bd8108b92665ad3fd3e846b9b535ccd1de19156e",
+  "tree": "1f4e15d69dab73097cdb5849bc0e17f62d21ee60",
+  "project": "juno-agent03-locale-02d68d18-8110-4cde-975f-15293f74f54c",
+  "origin": "http://127.0.0.1:18656",
+  "raw": [
+    {
+      "path": "/",
+      "status": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/?lang=en",
+      "status": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/?lang=pt-BR",
+      "status": 200,
+      "expected": "pt-BR",
+      "actual": "pt-BR"
+    },
+    {
+      "path": "/sign-in",
+      "status": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/sign-in?lang=en",
+      "status": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/sign-in?lang=pt-BR",
+      "status": 200,
+      "expected": "pt-BR",
+      "actual": "pt-BR"
+    },
+    {
+      "path": "/activate",
+      "status": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/activate?lang=en",
+      "status": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/activate?lang=pt-BR",
+      "status": 200,
+      "expected": "pt-BR",
+      "actual": "pt-BR"
+    }
+  ],
+  "redirects": [
+    {
+      "path": "/session",
+      "status": 307,
+      "location": "/sign-in",
+      "finalStatus": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/account",
+      "status": 307,
+      "location": "/sign-in",
+      "finalStatus": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/platform",
+      "status": 307,
+      "location": "/sign-in",
+      "finalStatus": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/workspace/10000000-0000-4000-8100-000000000001",
+      "status": 307,
+      "location": "/sign-in",
+      "finalStatus": 200,
+      "expected": "en",
+      "actual": "en"
+    },
+    {
+      "path": "/session?lang=pt-BR",
+      "status": 307,
+      "location": "/sign-in?lang=pt-BR",
+      "finalStatus": 200,
+      "expected": "pt-BR",
+      "actual": "pt-BR"
+    },
+    {
+      "path": "/account?lang=pt-BR",
+      "status": 307,
+      "location": "/sign-in?lang=pt-BR",
+      "finalStatus": 200,
+      "expected": "pt-BR",
+      "actual": "pt-BR"
+    },
+    {
+      "path": "/platform?lang=pt-BR",
+      "status": 307,
+      "location": "/sign-in?lang=pt-BR",
+      "finalStatus": 200,
+      "expected": "pt-BR",
+      "actual": "pt-BR"
+    },
+    {
+      "path": "/workspace/10000000-0000-4000-8100-000000000001?lang=pt-BR",
+      "status": 307,
+      "location": "/sign-in?lang=pt-BR",
+      "finalStatus": 200,
+      "expected": "pt-BR",
+      "actual": "pt-BR"
+    }
+  ],
+  "spa": [
+    {
+      "route": "/account?lang=pt-BR",
+      "heading": "Sua conta",
+      "lang": "pt-BR",
+      "sameDocument": true
+    },
+    {
+      "route": "/account",
+      "heading": "Your account",
+      "lang": "en",
+      "sameDocument": true
+    }
+  ],
+  "images": {
+    "api": "sha256:49b86247f5787cb30ac283b81d78d5757a355096f937501d1850caf48e42364e",
+    "web": "sha256:49b86247f5787cb30ac283b81d78d5757a355096f937501d1850caf48e42364e"
+  },
+  "ready": {
+    "status": "ready"
+  },
+  "imageLabels": {
+    "com.docker.compose.project": "juno-agent03-locale-02d68d18-8110-4cde-975f-15293f74f54c",
+    "com.docker.compose.service": "web",
+    "com.docker.compose.version": "5.7.0"
+  },
+  "chromium": "159.0.8154.6",
+  "cleanup": "complete"
+}
