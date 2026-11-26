@@ -30,7 +30,7 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 ## Under review
 
 - [JUNO-0022](tasks/JUNO-0022.md), integrated workflow in #31 and remaining [audit regression #36](https://github.com/oEnzoRibas/Juno/pull/36).
-- [JUNO-0027](tasks/JUNO-0027.md), [application shell #37](https://github.com/oEnzoRibas/Juno/pull/37), owned by Agent 02.
+- [JUNO-0027](tasks/JUNO-0027.md), [application shell #37](https://github.com/oEnzoRibas/Juno/pull/37), owned by Agent 02. The maintainer's V2 playground approval releases implementation. The [handoff](agents/agent-01/handoffs/juno-0027-v2-implementation.md) defines independent QA and the stable V2 adoption gate for #43, #48 and #51.
 - [Maintainer acceptance and protocol #38](https://github.com/oEnzoRibas/Juno/pull/38), including the pinned UAT record and alpha gates.
 
 ## Integrated scope
