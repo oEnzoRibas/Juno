@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AuthController } from './auth/auth.controller';
 import { AuthService } from './auth/auth.service';
+import { BuildInfoController } from './build-info.controller';
 import { DatabaseService } from './database/database.service';
 import { HealthController } from './health.controller';
 import { OnboardingController } from './onboarding/onboarding.controller';
@@ -11,5 +12,11 @@ import { OrganizationProfileController } from './organization/organization-profi
 import { OrganizationProfileService } from './organization/organization-profile.service';
 import { ReadyController } from './ready.controller';
 
-@Module({ controllers: [HealthController, ReadyController, AuthController, OnboardingController, MemberDirectoryController, OrganizationProfileController], providers: [DatabaseService, AuthService, OnboardingService, MemberDirectoryService, OrganizationProfileService] })
+@Module({
+  controllers: [
+    HealthController, ReadyController, AuthController, OnboardingController,
+    MemberDirectoryController, OrganizationProfileController, BuildInfoController,
+  ],
+  providers: [DatabaseService, AuthService, OnboardingService, MemberDirectoryService, OrganizationProfileService],
+})
 export class AppModule {}

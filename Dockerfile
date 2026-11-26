@@ -7,9 +7,21 @@ COPY apps/api/package.json ./apps/api/
 COPY apps/web/package.json ./apps/web/
 RUN --mount=type=cache,target=/pnpm/store pnpm install --frozen-lockfile --store-dir /pnpm/store
 COPY . .
+ARG JUNO_BUILD_REVISION
+ARG JUNO_BUILD_TREE
+ARG JUNO_BUILD_CREATED
+ARG JUNO_BUILD_STATE=unavailable
+ARG JUNO_BUILD_PRS={}
+RUN node scripts/build/stamp-image.mjs
 RUN pnpm build
 
 FROM workspace AS runtime
+LABEL org.opencontainers.image.source="https://github.com/oEnzoRibas/Juno" \
+      org.opencontainers.image.revision="${JUNO_BUILD_REVISION}" \
+      org.opencontainers.image.created="${JUNO_BUILD_CREATED}" \
+      io.juno.source.tree="${JUNO_BUILD_TREE}" \
+      io.juno.source.state="${JUNO_BUILD_STATE}" \
+      io.juno.source.pull-requests="${JUNO_BUILD_PRS}"
 ENV NODE_ENV=production
 RUN chown -R node:node /workspace/apps/web/src /workspace/apps/web/.next && chown node:node /workspace/apps/web
 USER node

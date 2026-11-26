@@ -27,3 +27,13 @@ Agent 01 owns the delivered directory lookup and profile API. Agent 02 owns the 
 ## Maintainer review preparation
 
 [JUNO-0039](../tasks/JUNO-0039.md) covers the observed 15 open reviews. Agent 01 owns backend, architecture, governance, dependency verification, description publication and final consistency. Agent 02 verifies frontend #37/#43/#48/#51 and product/evidence #53/#54 diagrams, screenshots, acceptance criteria and accessibility. Agent 03 verifies #49/#52/#55/#58 CI, operational and independent commands and evidence. Both lanes delivered read-only audits. Agent 01 retains authority for PR edits. Agent 02 confirmed the redesigned Shell's environment-specific revision indicator. Other preview identities are surfaced through the inventory without modifying their snapshots. Existing implementation reservations remain in effect.
+
+## Reproducible review and runtime identification
+
+Owner-authorized parallel work released from `main` at `37cc0a9e0b9f1c5f240b02cccb1aa84fb183b2ad`. The incident requires an immediate review correction. Existing product dependencies and provider order remain in place. Both delegated lanes acknowledged their assignments and reported checkpoints on 2026-11-25. Check execution status separately from ownership.
+
+| Task | Owner and branch | Exclusive reservation | Handoff |
+| --- | --- | --- | --- |
+| [JUNO-0041](../tasks/JUNO-0041.md) | Agent 03, `feat/juno-0041-pr-review-tooling` | `scripts/review/**` and review-only scripts in root `package.json` | Publish isolated status, start, test and cleanup evidence and reconcile with the build helper where available. |
+| [JUNO-0042](../tasks/JUNO-0042.md) | Agent 01, `feat/juno-0042-build-provenance` | `Dockerfile`, `.dockerignore`, base/dev Compose metadata, `scripts/build/**`, build-info API and central protocol | Build metadata is generated before compilation. API `/api/build-info` is opt-in and reads actual schema. |
+| [JUNO-0043](../tasks/JUNO-0043.md) | Agent 02, `feat/juno-0043-build-indicator` | Build information files under `apps/web/**`; preserve existing #37 | Consume generated `apps/web/src/lib/generated/juno-build.json` and the real `/api/build-info` response. Stack on the backend dependency after a published checkpoint. |

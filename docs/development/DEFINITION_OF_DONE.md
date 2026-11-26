@@ -1,5 +1,7 @@
 # Definition of done
 
+For executable reviews, verify exact checkout and running revision, actual frontend-to-API connectivity, isolated synthetic credentials, expected positive and negative scenarios, and teardown instructions. Identify disposable cleanup and separately pinned integrated UAT. Preserve independent maintainer and automated evidence in separate entries.
+
 A task may move to COMPLETED only when the implementation and evidence meet every applicable requirement.
 
 - All mandatory acceptance criteria are satisfied. Implementation and meaningful source documentation are complete.

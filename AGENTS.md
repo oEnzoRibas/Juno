@@ -43,6 +43,8 @@ After meaningful milestones, validation and blockers, checkpoint the task and [S
 
 Complete the [maintainer review standard](docs/development/git-workflow.md#maintainer-review-standard) and the [PR template](.github/pull_request_template.md) before requesting review. Human and AI contributors follow the same requirements. Prioritize reproducible evidence on exact commits, declare open gates, and keep coordinated UAT snapshots pinned.
 
+Every executable PR must give a reproducible review entry point for its own head. Verify the running image and actual API connection, provide synthetic credentials, expected positive and negative outcomes, and safe shutdown. Label independent historical UAT and human validation separately. A review with misleading or incomplete setup is not ready.
+
 
 ## Issue linkage and labels
 

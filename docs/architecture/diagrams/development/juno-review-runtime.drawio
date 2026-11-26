@@ -1,0 +1,23 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="juno-runtime-review" name="Review runtime provenance">
+    <mxGraphModel dx="960" dy="420" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Juno | Review runtime provenance" style="html=0;text;align=left;fontSize=25;fontStyle=1;fontColor=#181532;" vertex="1" parent="1"><mxGeometry x="40" y="25" width="860" height="45" as="geometry"/></mxCell>
+        <mxCell id="git" value="Clean Git checkout&#xa;Commit, tree and included PRs" style="html=0;rounded=1;whiteSpace=nowrap;fillColor=#EEEAFE;strokeColor=#7565F5;fontColor=#181532;fontSize=16;" vertex="1" parent="1"><mxGeometry x="40" y="105" width="235" height="80" as="geometry"/></mxCell>
+        <mxCell id="archive" value="Immutable Git archive&#xa;Docker build context" style="html=0;rounded=1;whiteSpace=nowrap;fillColor=#EEEAFE;strokeColor=#7565F5;fontColor=#181532;fontSize=16;" vertex="1" parent="1"><mxGeometry x="355" y="105" width="235" height="80" as="geometry"/></mxCell>
+        <mxCell id="image" value="Runtime image&#xa;OCI labels and baked metadata" style="html=0;rounded=1;whiteSpace=nowrap;fillColor=#E1F6EF;strokeColor=#168466;fontColor=#181532;fontSize=16;" vertex="1" parent="1"><mxGeometry x="670" y="105" width="235" height="80" as="geometry"/></mxCell>
+        <mxCell id="web" value="Frontend&#xa;Shows baked and observed identity" style="html=0;rounded=1;whiteSpace=nowrap;fillColor=#E1F6EF;strokeColor=#168466;fontColor=#181532;fontSize=16;" vertex="1" parent="1"><mxGeometry x="40" y="250" width="235" height="80" as="geometry"/></mxCell>
+        <mxCell id="api" value="API&#xa;Opt-in runtime identity" style="html=0;rounded=1;whiteSpace=nowrap;fillColor=#E1F6EF;strokeColor=#168466;fontColor=#181532;fontSize=16;" vertex="1" parent="1"><mxGeometry x="355" y="250" width="235" height="80" as="geometry"/></mxCell>
+        <mxCell id="db" value="Isolated PostgreSQL&#xa;Observed schema version" style="html=0;rounded=1;whiteSpace=nowrap;fillColor=#E1F6EF;strokeColor=#168466;fontColor=#181532;fontSize=16;" vertex="1" parent="1"><mxGeometry x="670" y="250" width="235" height="80" as="geometry"/></mxCell>
+        <mxCell id="a" value="archive" style="html=0;endArrow=block;fontSize=12;" edge="1" parent="1" source="git" target="archive"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="b" value="compile" style="html=0;endArrow=block;fontSize=12;" edge="1" parent="1" source="archive" target="image"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="c" value="actual API request" style="html=0;endArrow=block;fontSize=12;" edge="1" parent="1" source="web" target="api"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="d" value="schema query" style="html=0;endArrow=block;fontSize=12;" edge="1" parent="1" source="api" target="db"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e" value="starts web and API" style="html=0;edgeStyle=orthogonalEdgeStyle;endArrow=block;fontSize=12;" edge="1" parent="1" source="image" target="api"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="credit" value="Original project creator: Enzo Ribas. Developed with AI assistance." style="html=0;text;align=left;fontColor=#504A66;fontSize=12;" vertex="1" parent="1"><mxGeometry x="40" y="365" width="860" height="25" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

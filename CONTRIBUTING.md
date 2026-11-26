@@ -1,5 +1,7 @@
 # Contributing to Juno
 
+Executable pull requests need copyable exact-head review instructions, including how to start the environment, check the running image and API connection, obtain synthetic credentials, verify positive and negative scenarios, and stop safely. See the [runtime review guide](docs/testing/juno-review-runtime.md). A separate integrated UAT requires its own source pins and acceptance record.
+
 ## Start with a small change
 
 See the [community guide](docs/governance/community.md) to route a question or proposal. Once labels are available, look for `good first issue` tasks with a bounded scope, acceptance criteria, and a maintainer contact. Documentation fixes, testing improvements, and accessibility reports are welcome. Ask on the issue before starting substantial work.
