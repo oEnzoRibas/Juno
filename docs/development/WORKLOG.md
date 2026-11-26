@@ -1,5 +1,7 @@
 # Development worklog
 
+- 2026-11-25: Recorded the maintainer's V2 playground approval at `7e434d664e8ad02963684406efd6932fd11b2663`. Agent 02 can implement within existing #37. Main `f527519b0f944631131a8464ce67d9662745ffde` supplies the organization APIs and schema-8 QA baseline. Agent 03 owns independent validation. [Frontend stack #50 handoff](agents/agent-01/handoffs/juno-0027-v2-implementation.md). Runtime acceptance and merge authorization remain pending.
+
 Append dated entries for meaningful changes, lifecycle transitions, reordered or blocked work, and verification results. Link the task and record the next action or resumption condition when relevant.
 
 | Date | Task | Event and evidence |
@@ -40,3 +42,16 @@ Append dated entries for meaningful changes, lifecycle transitions, reordered or
 - 2026-11-24. JUNO-0024 local authentication passed unit checks and Playwright using Compose. Invitations, tenant administration and dashboard follow in the onboarding increment.
 
 - 2026-11-24. Validated the first end-to-end onboarding milestone using Compose, synthetic platform and tenant accounts, both Playwright scenarios, and PostgreSQL checks for tenant isolation and expired invitations.
+
+- 2026-11-24. Recorded owner-authorized integration of the accepted runtime and design scope, prepared the isolated main validation, and refreshed the three-agent handoff.
+
+- 2026-11-24. Revalidated integrated main; Agents 02 and 03 restored incremental #37 and #36 on main, and Agent 01 pinned the resulting shell preview separately from the previously accepted environment. Published the [parallel cycle handoff](agents/agent-01/handoffs/juno-organizational-cycle.md).
+
+- 2026-11-24. Published the directory filters and detail contract, organization profile write and audit, and candidate validation. Recorded Agent 02 directory UI and Agent 03 outage recovery handoffs with exact revisions.
+
+- 2026-11-24. Qualified the organization stack with the directory frontend in disposable Compose. Confirmed the #43 hosted dependency gate and verified the profile schema 7 to 8 upgrade, audit rollback and OpenAPI contract. Recorded the #46 recovery successor.
+
+
+- 2026-11-25. JUNO-0039 audited 15 open PRs, verified four live UATs and coordinated independent frontend and platform evidence review. Updated the existing PR descriptions and introduced maintainer review readiness requirements for future contributions.
+
+- 2026-11-25. JUNO-0040 reconciled post-#61 stack conflicts and added issue and label traceability to 56 existing PRs. Registered 40 tasks and closed seven with verified task completion. The [index](traceability.md) retains historical evidence and original dates.

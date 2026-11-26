@@ -1,89 +1,204 @@
 import type { ReactNode } from 'react';
 import { createTranslator } from 'next-intl';
 import Link from 'next/link';
-import { locales, messages } from '../../../content/messages';
-import { signOut } from '../../sign-in/actions';
-import { localPath, type ShellLocale, type WorkspaceSummary } from './shell-data';
-import { DirectoryLink } from './member-directory-link';
-import { directoryMessages } from './member-directory-messages';
+import { messages } from '../../../content/messages';
+import { accountPath, localPath, type ShellLocale, type WorkspaceSummary } from './shell-data';
+import { ShellIcon, type ShellIconName } from './shell-icon';
+import { NavigationToggle, OrganizationSwitcher } from './shell-preferences';
 import styles from './application-shell.module.css';
 
 interface ShellProps {
   locale: ShellLocale;
   platformAdmin: boolean;
+  accountEmail?: string;
   current?: WorkspaceSummary;
   workspaces: WorkspaceSummary[];
   children: ReactNode;
-  section?: 'dashboard' | 'members' | 'settings';
+  section?: 'dashboard' | 'organizations' | 'account' | 'platform' | 'members' | 'settings';
   localePath?: (locale: ShellLocale) => string;
+  breadcrumbs?: Array<{ label: string; href?: string }>;
+  additionalNavigation?: ReactNode;
+  canInvite?: boolean;
 }
 
-/** Render navigation from the server-verified account and membership list. */
-export function ApplicationShell({ locale, platformAdmin, current, workspaces, children, section = 'dashboard', localePath }: ShellProps) {
+function NavigationLink({
+  href,
+  label,
+  icon,
+  active,
+}: {
+  href: string;
+  label: string;
+  icon: ShellIconName;
+  active?: boolean;
+}) {
+  return (
+    <Link href={href} aria-label={label} aria-current={active ? 'page' : undefined}>
+      <ShellIcon name={icon} />
+      <span className={styles.navLabel} aria-hidden="true">
+        {label}
+      </span>
+    </Link>
+  );
+}
+
+/** Render the authenticated frame from server-verified account and workspace data. */
+export function ApplicationShell({
+  locale,
+  platformAdmin,
+  accountEmail,
+  current,
+  workspaces,
+  children,
+  section = 'dashboard',
+  localePath,
+  breadcrumbs,
+  additionalNavigation,
+  canInvite = false,
+}: ShellProps) {
   const t = createTranslator({ locale, messages: messages[locale] });
-  const alternate = locales[locale];
-  const dashboardPath = current ? `/workspace/${current.id}` : '/session';
-  const directoryPath = current ? `${dashboardPath}/members` : undefined;
-  const settingsPath = current ? `${dashboardPath}/settings` : undefined;
-  const path = (section === 'members' ? directoryPath : section === 'settings' ? settingsPath : undefined) ?? dashboardPath;
+  const previewRevision = process.env.JUNO_SHELL_PREVIEW_REVISION;
+  const showPreview = /^[a-f0-9]{40}$/.test(previewRevision ?? '');
+  const root = localPath('/session', locale);
+  const dashboard = current && localPath('/workspace/' + current.id, locale);
+  const first = workspaces[0];
+  const overview = dashboard ?? (first && localPath('/workspace/' + first.id, locale));
+  const account = accountPath(locale, current?.id, section === 'platform', localePath?.(locale));
+  const organizationActive = section === 'organizations' || (section === 'dashboard' && !current);
+  const trail = breadcrumbs ?? [
+    { label: t('workspaces'), href: organizationActive ? undefined : root },
+    ...(current ? [{ label: current.name, href: section === 'dashboard' ? undefined : dashboard }] : []),
+    ...(section === 'platform' ? [{ label: t('platformAdmin') }] : []),
+    ...(section === 'account' ? [{ label: t('account') }] : []),
+    ...(current && section === 'dashboard' ? [{ label: t('dashboard') }] : []),
+  ];
+
+  const mainLinks = (
+    <>
+      {overview && (
+        <NavigationLink
+          href={overview}
+          label={t('dashboard')}
+          icon="dashboard"
+          active={!!dashboard && section === 'dashboard'}
+        />
+      )}
+      <NavigationLink href={root} label={t('workspaces')} icon="organization" active={organizationActive} />
+    </>
+  );
+  const accountLink = (
+    <NavigationLink href={account} label={t('account')} icon="account" active={section === 'account'} />
+  );
+  const navigation = (
+    <>
+      {current && (
+        <OrganizationSwitcher label={t('switchOrganization')} name={current.name}>
+          {workspaces.map((item) => (
+            <li key={item.id}>
+              <Link
+                href={localPath('/workspace/' + item.id, locale)}
+                aria-current={item.id === current.id ? 'true' : undefined}
+              >
+                <span>{item.name}</span>
+                <small>{t(item.role)}</small>
+              </Link>
+            </li>
+          ))}
+        </OrganizationSwitcher>
+      )}
+      <nav aria-label={t('workspaceNavigation')} className={styles.nav}>
+        {mainLinks}
+        {additionalNavigation}
+        {dashboard && current?.role === 'administrator' && (
+          <NavigationLink
+            href={localPath('/workspace/' + current.id + '/settings', locale)}
+            label={t('organizationSettings')}
+            icon="settings"
+            active={section === 'settings'}
+          />
+        )}
+        {dashboard && canInvite && (
+          <NavigationLink href={dashboard + '#member-invite'} label={t('inviteMember')} icon="invite" />
+        )}
+        {platformAdmin && (
+          <NavigationLink
+            href={localPath('/platform', locale)}
+            label={t('platformLink')}
+            icon="settings"
+            active={section === 'platform'}
+          />
+        )}
+        {accountLink}
+      </nav>
+    </>
+  );
   return (
     <div className={styles.frame} lang={locale}>
-      <a className={styles.skip} href="#shell-main">{t('skipToContent')}</a>
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <Link href={localPath('/session', locale)} aria-label="Juno" className={styles.wordmark}>juno.</Link>
-          <div className={styles.headerActions}>
-            <Link href={localePath ? localePath(alternate.lang) : localPath(path, alternate.lang)} lang={alternate.lang} hrefLang={alternate.lang} className={styles.utilityLink}>
-              {alternate.label}
-            </Link>
-            <form action={signOut.bind(null, locale)}>
-              <button className={styles.utilityLink} type="submit">{t('signOut')}</button>
-            </form>
-          </div>
-        </div>
-      </header>
+      <a className={styles.skip} href="#shell-main">
+        {t('skipToContent')}
+      </a>
       <div className={styles.layout}>
-        <aside className={styles.rail}>
-          <nav aria-label={t('workspaceNavigation')} className={styles.nav}>
-            <Link href={localPath('/session', locale)} aria-current={current ? undefined : 'page'}>
-              {t('workspaces')}
-            </Link>
-            {current && (
-              <Link href={localPath(dashboardPath, locale)} aria-current={section === 'dashboard' ? 'page' : undefined}>
-                {t('dashboard')}
+        <aside className={styles.rail} id="shell-sidebar">
+          <Link href={root} aria-label="Juno" className={styles.railBrand}>
+            <span aria-hidden="true">juno.</span>
+          </Link>
+          {navigation}
+        </aside>
+        <div className={styles.contentColumn}>
+          <header className={styles.header}>
+            <NavigationToggle
+              expand={t('expandSidebar')}
+              collapse={t('collapseSidebar')}
+              open={t('openNavigation')}
+              close={t('closeNavigation')}
+            >
+              {navigation}
+            </NavigationToggle>
+            {current ? (
+              <strong className={styles.contextName}>{current.name}</strong>
+            ) : (
+              <Link href={root} aria-label="Juno" className="juno-wordmark">
+                juno.
               </Link>
             )}
-            {current?.role === 'administrator' && directoryPath && (
-              <>
-                <DirectoryLink href={localPath(directoryPath, locale)} current={section === 'members'}
-                  label={directoryMessages[locale].members} loading={directoryMessages[locale].loading} />
-                {settingsPath && (
-                  <Link href={localPath(settingsPath, locale)} aria-current={section === 'settings' ? 'page' : undefined}>
-                    {t('organizationSettings')}
-                  </Link>
-                )}
-                <Link href={`${localPath(dashboardPath, locale)}#member-invite`}>{t('inviteMember')}</Link>
-              </>
+            {showPreview && (
+              <span className={styles.preview}>
+                {t('shellPreview')} <code>{previewRevision?.slice(0, 12)}</code>
+              </span>
             )}
-            {platformAdmin && <Link href={localPath('/platform', locale)}>{t('platformLink')}</Link>}
-          </nav>
-          {current && workspaces.length > 1 && (
-            <details className={styles.switcher}>
-              <summary>{t('switchOrganization')}</summary>
-              <ul>
-                {workspaces.map(workspace => (
-                  <li key={workspace.id}>
-                    <Link href={localPath(`/workspace/${workspace.id}`, locale)} aria-current={workspace.id === current.id ? 'true' : undefined}>
-                      {workspace.name}
-                    </Link>
+            <Link
+              href={account}
+              className={styles.headerAccount}
+              title={accountEmail}
+              aria-current={section === 'account' ? 'page' : undefined}
+            >
+              <ShellIcon name="account" />
+              {t('account')}
+            </Link>
+          </header>
+          <main id="shell-main" tabIndex={-1} className={styles.main}>
+            <nav aria-label={t('breadcrumbs')} className={styles.breadcrumbs}>
+              <ol>
+                {trail.map(({ href, label }, index) => (
+                  <li key={index}>
+                    {index > 0 && <ShellIcon name="chevron" />}
+                    {href ? (
+                      <Link href={href}>{label}</Link>
+                    ) : (
+                      <span aria-current={index === trail.length - 1 ? 'page' : undefined}>{label}</span>
+                    )}
                   </li>
                 ))}
-              </ul>
-            </details>
-          )}
-        </aside>
-        <main id="shell-main" tabIndex={-1} className={styles.main}>{children}</main>
+              </ol>
+            </nav>
+            {children}
+          </main>
+        </div>
       </div>
+      <nav aria-label={t('mainNavigation')} className={styles.bottomNav}>
+        {mainLinks}
+        {accountLink}
+      </nav>
     </div>
   );
 }

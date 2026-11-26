@@ -1,58 +1,59 @@
-/* Shared by the current sign-in, activation, provisioning and workspace routes. */
-:root {
+/* Juno V2 semantic foundations. Tenant accents are decorative and do not replace these roles. */
+@font-face {
+  font-family: Nunito;
+  src: url('/fonts/nunito-variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+}
+
+:root,
+[data-theme] {
   color-scheme: light dark;
   --font-ui: system-ui, sans-serif;
+  --font-display: Nunito, var(--font-ui);
   --body-size: 1rem;
   --body-leading: 1.5;
-
+  --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
+  --space-6: 1.5rem;
   --space-8: 2rem;
-  --radius-control: 0.5rem;
-  --radius-panel: 1rem;
+  --space-12: 3rem;
+  --radius-control: 0.75rem;
+  --radius-panel: 0.875rem;
   --control-height: 2.75rem;
   --tenant-accent-width: 0.5rem;
+  --action-depth: 3px;
+  --content-width: 85rem;
 
-  --surface: #f7f7fb;
-  --panel: #ffffff;
-  --text: #10111a;
-  --muted: #53556a;
-  --border: #dcdcec;
-  --control-border: #666980;
-  --action: #5543cf;
-  --action-hover: #4937bd;
-  --action-active: #3e2da7;
-  --on-action: #ffffff;
-  --focus-ring: #5543cf;
-  --inactive-surface: #e9e8f3;
-  --inactive-text: #53556a;
-  --danger-surface: #fff1f2;
-  --danger-text: #8b1838;
-  --success-surface: #edf9ef;
-  --success-text: #166534;
-  --elevation-panel: 0 1px 2px #10111a0a, 0 12px 32px #2724420c;
+  --surface: light-dark(#f8f5fd, #181222);
+  --panel: light-dark(#ffffff, #251c32);
+  --text: light-dark(#221732, #f8f1ff);
+  --muted: light-dark(#5d526e, #ccc0dc);
+  --border: light-dark(#ddd5ed, #493b5c);
+  --control-border: light-dark(#81718f, #9e8cb1);
+  --action: light-dark(#6332ba, #c9aeff);
+  --action-hover: light-dark(#5627ad, #dbc8ff);
+  --action-active: light-dark(#4e239c, #b99cf2);
+  --on-action: light-dark(#ffffff, #211333);
+  --action-edge: light-dark(#452183, #9274ca);
+  --focus-ring: light-dark(#6941cd, #c9aeff);
+  --inactive-surface: light-dark(#efe8fc, #36274e);
+  --inactive-text: var(--muted);
+  --danger-surface: light-dark(#ffedf1, #472335);
+  --danger-text: light-dark(#a01d41, #ffb5c8);
+  --success-surface: light-dark(#e5f6ed, #183c2e);
+  --success-text: light-dark(#146245, #a0e9c1);
+  --warning-surface: light-dark(#fff3d6, #442e19);
+  --warning-text: light-dark(#825100, #ffcd7a);
+  --elevation-panel: 0 4px 12px light-dark(#25173912, transparent);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface: #10111a;
-    --panel: #1a1b28;
-    --text: #f7f7fb;
-    --muted: #bfc0d4;
-    --border: #3c3e56;
-    --control-border: #8789a5;
-    --action: #a99bff;
-    --action-hover: #b8adff;
-    --action-active: #9f8fff;
-    --on-action: #10111a;
-    --focus-ring: #a99bff;
-    --inactive-surface: #292a3c;
-    --inactive-text: #bfc0d4;
-    --danger-surface: #381c2a;
-    --danger-text: #ffb5c5;
-    --success-surface: #132b20;
-    --success-text: #22c55e;
-    --elevation-panel: 0 1px 2px #00000026, 0 12px 32px #00000030;
-  }
+[data-theme='light'] {
+  color-scheme: light;
+}
+[data-theme='dark'] {
+  color-scheme: dark;
 }

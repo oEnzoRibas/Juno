@@ -1,7 +1,11 @@
 import { randomBytes } from 'node:crypto';
 import { expect, test } from '@playwright/test';
 
-test('updates an organization profile and preserves membership and tenant boundaries', async ({ page, browser, request }, testInfo) => {
+test('updates an organization profile and preserves membership and tenant boundaries', async ({
+  page,
+  browser,
+  request,
+}, testInfo) => {
   const api = (process.env.JUNO_SMOKE_API ?? 'http://127.0.0.1:3001') + '/api';
   const admin = process.env.JUNO_TEST_PROFILE_ADMIN_EMAIL ?? process.env.JUNO_TEST_ADMIN_EMAIL;
   const password = process.env.JUNO_TEST_PROFILE_ADMIN_PASSWORD ?? process.env.JUNO_TEST_ADMIN_PASSWORD;
@@ -96,15 +100,40 @@ test('updates an organization profile and preserves membership and tenant bounda
     contentType: 'image/png',
   });
 
-  await page.getByRole('link', { name: 'English', exact: true }).click();
+  await page.getByRole('banner').getByRole('link', { name: 'Sua conta' }).click();
+  await page.getByRole('combobox', { name: 'Idioma' }).selectOption('en');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await page.getByRole('link', { name: 'Back to workspace' }).click();
   await expect(page.getByRole('heading', { name: 'Organization profile' })).toBeVisible();
   await expect(page).toHaveURL(settings);
-  await expect(page.getByRole('link', { name: 'Organization settings', exact: true })).toHaveAttribute('aria-current', 'page');
+  await expect(page.getByRole('link', { name: 'Organization settings', exact: true })).toHaveAttribute(
+    'aria-current',
+    'page',
+  );
   await page.setViewportSize({ width: 320, height: 790 });
   await page.emulateMedia({ colorScheme: 'dark' });
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   await page.getByRole('textbox', { name: 'Organization name' }).focus();
-  await expect(page.getByRole('textbox', { name: 'Organization name' })).toBeFocused();
+  const mobileName = page.getByRole('textbox', { name: 'Organization name' });
+  await expect(mobileName).toBeFocused();
+  for (const control of [
+    mobileName,
+    page.getByRole('textbox', { name: 'Accent color' }),
+    page.getByRole('button', { name: 'Save profile' }),
+  ]) {
+    const bounds = await control.boundingBox();
+    expect(bounds.x).toBeGreaterThanOrEqual(0);
+    expect(bounds.x + bounds.width).toBeLessThanOrEqual(320);
+  }
+  const mainNav = page.getByRole('navigation', { name: 'Main navigation' });
+  await expect(mainNav.getByRole('link', { name: 'Organization settings' })).toHaveCount(0);
+  const menu = page.getByRole('button', { name: 'Open navigation' });
+  await menu.click();
+  const drawer = page.getByRole('dialog', { name: 'Open navigation' });
+  await expect(drawer.getByRole('link', { name: 'Organization settings' })).toHaveAttribute('aria-current', 'page');
+  await expect(drawer.getByRole('link', { name: 'Members' })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(menu).toBeFocused();
   await testInfo.attach('organization-profile-mobile', {
     body: await page.screenshot({ path: testInfo.outputPath('organization-profile-mobile.png'), fullPage: true }),
     contentType: 'image/png',
@@ -115,7 +144,9 @@ test('updates an organization profile and preserves membership and tenant bounda
   const current = await request.get(api + '/tenants/' + id, { headers: await signIn(operator.email, operator.secret) });
   expect(current.status()).toBe(200);
   expect(await current.json()).toMatchObject({ id, slug, name: updatedName, accent: '#1A698B' });
-  const foreign = await request.get(api + '/tenants/' + other, { headers: await signIn(otherAdmin.email, otherAdmin.secret) });
+  const foreign = await request.get(api + '/tenants/' + other, {
+    headers: await signIn(otherAdmin.email, otherAdmin.secret),
+  });
   expect(foreign.status()).toBe(200);
   expect(await foreign.json()).toMatchObject({ id: other, name: 'Other organization', accent: '#111111' });
 

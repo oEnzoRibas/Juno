@@ -20,3 +20,16 @@ The shell shows the directory link only when the server-derived workspace role i
 Validate with a fresh synthetic tenant. Invite an administrator and a member, then sign in as the administrator and open **Members**. Switch language, inspect the table at 320 CSS pixels, and use the keyboard to focus and scroll the table. In an organization with more than 50 memberships, use the server-issued next cursor to navigate and return to the first page. A member or an administrator of a different organization must receive the neutral denial state.
 
 Directory search, global filters, lifecycle changes and role changes require a subsequent API assignment. The existing invitation link remains in the shell.
+
+## V2 adaptation
+
+PR #43 preserves its original feature history and incorporates Shell head 020c8162f93c8d0f58f681d051b478b11a26e9d2. The tested directory implementation is b3b16616ec6ee6b15e6562f08e97af02676c3204, tree ca532a07ad5671726967de67cee1d886adcdd604. The existing `/workspace/[id]/members` URL now renders inside the V2 shell route group. The server-verified administrator's Members entry uses the shared desktop rail and contextual mobile drawer. Mobile bottom navigation retains the main destinations. Tenant and directory authorization continue through the existing server and API.
+
+The local schema-8 Compose validation passed a fresh build, HTTP and OpenAPI probes, idempotent migrations, five SQL fixtures, 12 Playwright tests, and the persisted concurrent profile audit check. Lint, types and 15 Vitest cases passed. The directory scenario exercised scoped member rows, empty and invalid cursors, neutral cross-tenant denial, mobile drawer focus, table bounds at 320 CSS px and a language switch through Account that preserved the cursor.
+
+- [Desktop runtime](../evidence/v2-member-directory/member-directory-desktop.png)
+- [Mobile runtime at 320 CSS px](../evidence/v2-member-directory/member-directory-mobile.png)
+- [Structured Playwright report](../evidence/v2-member-directory/compose-scenarios.json)
+- [Stack #50 release and next increment](https://github.com/oEnzoRibas/Juno/issues/89)
+
+To reproduce, check out the runtime pin in a disposable worktree, run `pnpm install --frozen-lockfile`, install Playwright Chromium with `pnpm exec playwright install chromium` and execute `node scripts/quality/validate-compose.mjs`. The runner creates and removes its own Compose project, volume, image tag and synthetic accounts. Keep the current UAT separate. Agent 01 coordinates the release of #48 on the validated #43 head, with #51 following its own validated parent.

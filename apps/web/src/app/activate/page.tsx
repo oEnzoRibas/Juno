@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import { createTranslator } from 'next-intl';
 import Link from 'next/link';
+import { PublicAccess } from '../../components/public-access';
 import { messages } from '../../content/messages';
 import { sessionCookie } from '../../server/juno-api';
 import { ActivationForm } from '../onboarding/forms';
@@ -10,12 +11,17 @@ export default async function Activate({ searchParams }: { searchParams: Promise
   const t = createTranslator({ locale, messages: messages[locale] });
   const signedIn = (await cookies()).has(sessionCookie);
   return (
-    <main lang={locale} className="public-shell">
-      <section className="public-panel" aria-labelledby="activation-title">
-        <h1 id="activation-title" className="mb-6 text-3xl font-semibold">{t('activate')}</h1>
-        <ActivationForm locale={locale} signedIn={signedIn} />
-        {!signedIn && <Link href={locale === 'pt-BR' ? '/sign-in?lang=pt-BR' : '/sign-in'} className="mt-5 inline-block underline">{t('existingAccount')}</Link>}
-      </section>
-    </main>
+    <PublicAccess locale={locale} route="/activate" title={t('activate')} description={t('activationIntro')}>
+      <ActivationForm locale={locale} signedIn={signedIn} />
+      {!signedIn && (
+        <Link
+          href={locale === 'pt-BR' ? '/sign-in?lang=pt-BR' : '/sign-in'}
+          className="action-button"
+          data-variant="tertiary"
+        >
+          {t('existingAccount')}
+        </Link>
+      )}
+    </PublicAccess>
   );
 }

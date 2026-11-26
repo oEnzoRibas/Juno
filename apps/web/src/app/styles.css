@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "../components/design-tokens.css";
-@import "../components/forms.css";
+@import 'tailwindcss';
+@import '../components/design-tokens.css';
+@import '../components/forms.css';
 
 body {
   background: var(--surface);
@@ -8,50 +8,84 @@ body {
   font: var(--body-size) / var(--body-leading) var(--font-ui);
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.18;
+}
+
 a {
   color: var(--action);
   text-underline-offset: 0.2em;
 }
-
 :focus-visible {
-  outline: 2px solid var(--focus-ring);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
-.public-shell {
-  width: min(100% - var(--space-8), 46rem);
-  margin-inline: auto;
-  padding-block: clamp(var(--space-8), 9vh, 6rem);
+.juno-wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--control-height);
+  font: 900 1.85rem/1 var(--font-display);
+  letter-spacing: -0.07em;
+  text-decoration: none;
 }
 
+.ui-panel,
 .public-panel {
   border: 1px solid var(--border);
   border-radius: var(--radius-panel);
   background: var(--panel);
   box-shadow: var(--elevation-panel);
-  padding: clamp(var(--space-4), 5vw, 3rem);
+  padding: clamp(var(--space-4), 2.4vw, var(--space-8));
   overflow-wrap: anywhere;
+}
+
+.ui-page-heading {
+  display: grid;
+  gap: var(--space-2);
+}
+.ui-page-heading h1 {
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+.ui-page-heading p {
+  color: var(--muted);
+}
+
+.public-shell {
+  width: min(100% - var(--space-8), 46rem);
+  margin-inline: auto;
+  padding-block: clamp(var(--space-4), 8vh, 6rem);
+}
+
+.public-access {
+  width: min(100% - var(--space-8), 29rem);
+}
+.access-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+.public-access .public-panel,
+.access-form {
+  display: grid;
+  gap: var(--space-6);
+}
+.access-header + .public-panel {
+  margin-block-start: var(--space-4);
+}
+.public-access .public-panel {
+  padding: clamp(var(--space-4), 5vw, var(--space-8));
 }
 
 .public-panel.border-t-8 {
   border-block-start-width: var(--tenant-accent-width);
-}
-
-.public-panel :is(p[role="alert"], p[role="status"]) {
-  border-radius: var(--radius-control);
-  border: 1px solid currentColor;
-  padding: var(--space-3);
-  font-weight: 600;
-}
-
-.public-panel p[role="alert"] {
-  background: var(--danger-surface);
-  color: var(--danger-text);
-}
-
-.public-panel p[role="status"] {
-  background: var(--success-surface);
-  color: var(--success-text);
 }
 
 @media (forced-colors: active) {
