@@ -27,4 +27,6 @@ Keep action controls unavailable while a request is pending. Announce success af
 
 The [coordination record](../../agent-01/handoffs/juno-organizational-cycle.md) tracks policy decisions. Before implementation, approve an action and actor matrix, policy for prior assignments and history, and the exact API response and validation contract. See the [tenant isolation decision](../../../../architecture/adr/0001-tenant-data-isolation.md).
 
+The editable boards and exports remain the submitted lifecycle concept. They illustrate possible interactions and leave authority, transitions, last-administrator protection, audit visibility and retention open for product decision. After those decisions and a stable V2 implementation baseline, coordinate a separate visual adaptation with Agent 02 using the [V2 handoff](../../agent-01/handoffs/juno-0027-v2-implementation.md). Runtime mutations, API changes and migrations are outside this proposal.
+
 Juno — Original project creator: Enzo Ribas. Developed with AI assistance. Project license MIT.
