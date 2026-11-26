@@ -1,0 +1,28 @@
+{
+  "id": "runtime-identity",
+  "task": "Determine which exact revision is serving this synthetic candidate and whether the runtime qualifies for exact-head review. Read the supplied artifacts only. Return one JSON object using the response fields.",
+  "artifacts": {
+    "policy": "Match the checked-out SHA with build provenance, the actual service image, and the web-to-API response. Health or a label alone cannot prove identity.",
+    "expectedHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "checkoutHead": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "composePlan": {
+      "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "image": "juno-runtime:candidate"
+    },
+    "runningWeb": {
+      "imageId": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "webToApi": {
+      "httpStatus": 200,
+      "schemaVersion": 8,
+      "revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "imageInspectionSource": "running container"
+  },
+  "responseFields": {
+    "observedRevision": "Exact revision seen in both running-service observations.",
+    "identity": "One of verified, mismatch, or unknown.",
+    "nextAction": "One of accept-evidence, reconcile-and-reverify, or reuse-health-only."
+  }
+}

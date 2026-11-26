@@ -1,0 +1,32 @@
+{
+  "id": "native-psd-delivery",
+  "task": "Assess a synthetic mascot delivery for the native Photoshop workflow. Use the supplied inspection evidence. Return one JSON object using the response fields.",
+  "artifacts": {
+    "policy": "Require the editable Photoshop PSD master and evidence of creation, editing, saving, reopening and inspection in Photoshop. Expected evidence includes named/grouped editable layers and non-destructive design. Preview exports are separate artifacts. Photoshop is a local authoring dependency only.",
+    "delivery": {
+      "declaredMaster": "synthetic-mascot.psd",
+      "detectedContainer": "flat PNG",
+      "nativePhotoshopDocument": false,
+      "editableLayerGroups": null,
+      "nonDestructiveEdits": null,
+      "preview": {
+        "name": "synthetic-mascot-preview.png",
+        "detectedContainer": "PNG"
+      }
+    },
+    "nativeOperations": {
+      "createdInPhotoshop": false,
+      "editedInPhotoshop": false,
+      "savedInPhotoshop": false,
+      "reopenedInPhotoshop": null,
+      "inspectedInPhotoshop": null
+    },
+    "claim": "The PSD extension and a valid PNG preview establish editable native delivery."
+  },
+  "responseFields": {
+    "nativeAcceptance": "One of accepted, invalid-delivery, or unverified.",
+    "reopenEvidence": "One of verified, failed, or unmeasured.",
+    "layerEvidence": "One of verified, failed, or unmeasured.",
+    "nextAction": "One of request-native-proof, rename-preview, or accept-preview-as-master."
+  }
+}

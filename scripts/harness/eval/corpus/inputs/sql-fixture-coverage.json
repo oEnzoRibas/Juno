@@ -1,0 +1,41 @@
+{
+  "id": "sql-fixture-coverage",
+  "task": "Review the synthetic schema-8 validation evidence. Decide whether the candidate has sufficient SQL coverage for review and identify the exact coverage gaps. Read the supplied artifacts only. Return one JSON object using the response fields.",
+  "artifacts": {
+    "policy": "At this checkpoint, each listed schema-8 regression fixture must execute exactly once. A process exit code establishes how the command ended. Human acceptance requires a separate record.",
+    "requiredFixtures": [
+      "tenant-isolation.sql",
+      "invitation-expiry.sql",
+      "onboarding-audit.sql",
+      "member-directory.sql",
+      "organization-profile.sql"
+    ],
+    "candidateFiles": [
+      "tenant-isolation.sql",
+      "invitation-expiry.sql",
+      "onboarding-audit.sql",
+      "member-directory.sql",
+      "organization-profile.sql"
+    ],
+    "detachedRun": {
+      "headMatchesCandidate": true,
+      "exitCode": 0,
+      "readiness": "passed",
+      "sqlExecuted": [
+        "tenant-isolation.sql",
+        "invitation-expiry.sql",
+        "onboarding-audit.sql",
+        "member-directory.sql",
+        "member-directory.sql"
+      ],
+      "browser": "passed"
+    },
+    "humanAcceptanceRecord": null
+  },
+  "responseFields": {
+    "missingFixtures": "Array of exact filenames absent from execution.",
+    "duplicateFixtures": "Array of exact filenames executed more than once.",
+    "coverage": "One of complete, incomplete, or unknown.",
+    "humanAcceptance": "One of accepted, pending, or unknown."
+  }
+}

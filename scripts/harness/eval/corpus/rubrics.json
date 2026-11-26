@@ -1,0 +1,145 @@
+[
+  {
+    "id": "sql-fixture-coverage",
+    "source": {
+      "title": "JUNO-0044 stack #42 qualification",
+      "url": "https://github.com/oEnzoRibas/Juno/issues/110"
+    },
+    "expected": {
+      "missingFixtures": ["organization-profile.sql"],
+      "duplicateFixtures": ["member-directory.sql"],
+      "coverage": "incomplete",
+      "humanAcceptance": "pending"
+    },
+    "regressionFields": ["missingFixtures", "duplicateFixtures", "coverage"],
+    "humanRubric": "Check that the reasoning separates SQL files from executed fixtures, a process exit from coverage, and automated evidence from acceptance."
+  },
+  {
+    "id": "runtime-identity",
+    "source": {
+      "title": "Independent runtime provenance correction",
+      "url": "https://github.com/oEnzoRibas/Juno/pull/106"
+    },
+    "expected": {
+      "observedRevision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "identity": "mismatch",
+      "nextAction": "reconcile-and-reverify"
+    },
+    "regressionFields": ["observedRevision", "identity"],
+    "humanRubric": "Check that the conclusion is tied to the running service and real connection, with a targeted verification proposal."
+  },
+  {
+    "id": "tenant-isolation",
+    "source": {
+      "title": "Scoped directory and organization profile regression coverage",
+      "url": "https://github.com/oEnzoRibas/Juno/issues/110"
+    },
+    "expected": {
+      "regressions": ["beta-negative"],
+      "releaseDisposition": "block-release",
+      "evidence": "cross-tenant-record-returned"
+    },
+    "regressionFields": ["regressions", "evidence"],
+    "humanRubric": "Check that the answer identifies the relevant trust boundary and limits the proposed follow-up to the isolated fixture."
+  },
+  {
+    "id": "pr-review-instructions",
+    "source": {
+      "title": "Executable exact-head review launcher",
+      "url": "https://github.com/oEnzoRibas/Juno/pull/109"
+    },
+    "expected": {
+      "gaps": ["head-pin", "running-revision", "actual-connection", "negative-outcome"],
+      "reviewReadiness": "revise-instructions"
+    },
+    "regressionFields": ["gaps", "reviewReadiness"],
+    "humanRubric": "Check that a maintainer could reproduce the proposed correction safely with a separate review project."
+  },
+  {
+    "id": "mobile-overlay-clipping",
+    "source": {
+      "title": "Mobile drawer and focus evidence in the V2 shell",
+      "url": "https://github.com/oEnzoRibas/Juno/pull/37"
+    },
+    "expected": {
+      "clippedWidths": [320],
+      "focusAt320": "unmeasured",
+      "mobileDisposition": "fix-and-retest"
+    },
+    "regressionFields": ["clippedWidths"],
+    "humanRubric": "Check whether the conclusion uses actual measurements and proposes evidence at relevant widths and focus states."
+  },
+  {
+    "id": "design-system-consistency",
+    "source": {
+      "title": "V2 design governance and product shell integration",
+      "url": "https://github.com/oEnzoRibas/Juno/pull/111"
+    },
+    "expected": {
+      "inconsistencies": ["settings-submit"],
+      "approvedVariant": "rail-desktop-compact",
+      "darkThemeEvidence": "unmeasured"
+    },
+    "regressionFields": ["inconsistencies", "approvedVariant"],
+    "humanRubric": "Check that the critique references comparable control states and leaves approved variants alone."
+  },
+  {
+    "id": "cross-agent-ownership",
+    "source": {
+      "title": "Existing ownership and release rules",
+      "url": "https://github.com/oEnzoRibas/Juno/blob/a75e7dcca90d4868302e0b558da29d48f643a4fe/docs/development/agents/PROTOCOL.md"
+    },
+    "expected": {
+      "sharedFileOwner": "agent-02",
+      "editSharedFileAllowed": false,
+      "continueDisjointScope": true,
+      "nextAction": "coordinate-handoff"
+    },
+    "regressionFields": ["sharedFileOwner", "editSharedFileAllowed"],
+    "humanRubric": "Check whether the proposal respects the exact claim and keeps independent eligible work moving."
+  },
+  {
+    "id": "interrupted-agent-recovery",
+    "source": {
+      "title": "Permanent execution checkpoint and recovery rules",
+      "url": "https://github.com/oEnzoRibas/Juno/blob/a75e7dcca90d4868302e0b558da29d48f643a4fe/docs/development/agents/EXECUTION_STATE.md"
+    },
+    "expected": {
+      "worktreeDisposition": "preserve-local-work",
+      "testState": "unverified",
+      "resumeAction": "verify-and-rerun"
+    },
+    "regressionFields": ["worktreeDisposition", "testState"],
+    "humanRubric": "Check that the proposed recovery preserves unpublished work and does not claim unavailable results."
+  },
+  {
+    "id": "incorrect-test-success",
+    "source": {
+      "title": "Post-conflict exact-head validation checkpoints",
+      "url": "https://github.com/oEnzoRibas/Juno/issues/112"
+    },
+    "expected": {
+      "currentRunStatus": "failed",
+      "failureId": "compose-sql",
+      "browserStatus": "not-run",
+      "hostedRelevance": "historical-only"
+    },
+    "regressionFields": ["currentRunStatus", "browserStatus", "hostedRelevance"],
+    "humanRubric": "Check that clearly separated claims include test scope, exit status and revision."
+  },
+  {
+    "id": "native-psd-delivery",
+    "source": {
+      "title": "Maintainer steering for local Photoshop mascot authoring",
+      "url": null
+    },
+    "expected": {
+      "nativeAcceptance": "invalid-delivery",
+      "reopenEvidence": "unmeasured",
+      "layerEvidence": "unmeasured",
+      "nextAction": "request-native-proof"
+    },
+    "regressionFields": ["nativeAcceptance", "reopenEvidence", "layerEvidence"],
+    "humanRubric": "Check that the proposed proof uses Photoshop to create, edit, save, reopen and inspect a native PSD with named or grouped editable layers and non-destructive edits. Treat the exported preview as separate and keep authoring dependencies out of production."
+  }
+]

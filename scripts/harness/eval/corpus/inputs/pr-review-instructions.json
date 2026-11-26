@@ -1,0 +1,24 @@
+{
+  "id": "pr-review-instructions",
+  "task": "Audit the How to test section for the exact executable revision and the two kinds of review. Identify only the mandatory omissions or mismatches. Return one JSON object using the response fields.",
+  "artifacts": {
+    "policy": "Require the current head pin, separate persistent startup and disposable validation, actual running revision and web-to-API verification, a synthetic credential retrieval command, positive and negative expectations, and safe stop.",
+    "currentHead": "1111111111111111111111111111111111111111",
+    "howToTest": {
+      "sha": "2222222222222222222222222222222222222222",
+      "startup": "pnpm review:start --pr 900 --sha 2222222222222222222222222222222222222222",
+      "validation": "pnpm review:test --pr 900 --sha 2222222222222222222222222222222222222222",
+      "runningRevisionCheck": null,
+      "connectionVerification": null,
+      "credentials": "pnpm review:credentials --pr 900",
+      "positive": "Synthetic administrator can view a scoped workspace.",
+      "negative": null,
+      "cleanup": "pnpm review:stop --pr 900"
+    },
+    "checks": "Hosted CI green at the new head."
+  },
+  "responseFields": {
+    "gaps": "Array containing applicable gap IDs from head-pin, startup, disposable-validation, running-revision, actual-connection, synthetic-credentials, positive-outcome, negative-outcome, cleanup. Count the stale pin once.",
+    "reviewReadiness": "One of ready, revise-instructions, or unknown."
+  }
+}
