@@ -1,0 +1,261 @@
+{
+  "status": "passed",
+  "tests": [
+    {
+      "test": "shows a localized empty organization state and handles a revoked session",
+      "status": "passed",
+      "durationMs": 1843,
+      "scenarios": []
+    },
+    {
+      "test": "switches organizations with server-derived roles, preserves branding, and handles neutral denial",
+      "status": "passed",
+      "durationMs": 3000,
+      "scenarios": []
+    },
+    {
+      "test": "signs in through the localized web form and revokes the server session",
+      "status": "passed",
+      "durationMs": 1149,
+      "scenarios": []
+    },
+    {
+      "test": "sign-in and activation preserve focus and contrast in light mode",
+      "status": "passed",
+      "durationMs": 588,
+      "scenarios": []
+    },
+    {
+      "test": "sign-in and activation preserve focus and contrast in dark mode",
+      "status": "passed",
+      "durationMs": 634,
+      "scenarios": []
+    },
+    {
+      "test": "serves the correct document language before browser scripts load",
+      "status": "passed",
+      "durationMs": 119,
+      "scenarios": []
+    },
+    {
+      "test": "preserves separate tenant accents and shared accessible controls",
+      "status": "passed",
+      "durationMs": 1783,
+      "scenarios": []
+    },
+    {
+      "test": "lists authorized tenant members, handles cursor navigation and keeps denial neutral",
+      "status": "passed",
+      "durationMs": 5009,
+      "scenarios": []
+    },
+    {
+      "test": "only the tenant administrator can read the member directory",
+      "status": "passed",
+      "durationMs": 946,
+      "scenarios": [
+        {
+          "scenario": "Tenant administrator reads own directory | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator combines case-insensitive prefix, role and activity in own directory | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator filters own directory: percent prefix is treated literally | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator filters own directory: underscore prefix is treated literally | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator filters own directory: there are no inactive members in the HTTP seed | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator supplies unsupported role in own directory | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator supplies unsupported activity in own directory | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator supplies empty prefix in own directory | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator supplies duplicate role in own directory | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator supplies duplicate activity in own directory | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator supplies duplicate email prefix in own directory | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator supplies duplicate cursor in own directory | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator reads an existing member in own tenant | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Regular member requests own tenant member detail | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator requests detail through a foreign tenant endpoint | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Foreign administrator retrieves their own membership identifier | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator requests a foreign account through their authorized tenant endpoint | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator requests a nonexistent member in own tenant | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator reads own directory after its last cursor | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator submits a malformed own-directory cursor | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Anonymous actor requests a tenant directory | Expected HTTP 401 | Actual 401",
+          "passed": true
+        },
+        {
+          "scenario": "Regular member requests own tenant directory | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Platform-only administrator requests a tenant directory | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator requests the foreign directory | Expected HTTP 404 | Actual 404",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "test": "derives tenant capabilities and redacts audit data for active administrators",
+      "status": "passed",
+      "durationMs": 607,
+      "scenarios": []
+    },
+    {
+      "test": "provisions a branded tenant, activates its administrator and enforces tenant isolation",
+      "status": "passed",
+      "durationMs": 2989,
+      "scenarios": []
+    },
+    {
+      "test": "updates an organization profile and preserves membership and tenant boundaries",
+      "status": "passed",
+      "durationMs": 4709,
+      "scenarios": []
+    },
+    {
+      "test": "an active organization administrator can update only their own workspace profile",
+      "status": "passed",
+      "durationMs": 692,
+      "scenarios": [
+        {
+          "scenario": "Dedicated profile fixture administrator signs in to provision tenants | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Dedicated profile fixture administrator creates a synthetic tenant | Expected HTTP 201 | Actual 201",
+          "passed": true
+        },
+        {
+          "scenario": "Dedicated profile fixture administrator creates a synthetic tenant | Expected HTTP 201 | Actual 201",
+          "passed": true
+        },
+        {
+          "scenario": "Profile fixture administrator invites a synthetic administrator | Expected HTTP 201 | Actual 201",
+          "passed": true
+        },
+        {
+          "scenario": "Synthetic administrator activates their invitation | Expected HTTP 201 | Actual 201",
+          "passed": true
+        },
+        {
+          "scenario": "Synthetic administrator signs in | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Profile fixture administrator invites a synthetic member | Expected HTTP 201 | Actual 201",
+          "passed": true
+        },
+        {
+          "scenario": "Synthetic member activates their invitation | Expected HTTP 201 | Actual 201",
+          "passed": true
+        },
+        {
+          "scenario": "Synthetic member signs in | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Anonymous actor attempts to update a tenant profile | Expected HTTP 401 | Actual 401",
+          "passed": true
+        },
+        {
+          "scenario": "Regular member attempts to update the tenant profile | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Platform-only administrator attempts to update the tenant profile | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator attempts to update a foreign profile | Expected HTTP 404 | Actual 404",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator submits invalid or immutable slug for own profile | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator submits invalid or immutable identity for own profile | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator submits invalid or immutable accent for own profile | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator submits invalid or immutable name for own profile | Expected HTTP 400 | Actual 400",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator submits own profile update (parallel request A) | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Tenant administrator submits the identical own update (parallel request B) | Expected HTTP 200 | Actual 200",
+          "passed": true
+        },
+        {
+          "scenario": "Regular member reads the normalized own workspace profile | Expected HTTP 200 | Actual 200",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

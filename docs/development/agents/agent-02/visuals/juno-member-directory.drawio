@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" compressed="false">
+  <diagram id="member-directory" name="Member directory">
+    <mxGraphModel page="1" pageWidth="1200" pageHeight="690" grid="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="canvas" value="" style="rounded=1;arcSize=4;fillColor=#FFFFFF;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="0" y="0" width="1200" height="690" />
+        </mxCell>
+        <mxCell id="title" value="Tenant member directory" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=32;fontColor=#10111A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="44" y="27" width="740" height="45" />
+        </mxCell>
+        <mxCell id="subtitle" value="Responsive administration with server-authorized membership data" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=16;fontColor=#53556A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="44" y="75" width="900" height="26" />
+        </mxCell>
+        <mxCell id="desktop-label" value="Desktop · English · light" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=16;fontColor=#10111A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="44" y="119" width="710" height="26" />
+        </mxCell>
+        <mxCell id="mobile-label" value="Mobile · Portuguese · dark" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=16;fontColor=#10111A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="840" y="119" width="310" height="26" />
+        </mxCell>
+        <mxCell id="desktop" value="" style="rounded=1;arcSize=4;fillColor=#F7F7FB;strokeColor=#DCDCEC;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="44" y="155" width="754" height="473" />
+        </mxCell>
+        <mxCell id="mobile" value="" style="rounded=1;arcSize=4;fillColor=#10111A;strokeColor=#3C3E56;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="840" y="155" width="316" height="473" />
+        </mxCell>
+        <mxCell id="desktop-top" value="" style="rounded=1;arcSize=4;fillColor=#FFFFFF;strokeColor=#DCDCEC;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="57" y="169" width="728" height="53" />
+        </mxCell>
+        <mxCell id="desktop-logo" value="juno." style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=25;fontColor=#5543CF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="74" y="178" width="120" height="33" />
+        </mxCell>
+        <mxCell id="desktop-lang" value="Português (Brasil)" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#5543CF;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="566" y="181" width="135" height="26" />
+        </mxCell>
+        <mxCell id="desktop-signout" value="Sign out" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="709" y="181" width="66" height="26" />
+        </mxCell>
+        <mxCell id="desktop-nav" value="" style="rounded=1;arcSize=4;fillColor=#FFFFFF;strokeColor=#DCDCEC;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="58" y="242" width="164" height="187" />
+        </mxCell>
+        <mxCell id="desktop-nav-first" value="Your organizations" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="72" y="256" width="145" height="28" />
+        </mxCell>
+        <mxCell id="desktop-nav-second" value="Dashboard" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="72" y="291" width="145" height="29" />
+        </mxCell>
+        <mxCell id="desktop-nav-selected" value="" style="rounded=1;arcSize=4;fillColor=#E9E8F3;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="66" y="324" width="147" height="33" />
+        </mxCell>
+        <mxCell id="desktop-nav-third" value="Members" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#5543CF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="72" y="324" width="145" height="33" />
+        </mxCell>
+        <mxCell id="desktop-nav-last" value="Invite a member" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="72" y="366" width="144" height="26" />
+        </mxCell>
+        <mxCell id="desktop-panel" value="" style="rounded=1;arcSize=4;fillColor=#FFFFFF;strokeColor=#DCDCEC;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="239" y="242" width="545" height="308" />
+        </mxCell>
+        <mxCell id="desktop-accent" value="" style="rounded=1;arcSize=4;fillColor=#7565F5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="240" y="244" width="543" height="7" />
+        </mxCell>
+        <mxCell id="desktop-organization" value="Studio Aurora" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#53556A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="261" y="265" width="440" height="24" />
+        </mxCell>
+        <mxCell id="desktop-heading" value="Members" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=26;fontColor=#10111A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="261" y="289" width="450" height="37" />
+        </mxCell>
+        <mxCell id="desktop-description" value="Organization memberships, roles, and activity status." style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=14;fontColor=#53556A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="261" y="332" width="498" height="28" />
+        </mxCell>
+        <mxCell id="desktop-table" value="" style="rounded=1;arcSize=4;fillColor=#F7F7FB;strokeColor=#DCDCEC;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="260" y="376" width="504" height="112" />
+        </mxCell>
+        <mxCell id="dh0" value="Email address" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="274" y="389" width="166" height="25" />
+        </mxCell>
+        <mxCell id="dr0" value="alex@example.invalid" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="274" y="437" width="166" height="24" />
+        </mxCell>
+        <mxCell id="dh1" value="Role" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="442" y="389" width="104" height="25" />
+        </mxCell>
+        <mxCell id="dr1" value="Administrator" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="442" y="437" width="104" height="24" />
+        </mxCell>
+        <mxCell id="dh2" value="Status" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="550" y="389" width="75" height="25" />
+        </mxCell>
+        <mxCell id="dr2" value="Active" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#166534;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="550" y="437" width="75" height="24" />
+        </mxCell>
+        <mxCell id="dh3" value="Joined" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="638" y="389" width="99" height="25" />
+        </mxCell>
+        <mxCell id="dr3" value="Nov 24, 2026" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#10111A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="638" y="437" width="99" height="24" />
+        </mxCell>
+        <mxCell id="desktop-page" value="Next page" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=14;fontColor=#5543CF;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="261" y="496" width="213" height="32" />
+        </mxCell>
+        <mxCell id="mobile-top" value="" style="rounded=1;arcSize=4;fillColor=#1A1B28;strokeColor=#3C3E56;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="854" y="169" width="288" height="52" />
+        </mxCell>
+        <mxCell id="mobile-logo" value="juno." style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=23;fontColor=#A99BFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="869" y="178" width="103" height="34" />
+        </mxCell>
+        <mxCell id="mobile-lang" value="English" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#A99BFF;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1039" y="181" width="55" height="26" />
+        </mxCell>
+        <mxCell id="mobile-signout" value="Sair" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#F7F7FB;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1100" y="181" width="35" height="26" />
+        </mxCell>
+        <mxCell id="mobile-nav" value="" style="rounded=1;arcSize=4;fillColor=#1A1B28;strokeColor=#3C3E56;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="854" y="240" width="288" height="96" />
+        </mxCell>
+        <mxCell id="mobile-nav-first" value="Suas organizações" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#F7F7FB;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="869" y="249" width="139" height="29" />
+        </mxCell>
+        <mxCell id="mobile-nav-second" value="Painel" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#F7F7FB;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1027" y="249" width="90" height="29" />
+        </mxCell>
+        <mxCell id="mobile-nav-selected" value="" style="rounded=1;arcSize=4;fillColor=#292A3C;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="862" y="288" width="137" height="35" />
+        </mxCell>
+        <mxCell id="mobile-nav-third" value="Membros" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#A99BFF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="870" y="288" width="122" height="33" />
+        </mxCell>
+        <mxCell id="mobile-nav-last" value="Convidar membro" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=13;fontColor=#F7F7FB;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1027" y="288" width="105" height="33" />
+        </mxCell>
+        <mxCell id="mobile-panel" value="" style="rounded=1;arcSize=4;fillColor=#1A1B28;strokeColor=#3C3E56;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="854" y="353" width="288" height="229" />
+        </mxCell>
+        <mxCell id="mobile-accent" value="" style="rounded=1;arcSize=4;fillColor=#7565F5;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="855" y="355" width="286" height="7" />
+        </mxCell>
+        <mxCell id="mobile-organization" value="Estúdio Aurora" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontColor=#BFC0D4;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="870" y="372" width="247" height="21" />
+        </mxCell>
+        <mxCell id="mobile-heading" value="Membros" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=23;fontColor=#F7F7FB;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="870" y="396" width="235" height="35" />
+        </mxCell>
+        <mxCell id="mobile-description" value="Vínculos e funções da organização" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontColor=#BFC0D4;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="870" y="436" width="248" height="24" />
+        </mxCell>
+        <mxCell id="mobile-table" value="" style="rounded=1;arcSize=4;fillColor=#10111A;strokeColor=#8789A5;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="869" y="476" width="258" height="70" />
+        </mxCell>
+        <mxCell id="mobile-table-email" value="E-mail" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontColor=#F7F7FB;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="881" y="481" width="135" height="25" />
+        </mxCell>
+        <mxCell id="mobile-table-role" value="Função" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontColor=#F7F7FB;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1053" y="481" width="62" height="25" />
+        </mxCell>
+        <mxCell id="mobile-name" value="alex@example.invalid" style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontColor=#F7F7FB;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="881" y="511" width="167" height="24" />
+        </mxCell>
+        <mxCell id="mobile-role" value="Admin." style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontColor=#F7F7FB;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1053" y="511" width="67" height="24" />
+        </mxCell>
+        <mxCell id="credit" value="Juno - Original project creator: Enzo Ribas. Developed with AI assistance." style="text;align=left;verticalAlign=middle;spacingLeft=0;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=12;fontColor=#53556A;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="44" y="648" width="1100" height="23" />
+        </mxCell>
+        <mxCell id="reflow" edge="1" parent="1" source="desktop" target="mobile" style="endArrow=classic;strokeColor=#666980;entryX=0;entryY=0.82;exitX=1;exitY=0.82;">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

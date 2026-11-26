@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" compressed="false">
+  <diagram name="Switching and preferences" id="prefs">
+    <mxGraphModel page="1" pageWidth="1440" pageHeight="810" grid="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" vertex="1" style="rounded=0;absoluteArcSize=1;arcSize=0;fillColor=#FFFFFF;strokeColor=none;" value="">
+          <mxGeometry as="geometry" x="0" y="0" width="1440" height="810" />
+        </mxCell>
+        <mxCell id="3" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=13;fontColor=#5543CF;fontStyle=1;" value="JUNO DESIGN SYSTEM V2 / CONCEPT PROPOSAL">
+          <mxGeometry as="geometry" x="48" y="25" width="1200" height="28" />
+        </mxCell>
+        <mxCell id="4" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=37;fontColor=#211B34;fontStyle=1;" value="Switch context without losing your place">
+          <mxGeometry as="geometry" x="48" y="59" width="1300" height="60" />
+        </mxCell>
+        <mxCell id="5" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=16;fontColor=#5B526E;fontStyle=0;" value="Dedicated preferences on mobile / A bounded account panel and a searchable workspace list on desktop">
+          <mxGeometry as="geometry" x="48" y="126" width="1300" height="28" />
+        </mxCell>
+        <mxCell id="6" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=1;" value="MOBILE / ORGANIZATION SWITCHER">
+          <mxGeometry as="geometry" x="48" y="172" width="382" height="28" />
+        </mxCell>
+        <mxCell id="7" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=1;" value="DESKTOP / CONTEXT SWITCHING">
+          <mxGeometry as="geometry" x="442" y="172" width="382" height="28" />
+        </mxCell>
+        <mxCell id="8" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=1;" value="MOBILE / CONTEXTUAL DRAWER">
+          <mxGeometry as="geometry" x="998" y="172" width="382" height="28" />
+        </mxCell>
+        <mxCell id="9" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=18;fillColor=#F6F4FB;strokeColor=#DDD6EB;" value="">
+          <mxGeometry as="geometry" x="48" y="207" width="352" height="545" />
+        </mxCell>
+        <mxCell id="10" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=27;fontColor=#5543CF;fontStyle=1;" value="juno.">
+          <mxGeometry as="geometry" x="67" y="223" width="310" height="36" />
+        </mxCell>
+        <mxCell id="11" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5543CF;fontStyle=1;" value="‹  Back to workspace">
+          <mxGeometry as="geometry" x="67" y="277" width="310" height="28" />
+        </mxCell>
+        <mxCell id="12" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=26;fontColor=#211B34;fontStyle=1;" value="Switch organization">
+          <mxGeometry as="geometry" x="67" y="326" width="310" height="31" />
+        </mxCell>
+        <mxCell id="13" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#746A86;" value="">
+          <mxGeometry as="geometry" x="67" y="382" width="313" height="44" />
+        </mxCell>
+        <mxCell id="14" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=0;" value="Search your organizations">
+          <mxGeometry as="geometry" x="84" y="391" width="277" height="28" />
+        </mxCell>
+        <mxCell id="15" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#ECE7FC;strokeColor=#DDD6EB;" value="">
+          <mxGeometry as="geometry" x="67" y="447" width="313" height="79" />
+        </mxCell>
+        <mxCell id="16" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=19;fontColor=#211B34;fontStyle=1;" value="Atlas Júnior">
+          <mxGeometry as="geometry" x="84" y="456" width="260" height="28" />
+        </mxCell>
+        <mxCell id="17" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=13;fontColor=#5B526E;fontStyle=0;" value="Administrator · Current">
+          <mxGeometry as="geometry" x="84" y="490" width="275" height="28" />
+        </mxCell>
+        <mxCell id="18" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#DDD6EB;" value="">
+          <mxGeometry as="geometry" x="67" y="543" width="313" height="79" />
+        </mxCell>
+        <mxCell id="19" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=19;fontColor=#211B34;fontStyle=1;" value="Maré Alta">
+          <mxGeometry as="geometry" x="84" y="552" width="260" height="28" />
+        </mxCell>
+        <mxCell id="20" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=13;fontColor=#5B526E;fontStyle=0;" value="Member">
+          <mxGeometry as="geometry" x="84" y="586" width="275" height="28" />
+        </mxCell>
+        <mxCell id="21" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=13;fontColor=#5B526E;fontStyle=0;" value="Only active memberships appear here.">
+          <mxGeometry as="geometry" x="67" y="661" width="310" height="28" />
+        </mxCell>
+        <mxCell id="22" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=18;fillColor=#F6F4FB;strokeColor=#DDD6EB;" value="">
+          <mxGeometry as="geometry" x="442" y="207" width="514" height="545" />
+        </mxCell>
+        <mxCell id="23" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#DDD6EB;" value="">
+          <mxGeometry as="geometry" x="443" y="208" width="512" height="59" />
+        </mxCell>
+        <mxCell id="24" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=27;fontColor=#5543CF;fontStyle=1;" value="juno.">
+          <mxGeometry as="geometry" x="463" y="222" width="103" height="36" />
+        </mxCell>
+        <mxCell id="25" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5543CF;fontStyle=1;" value="Atlas Júnior  ▾">
+          <mxGeometry as="geometry" x="574" y="224" width="226" height="28" />
+        </mxCell>
+        <mxCell id="26" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=0;" value="Account  ▾">
+          <mxGeometry as="geometry" x="859" y="224" width="85" height="28" />
+        </mxCell>
+        <mxCell id="27" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#FFFFFF;strokeColor=#746A86;" value="">
+          <mxGeometry as="geometry" x="640" y="287" width="293" height="273" />
+        </mxCell>
+        <mxCell id="28" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=19;fontColor=#211B34;fontStyle=1;" value="Account preferences">
+          <mxGeometry as="geometry" x="657" y="300" width="250" height="28" />
+        </mxCell>
+        <mxCell id="29" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=12;fontColor=#211B34;fontStyle=1;" value="Language">
+          <mxGeometry as="geometry" x="657" y="345" width="250" height="28" />
+        </mxCell>
+        <mxCell id="30" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=9;fillColor=#F6F4FB;strokeColor=#746A86;" value="">
+          <mxGeometry as="geometry" x="657" y="372" width="257" height="40" />
+        </mxCell>
+        <mxCell id="31" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=0;" value="English  ▾">
+          <mxGeometry as="geometry" x="668" y="378" width="227" height="28" />
+        </mxCell>
+        <mxCell id="32" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=12;fontColor=#211B34;fontStyle=1;" value="Theme">
+          <mxGeometry as="geometry" x="657" y="427" width="250" height="28" />
+        </mxCell>
+        <mxCell id="33" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=9;fillColor=#F6F4FB;strokeColor=#746A86;" value="">
+          <mxGeometry as="geometry" x="657" y="454" width="257" height="40" />
+        </mxCell>
+        <mxCell id="34" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=0;" value="System  ▾">
+          <mxGeometry as="geometry" x="668" y="460" width="227" height="28" />
+        </mxCell>
+        <mxCell id="35" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5543CF;fontStyle=1;" value="Sign out">
+          <mxGeometry as="geometry" x="657" y="516" width="245" height="28" />
+        </mxCell>
+        <mxCell id="36" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=0;" value="Desktop account panel flips or shifts into the viewport.">
+          <mxGeometry as="geometry" x="463" y="598" width="460" height="28" />
+        </mxCell>
+        <mxCell id="37" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#5B526E;fontStyle=0;" value="Escape closes it and restores focus to the trigger.">
+          <mxGeometry as="geometry" x="463" y="636" width="460" height="28" />
+        </mxCell>
+        <mxCell id="38" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=18;fillColor=#151323;strokeColor=#4A405C;" value="">
+          <mxGeometry as="geometry" x="998" y="207" width="394" height="545" />
+        </mxCell>
+        <mxCell id="39" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=18;fillColor=#221D33;strokeColor=#4A405C;" value="">
+          <mxGeometry as="geometry" x="999" y="208" width="333" height="543" />
+        </mxCell>
+        <mxCell id="40" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=23;fontColor=#FAF8FF;fontStyle=1;" value="Workspace actions">
+          <mxGeometry as="geometry" x="1018" y="226" width="283" height="34" />
+        </mxCell>
+        <mxCell id="41" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=21;fontColor=#FAF8FF;fontStyle=1;" value="×">
+          <mxGeometry as="geometry" x="1287" y="228" width="35" height="28" />
+        </mxCell>
+        <mxCell id="42" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#CEC5E1;fontStyle=0;" value="Atlas Júnior · Administrator">
+          <mxGeometry as="geometry" x="1018" y="282" width="277" height="28" />
+        </mxCell>
+        <mxCell id="43" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#393052;strokeColor=#4A405C;" value="">
+          <mxGeometry as="geometry" x="1018" y="337" width="292" height="47" />
+        </mxCell>
+        <mxCell id="44" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#FAF8FF;fontStyle=1;" value="Overview">
+          <mxGeometry as="geometry" x="1034" y="345" width="267" height="28" />
+        </mxCell>
+        <mxCell id="45" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#221D33;strokeColor=#4A405C;" value="">
+          <mxGeometry as="geometry" x="1018" y="395" width="292" height="47" />
+        </mxCell>
+        <mxCell id="46" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#FAF8FF;fontStyle=1;" value="Members">
+          <mxGeometry as="geometry" x="1034" y="403" width="267" height="28" />
+        </mxCell>
+        <mxCell id="47" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#221D33;strokeColor=#4A405C;" value="">
+          <mxGeometry as="geometry" x="1018" y="453" width="292" height="47" />
+        </mxCell>
+        <mxCell id="48" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#FAF8FF;fontStyle=1;" value="Organization settings">
+          <mxGeometry as="geometry" x="1034" y="461" width="267" height="28" />
+        </mxCell>
+        <mxCell id="49" parent="1" vertex="1" style="rounded=1;absoluteArcSize=1;arcSize=12;fillColor=#221D33;strokeColor=#4A405C;" value="">
+          <mxGeometry as="geometry" x="1018" y="511" width="292" height="47" />
+        </mxCell>
+        <mxCell id="50" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=14;fontColor=#FAF8FF;fontStyle=1;" value="Invite member">
+          <mxGeometry as="geometry" x="1034" y="519" width="267" height="28" />
+        </mxCell>
+        <mxCell id="51" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=13;fontColor=#CEC5E1;fontStyle=0;" value="Deeper tenant actions only.">
+          <mxGeometry as="geometry" x="1018" y="628" width="283" height="28" />
+        </mxCell>
+        <mxCell id="52" parent="1" vertex="1" style="text;align=left;verticalAlign=middle;html=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;fontColor=#5B526E;fontStyle=0;" value="Juno — Original project creator: Enzo Ribas. Developed with AI assistance.">
+          <mxGeometry as="geometry" x="48" y="771" width="1270" height="28" />
+        </mxCell>
+        <mxCell id="relations" parent="1" edge="1" style="endArrow=classic;strokeColor=#6956AC;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="401" y="480" />
+            <mxPoint as="targetPoint" x="441" y="480" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
