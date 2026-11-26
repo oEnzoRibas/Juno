@@ -24,6 +24,7 @@ for (const theme of ['light', 'dark']) {
     await page.emulateMedia({ colorScheme: theme });
     await page.setViewportSize({ width: 320, height: 740 });
     await page.goto('/sign-in?lang=pt-BR&error=1&activated=1');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'pt-BR');
     await expect(page.getByRole('main')).toHaveAttribute('lang', 'pt-BR');
     const email = page.getByLabel('E-mail', { exact: true });
     const password = page.getByLabel('Senha', { exact: true });
@@ -78,10 +79,24 @@ for (const theme of ['light', 'dark']) {
     await expect(page.getByRole('heading', { name: 'Accept invitation' })).toBeVisible();
     await expect(page.getByLabel('Invitation code')).toBeVisible();
     await expect(page.getByLabel('Choose a password')).toHaveAttribute('autocomplete', 'new-password');
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await expect(page.getByRole('main')).toHaveAttribute('lang', 'en');
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   });
 }
+
+test('serves the correct document language before browser scripts load', async ({ request }) => {
+  for (const [path, language] of [
+    ['/?lang=pt-BR', 'pt-BR'],
+    ['/sign-in?lang=pt-BR', 'pt-BR'],
+    ['/activate?lang=pt-BR', 'pt-BR'],
+    ['/sign-in?lang=unsupported', 'en'],
+  ]) {
+    const response = await request.get(path);
+    expect(response.ok()).toBe(true);
+    expect(await response.text()).toContain('<html lang="' + language + '"');
+  }
+});
 
 test('preserves separate tenant accents and shared accessible controls', async ({ page, request }) => {
   const api = process.env.JUNO_SMOKE_API ?? 'http://127.0.0.1:3001';
