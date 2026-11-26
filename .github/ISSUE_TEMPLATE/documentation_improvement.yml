@@ -1,6 +1,6 @@
 name: Documentation improvement
 description: Suggest a change to a guide, reference, or example.
-title: "[Docs] "
+title: '[Docs] '
 body:
   - type: input
     id: location

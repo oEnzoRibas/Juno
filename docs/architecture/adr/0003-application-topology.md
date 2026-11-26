@@ -1,13 +1,13 @@
 # ADR-0003 — Application topology
 
-| Field | Value |
-| --- | --- |
-| Status | Accepted |
-| Date | 2026-11-24 |
-| Decision owner | Enzo Ribas, with architecture and security review pending |
-| Prepared by | Codex, as AI-assisted decision preparation |
-| Related task | [JUNO-0001](../../development/tasks/JUNO-0001.md) |
-| Related ADRs | [ADR-0001](0001-tenant-data-isolation.md), [ADR-0004](0004-durable-domain-events.md) |
+| Field          | Value                                                                                |
+| -------------- | ------------------------------------------------------------------------------------ |
+| Status         | Accepted                                                                             |
+| Date           | 2026-11-24                                                                           |
+| Decision owner | Enzo Ribas, with architecture and security review pending                            |
+| Prepared by    | Codex, as AI-assisted decision preparation                                           |
+| Related task   | [JUNO-0001](../../development/tasks/JUNO-0001.md)                                    |
+| Related ADRs   | [ADR-0001](0001-tenant-data-isolation.md), [ADR-0004](0004-durable-domain-events.md) |
 
 ## Context and problem
 

@@ -25,17 +25,31 @@ for (const path of readdirSync('.').sort()) {
 }
 
 const metadata = {
-  revision: null, tree: null, sourceState: 'unavailable', builtAt: new Date().toISOString(),
-  sourceDigest: `sha256:${hash.digest('hex')}`, includedPullRequests: {},
+  revision: null,
+  tree: null,
+  sourceState: 'unavailable',
+  builtAt: new Date().toISOString(),
+  sourceDigest: `sha256:${hash.digest('hex')}`,
+  includedPullRequests: {},
 };
-const { JUNO_BUILD_REVISION: revision, JUNO_BUILD_TREE: tree, JUNO_BUILD_CREATED: builtAt,
-  JUNO_BUILD_PRS: prs } = process.env;
+const {
+  JUNO_BUILD_REVISION: revision,
+  JUNO_BUILD_TREE: tree,
+  JUNO_BUILD_CREATED: builtAt,
+  JUNO_BUILD_PRS: prs,
+} = process.env;
 if (revision || tree || builtAt) {
-  if (!/^[a-f0-9]{40}$/.test(revision) || !/^[a-f0-9]{40}$/.test(tree) ||
-      !Number.isFinite(Date.parse(builtAt))) throw new Error('Invalid build provenance arguments');
+  if (!/^[a-f0-9]{40}$/.test(revision) || !/^[a-f0-9]{40}$/.test(tree) || !Number.isFinite(Date.parse(builtAt)))
+    throw new Error('Invalid build provenance arguments');
   const includedPullRequests = JSON.parse(prs);
-  if (!includedPullRequests || Array.isArray(includedPullRequests) || typeof includedPullRequests !== 'object' ||
-      !Object.entries(includedPullRequests).every(([number, sha]) => /^[1-9]\d{0,8}$/.test(number) && /^[a-f0-9]{40}$/.test(sha))) {
+  if (
+    !includedPullRequests ||
+    Array.isArray(includedPullRequests) ||
+    typeof includedPullRequests !== 'object' ||
+    !Object.entries(includedPullRequests).every(
+      ([number, sha]) => /^[1-9]\d{0,8}$/.test(number) && /^[a-f0-9]{40}$/.test(sha),
+    )
+  ) {
     throw new Error('Invalid integrated pull request provenance');
   }
   Object.assign(metadata, { revision, tree, builtAt, includedPullRequests, sourceState: 'clean' });

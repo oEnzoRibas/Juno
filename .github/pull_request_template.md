@@ -18,11 +18,11 @@ For executable changes, distinguish the exact-head automated run, the exact-head
 
 ## Validation results
 
-| Source | Revision and scope | Result or run link |
-| --- | --- | --- |
-| Hosted CI | | |
-| Local, integrated or independent checks | | |
-| Human review and acceptance | | |
+| Source                                  | Revision and scope | Result or run link |
+| --------------------------------------- | ------------------ | ------------------ |
+| Hosted CI                               |                    |                    |
+| Local, integrated or independent checks |                    |                    |
+| Human review and acceptance             |                    |                    |
 
 Report failed and pending checks. Identify the tested diff or merge ref and explain unavailable evidence.
 
@@ -40,7 +40,6 @@ Identify pending decisions, excluded behavior, blockers and remaining validation
 - [ ] Follow the PR-specific acceptance and negative scenarios and compare the expected outcomes.
 - [ ] Review applicable visual evidence and the actual test and CI results.
 - [ ] Confirm human gates, dependencies, security, attribution and documentation before approving integration.
-
 
 ## Development traceability
 

@@ -10,11 +10,11 @@ Supply the object through a trusted input channel that avoids shell history and 
 
 The web app calls the API from the server and stores its session in an HttpOnly, SameSite Strict cookie. HTTPS deployments use the Secure, host-only cookie by default. The loopback-only Compose profile enables a local HTTP cookie through `JUNO_ALLOW_INSECURE_LOCAL_COOKIE`. Keep that setting disabled when exposing the web listener outside local development. The API accepts a bearer token and only the web process receives it in the browser flow.
 
-| Route | Purpose |
-| --- | --- |
-| `POST /api/auth/sign-in` | Exchange a local email and password for a short-lived API bearer token. |
-| `GET /api/auth/session` | Verify the session and return the account identity and platform role. |
-| `POST /api/auth/sign-out` | Revoke the session. |
+| Route                     | Purpose                                                                 |
+| ------------------------- | ----------------------------------------------------------------------- |
+| `POST /api/auth/sign-in`  | Exchange a local email and password for a short-lived API bearer token. |
+| `GET /api/auth/session`   | Verify the session and return the account identity and platform role.   |
+| `POST /api/auth/sign-out` | Revoke the session.                                                     |
 
 The local smoke test uses a disposable browser profile and synthetic bootstrap account. Set `JUNO_TEST_ADMIN_EMAIL` and `JUNO_TEST_ADMIN_PASSWORD` in the local process, then run `pnpm exec playwright test`. Set `JUNO_SMOKE_WEB` and `JUNO_SMOKE_API` for non-default origins. Install Chromium with `pnpm exec playwright install chromium`, or set `JUNO_BROWSER_CHANNEL=chrome` to use installed Chrome. Avoid uploading artifacts that include synthetic credentials or session cookies.
 

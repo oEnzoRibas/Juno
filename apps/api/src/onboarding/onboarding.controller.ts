@@ -1,5 +1,25 @@
-import { BadRequestException, Body, Controller, Get, Header, Headers, Ip, Param, ParseUUIDPipe, Post } from '@nestjs/common';
-import { ApiBearerAuth, ApiBody, ApiCreatedResponse, ApiOkResponse, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Header,
+  Headers,
+  Ip,
+  Param,
+  ParseUUIDPipe,
+  Post,
+} from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiCreatedResponse,
+  ApiOkResponse,
+  ApiOperation,
+  ApiParam,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import {
   accentColor,
   ActivateInvitationBody,
@@ -37,8 +57,8 @@ export class OnboardingController {
     const slug = field(body, 'slug').trim();
     const name = field(body, 'name').trim();
     const accent = field(body, 'accent');
-    if (!workspaceSlug.test(slug) || slug.length > 63 || !name || name.length > 120
-      || !accentColor.test(accent)) throw new BadRequestException('Invalid workspace details');
+    if (!workspaceSlug.test(slug) || slug.length > 63 || !name || name.length > 120 || !accentColor.test(accent))
+      throw new BadRequestException('Invalid workspace details');
     return this.onboarding.provision(authorization, { slug, name, accent });
   }
 
@@ -52,10 +72,18 @@ export class OnboardingController {
   @ApiResponse({ status: 400, description: 'Malformed workspace ID or invitation details.' })
   @ApiResponse({ status: 401, description: 'A valid bearer token is required.' })
   @ApiResponse({ status: 403, description: 'The account cannot issue this invitation.' })
-  invite(@Headers('authorization') authorization: string | undefined, @Param('id', ParseUUIDPipe) id: string, @Body() body: unknown) {
+  invite(
+    @Headers('authorization') authorization: string | undefined,
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() body: unknown,
+  ) {
     const email = field(body, 'email').trim().toLowerCase();
     const role = field(body, 'role');
-    if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || (role !== 'administrator' && role !== 'member')) {
+    if (
+      email.length > 254 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+      (role !== 'administrator' && role !== 'member')
+    ) {
       throw new BadRequestException('Invalid invitation details');
     }
     return this.onboarding.invite(authorization, id, email, role);
@@ -75,7 +103,10 @@ export class OnboardingController {
   accept(@Headers('authorization') authorization: string | undefined, @Body() body: unknown, @Ip() source: string) {
     const token = field(body, 'token').trim();
     const password = field(body, 'password');
-    if (!/^[0-9a-f]{64}$/.test(token) || (!authorization && (password.length < 12 || Buffer.byteLength(password) > 256))) {
+    if (
+      !/^[0-9a-f]{64}$/.test(token) ||
+      (!authorization && (password.length < 12 || Buffer.byteLength(password) > 256))
+    ) {
       throw new BadRequestException('Invitation could not be activated');
     }
     return this.onboarding.accept(authorization, token, password, source);

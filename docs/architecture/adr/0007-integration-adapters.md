@@ -1,13 +1,13 @@
 # ADR-0007 — Integration adapters, registry and failure isolation
 
-| Field | Value |
-| --- | --- |
-| Status | Proposed |
-| Date | 2026-11-24 |
-| Decision owner | Enzo Ribas, architecture and security review pending |
-| Prepared by | Codex, as AI-assisted decision preparation |
-| Related task | [JUNO-0004](../../development/tasks/JUNO-0004.md) |
-| Related ADRs | [ADR-0001](0001-tenant-data-isolation.md), [ADR-0004](0004-durable-domain-events.md), [ADR-0006](0006-optional-integrations.md) |
+| Field          | Value                                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Status         | Proposed                                                                                                                        |
+| Date           | 2026-11-24                                                                                                                      |
+| Decision owner | Enzo Ribas, architecture and security review pending                                                                            |
+| Prepared by    | Codex, as AI-assisted decision preparation                                                                                      |
+| Related task   | [JUNO-0004](../../development/tasks/JUNO-0004.md)                                                                               |
+| Related ADRs   | [ADR-0001](0001-tenant-data-isolation.md), [ADR-0004](0004-durable-domain-events.md), [ADR-0006](0006-optional-integrations.md) |
 
 ## Problem and alternatives
 

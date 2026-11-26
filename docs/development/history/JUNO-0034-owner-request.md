@@ -1,4 +1,5 @@
 # JUNO — Multi-Agent Development Architecture
+
 ## JUNO-AGENT-01 — Core Engineering and Technical Coordinator
 
 ## 1. Official authorization

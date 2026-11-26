@@ -10,8 +10,8 @@ The preview used Docker Compose project `juno-uat` on Linux amd64 containers on 
 
 GitHub merged #32 independently, then atomically merged the contiguous native stack #14 by rebase, then merged #33 separately by rebase. The final integrated main tree `04d082b32921494d5395a4e5547ec4f1d81e1a3b` matched the preflight composition. Application and workflow build inputs matched the accepted runtime candidate. #32 was explicitly authorized as coordination and had no runtime inputs. #36 was tested as tooling in the preview and was not included in the separate merge authorization.
 
-| Integration order | Approved PR head | Result on main |
-| --- | --- | --- |
+| Integration order                                 | Approved PR head                           | Result on main                             |
+| ------------------------------------------------- | ------------------------------------------ | ------------------------------------------ |
 | [#32](https://github.com/oEnzoRibas/Juno/pull/32) | `6a3b9e3a87fd7a087eebaa3cb338fa0e55d2c1c3` | `fe837cb948680f58be4af90aef1b123d79f374bb` |
 | [#22](https://github.com/oEnzoRibas/Juno/pull/22) | `cb505b2271c76fe9506bd9c10bcfc7a05f674a2a` | `4b4a502e67d9e07c8fc560ba3860bdfab7ea5bd8` |
 | [#23](https://github.com/oEnzoRibas/Juno/pull/23) | `30f7e884e69ad5b8ca4c30412b0173e7106fed34` | `fec87b6a81a388304655eab8f4acc96ca5d4b63b` |

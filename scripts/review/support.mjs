@@ -35,7 +35,7 @@ async function openLoopback(port) {
   await new Promise((resolve, reject) => {
     server.once('error', reject);
     server.listen({ port: port ?? 0, host: '127.0.0.1', exclusive: true }, resolve);
-  }).catch(error => {
+  }).catch((error) => {
     throw new Error(`Loopback port ${port ?? '(automatic)'} could not be reserved: ${error.code ?? error.message}`);
   });
   return server;
@@ -51,13 +51,17 @@ export async function choosePorts(webPort, apiPort) {
     }
     return { webPort: servers[0].address().port, apiPort: servers[1].address().port };
   } finally {
-    await Promise.all(servers.filter(Boolean).map(server => new Promise(resolve => server.close(resolve))));
+    await Promise.all(servers.filter(Boolean).map((server) => new Promise((resolve) => server.close(resolve))));
   }
 }
 
 export function run(name, executable, args, { cwd, env, input, capture = false, quiet = false } = {}) {
   const result = spawnSync(executable, args, {
-    cwd, env, input, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024,
+    cwd,
+    env,
+    input,
+    encoding: 'utf8',
+    maxBuffer: 16 * 1024 * 1024,
     stdio: [input === undefined ? 'ignore' : 'pipe', capture ? 'pipe' : 'inherit', quiet ? 'pipe' : 'inherit'],
   });
   if (result.error || result.status !== 0) {
@@ -69,29 +73,45 @@ export function run(name, executable, args, { cwd, env, input, capture = false, 
 export function parseJsonLines(output) {
   const text = output.trim();
   if (!text) return [];
-  return text.startsWith('[') ? JSON.parse(text) : text.split(/\r?\n/).map(line => JSON.parse(line));
+  return text.startsWith('[') ? JSON.parse(text) : text.split(/\r?\n/).map((line) => JSON.parse(line));
 }
 
 export function assertPublishedPorts(config, state) {
   const services = config.services ?? {};
-  if (!config.networks?.database?.internal || Object.values(config.volumes ?? {}).some(volume => volume.external || volume.driver_opts)) {
+  if (
+    !config.networks?.database?.internal ||
+    Object.values(config.volumes ?? {}).some((volume) => volume.external || volume.driver_opts)
+  ) {
     throw new Error('The review requires the default private database network and project-scoped volumes.');
   }
   for (const [name, service] of Object.entries(services)) {
     const ports = service.ports ?? [];
     const expected = name === 'web' ? state.webPort : name === 'api' ? state.apiPort : undefined;
-    if (ports.length !== (expected ? 1 : 0)
-      || (expected && (ports[0].host_ip !== '127.0.0.1' || Number(ports[0].published) !== expected))) {
+    if (
+      ports.length !== (expected ? 1 : 0) ||
+      (expected && (ports[0].host_ip !== '127.0.0.1' || Number(ports[0].published) !== expected))
+    ) {
       throw new Error(`Unexpected host port mapping for the ${name} review service.`);
     }
-    if ((service.volumes ?? []).some(volume => volume.type !== 'volume')
-      || service.privileged || service.network_mode || service.container_name) {
+    if (
+      (service.volumes ?? []).some((volume) => volume.type !== 'volume') ||
+      service.privileged ||
+      service.network_mode ||
+      service.container_name
+    ) {
       throw new Error(`Unexpected host dependency for the ${name} review service.`);
     }
   }
-  if (!services.web || !services.api || !services.db || !services.migrate
-    || Object.values(config.networks ?? {}).some(network => network.external || !network.name?.startsWith(state.project + '_'))
-    || Object.values(config.volumes ?? {}).some(volume => !volume.name?.startsWith(state.project + '_'))) {
+  if (
+    !services.web ||
+    !services.api ||
+    !services.db ||
+    !services.migrate ||
+    Object.values(config.networks ?? {}).some(
+      (network) => network.external || !network.name?.startsWith(state.project + '_'),
+    ) ||
+    Object.values(config.volumes ?? {}).some((volume) => !volume.name?.startsWith(state.project + '_'))
+  ) {
     throw new Error('The Compose topology does not support an isolated review.');
   }
   if (services.web.environment?.JUNO_API_ORIGIN !== 'http://api:3001') {

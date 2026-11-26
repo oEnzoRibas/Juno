@@ -1,5 +1,14 @@
 import { BadRequestException, Body, Controller, Header, Headers, Param, ParseUUIDPipe, Put } from '@nestjs/common';
-import { ApiBearerAuth, ApiBody, ApiOkResponse, ApiOperation, ApiParam, ApiProperty, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiOkResponse,
+  ApiOperation,
+  ApiParam,
+  ApiProperty,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { OrganizationProfileService } from './organization-profile.service';
 
 class OrganizationProfileInput {
@@ -21,8 +30,13 @@ function validateProfile(body: unknown): OrganizationProfileInput {
   }
   const name = typeof body.name === 'string' ? body.name.trim() : '';
   const accent = body.accent;
-  if (!name || name.length > 120 || Array.from(name).some((character) => character < ' ' || character.codePointAt(0) === 127) ||
-      typeof accent !== 'string' || !/^#[0-9a-f]{6}$/i.test(accent)) {
+  if (
+    !name ||
+    name.length > 120 ||
+    Array.from(name).some((character) => character < ' ' || character.codePointAt(0) === 127) ||
+    typeof accent !== 'string' ||
+    !/^#[0-9a-f]{6}$/i.test(accent)
+  ) {
     throw new BadRequestException('Invalid workspace name or accent.');
   }
   return { name, accent: accent.toUpperCase() };

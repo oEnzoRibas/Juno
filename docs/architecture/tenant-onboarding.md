@@ -9,14 +9,14 @@ This local milestone runs through Docker Compose without an identity or email pr
 
 The invitation expires after 24 hours. Reissuing a pending invitation replaces the previous token. PostgreSQL locks the invitation row while creating or attaching the membership and marks the token used in the same transaction. The database stores only a SHA-256 digest of the random opaque token. The link uses a fragment so normal navigation leaves the token out of HTTP request paths and referrers. No provider is required to create or consume an invitation.
 
-| Endpoint | Access |
-| --- | --- |
-| `POST /api/tenants` | Platform administrator. Creates the tenant and initial brand color. |
-| `POST /api/tenants/{id}/invitations` | Platform administrator for either role. Active tenant administrators can invite members in their tenant. |
-| `POST /api/tenants/activation` | Valid unexpired invitation. Existing identities must also present their matching session. |
-| `GET /api/tenants` | The current account's active memberships. |
-| `GET /api/tenants/{id}` | Active membership in the request's tenant. Returns workspace details and server-derived action availability. Missing membership returns 404. |
-| `GET /api/tenants/{id}/audit` | Active tenant administrator. Returns up to 50 newest onboarding events, with event type and timestamp only. Unauthorized workspace or role returns 404. |
+| Endpoint                             | Access                                                                                                                                                  |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST /api/tenants`                  | Platform administrator. Creates the tenant and initial brand color.                                                                                     |
+| `POST /api/tenants/{id}/invitations` | Platform administrator for either role. Active tenant administrators can invite members in their tenant.                                                |
+| `POST /api/tenants/activation`       | Valid unexpired invitation. Existing identities must also present their matching session.                                                               |
+| `GET /api/tenants`                   | The current account's active memberships.                                                                                                               |
+| `GET /api/tenants/{id}`              | Active membership in the request's tenant. Returns workspace details and server-derived action availability. Missing membership returns 404.            |
+| `GET /api/tenants/{id}/audit`        | Active tenant administrator. Returns up to 50 newest onboarding events, with event type and timestamp only. Unauthorized workspace or role returns 404. |
 
 The API serves machine-readable request, response and bearer requirements at `GET /api/openapi.json`. Activation accepts a valid bearer session for existing accounts or a password for new accounts. The runtime smoke script checks the generated contract.
 

@@ -1,10 +1,10 @@
 # Ownership and interface contracts
 
-| Owner | Default work | Contract published to the other owners |
-| --- | --- | --- |
-| 01 | `apps/api`, PostgreSQL schema and migrations, domain modules, REST and OpenAPI, integration and gamification backends, central ADRs, queue, task allocation, stack coordination | HTTP schemas and compatibility, authentication and RBAC rules, tenant scope and isolation, migration requirements, versioned domain events |
-| 02 | `apps/web`, approved design and brand assets, UI mockups, accessibility and localization, onboarding, navigation and dashboard | Input/output of components, tokens, user journeys, accessibility acceptance, frontend build requirements |
-| 03 | Compose, Dockerfiles, deployment, GitHub Actions, validation harness, system-level quality, security, observability and recovery | Image and environment configuration, CI commands and evidence, security findings, recovery and deployment requirements |
+| Owner | Default work                                                                                                                                                                    | Contract published to the other owners                                                                                                     |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 01    | `apps/api`, PostgreSQL schema and migrations, domain modules, REST and OpenAPI, integration and gamification backends, central ADRs, queue, task allocation, stack coordination | HTTP schemas and compatibility, authentication and RBAC rules, tenant scope and isolation, migration requirements, versioned domain events |
+| 02    | `apps/web`, approved design and brand assets, UI mockups, accessibility and localization, onboarding, navigation and dashboard                                                  | Input/output of components, tokens, user journeys, accessibility acceptance, frontend build requirements                                   |
+| 03    | Compose, Dockerfiles, deployment, GitHub Actions, validation harness, system-level quality, security, observability and recovery                                                | Image and environment configuration, CI commands and evidence, security findings, recovery and deployment requirements                     |
 
 Agent 01 coordinates `AGENTS.md`, root package manifests, workspace configuration, lockfile, shared contracts, central architecture records and database schemas. Agent 03 owns Compose changes after transfer. Agent 01 and Agent 03 jointly verify migration or container changes that cross the schema and startup boundary. Agent 02 and Agent 01 agree on API and frontend version compatibility. Ownership of a directory does not override any active path reservation.
 

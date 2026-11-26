@@ -16,14 +16,14 @@ services:
     networks:
       - database
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U juno_migrator -d juno"]
+      test: ['CMD-SHELL', 'pg_isready -U juno_migrator -d juno']
       interval: 3s
       timeout: 3s
       retries: 20
 
   migrate:
     <<: *juno-app
-    command: ["pnpm", "--filter", "@juno/api", "migrate"]
+    command: ['pnpm', '--filter', '@juno/api', 'migrate']
     environment:
       JUNO_MIGRATION_PASSWORD: ${JUNO_MIGRATION_PASSWORD:?Set JUNO_MIGRATION_PASSWORD in .env}
       JUNO_DATABASE_PASSWORD: ${JUNO_DATABASE_PASSWORD:?Set JUNO_DATABASE_PASSWORD in .env}
@@ -36,7 +36,7 @@ services:
 
   api:
     <<: *juno-app
-    command: ["pnpm", "--filter", "@juno/api", "start"]
+    command: ['pnpm', '--filter', '@juno/api', 'start']
     environment:
       PORT: 3001
       JUNO_REVIEW_BUILD_INFO: ${JUNO_REVIEW_BUILD_INFO:-0}
@@ -47,19 +47,25 @@ services:
       - default
       - database
     ports:
-      - "127.0.0.1:${JUNO_API_PORT:-3001}:3001"
+      - '127.0.0.1:${JUNO_API_PORT:-3001}:3001'
     depends_on:
       migrate:
         condition: service_completed_successfully
     healthcheck:
-      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3001/api/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3001/api/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
       interval: 4s
       timeout: 4s
       retries: 20
 
   web:
     <<: *juno-app
-    command: ["pnpm", "--filter", "@juno/web", "start"]
+    command: ['pnpm', '--filter', '@juno/web', 'start']
     environment:
       JUNO_API_ORIGIN: http://api:3001
       JUNO_ALLOW_INSECURE_LOCAL_COOKIE: '1'
@@ -67,12 +73,18 @@ services:
       JUNO_REVIEW_ENVIRONMENT: ${COMPOSE_PROJECT_NAME:-juno}
       JUNO_REVIEW_EXPECTED_API_REVISION: ${JUNO_REVIEW_EXPECTED_API_REVISION:-}
     ports:
-      - "127.0.0.1:${JUNO_WEB_PORT:-3000}:3000"
+      - '127.0.0.1:${JUNO_WEB_PORT:-3000}:3000'
     depends_on:
       api:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      test:
+        [
+          'CMD',
+          'node',
+          '-e',
+          "fetch('http://127.0.0.1:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
       interval: 4s
       timeout: 4s
       retries: 20

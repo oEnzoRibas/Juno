@@ -7,8 +7,8 @@ export default class ReviewReporter {
 
   onTestEnd(test, result) {
     const scenarios = result.steps
-      .filter(step => step.category === 'test.step' && step.title.startsWith('[review] '))
-      .map(step => ({ scenario: step.title.slice(9), passed: !step.error }));
+      .filter((step) => step.category === 'test.step' && step.title.startsWith('[review] '))
+      .map((step) => ({ scenario: step.title.slice(9), passed: !step.error }));
     for (const { scenario, passed } of scenarios) {
       console.log(`[${passed ? 'PASS' : 'FAIL'}] ${scenario}`);
     }

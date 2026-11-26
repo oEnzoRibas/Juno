@@ -5,8 +5,12 @@ import { ApiExcludeController } from '@nestjs/swagger';
 import { DatabaseService } from './database/database.service';
 
 const unavailable = {
-  revision: null, tree: null, sourceState: 'unavailable', builtAt: null,
-  sourceDigest: null, includedPullRequests: {},
+  revision: null,
+  tree: null,
+  sourceState: 'unavailable',
+  builtAt: null,
+  sourceDigest: null,
+  includedPullRequests: {},
 };
 
 function bakedMetadata(): typeof unavailable | Record<string, unknown> {

@@ -39,13 +39,11 @@ For owner-authorized parallel work, read the [agent protocol](docs/development/a
 
 After meaningful milestones, validation and blockers, checkpoint the task and [STATE](docs/development/STATE.md) and log transitions in [WORKLOG](docs/development/WORKLOG.md). Persist changed files, decisions, security and tenant impact, actual checks and failures, limitations, remaining approvals, queue state, and the next action. Apply the [definition of done](docs/development/DEFINITION_OF_DONE.md) before closing a task.
 
-
 ## Pull request readiness
 
 Complete the [maintainer review standard](docs/development/git-workflow.md#maintainer-review-standard) and the [PR template](.github/pull_request_template.md) before requesting review. Human and AI contributors follow the same requirements. Prioritize reproducible evidence on exact commits, declare open gates, and keep coordinated UAT snapshots pinned.
 
 Every executable PR must give a reproducible review entry point for its own head. Verify the running image and actual API connection, provide synthetic credentials, expected positive and negative outcomes, and safe shutdown. Label independent historical UAT and human validation separately. A review with misleading or incomplete setup is not ready.
-
 
 ## Issue linkage and labels
 

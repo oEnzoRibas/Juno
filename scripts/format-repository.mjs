@@ -6,7 +6,19 @@ import { format, getFileInfo, resolveConfig } from 'prettier';
 const write = process.argv[2] === '--write';
 const decoder = new TextDecoder('utf-8', { fatal: true });
 const binaryExtensions = new Set([
-  '.avif', '.eot', '.gif', '.ico', '.jpeg', '.jpg', '.otf', '.pdf', '.png', '.ttf', '.webp', '.woff', '.woff2',
+  '.avif',
+  '.eot',
+  '.gif',
+  '.ico',
+  '.jpeg',
+  '.jpg',
+  '.otf',
+  '.pdf',
+  '.png',
+  '.ttf',
+  '.webp',
+  '.woff',
+  '.woff2',
 ]);
 const paths = execFileSync('git', ['ls-files', '-z', '--cached', '--others', '--exclude-standard'], {
   encoding: 'utf8',

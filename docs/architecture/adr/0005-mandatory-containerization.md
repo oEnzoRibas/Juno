@@ -1,13 +1,13 @@
 # ADR-0005 — Mandatory Docker and Compose
 
-| Field | Value |
-| --- | --- |
-| Status | Accepted |
-| Date | 2026-11-24 |
-| Decision owner and approver | Enzo Ribas, in the [owner brief](../../development/history/JUNO-0002-request.md) |
-| Prepared by | Codex, as AI-assisted decision preparation |
-| Related task | [JUNO-0002](../../development/tasks/JUNO-0002.md) |
-| Related ADRs | [ADR-0001](0001-tenant-data-isolation.md), [ADR-0003](0003-application-topology.md), [ADR-0004](0004-durable-domain-events.md) |
+| Field                       | Value                                                                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Status                      | Accepted                                                                                                                       |
+| Date                        | 2026-11-24                                                                                                                     |
+| Decision owner and approver | Enzo Ribas, in the [owner brief](../../development/history/JUNO-0002-request.md)                                               |
+| Prepared by                 | Codex, as AI-assisted decision preparation                                                                                     |
+| Related task                | [JUNO-0002](../../development/tasks/JUNO-0002.md)                                                                              |
+| Related ADRs                | [ADR-0001](0001-tenant-data-isolation.md), [ADR-0003](0003-application-topology.md), [ADR-0004](0004-durable-domain-events.md) |
 
 ## Context and problem
 

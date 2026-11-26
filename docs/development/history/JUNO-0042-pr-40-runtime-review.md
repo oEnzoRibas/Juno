@@ -2,13 +2,13 @@
 
 On 2026-11-25 the maintainer reported that the independent review instructions used a clean detached checkout at `bcf3b5cdf54912ee19b9456e0e24c8cd9aba8184`, then directed browser testing to an already running Organization UAT. The original directions created `juno-review-40-*`, installed the frozen workspace, ran `node scripts/quality/validate-compose.mjs`, then linked the manual walkthrough to port 3302. The instructions did not make the different build sources sufficiently explicit.
 
-| Observation | Maintainer's evidence |
-| --- | --- |
-| Intended Git revision | `bcf3b5cdf54912ee19b9456e0e24c8cd9aba8184` |
-| Observed frontend | `juno-uat-org-web-1`, project `juno-uat-org`, Compose working directory `work/juno-uat-org` |
-| Observed frontend image | `sha256:18726648d4ce539693c821d3f3bdb5c37a2bf262e912e46472b3f411729c4355` |
-| Runtime API origin | `http://api:3001`, published frontend/API 3302/4302 |
-| Separate UAT pin | `72ba6be66715178a750b042fa97c1320d2b7fb1e`, includes older #40 at `7d7f7a447e56159bbdc7eb6587e7fcaaa564c23d` |
+| Observation             | Maintainer's evidence                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Intended Git revision   | `bcf3b5cdf54912ee19b9456e0e24c8cd9aba8184`                                                                   |
+| Observed frontend       | `juno-uat-org-web-1`, project `juno-uat-org`, Compose working directory `work/juno-uat-org`                  |
+| Observed frontend image | `sha256:18726648d4ce539693c821d3f3bdb5c37a2bf262e912e46472b3f411729c4355`                                    |
+| Runtime API origin      | `http://api:3001`, published frontend/API 3302/4302                                                          |
+| Separate UAT pin        | `72ba6be66715178a750b042fa97c1320d2b7fb1e`, includes older #40 at `7d7f7a447e56159bbdc7eb6587e7fcaaa564c23d` |
 
 The maintainer inspected Git worktree and HEAD, Compose labels, image IDs and the web container's configured API origin. The minimal equivalent diagnostic commands are:
 

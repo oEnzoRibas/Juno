@@ -10,12 +10,12 @@
 
 Juno serves Junior Enterprises with different budgets, infrastructure, and technical experience. Broad permissions support adoption, education, experimentation, contributions, forks, and independently operated deployments. Use the MIT License for Juno software and associated project documentation. Preserve its full permission and warranty provisions in the [root license](../../../LICENSE). [Open Source Initiative license text](https://opensource.org/license/mit)
 
-| Alternative | Trade-off |
-| --- | --- |
-| MIT | Broad reuse and simple notice preservation support adoption. Private and commercial derivatives are permitted. |
-| GNU AGPL v3.0 | Network copyleft extends corresponding-source obligations to certain network use of modified versions. This adds obligations the creator chose to avoid. Superseded draft proposal. |
-| GNU GPL | Copyleft preserves source-sharing obligations on covered distribution, with additional conditions. Superseded alternative. |
-| PolyForm Noncommercial and restrictive source-available terms | Usage restrictions would conflict with the adoption and reuse goals. Superseded alternatives. |
+| Alternative                                                   | Trade-off                                                                                                                                                                           |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MIT                                                           | Broad reuse and simple notice preservation support adoption. Private and commercial derivatives are permitted.                                                                      |
+| GNU AGPL v3.0                                                 | Network copyleft extends corresponding-source obligations to certain network use of modified versions. This adds obligations the creator chose to avoid. Superseded draft proposal. |
+| GNU GPL                                                       | Copyleft preserves source-sharing obligations on covered distribution, with additional conditions. Superseded alternative.                                                          |
+| PolyForm Noncommercial and restrictive source-available terms | Usage restrictions would conflict with the adoption and reuse goals. Superseded alternatives.                                                                                       |
 
 ## Consequences
 

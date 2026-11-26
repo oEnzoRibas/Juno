@@ -2,14 +2,14 @@
 
 The independent Organization Management candidate is available for maintainer review. It uses a fictional dataset and its own PostgreSQL volume. Acceptance and merge authorization are pending.
 
-| Resource | Value |
-| --- | --- |
-| Web (Portuguese) | http://127.0.0.1:3302/sign-in?lang=pt-BR |
-| Web (English) | http://127.0.0.1:3302/sign-in |
-| API readiness | http://127.0.0.1:4302/api/ready |
-| OpenAPI | http://127.0.0.1:4302/api/openapi.json |
-| Compose project and volume | `juno-uat-org` and `juno-uat-org_database` |
-| Candidate and tree | `72ba6be66715178a750b042fa97c1320d2b7fb1e` and `ea9b77db5c9290e320cc1114b6244bc3e49d3e29` |
+| Resource                   | Value                                                                                     |
+| -------------------------- | ----------------------------------------------------------------------------------------- |
+| Web (Portuguese)           | http://127.0.0.1:3302/sign-in?lang=pt-BR                                                  |
+| Web (English)              | http://127.0.0.1:3302/sign-in                                                             |
+| API readiness              | http://127.0.0.1:4302/api/ready                                                           |
+| OpenAPI                    | http://127.0.0.1:4302/api/openapi.json                                                    |
+| Compose project and volume | `juno-uat-org` and `juno-uat-org_database`                                                |
+| Candidate and tree         | `72ba6be66715178a750b042fa97c1320d2b7fb1e` and `ea9b77db5c9290e320cc1114b6244bc3e49d3e29` |
 
 Use a separate browser profile or private window for each preview. Browsers share same-host cookies across ports. The original `juno-uat` and `juno-uat-shell` projects remain available with their separate volumes.
 
@@ -24,14 +24,14 @@ $private = (Resolve-Path .\work\juno-uat-org-private).Path
 
 The Windows DPAPI helper displays only this preview's credentials and invitation links. Two preset links are available until their stated expiration. An authorized user can issue fresh invitations.
 
-| Account | Role |
-| --- | --- |
-| `atlas-admin@uat.example.invalid` | Atlas administrator |
-| `atlas-member@uat.example.invalid` | Atlas member |
-| `mare-admin@uat.example.invalid` | Maré Alta administrator |
-| `mare-member@uat.example.invalid` | Maré Alta member |
-| `dual@uat.example.invalid` | Atlas member and Maré Alta administrator |
-| `platform@uat.example.invalid` | Platform administrator without an organization membership |
+| Account                            | Role                                                      |
+| ---------------------------------- | --------------------------------------------------------- |
+| `atlas-admin@uat.example.invalid`  | Atlas administrator                                       |
+| `atlas-member@uat.example.invalid` | Atlas member                                              |
+| `mare-admin@uat.example.invalid`   | Maré Alta administrator                                   |
+| `mare-member@uat.example.invalid`  | Maré Alta member                                          |
+| `dual@uat.example.invalid`         | Atlas member and Maré Alta administrator                  |
+| `platform@uat.example.invalid`     | Platform administrator without an organization membership |
 
 ## Test scenarios
 
@@ -62,19 +62,19 @@ Use `docker compose --env-file $uatEnv -p juno-uat-org build migrate` at the pin
 
 ## Provenance
 
-| Input | Exact revision |
-| --- | --- |
+| Input                                   | Exact revision                             |
+| --------------------------------------- | ------------------------------------------ |
 | Main, including merged #38, #39 and #44 | `c93ca1c7a372396cce1880b01d55171db3262a84` |
-| #46 | `ef8a1dfc2c44779721de3daf187ac40e561dbc47` |
-| #36 | `7c17cc435d863e5b43c4a8302b2ad8ec730828eb` |
-| #37 | `a7825a6b814013527414e7478fa77d5b2d3eb60c` |
-| #40 | `7d7f7a447e56159bbdc7eb6587e7fcaaa564c23d` |
-| #41 | `46b1a9408077d1a2564bdc403d158a8ebb294ec6` |
-| #45 | `588489f6ef2ef7bb141d868d097f0761bcec8f65` |
-| #49 | `0a2bd92fa68c79e01cfbaff22bc8df3635be8d0a` |
-| #43 | `e5de071650154641b9f08e7c0ba212d5e71def0a` |
-| #48 | `145cb9f726cc8d34b2c4c416ef0c08624b6dd562` |
-| #51 | `61534be066a32f94a5659e19007d1bad8998803a` |
+| #46                                     | `ef8a1dfc2c44779721de3daf187ac40e561dbc47` |
+| #36                                     | `7c17cc435d863e5b43c4a8302b2ad8ec730828eb` |
+| #37                                     | `a7825a6b814013527414e7478fa77d5b2d3eb60c` |
+| #40                                     | `7d7f7a447e56159bbdc7eb6587e7fcaaa564c23d` |
+| #41                                     | `46b1a9408077d1a2564bdc403d158a8ebb294ec6` |
+| #45                                     | `588489f6ef2ef7bb141d868d097f0761bcec8f65` |
+| #49                                     | `0a2bd92fa68c79e01cfbaff22bc8df3635be8d0a` |
+| #43                                     | `e5de071650154641b9f08e7c0ba212d5e71def0a` |
+| #48                                     | `145cb9f726cc8d34b2c4c416ef0c08624b6dd562` |
+| #51                                     | `61534be066a32f94a5659e19007d1bad8998803a` |
 
 Reproduce the tree from main using #46, #36, #51 and #49 in that order. The last two heads carry their respective frontend and backend ancestry. Resolve the single runner overlap with the #49 version, which contains all five distinct SQL fixtures and the isolated test credentials. Compare the reconstructed tree to the recorded tree. #52 formatting is outside this snapshot.
 

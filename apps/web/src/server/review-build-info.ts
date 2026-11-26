@@ -1,7 +1,7 @@
-import frontendBuild from "../lib/generated/juno-build.json";
-import { apiRequest } from "./juno-api";
+import frontendBuild from '../lib/generated/juno-build.json';
+import { apiRequest } from './juno-api';
 
-type ApiConnection = "connected" | "unavailable" | "disconnected";
+type ApiConnection = 'connected' | 'unavailable' | 'disconnected';
 
 interface ApiBuildInfo {
   revision: string | null;
@@ -22,27 +22,27 @@ export interface ReviewBuildInfo {
 }
 
 function revision(value: unknown): string | null {
-  return typeof value === "string" && /^[a-f0-9]{40}$/.test(value) ? value : null;
+  return typeof value === 'string' && /^[a-f0-9]{40}$/.test(value) ? value : null;
 }
 
 function environment(value: unknown): string | null {
-  return typeof value === "string" && /^[a-zA-Z0-9][a-zA-Z0-9._-]{0,62}$/.test(value) ? value : null;
+  return typeof value === 'string' && /^[a-zA-Z0-9][a-zA-Z0-9._-]{0,62}$/.test(value) ? value : null;
 }
 
 function parseApiBuildInfo(value: unknown): ApiBuildInfo | null {
   if (
-    typeof value !== "object" ||
+    typeof value !== 'object' ||
     value === null ||
-    !("revision" in value) ||
-    !("schemaVersion" in value) ||
-    !("environment" in value)
+    !('revision' in value) ||
+    !('schemaVersion' in value) ||
+    !('environment' in value)
   ) {
     return null;
   }
   const schema = value.schemaVersion;
   return {
     revision: revision(value.revision),
-    schemaVersion: typeof schema === "number" && Number.isSafeInteger(schema) && schema >= 0 ? schema : null,
+    schemaVersion: typeof schema === 'number' && Number.isSafeInteger(schema) && schema >= 0 ? schema : null,
     environment: environment(value.environment),
   };
 }
@@ -50,20 +50,20 @@ function parseApiBuildInfo(value: unknown): ApiBuildInfo | null {
 async function probeBackend(): Promise<{ connection: ApiConnection; build?: ApiBuildInfo }> {
   let response: Response;
   try {
-    response = await apiRequest("build-info", {
-      redirect: "error",
+    response = await apiRequest('build-info', {
+      redirect: 'error',
       signal: AbortSignal.timeout(2_000),
     });
   } catch {
-    return { connection: "disconnected" };
+    return { connection: 'disconnected' };
   }
-  if (!response.ok) return { connection: "unavailable" };
+  if (!response.ok) return { connection: 'unavailable' };
 
   try {
     const build = parseApiBuildInfo(await response.json());
-    return build ? { connection: "connected", build } : { connection: "unavailable" };
+    return build ? { connection: 'connected', build } : { connection: 'unavailable' };
   } catch {
-    return { connection: "unavailable" };
+    return { connection: 'unavailable' };
   }
 }
 
@@ -72,14 +72,13 @@ export async function loadReviewBuildInfo(
   env: Readonly<Record<string, string | undefined>> = process.env,
   baked: { revision: unknown; sourceState: unknown } = frontendBuild,
 ): Promise<ReviewBuildInfo | null> {
-  if (env.JUNO_REVIEW_BUILD_INFO !== "1") return null;
+  if (env.JUNO_REVIEW_BUILD_INFO !== '1') return null;
 
-  const liveSource = env.JUNO_REVIEW_LIVE_SOURCE === "1";
+  const liveSource = env.JUNO_REVIEW_LIVE_SOURCE === '1';
   const frontendRevision = liveSource ? null : revision(baked.revision);
   const webEnvironment = environment(env.JUNO_REVIEW_ENVIRONMENT);
   const configuredExpectedRevision = env.JUNO_REVIEW_EXPECTED_API_REVISION;
-  const expectedApiRevision =
-    configuredExpectedRevision ? revision(configuredExpectedRevision) : frontendRevision;
+  const expectedApiRevision = configuredExpectedRevision ? revision(configuredExpectedRevision) : frontendRevision;
   const { connection, build } = await probeBackend();
   const backendRevision = build?.revision ?? null;
 
@@ -92,6 +91,6 @@ export async function loadReviewBuildInfo(
     revisionMismatch: Boolean(expectedApiRevision && backendRevision && expectedApiRevision !== backendRevision),
     environmentMismatch: Boolean(webEnvironment && build?.environment && webEnvironment !== build.environment),
     comparisonUnavailable: !expectedApiRevision || !backendRevision || !webEnvironment || !build?.environment,
-    dirtySource: !liveSource && baked.sourceState === "dirty",
+    dirtySource: !liveSource && baked.sourceState === 'dirty',
   };
 }

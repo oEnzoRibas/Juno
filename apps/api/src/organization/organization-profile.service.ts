@@ -11,7 +11,10 @@ interface Profile {
 
 @Injectable()
 export class OrganizationProfileService {
-  constructor(private readonly database: DatabaseService, private readonly auth: AuthService) {}
+  constructor(
+    private readonly database: DatabaseService,
+    private readonly auth: AuthService,
+  ) {}
 
   /** Replaces the authorized tenant's name and decorative accent with an atomic audit record. */
   async replace(authorization: string | undefined, tenantId: string, input: Omit<Profile, 'id'>): Promise<Profile> {

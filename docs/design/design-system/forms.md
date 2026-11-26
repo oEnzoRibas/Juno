@@ -2,13 +2,13 @@
 
 The first Juno form primitives are applied to the existing sign-in, invitation activation, tenant provisioning, invitation creation and workspace routes. They use native buttons, links, input elements and select elements. The browser provides keyboard and assistive technology behavior, while CSS supplies spacing, appearance and feedback.
 
-| Pattern | Usage | Behavior |
-| --- | --- | --- |
-| Field | Wrap the visible label and native control in `label.form-field`. | Set the correct type and autocomplete token. Constrain the input within the available width. |
-| Primary action | Apply `action-button` to a submit button or a navigation link. | Preserve the control's semantics. Use the native button's `disabled` attribute while submitting where the form exposes pending state. |
-| Error | Present the message in a paragraph with `role="alert"` inside the panel. | Announce the change and describe it in text. Preserve the API's generic denial and invalid-invitation responses. |
-| Success | Present the message in a paragraph with `role="status"` inside the panel. | Announce confirmation without taking focus from the user. |
-| Panel | Use the existing `public-shell` and `public-panel` layout. | Wrap long strings and constrain fields within the panel. Keep the theme consistent between authentication and onboarding. |
+| Pattern        | Usage                                                                     | Behavior                                                                                                                              |
+| -------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Field          | Wrap the visible label and native control in `label.form-field`.          | Set the correct type and autocomplete token. Constrain the input within the available width.                                          |
+| Primary action | Apply `action-button` to a submit button or a navigation link.            | Preserve the control's semantics. Use the native button's `disabled` attribute while submitting where the form exposes pending state. |
+| Error          | Present the message in a paragraph with `role="alert"` inside the panel.  | Announce the change and describe it in text. Preserve the API's generic denial and invalid-invitation responses.                      |
+| Success        | Present the message in a paragraph with `role="status"` inside the panel. | Announce confirmation without taking focus from the user.                                                                             |
+| Panel          | Use the existing `public-shell` and `public-panel` layout.                | Wrap long strings and constrain fields within the panel. Keep the theme consistent between authentication and onboarding.             |
 
 The light and dark themes follow the operating system preference. The styles keep focused controls visible in Windows forced-colors mode, and use native browser controls for credentials, role selection and the branding color picker.
 
