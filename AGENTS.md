@@ -23,6 +23,8 @@ For owner-authorized parallel work, read the [agent protocol](docs/development/a
 
 ## During implementation
 
+- For frontend changes, follow the [approved Design System V2](docs/design/design-system-v2-implementation.md). Reuse shared components and tokens, and verify responsive, accessible, localized states before presenting a change.
+
 - Review security and privacy implications, including trust boundaries, authorization, secret handling, data lifecycle, and audits. Never expose or commit secrets. Use synthetic data.
 - Resolve tenant context on the server and enforce resource and membership scope. Add and run negative isolation tests for affected routes, jobs, storage, exports, caches, integrations, and branding. Read the [tenancy requirements](docs/architecture/tenancy.md).
 - Write or update appropriate automated tests, including failure and concurrency cases. Synchronize requirements, design, configuration, API, migration, security and operator documentation with the change. Updated documentation is required for completion.

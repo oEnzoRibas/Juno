@@ -12,6 +12,8 @@
 
 [Reference study and component matrix](design-system-v2-reference.md) · [Current interface audit](../development/agents/agent-02/handoffs/JUNO-0027-v2-audit.md)
 
+See the [production component and token reference](design-system-v2-implementation.md) for the adopted scopes, responsive behavior, and extension procedures.
+
 ## Identity and foundations
 
 Keep the current Juno wordmark. Use the existing purple as the default active and primary colour. Rounded containers, an anchored primary action, visible selected states and concise feedback give Juno a warmer feel while leaving table density and workflow context intact. Use sentence case, plain-language task labels, and original simple line icons. Avoid decorative badges, scores and progress where the data model has no corresponding information.
@@ -62,15 +64,15 @@ Target [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22/), including text/non-text con
 
 After approval, Agent 03 independently validates units, server integration and browser workflows, automated accessibility and manual keyboard use, authorized and denied access, and representative screenshots from each exact build. Cover 320/375/390/768/1024/1280/1920 px, 200% text, browser zoom and a 320 CSS px equivalent, EN/PT-BR, long names and emails, themes and contrasting tenant accents. The audit's measured overflow is an explicit regression gate. Test dialogs, menus, zoom and contrast independently of visual acceptance.
 
-## Implementation plan after approval
+## Historical implementation plan
 
 1. In existing PR #37, define semantic CSS variables above existing tokens and use native React form, button, field, link, navigation and status primitives. Reuse Next.js authenticated route boundaries, server session and capability checks. Keep browser preferences in the UI boundary. Compare grouped routes with a wrapper/slots approach before changing folder layout. Keep a route-stable persistent shell and server-authorized data per page. Audit the existing Tailwind/CSS Modules mix before adding any dependency.
 2. Adopt in order: foundation and primitives, public authentication, organization selection, authenticated navigation and dashboard, existing platform provisioning and workspace invitations. Maintain current APIs and URL contracts. Record behavior changes in focused commits and run independent preview QA. Font and tenant additions are separate decisions.
 3. With Agent 01, inspect #43, #48 and #51 against the accepted #37 baseline. Coordinate small route/layout and token adoption commits without discarding each feature history or removing tests. Preserve lookup filters/cursors, profile authorization and real runtime APIs. Retest the composed frontend with Agent 03. Wait for reviewed ancestry before publication or merge.
 4. Keep original UAT, previous visual proposal and CI history. Log this intervention as a separate design-review event for Juno Research. Archive the reproducible viewport observations with exact artifact provenance. Treat usability judgments as review observations pending user acceptance.
 
-## Decision still requested
+## Acceptance status
 
-Approve the default purple, mobile three-destination navigation plus direct account page, restrained tactile action style and visual hierarchy before implementation. Scope approval remains necessary for a locally hosted Nunito font, for the exact tablet breakpoint, and for future upstream logo/palette contracts. Protected Duolingo views and native runtime interaction remain unverified. Compare these decisions in the [isolated interactive playground](style/README.md). Explicit approval of that prototype is required before production frontend work.
+The maintainer approved the interactive baseline. The tablet compact rail and local Nunito display treatment are documented in the production reference. Actual application acceptance follows the exact-revision runtime review and independent QA.
 
 Juno — Original project creator: Enzo Ribas. Developed with AI assistance. Project license MIT.
