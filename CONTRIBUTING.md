@@ -35,6 +35,8 @@ Use the [development protocol](docs/development/PROTOCOL.md) for owner-requested
 Read the [branching and release proposal](docs/governance/release.md), [AI disclosure](AI_DISCLOSURE.md), and [code of conduct](CODE_OF_CONDUCT.md).
 
 
+Frontend contributions follow the [approved Design System V2](docs/design/design-system-v2-implementation.md). Reuse semantic tokens and components and include keyboard, responsive, theme and localization evidence for affected flows.
+
 ## Evidence for maintainer review
 
 Use the [pull request template](.github/pull_request_template.md) and follow the [maintainer review standard](docs/development/git-workflow.md#maintainer-review-standard). Provide exact refs, readable scope and dependencies, evidence embedded in the description, reproducible test instructions and a human acceptance checklist. Update the same pull request as its evidence or status changes.
