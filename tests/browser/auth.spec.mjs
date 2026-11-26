@@ -3,14 +3,23 @@ import { expect, test } from '@playwright/test';
 const email = process.env.JUNO_TEST_ADMIN_EMAIL;
 const password = process.env.JUNO_TEST_ADMIN_PASSWORD;
 
-test('signs in through the localized web form and revokes the server session', async ({ page, request }) => {
+test('signs in through the localized web form and revokes the server session', async ({ page, request }, testInfo) => {
   if (!email || !password) throw new Error('Bootstrap a synthetic admin and set the test account variables.');
   const api = process.env.JUNO_SMOKE_API ?? 'http://127.0.0.1:3001';
 
   await page.goto('/session?lang=pt-BR');
   await expect(page).toHaveURL(/\/sign-in\?lang=pt-BR$/);
+  await testInfo.attach('v2-desktop-sign-in', {
+    body: await page.screenshot({ path: testInfo.outputPath('v2-desktop-sign-in.png') }),
+    contentType: 'image/png',
+  });
   await page.getByLabel('E-mail', { exact: true }).fill(email);
-  await page.getByLabel('Senha', { exact: true }).fill('invalid synthetic password');
+  const field = page.getByLabel('Senha', { exact: true });
+  await field.fill('invalid synthetic password');
+  await page.getByRole('button', { name: 'Mostrar' }).click();
+  await expect(field).toHaveAttribute('type', 'text');
+  await page.getByRole('button', { name: 'Ocultar' }).click();
+  await expect(field).toHaveAttribute('type', 'password');
   await page.getByRole('button', { name: 'Entrar' }).click();
   await expect(page.getByRole('alert').filter({ hasText: 'Não foi possível entrar' })).toBeVisible();
 
@@ -27,6 +36,7 @@ test('signs in through the localized web form and revokes the server session', a
   expect(session.status()).toBe(200);
   expect((await session.json()).platformAdmin).toBe(true);
 
+  await page.getByRole('banner').getByRole('link', { name: 'Sua conta' }).click();
   await page.getByRole('button', { name: 'Sair' }).click();
   await expect(page).toHaveURL(/\/sign-in\?lang=pt-BR$/);
   const revoked = await request.get(`${api}/api/auth/session`, { headers });
