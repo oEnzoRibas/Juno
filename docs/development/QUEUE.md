@@ -42,6 +42,8 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 
 The owner authorized [JUNO-0034](tasks/JUNO-0034.md), [JUNO-0035](tasks/JUNO-0035.md) and [JUNO-0036](tasks/JUNO-0036.md) under parallel FIFO. Record bypasses in the assignment registry without changing the established provider order.
 
+[JUNO-0045](tasks/JUNO-0045.md) coordinates the maintainer-authorized maintenance of the remaining PRs alongside V2. Functional and policy ordering remains unchanged.
+
 ## Completed and cancelled records
 
 See the [history index](history/README.md). IDs are never reused.
