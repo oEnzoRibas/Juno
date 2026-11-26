@@ -17,7 +17,10 @@ interface DirectoryPage {
 
 @Injectable()
 export class MemberDirectoryService {
-  constructor(private readonly database: DatabaseService, private readonly auth: AuthService) {}
+  constructor(
+    private readonly database: DatabaseService,
+    private readonly auth: AuthService,
+  ) {}
 
   /** Returns bounded membership metadata after PostgreSQL verifies the active administrator scope. */
   async list(authorization: string | undefined, tenantId: string, query: DirectoryQuery): Promise<DirectoryPage> {

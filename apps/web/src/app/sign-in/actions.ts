@@ -22,7 +22,7 @@ export async function signIn(locale: 'en' | 'pt-BR', form: FormData): Promise<vo
     // An unavailable service and an invalid sign-in share the same public response.
   }
   if (!result?.ok) redirect(`/sign-in${lang}${lang ? '&' : '?'}error=1`);
-  const session = await result.json() as { token: string; expiresAt: string };
+  const session = (await result.json()) as { token: string; expiresAt: string };
   (await cookies()).set(sessionCookie, session.token, {
     httpOnly: true,
     sameSite: 'strict',

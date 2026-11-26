@@ -11,7 +11,10 @@ describe('review arguments and isolated ports', () => {
   it('requires a numeric PR and a full optional pin', () => {
     const sha = 'a'.repeat(40);
     expect(parseArguments(['--pr', '40', '--sha', sha, '--web-port', '18614'])).toEqual({
-      pr: '40', sha, webPort: 18614, apiPort: undefined,
+      pr: '40',
+      sha,
+      webPort: 18614,
+      apiPort: undefined,
     });
     expect(() => parseArguments(['--pr', '../40'])).toThrow();
     expect(() => parseArguments(['--pr', '40', '--sha', 'abc'])).toThrow();
@@ -23,11 +26,11 @@ describe('review arguments and isolated ports', () => {
     const { webPort, apiPort } = await choosePorts();
     expect(webPort).not.toBe(apiPort);
     const listener = createServer();
-    await new Promise(resolve => listener.listen({ port: 0, host: '127.0.0.1' }, resolve));
+    await new Promise((resolve) => listener.listen({ port: 0, host: '127.0.0.1' }, resolve));
     try {
       await expect(choosePorts(listener.address().port)).rejects.toThrow('could not be reserved');
     } finally {
-      await new Promise(resolve => listener.close(resolve));
+      await new Promise((resolve) => listener.close(resolve));
     }
   });
 
@@ -40,7 +43,11 @@ describe('review arguments and isolated ports', () => {
     }
     env.PATH = directory;
     try {
-      const result = spawnSync(process.execPath, [cli, 'start', '--pr', '40'], { cwd: directory, env, encoding: 'utf8' });
+      const result = spawnSync(process.execPath, [cli, 'start', '--pr', '40'], {
+        cwd: directory,
+        env,
+        encoding: 'utf8',
+      });
       expect(result.status).toBe(1);
       expect(result.stderr).toContain('Identify Docker Engine failed');
       expect(readdirSync(directory)).toEqual([]);
@@ -62,8 +69,13 @@ describe('review arguments and isolated ports', () => {
       networks: { database: { internal: true, name: `${state.project}_database` } },
       volumes: { database: { name: `${state.project}_database` } },
       services: {
-        migrate: image, db: {},
-        web: { ...image, environment: { JUNO_API_ORIGIN: 'http://api:3001' }, ports: [{ host_ip: '127.0.0.1', published: '18614' }] },
+        migrate: image,
+        db: {},
+        web: {
+          ...image,
+          environment: { JUNO_API_ORIGIN: 'http://api:3001' },
+          ports: [{ host_ip: '127.0.0.1', published: '18614' }],
+        },
         api: { ...image, ports: [{ host_ip: '127.0.0.1', published: '18615' }] },
       },
     };

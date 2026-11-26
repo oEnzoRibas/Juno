@@ -34,13 +34,13 @@ The [local authentication runbook](../architecture/local-authentication.md) desc
 
 See the [Phase 0 review guide](phase-0-review-guide.md), the [Phase 1 plan](phase-1-implementation-plan.md), the [technology comparison](phase-1-technology-comparison.md), and the [task dependency graph](phase-1-dependencies.md).
 
-| Record | Purpose |
-| --- | --- |
-| [QUEUE](QUEUE.md) and [STATE](STATE.md) | Live order and active assignment, plus the verified resumption point. |
-| [WORKLOG](WORKLOG.md) and [history](history/README.md) | Chronological checkpoints and retained task records. |
-| [Task template](TASK_TEMPLATE.md) | Registration, acceptance criteria and evidence. |
-| [Definition of done](DEFINITION_OF_DONE.md) and [quality gates](../testing/README.md) | Completion criteria and applicable checks. |
-| [Documentation standard](DOCUMENTATION.md), [Git workflow](git-workflow.md), and [ADRs](../architecture/adr/README.md) | Technical content, source attribution and decision records. |
+| Record                                                                                                                 | Purpose                                                               |
+| ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [QUEUE](QUEUE.md) and [STATE](STATE.md)                                                                                | Live order and active assignment, plus the verified resumption point. |
+| [WORKLOG](WORKLOG.md) and [history](history/README.md)                                                                 | Chronological checkpoints and retained task records.                  |
+| [Task template](TASK_TEMPLATE.md)                                                                                      | Registration, acceptance criteria and evidence.                       |
+| [Definition of done](DEFINITION_OF_DONE.md) and [quality gates](../testing/README.md)                                  | Completion criteria and applicable checks.                            |
+| [Documentation standard](DOCUMENTATION.md), [Git workflow](git-workflow.md), and [ADRs](../architecture/adr/README.md) | Technical content, source attribution and decision records.           |
 
 Inspect new files separately for UTF-8, whitespace, links and applicable form or diagram syntax. Git diff checks cover tracked or staged changes. Add a CI job only with a runnable clean-checkout command and a defined outcome.
 

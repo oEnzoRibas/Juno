@@ -2,11 +2,11 @@
 
 **Review status:** Conceptual proposal for maintainer approval in PR #37. The current Application Shell remains the implementation baseline. Task [JUNO-0027](../../development/tasks/JUNO-0027.md).
 
-| Board | Editable source | Exports |
-| --- | --- | --- |
-| Workspace dashboard and expanded and collapsed sidebar | [Draw.io](juno-shell-redesign-workspace.drawio) | [SVG](juno-shell-redesign-workspace.svg) · [PDF](juno-shell-redesign-workspace.pdf) |
+| Board                                                                    | Editable source                                      | Exports                                                                                       |
+| ------------------------------------------------------------------------ | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Workspace dashboard and expanded and collapsed sidebar                   | [Draw.io](juno-shell-redesign-workspace.drawio)      | [SVG](juno-shell-redesign-workspace.svg) · [PDF](juno-shell-redesign-workspace.pdf)           |
 | Platform administration, organization creation and invitation generation | [Draw.io](juno-shell-redesign-administration.drawio) | [SVG](juno-shell-redesign-administration.svg) · [PDF](juno-shell-redesign-administration.pdf) |
-| Mobile drawer, organization switcher, account, language and theme | [Draw.io](juno-shell-redesign-mobile.drawio) | [SVG](juno-shell-redesign-mobile.svg) · [PDF](juno-shell-redesign-mobile.pdf) |
+| Mobile drawer, organization switcher, account, language and theme        | [Draw.io](juno-shell-redesign-mobile.drawio)         | [SVG](juno-shell-redesign-mobile.svg) · [PDF](juno-shell-redesign-mobile.pdf)                 |
 
 ## Design for review
 

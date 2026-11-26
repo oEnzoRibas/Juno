@@ -11,7 +11,7 @@ export class ReadyController {
   @ApiOkResponse({ description: 'The expected database migration is present and readable.' })
   @ApiServiceUnavailableResponse({ description: 'The database or schema is unavailable.' })
   async read(): Promise<{ status: 'ready' }> {
-    if (!await this.database.isReady()) throw new ServiceUnavailableException();
+    if (!(await this.database.isReady())) throw new ServiceUnavailableException();
     return { status: 'ready' };
   }
 }

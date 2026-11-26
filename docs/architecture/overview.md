@@ -4,35 +4,35 @@
 
 ## Topology options
 
-| Candidate | Advantages | Costs and risks |
-| --- | --- | --- |
-| TypeScript modular backend and separate web frontend, in one workspace | Clear API and module boundaries, independent UI, straightforward contract tests. | Two runtimes, session and origin coordination, more deployment and test work. |
-| Full-stack TypeScript web application with internal modules | Smaller installation footprint and same-origin sessions. | Framework coupling and pressure to put domain logic in routes or UI. A public API needs a deliberate contract. |
-| Conventional server framework and progressively enhanced pages | Simpler deployment and baseline UI, mature patterns. | Less direct use of the proposed React stack and more client work if rich interactions become central. |
-| Managed backend or identity platform | Can reduce initial local operating work. | Validate license, costs, portability, tenant policy, export and restore. An independent deployment remains required. |
+| Candidate                                                              | Advantages                                                                       | Costs and risks                                                                                                      |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| TypeScript modular backend and separate web frontend, in one workspace | Clear API and module boundaries, independent UI, straightforward contract tests. | Two runtimes, session and origin coordination, more deployment and test work.                                        |
+| Full-stack TypeScript web application with internal modules            | Smaller installation footprint and same-origin sessions.                         | Framework coupling and pressure to put domain logic in routes or UI. A public API needs a deliberate contract.       |
+| Conventional server framework and progressively enhanced pages         | Simpler deployment and baseline UI, mature patterns.                             | Less direct use of the proposed React stack and more client work if rich interactions become central.                |
+| Managed backend or identity platform                                   | Can reduce initial local operating work.                                         | Validate license, costs, portability, tenant policy, export and restore. An independent deployment remains required. |
 
 Compare the first two using the same synthetic workflow. Keep business modules in a single backend with relational transactions. Consider an optional worker for durable work when timing or isolation requires it. Add microservices or Kubernetes only if demonstrated operating requirements justify them.
 
 ## Candidate bounded contexts
 
-| Context | Owns and exposes |
-| --- | --- |
-| Identity and access | Global identities, sessions, recovery, scoped grants, and policy evaluation. |
-| Tenant management | Tenant provisioning and operational settings. Tenant content access requires a separate scope. |
-| Organization and membership | Organization configuration, member lifecycle, roles and placement history. |
-| Directorates and teams | Configurable hierarchy and team assignments. |
-| Projects | Projects, subprojects, participation, and delegated leadership. |
-| Reporting | Templates, submissions, review decisions, provenance and exports. |
-| Challenges | Eligibility, enrollment, evidence, review decisions and qualifying outcomes. |
-| Gamification | Rule versions, awards, experience, achievements and recognition explanations. |
-| Virtual economy | Tenant currency accounts and append-only ledger. |
-| Rewards | Catalog, stock, redemption approvals and fulfillment. Coordinate with the economy in a single transaction for balance and inventory changes. |
-| Learning | Courses, assessments, enrollment and qualifying completions. |
-| Integration Hub | Optional tenant connections, capability registry, provider mapping, webhook intake, synchronization and health. |
-| Analytics | Authorized aggregation and suppression of sensitive small cohorts. |
-| Notifications | Delivery preferences, channel adapters, and delivery results. |
-| Branding | Validated theme configuration and tenant media references. |
-| Audit | Tenant and platform audit records, access, integrity and retention. |
+| Context                     | Owns and exposes                                                                                                                             |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Identity and access         | Global identities, sessions, recovery, scoped grants, and policy evaluation.                                                                 |
+| Tenant management           | Tenant provisioning and operational settings. Tenant content access requires a separate scope.                                               |
+| Organization and membership | Organization configuration, member lifecycle, roles and placement history.                                                                   |
+| Directorates and teams      | Configurable hierarchy and team assignments.                                                                                                 |
+| Projects                    | Projects, subprojects, participation, and delegated leadership.                                                                              |
+| Reporting                   | Templates, submissions, review decisions, provenance and exports.                                                                            |
+| Challenges                  | Eligibility, enrollment, evidence, review decisions and qualifying outcomes.                                                                 |
+| Gamification                | Rule versions, awards, experience, achievements and recognition explanations.                                                                |
+| Virtual economy             | Tenant currency accounts and append-only ledger.                                                                                             |
+| Rewards                     | Catalog, stock, redemption approvals and fulfillment. Coordinate with the economy in a single transaction for balance and inventory changes. |
+| Learning                    | Courses, assessments, enrollment and qualifying completions.                                                                                 |
+| Integration Hub             | Optional tenant connections, capability registry, provider mapping, webhook intake, synchronization and health.                              |
+| Analytics                   | Authorized aggregation and suppression of sensitive small cohorts.                                                                           |
+| Notifications               | Delivery preferences, channel adapters, and delivery results.                                                                                |
+| Branding                    | Validated theme configuration and tenant media references.                                                                                   |
+| Audit                       | Tenant and platform audit records, access, integrity and retention.                                                                          |
 
 Use domain-driven design where invariants require it, especially economy, authorization and recognition. Complex modules can use `domain/`, `application/`, `infrastructure/`, `presentation/`, and `tests/`. Domain logic does not import UI frameworks, provider clients, or persistence implementations. Application use cases coordinate invariants and declare ports. Infrastructure implements adapters. Presentation validates and authorizes requests before invoking use cases. Use simpler folders for simple modules. A cross-module change uses an explicit service contract or a durable event when delivery must survive failure.
 

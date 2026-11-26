@@ -12,11 +12,13 @@ function run(command, args, options = {}) {
 }
 
 try {
-  const { values } = parseArgs({ options: {
-    project: { type: 'string' },
-    'env-file': { type: 'string' },
-    'include-pr': { type: 'string', multiple: true, default: [] },
-  } });
+  const { values } = parseArgs({
+    options: {
+      project: { type: 'string' },
+      'env-file': { type: 'string' },
+      'include-pr': { type: 'string', multiple: true, default: [] },
+    },
+  });
   const project = values.project;
   if (!project || !/^[a-z0-9][a-z0-9_-]{0,62}$/.test(project)) {
     throw new Error('Use --project with a valid isolated Compose project name');
@@ -39,7 +41,9 @@ try {
     includedPullRequests[number] = sha;
   }
   if (values['env-file']) {
-    run('docker', ['compose', '--env-file', values['env-file'], '-p', project, 'config', '--quiet'], { stdio: 'inherit' });
+    run('docker', ['compose', '--env-file', values['env-file'], '-p', project, 'config', '--quiet'], {
+      stdio: 'inherit',
+    });
   }
 
   const cache = mkdtempSync(join(tmpdir(), 'juno-build-'));
@@ -49,12 +53,23 @@ try {
     const input = openSync(archive, 'r');
     const builtAt = new Date().toISOString();
     const args = [
-      'buildx', 'build', '--load', '--target', 'runtime', '--tag', `juno-runtime:${project}`,
-      '--build-arg', `JUNO_BUILD_REVISION=${revision}`,
-      '--build-arg', `JUNO_BUILD_TREE=${tree}`,
-      '--build-arg', `JUNO_BUILD_CREATED=${builtAt}`,
-      '--build-arg', 'JUNO_BUILD_STATE=clean',
-      '--build-arg', `JUNO_BUILD_PRS=${JSON.stringify(includedPullRequests)}`,
+      'buildx',
+      'build',
+      '--load',
+      '--target',
+      'runtime',
+      '--tag',
+      `juno-runtime:${project}`,
+      '--build-arg',
+      `JUNO_BUILD_REVISION=${revision}`,
+      '--build-arg',
+      `JUNO_BUILD_TREE=${tree}`,
+      '--build-arg',
+      `JUNO_BUILD_CREATED=${builtAt}`,
+      '--build-arg',
+      'JUNO_BUILD_STATE=clean',
+      '--build-arg',
+      `JUNO_BUILD_PRS=${JSON.stringify(includedPullRequests)}`,
       '-',
     ];
     try {

@@ -18,6 +18,20 @@ export type ShellIconName = keyof typeof strokes;
 
 /** Render original decorative linework. Interactive parents own their accessible names. */
 export function ShellIcon({ name }: { name: ShellIconName }): ReactNode {
-  return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"
-    strokeLinecap="round" strokeLinejoin="round" focusable="false" aria-hidden="true"><path d={strokes[name]} /></svg>;
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      focusable="false"
+      aria-hidden="true"
+    >
+      <path d={strokes[name]} />
+    </svg>
+  );
 }

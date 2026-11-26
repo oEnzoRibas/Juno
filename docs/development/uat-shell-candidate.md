@@ -4,16 +4,16 @@
 
 ## Preview and access
 
-| Item | Address or source |
-| --- | --- |
-| Web, Brazilian Portuguese | http://127.0.0.1:3301/sign-in?lang=pt-BR |
-| Web, English | http://127.0.0.1:3301/sign-in |
-| API readiness and OpenAPI | http://127.0.0.1:4301/api/ready and http://127.0.0.1:4301/api/openapi.json |
-| Worktree and branch | `work/juno-uat-shell`, `preview/juno-uat-shell-20261124` |
-| Candidate commit | `33c3cc6c52e7cffccba982efeaaa6239f507def9` |
-| Main | `3053a7beab1ec657305634c77df46efe4ec472f1` |
-| [PR #36](https://github.com/oEnzoRibas/Juno/pull/36), runtime regression | `7c17cc435d863e5b43c4a8302b2ad8ec730828eb` |
-| [PR #37](https://github.com/oEnzoRibas/Juno/pull/37), authenticated shell | `a7825a6b814013527414e7478fa77d5b2d3eb60c` |
+| Item                                                                      | Address or source                                                          |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Web, Brazilian Portuguese                                                 | http://127.0.0.1:3301/sign-in?lang=pt-BR                                   |
+| Web, English                                                              | http://127.0.0.1:3301/sign-in                                              |
+| API readiness and OpenAPI                                                 | http://127.0.0.1:4301/api/ready and http://127.0.0.1:4301/api/openapi.json |
+| Worktree and branch                                                       | `work/juno-uat-shell`, `preview/juno-uat-shell-20261124`                   |
+| Candidate commit                                                          | `33c3cc6c52e7cffccba982efeaaa6239f507def9`                                 |
+| Main                                                                      | `3053a7beab1ec657305634c77df46efe4ec472f1`                                 |
+| [PR #36](https://github.com/oEnzoRibas/Juno/pull/36), runtime regression  | `7c17cc435d863e5b43c4a8302b2ad8ec730828eb`                                 |
+| [PR #37](https://github.com/oEnzoRibas/Juno/pull/37), authenticated shell | `a7825a6b814013527414e7478fa77d5b2d3eb60c`                                 |
 
 Use a separate browser profile or private window for this preview if the accepted preview is open. Cookies are scoped to the host and may be shared across ports in the same profile. The two Compose projects, PostgreSQL volumes, images, credentials, and web sessions are independent. The original accepted snapshot `5a8947feceab0867d9ba81c3d3a163200ff8c1cf` remains available on frontend port 3300 and backend port 4300.
 
@@ -25,14 +25,14 @@ From the Windows account that created the preview, run the private helper in a l
 & .\work\juno-uat-shell-private\Get-JunoUatCredentials.ps1 -Invitations
 ```
 
-| Email | Fictional role |
-| --- | --- |
-| `platform@uat.example.invalid` | Platform administrator with no organization memberships |
-| `atlas-admin@uat.example.invalid` | Atlas Júnior Engenharia administrator |
-| `atlas-member@uat.example.invalid` | Atlas Júnior Engenharia member |
-| `mare-admin@uat.example.invalid` | Maré Alta Júnior Design administrator |
-| `mare-member@uat.example.invalid` | Maré Alta Júnior Design member |
-| `dual@uat.example.invalid` | Atlas member and Maré Alta administrator |
+| Email                              | Fictional role                                          |
+| ---------------------------------- | ------------------------------------------------------- |
+| `platform@uat.example.invalid`     | Platform administrator with no organization memberships |
+| `atlas-admin@uat.example.invalid`  | Atlas Júnior Engenharia administrator                   |
+| `atlas-member@uat.example.invalid` | Atlas Júnior Engenharia member                          |
+| `mare-admin@uat.example.invalid`   | Maré Alta Júnior Design administrator                   |
+| `mare-member@uat.example.invalid`  | Maré Alta Júnior Design member                          |
+| `dual@uat.example.invalid`         | Atlas member and Maré Alta administrator                |
 
 The helper decrypts candidate-only credentials from Windows DPAPI. Invitations expire after 24 hours and can be reissued by an authorized account. Share invitation links manually.
 

@@ -25,7 +25,10 @@ const journal = 'SELECT id, hash, created_at FROM drizzle.__drizzle_migrations O
 
 function command(description, executable, args, { env, input, capture = false } = {}) {
   const result = spawnSync(executable, args, {
-    env, input, timeout: 300_000, maxBuffer: 16 * 1024 * 1024,
+    env,
+    input,
+    timeout: 300_000,
+    maxBuffer: 16 * 1024 * 1024,
     stdio: [input === undefined ? 'ignore' : 'pipe', capture ? 'pipe' : 'inherit', 'inherit'],
   });
   if (result.status !== 0) {
@@ -45,7 +48,15 @@ function installation(label, port) {
     JUNO_DATABASE_PASSWORD: password(),
     JUNO_MIGRATION_PASSWORD: password(),
   };
-  const prefix = ['compose', '-p', project, '--env-file', 'docs/deployment/production.env.example', '-f', 'compose.production.yaml'];
+  const prefix = [
+    'compose',
+    '-p',
+    project,
+    '--env-file',
+    'docs/deployment/production.env.example',
+    '-f',
+    'compose.production.yaml',
+  ];
   function compose(args, options) {
     return command(project + ' ' + args[0], 'docker', [...prefix, ...args], { ...options, env });
   }
@@ -82,7 +93,10 @@ function installation(label, port) {
         process.stdout.write(await response.text());
       }).catch(error => { console.error(error.message); process.exitCode = 1; });
     `;
-    const output = compose(['exec', '-T', 'api', 'node', '-e', program], { input: JSON.stringify(input), capture: true });
+    const output = compose(['exec', '-T', 'api', 'node', '-e', program], {
+      input: JSON.stringify(input),
+      capture: true,
+    });
     if (expected < 400 && output.length) return JSON.parse(output);
   }
   return {
@@ -94,28 +108,53 @@ function installation(label, port) {
     acquireDatabaseImage: () => compose(['pull', '--policy', 'missing', 'db']),
     stopApplications: () => compose(['stop', 'web', 'api']),
     cleanup: () => compose(['down', '--volumes', '--remove-orphans']),
-    query: (sql) => database(['psql', '-U', 'juno_migrator', '-d', 'juno', '-At', '-v', 'ON_ERROR_STOP=1', '-c', sql], { capture: true }).toString().trim(),
-    bootstrap: (account) => compose(['run', '--rm', '-T', '--no-deps', 'migrate', 'node', 'dist/auth/bootstrap-admin.js'], { input: JSON.stringify(account) }),
+    query: (sql) =>
+      database(['psql', '-U', 'juno_migrator', '-d', 'juno', '-At', '-v', 'ON_ERROR_STOP=1', '-c', sql], {
+        capture: true,
+      })
+        .toString()
+        .trim(),
+    bootstrap: (account) =>
+      compose(['run', '--rm', '-T', '--no-deps', 'migrate', 'node', 'dist/auth/bootstrap-admin.js'], {
+        input: JSON.stringify(account),
+      }),
     api,
     login: (credentials) => api('/auth/sign-in', { method: 'POST', body: credentials }).token,
     dump: () => database(['pg_dump', '-U', 'juno_migrator', '-d', 'juno', '--format=custom'], { capture: true }),
-    restore: (input) => database(['pg_restore', '-U', 'juno_migrator', '-d', 'juno', '--clean', '--if-exists', '--single-transaction', '--exit-on-error'], { input }),
+    restore: (input) =>
+      database(
+        [
+          'pg_restore',
+          '-U',
+          'juno_migrator',
+          '-d',
+          'juno',
+          '--clean',
+          '--if-exists',
+          '--single-transaction',
+          '--exit-on-error',
+        ],
+        { input },
+      ),
     migrate: () => compose(['run', '--rm', '-T', 'migrate']),
   };
 }
 
 async function verifyHttps(installation, browser, tls) {
   const proxy = createServer(tls, (request, response) => {
-    const outgoing = httpRequest({
-      hostname: host,
-      port: installation.port,
-      path: request.url,
-      method: request.method,
-      headers: { ...request.headers, 'x-forwarded-host': request.headers.host, 'x-forwarded-proto': 'https' },
-    }, (upstream) => {
-      response.writeHead(upstream.statusCode, upstream.headers);
-      upstream.pipe(response);
-    });
+    const outgoing = httpRequest(
+      {
+        hostname: host,
+        port: installation.port,
+        path: request.url,
+        method: request.method,
+        headers: { ...request.headers, 'x-forwarded-host': request.headers.host, 'x-forwarded-proto': 'https' },
+      },
+      (upstream) => {
+        response.writeHead(upstream.statusCode, upstream.headers);
+        upstream.pipe(response);
+      },
+    );
     outgoing.on('error', () => response.writeHead(502).end());
     request.pipe(outgoing);
   });
@@ -140,17 +179,26 @@ async function verifyHttps(installation, browser, tls) {
       await context.close();
     }
   } finally {
-    await new Promise((resolve, reject) => proxy.close((error) => error ? reject(error) : resolve()));
+    await new Promise((resolve, reject) => proxy.close((error) => (error ? reject(error) : resolve())));
   }
 }
 
 function verifyTenants(installation, own, foreign) {
   const token = installation.login(administrator);
-  assert.deepEqual(installation.api('/tenants', { token }).map(({ id }) => id), [own.id]);
+  assert.deepEqual(
+    installation.api('/tenants', { token }).map(({ id }) => id),
+    [own.id],
+  );
   installation.api('/tenants/' + foreign.id, { token }, 404);
-  installation.api('/tenants/' + foreign.id + '/invitations', {
-    method: 'POST', token, body: { role: 'member', email: 'denied@example.invalid' },
-  }, 403);
+  installation.api(
+    '/tenants/' + foreign.id + '/invitations',
+    {
+      method: 'POST',
+      token,
+      body: { role: 'member', email: 'denied@example.invalid' },
+    },
+    403,
+  );
 }
 
 const source = installation('source', ports[0]);
@@ -163,8 +211,21 @@ try {
   const key = join(certificates, 'key.pem');
   const cert = join(certificates, 'cert.pem');
   command('Generate disposable TLS certificate', process.env.JUNO_QA_OPENSSL ?? 'openssl', [
-    'req', '-x509', '-newkey', 'rsa:2048', '-nodes', '-days', '1', '-subj', '/CN=127.0.0.1',
-    '-addext', 'subjectAltName=IP:127.0.0.1', '-keyout', key, '-out', cert,
+    'req',
+    '-x509',
+    '-newkey',
+    'rsa:2048',
+    '-nodes',
+    '-days',
+    '1',
+    '-subj',
+    '/CN=127.0.0.1',
+    '-addext',
+    'subjectAltName=IP:127.0.0.1',
+    '-keyout',
+    key,
+    '-out',
+    cert,
   ]);
   const tls = { key: readFileSync(key), cert: readFileSync(cert) };
   browser = await chromium.launch();
@@ -174,23 +235,46 @@ try {
   source.acquireDatabaseImage();
   source.build();
   source.start();
-  const runtimeUser = command('Inspect runtime image user', 'docker', ['image', 'inspect', '--format', '{{.Config.User}}', image], { capture: true });
+  const runtimeUser = command(
+    'Inspect runtime image user',
+    'docker',
+    ['image', 'inspect', '--format', '{{.Config.User}}', image],
+    { capture: true },
+  );
   assert.equal(runtimeUser.toString().trim(), 'node');
   assert.deepEqual(source.api('/health'), { status: 'ok' });
   assert.deepEqual(source.api('/ready'), { status: 'ready' });
   source.bootstrap(maintainer);
   const platform = source.login(maintainer);
-  const createTenant = (slug, name) => source.api('/tenants', {
-    method: 'POST', token: platform, body: { slug, name, accent: '#5543CF' },
-  }, 201);
+  const createTenant = (slug, name) =>
+    source.api(
+      '/tenants',
+      {
+        method: 'POST',
+        token: platform,
+        body: { slug, name, accent: '#5543CF' },
+      },
+      201,
+    );
   const own = createTenant('qualification-atlas', 'Qualification Atlas');
   const foreign = createTenant('qualification-mare', 'Qualification Mare');
-  const invite = source.api('/tenants/' + own.id + '/invitations', {
-    method: 'POST', token: platform, body: { role: 'administrator', email: administrator.email },
-  }, 201);
-  source.api('/tenants/activation', {
-    method: 'POST', body: { token: invite.token, password: administrator.password },
-  }, 201);
+  const invite = source.api(
+    '/tenants/' + own.id + '/invitations',
+    {
+      method: 'POST',
+      token: platform,
+      body: { role: 'administrator', email: administrator.email },
+    },
+    201,
+  );
+  source.api(
+    '/tenants/activation',
+    {
+      method: 'POST',
+      body: { token: invite.token, password: administrator.password },
+    },
+    201,
+  );
   verifyTenants(source, own, foreign);
   await verifyHttps(source, browser, tls);
   const before = source.query(journal);
@@ -225,7 +309,12 @@ try {
     () => startedSource && source.cleanup(),
     () => {
       if (!startedSource) return;
-      const tags = command('Find QA image tag', 'docker', ['image', 'ls', '--filter', 'reference=' + image, '--format', '{{.Repository}}:{{.Tag}}'], { capture: true });
+      const tags = command(
+        'Find QA image tag',
+        'docker',
+        ['image', 'ls', '--filter', 'reference=' + image, '--format', '{{.Repository}}:{{.Tag}}'],
+        { capture: true },
+      );
       if (tags.toString().trim() === image) command('Remove QA image tag', 'docker', ['image', 'rm', image]);
     },
     () => {

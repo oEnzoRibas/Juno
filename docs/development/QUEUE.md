@@ -16,16 +16,16 @@ The approved foundation landed at `3053a7beab1ec657305634c77df46efe4ec472f1`. Th
 
 The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-authorized FIFO exception. Foundational implementation is ordered by their implementation dependencies. The six provider tasks retain their IDs and relative order.
 
-| Position | Task |
-| --- | --- |
-| 14 | [JUNO-0029 — Integration Hub foundation](tasks/JUNO-0029.md) |
-| 15 | [JUNO-0030 — Gamification foundation](tasks/JUNO-0030.md) |
-| 16 | [JUNO-0006 — GitHub provider feasibility and implementation](tasks/JUNO-0006.md) |
-| 17 | [JUNO-0007 — GitHub Projects provider feasibility and implementation](tasks/JUNO-0007.md) |
-| 18 | [JUNO-0008 — YouTube provider feasibility and implementation](tasks/JUNO-0008.md) |
-| 19 | [JUNO-0009 — SharePoint provider feasibility and implementation](tasks/JUNO-0009.md) |
-| 20 | [JUNO-0010 — Slack provider feasibility and implementation](tasks/JUNO-0010.md) |
-| 21 | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md) |
+| Position | Task                                                                                      |
+| -------- | ----------------------------------------------------------------------------------------- |
+| 14       | [JUNO-0029 — Integration Hub foundation](tasks/JUNO-0029.md)                              |
+| 15       | [JUNO-0030 — Gamification foundation](tasks/JUNO-0030.md)                                 |
+| 16       | [JUNO-0006 — GitHub provider feasibility and implementation](tasks/JUNO-0006.md)          |
+| 17       | [JUNO-0007 — GitHub Projects provider feasibility and implementation](tasks/JUNO-0007.md) |
+| 18       | [JUNO-0008 — YouTube provider feasibility and implementation](tasks/JUNO-0008.md)         |
+| 19       | [JUNO-0009 — SharePoint provider feasibility and implementation](tasks/JUNO-0009.md)      |
+| 20       | [JUNO-0010 — Slack provider feasibility and implementation](tasks/JUNO-0010.md)           |
+| 21       | [JUNO-0011 — Notion provider feasibility and implementation](tasks/JUNO-0011.md)          |
 
 ## Under review
 
@@ -48,11 +48,9 @@ The owner authorized [JUNO-0034](tasks/JUNO-0034.md), [JUNO-0035](tasks/JUNO-003
 
 See the [history index](history/README.md). IDs are never reused.
 
-
 ## Independent review readiness
 
 [JUNO-0039](tasks/JUNO-0039.md) tracks the maintainer review preparation and reproducibility check. Implementation retains its existing review gates and owners.
-
 
 ## GitHub traceability maintenance
 

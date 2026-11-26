@@ -1,11 +1,11 @@
 # JUNO-0022 post-merge quality handoff
 
-| Field | Value |
-| --- | --- |
-| Owner | JUNO-AGENT-03 |
-| Task branch and exact base | `test/juno-0022-runtime-regression-coverage` from `feat/juno-0026-onboarding-audit` at `0b31c5e22e7d64488340f454f6d6bf67d6d7f302` ([PR #34](https://github.com/oEnzoRibas/Juno/pull/34)) |
-| Reserved paths | `scripts/quality/**`, `docs/testing/juno-0022-platform-validation.md`, and task-specific agent-03 records. Coordinate workflow edits explicitly if required. |
-| Previous checkpoint | [PR #31](https://github.com/oEnzoRibas/Juno/pull/31) at `ea14d2eb8d17671f2e44b886ebdd617cf2d5068d`. Both Actions jobs passed. Preserve local recovery `fed91526ff2624260d174864d0072005dff0a400`. |
-| Contract | Existing Compose workflow and disposable runner. Audit SQL at `apps/api/drizzle/test/onboarding-audit.sql` requires migration 0004 and a synthetic isolated database. |
-| Deliverable | Extend the existing runner to execute the audit SQL regression as well as the two current SQL regressions. Keep cleanup behavior, isolated ports and synthetic credentials. Verify any CI publication credential before use and report actual job evidence. |
-| Resumption | Check for your existing local work and acknowledge this revision before starting. Keep the validated #31 lane and uncommitted work intact. The published #34 source is available before merge. |
+| Field                      | Value                                                                                                                                                                                                                                                       |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owner                      | JUNO-AGENT-03                                                                                                                                                                                                                                               |
+| Task branch and exact base | `test/juno-0022-runtime-regression-coverage` from `feat/juno-0026-onboarding-audit` at `0b31c5e22e7d64488340f454f6d6bf67d6d7f302` ([PR #34](https://github.com/oEnzoRibas/Juno/pull/34))                                                                    |
+| Reserved paths             | `scripts/quality/**`, `docs/testing/juno-0022-platform-validation.md`, and task-specific agent-03 records. Coordinate workflow edits explicitly if required.                                                                                                |
+| Previous checkpoint        | [PR #31](https://github.com/oEnzoRibas/Juno/pull/31) at `ea14d2eb8d17671f2e44b886ebdd617cf2d5068d`. Both Actions jobs passed. Preserve local recovery `fed91526ff2624260d174864d0072005dff0a400`.                                                           |
+| Contract                   | Existing Compose workflow and disposable runner. Audit SQL at `apps/api/drizzle/test/onboarding-audit.sql` requires migration 0004 and a synthetic isolated database.                                                                                       |
+| Deliverable                | Extend the existing runner to execute the audit SQL regression as well as the two current SQL regressions. Keep cleanup behavior, isolated ports and synthetic credentials. Verify any CI publication credential before use and report actual job evidence. |
+| Resumption                 | Check for your existing local work and acknowledge this revision before starting. Keep the validated #31 lane and uncommitted work intact. The published #34 source is available before merge.                                                              |

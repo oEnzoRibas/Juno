@@ -2,15 +2,15 @@
 
 The maintainer [approved the visual proposal](https://github.com/oEnzoRibas/Juno/pull/37#issuecomment-7150244558). This is the subsequent implementation preview for interaction acceptance. Treat the Foundation, original Application Shell, and Organization Management previews as separate environments.
 
-| Item | Revision or resource |
-| --- | --- |
-| Pull request | [PR #37](https://github.com/oEnzoRibas/Juno/pull/37) |
-| Shell implementation | 5f8ecfc1ffeffe68043163229f8f317c7cdc3028 |
-| Shell regression | 1ec9ba6b6f76a8643800140916eafdee577c916d |
-| Integrated main input | cce46311870af9854aeb4263517e2e42cf7fb007 |
-| Preview build | 4f6ab8f56bc94cecf9ece5651e1d42d7cd63c0c7 |
-| Loopback preview | http://127.0.0.1:3303/sign-in?lang=pt-BR |
-| API readiness | http://127.0.0.1:4303/api/ready |
+| Item                                 | Revision or resource                                         |
+| ------------------------------------ | ------------------------------------------------------------ |
+| Pull request                         | [PR #37](https://github.com/oEnzoRibas/Juno/pull/37)         |
+| Shell implementation                 | 5f8ecfc1ffeffe68043163229f8f317c7cdc3028                     |
+| Shell regression                     | 1ec9ba6b6f76a8643800140916eafdee577c916d                     |
+| Integrated main input                | cce46311870af9854aeb4263517e2e42cf7fb007                     |
+| Preview build                        | 4f6ab8f56bc94cecf9ece5651e1d42d7cd63c0c7                     |
+| Loopback preview                     | http://127.0.0.1:3303/sign-in?lang=pt-BR                     |
+| API readiness                        | http://127.0.0.1:4303/api/ready                              |
 | Disposable review project and volume | juno-uat-shell-redesign and juno-uat-shell-redesign_database |
 
 The preview header shows its exact short revision. Use a private browser profile for each local preview because browser cookies are scoped by host rather than port. The account catalog is fictional. Its six Windows credentials are available locally to the account that seeded the environment.

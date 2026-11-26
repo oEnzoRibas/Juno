@@ -2,10 +2,10 @@
 
 An active administrator of the requested tenant can list and inspect memberships. The bearer token stays server-side in the web integration. The API returns `Cache-Control: no-store` on successful reads.
 
-| Request | Response |
-| --- | --- |
-| `GET /api/tenants/{id}/members` | Up to 50 records and `nextCursor`, a UUID or null. |
-| `GET /api/tenants/{id}/members/{accountId}` | One membership record with the same fields. |
+| Request                                     | Response                                           |
+| ------------------------------------------- | -------------------------------------------------- |
+| `GET /api/tenants/{id}/members`             | Up to 50 records and `nextCursor`, a UUID or null. |
+| `GET /api/tenants/{id}/members/{accountId}` | One membership record with the same fields.        |
 
 Example filtered request: `GET /api/tenants/{id}/members?emailPrefix=atlas-&role=member&active=true`.
 

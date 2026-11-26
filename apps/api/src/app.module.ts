@@ -14,8 +14,13 @@ import { ReadyController } from './ready.controller';
 
 @Module({
   controllers: [
-    HealthController, ReadyController, AuthController, OnboardingController,
-    MemberDirectoryController, OrganizationProfileController, BuildInfoController,
+    HealthController,
+    ReadyController,
+    AuthController,
+    OnboardingController,
+    MemberDirectoryController,
+    OrganizationProfileController,
+    BuildInfoController,
   ],
   providers: [DatabaseService, AuthService, OnboardingService, MemberDirectoryService, OrganizationProfileService],
 })

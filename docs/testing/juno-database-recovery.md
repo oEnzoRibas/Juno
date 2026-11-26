@@ -23,7 +23,6 @@ The validator checks the migration journal before and after the incident, verifi
 
 This test covers a controlled stop and restart of the database on the same volume. It leaves abrupt process termination, an interrupted migration, production failover, and backup restore to separate validation. Run the existing [Compose regression suite](juno-0022-platform-validation.md) for application and authorization checks.
 
-
 ## Validated outcome
 
 On 2026-11-24, isolated Linux amd64 Compose on the Windows development host built both applications, applied five migrations, and reached readiness. Stopping PostgreSQL returned HTTP 503 with a generic body from readiness and HTTP 200 from liveness. After database restart, readiness returned HTTP 200 on the original API container. The migration journal and committed fixture persisted, the rolled-back fixture remained absent, and a migration rerun applied no additional entries. The runner removed its disposable resources. Duplicate ports were rejected before startup.

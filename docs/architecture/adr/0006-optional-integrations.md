@@ -1,13 +1,13 @@
 # ADR-0006 — Optional integration ecosystem
 
-| Field | Value |
-| --- | --- |
-| Status | Accepted product requirement |
-| Date | 2026-11-24 |
-| Decision owner and approver | Enzo Ribas, in the [owner brief](../../development/history/JUNO-0004-request.md) |
-| Prepared by | Codex, as AI-assisted decision preparation |
-| Related task | [JUNO-0004](../../development/tasks/JUNO-0004.md) |
-| Related ADRs | [ADR-0001](0001-tenant-data-isolation.md), [ADR-0005](0005-mandatory-containerization.md), [ADR-0007](0007-integration-adapters.md) |
+| Field                       | Value                                                                                                                               |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Status                      | Accepted product requirement                                                                                                        |
+| Date                        | 2026-11-24                                                                                                                          |
+| Decision owner and approver | Enzo Ribas, in the [owner brief](../../development/history/JUNO-0004-request.md)                                                    |
+| Prepared by                 | Codex, as AI-assisted decision preparation                                                                                          |
+| Related task                | [JUNO-0004](../../development/tasks/JUNO-0004.md)                                                                                   |
+| Related ADRs                | [ADR-0001](0001-tenant-data-isolation.md), [ADR-0005](0005-mandatory-containerization.md), [ADR-0007](0007-integration-adapters.md) |
 
 ## Decision and alternatives
 

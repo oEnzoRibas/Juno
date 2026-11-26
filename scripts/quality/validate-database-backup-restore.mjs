@@ -42,9 +42,12 @@ function environment(label) {
       compose(['run', '--build', '--rm', '-T', 'migrate']);
     },
     query(sql) {
-      return database([
-        'psql', '-q', '-U', 'juno_migrator', '-d', 'juno', '-Atv', 'ON_ERROR_STOP=1', '-c', sql,
-      ], { capture: true }).toString('utf8').trim().replaceAll('\r\n', '\n');
+      return database(['psql', '-q', '-U', 'juno_migrator', '-d', 'juno', '-Atv', 'ON_ERROR_STOP=1', '-c', sql], {
+        capture: true,
+      })
+        .toString('utf8')
+        .trim()
+        .replaceAll('\r\n', '\n');
     },
     dump() {
       return database(['pg_dump', '-U', 'juno_migrator', '-d', 'juno', '--format=custom'], { capture: true });
@@ -52,10 +55,20 @@ function environment(label) {
     restore(archive) {
       const listing = database(['pg_restore', '--list'], { input: archive, capture: true });
       assert.match(listing.toString('utf8'), /TABLE DATA juno account/);
-      database([
-        'pg_restore', '-U', 'juno_migrator', '-d', 'juno',
-        '--clean', '--if-exists', '--exit-on-error', '--single-transaction',
-      ], { input: archive });
+      database(
+        [
+          'pg_restore',
+          '-U',
+          'juno_migrator',
+          '-d',
+          'juno',
+          '--clean',
+          '--if-exists',
+          '--exit-on-error',
+          '--single-transaction',
+        ],
+        { input: archive },
+      );
     },
     verifyPolicies() {
       for (const name of ['tenant-isolation.sql', 'onboarding-audit.sql']) {
@@ -66,7 +79,9 @@ function environment(label) {
     },
     cleanup() {
       compose(['down', '--volumes', '--remove-orphans']);
-      const tags = docker(['image', 'ls', '--filter', `reference=${image}`, '--format', '{{.Repository}}:{{.Tag}}'], { capture: true });
+      const tags = docker(['image', 'ls', '--filter', `reference=${image}`, '--format', '{{.Repository}}:{{.Tag}}'], {
+        capture: true,
+      });
       if (tags.toString('utf8').trim() === image) docker(['image', 'rm', image]);
     },
   };

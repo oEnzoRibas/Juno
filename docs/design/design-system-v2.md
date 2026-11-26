@@ -2,13 +2,13 @@
 
 **Status:** Visual direction approved by the maintainer on 2026-11-25 at playground revision [7e434d664e8ad02963684406efd6932fd11b2663](https://github.com/oEnzoRibas/Juno/tree/7e434d664e8ad02963684406efd6932fd11b2663/docs/design/style). Production implementation is tracked in [PR #37](https://github.com/oEnzoRibas/Juno/pull/37) and requires separate final acceptance. The prior shell reviews, diagrams, previews and browser evidence are retained.
 
-| Board | Editable source and exports |
-| --- | --- |
-| Authentication and organization selection on desktop and mobile | [Source, SVG and PDF](mockups/juno-v2-access.md) |
-| Expanded and compact sidebar, responsive shell, organization switcher and mobile account | [Source, SVG and PDF](mockups/juno-v2-navigation.md) |
-| Platform provisioning, tenant administrator and ordinary member | [Source, SVG and PDF](mockups/juno-v2-administration.md) |
-| Workspace switching, desktop preferences and a contextual mobile drawer | [Source, SVG and PDF](mockups/juno-v2-preferences.md) |
-| Buttons, fields, semantic states and content containers | [Source, SVG and PDF](mockups/juno-v2-components.md) |
+| Board                                                                                    | Editable source and exports                              |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Authentication and organization selection on desktop and mobile                          | [Source, SVG and PDF](mockups/juno-v2-access.md)         |
+| Expanded and compact sidebar, responsive shell, organization switcher and mobile account | [Source, SVG and PDF](mockups/juno-v2-navigation.md)     |
+| Platform provisioning, tenant administrator and ordinary member                          | [Source, SVG and PDF](mockups/juno-v2-administration.md) |
+| Workspace switching, desktop preferences and a contextual mobile drawer                  | [Source, SVG and PDF](mockups/juno-v2-preferences.md)    |
+| Buttons, fields, semantic states and content containers                                  | [Source, SVG and PDF](mockups/juno-v2-components.md)     |
 
 [Reference study and component matrix](design-system-v2-reference.md) · [Current interface audit](../development/agents/agent-02/handoffs/JUNO-0027-v2-audit.md)
 
@@ -18,15 +18,15 @@ See the [production component and token reference](design-system-v2-implementati
 
 Keep the current Juno wordmark. Use the existing purple as the default active and primary colour. Rounded containers, an anchored primary action, visible selected states and concise feedback give Juno a warmer feel while leaving table density and workflow context intact. Use sentence case, plain-language task labels, and original simple line icons. Avoid decorative badges, scores and progress where the data model has no corresponding information.
 
-| Foundation | Proposed tokens or usage |
-| --- | --- |
-| Typography | Evaluate Nunito 700–800 for H1/H2 and prominent section labels. Use current system UI for body, forms, navigation and tables. Review PT-BR glyphs, 200% resizing, and tabular digits before adoption. Fonts in the Draw.io exports use portable Arial for review. |
-| Scale and widths | 4, 8, 12, 16, 24, 32, 48 px. Body 16/24, detail 14/21, H2 24/30, H1 28–36/1.2. Auth column approximately 416 px. Admin form approximately 560 px within a broader canvas. Data tables may use the available width. |
-| Outlines and corners | One pixel separating surfaces, two pixels for selected or focus where required, radius 8/12/16 for small controls, fields and cards. Support 44–48 px control height with enough spacing. |
-| Light foundation | Background #F6F4FB, surface #FFFFFF, text #211B34, muted #5B526E, separation #DDD6EB, strong control boundary #746A86. Primary #5543CF with white label and #382995 bottom edge. |
-| Dark foundation | Background #151323, surface #221D33, text #FAF8FF, muted #CEC5E1, separation #4A405C, strong control boundary #9D90B2. Primary #B8A9FF with #151323 label and #8170D8 bottom edge. |
-| Semantic pairs | Success #186043 on #E6F4EB, warning #6B4700 on #FFF1D1, error #8E1C40 on #FCE8EC, information #234A85 on #E8F0FC. Dark counterparts use #9CE6C1/#18372C, #FFD18A/#42321A, #FFB9CA/#481F32 and #B7D4FF/#23324F. Focus uses the global theme focus color. Disabled controls retain readable labels and native state. |
-| Feedback | A primary button can use a 3 px anchored bottom edge and a distinct pressed state. Secondary actions use a quiet outline, destructive confirmation uses its semantic pair, pending keeps target size and exposes status. Use immediate state feedback for reduced motion. |
+| Foundation           | Proposed tokens or usage                                                                                                                                                                                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Typography           | Evaluate Nunito 700–800 for H1/H2 and prominent section labels. Use current system UI for body, forms, navigation and tables. Review PT-BR glyphs, 200% resizing, and tabular digits before adoption. Fonts in the Draw.io exports use portable Arial for review.                                                  |
+| Scale and widths     | 4, 8, 12, 16, 24, 32, 48 px. Body 16/24, detail 14/21, H2 24/30, H1 28–36/1.2. Auth column approximately 416 px. Admin form approximately 560 px within a broader canvas. Data tables may use the available width.                                                                                                 |
+| Outlines and corners | One pixel separating surfaces, two pixels for selected or focus where required, radius 8/12/16 for small controls, fields and cards. Support 44–48 px control height with enough spacing.                                                                                                                          |
+| Light foundation     | Background #F6F4FB, surface #FFFFFF, text #211B34, muted #5B526E, separation #DDD6EB, strong control boundary #746A86. Primary #5543CF with white label and #382995 bottom edge.                                                                                                                                   |
+| Dark foundation      | Background #151323, surface #221D33, text #FAF8FF, muted #CEC5E1, separation #4A405C, strong control boundary #9D90B2. Primary #B8A9FF with #151323 label and #8170D8 bottom edge.                                                                                                                                 |
+| Semantic pairs       | Success #186043 on #E6F4EB, warning #6B4700 on #FFF1D1, error #8E1C40 on #FCE8EC, information #234A85 on #E8F0FC. Dark counterparts use #9CE6C1/#18372C, #FFD18A/#42321A, #FFB9CA/#481F32 and #B7D4FF/#23324F. Focus uses the global theme focus color. Disabled controls retain readable labels and native state. |
+| Feedback             | A primary button can use a 3 px anchored bottom edge and a distinct pressed state. Secondary actions use a quiet outline, destructive confirmation uses its semantic pair, pending keeps target size and exposes status. Use immediate state feedback for reduced motion.                                          |
 
 The thin strokes on the boards indicate component shapes. Implementation uses the stronger control-boundary token where the outline is the only visible affordance.
 
@@ -46,15 +46,15 @@ A future palette resolver would normalize sRGB hex, derive distinct light/dark s
 
 Prototype pair checks using the WCAG relative luminance formula follow. These are token examples. Actual rendering also needs checks against adjacent surfaces and for interaction states.
 
-| Pair | Colours | Contrast |
-| --- | --- | --- |
-| Default light action | #FFFFFF on #5543CF | 6.80:1 |
-| Default dark action | #151323 on #B8A9FF | 8.84:1 |
-| Teal example | #FFFFFF on #176B60 | 6.35:1 |
-| Coral example | #151323 on #FFB59C | 10.74:1 |
-| Light control boundary | #746A86 on #FFFFFF | 5.06:1 |
-| Dark control boundary | #9D90B2 on #221D33 | 5.47:1 |
-| Arbitrary yellow accent with white | #FFFFFF on #FFF000 | 1.19:1 |
+| Pair                               | Colours            | Contrast |
+| ---------------------------------- | ------------------ | -------- |
+| Default light action               | #FFFFFF on #5543CF | 6.80:1   |
+| Default dark action                | #151323 on #B8A9FF | 8.84:1   |
+| Teal example                       | #FFFFFF on #176B60 | 6.35:1   |
+| Coral example                      | #151323 on #FFB59C | 10.74:1  |
+| Light control boundary             | #746A86 on #FFFFFF | 5.06:1   |
+| Dark control boundary              | #9D90B2 on #221D33 | 5.47:1   |
+| Arbitrary yellow accent with white | #FFFFFF on #FFF000 | 1.19:1   |
 
 The yellow example fails white text and illustrates why automatic fallback is required.
 

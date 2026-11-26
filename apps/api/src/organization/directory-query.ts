@@ -10,8 +10,7 @@ export interface DirectoryQuery {
 
 /** Parse untrusted query values before entering the tenant transaction. */
 export function parseDirectoryFilters(emailPrefix: unknown, role: unknown, active: unknown): DirectoryQuery {
-  if (emailPrefix !== undefined &&
-      (typeof emailPrefix !== 'string' || !/^[!-~]{1,254}$/.test(emailPrefix))) {
+  if (emailPrefix !== undefined && (typeof emailPrefix !== 'string' || !/^[!-~]{1,254}$/.test(emailPrefix))) {
     throw new BadRequestException('Email prefix must contain 1–254 printable ASCII characters.');
   }
   if (role !== undefined && role !== 'administrator' && role !== 'member') {

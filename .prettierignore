@@ -1,0 +1,13 @@
+# Preserve original and generated diagram and artwork bytes.
+*.drawio
+*.svg
+
+# Preserve the lockfile generator output and applied migration checksums.
+/pnpm-lock.yaml
+/apps/api/drizzle/[0-9]*.sql
+/apps/api/drizzle/meta/**
+
+# Preserve generated runtime metadata, published evidence and the approved V2 reference.
+/apps/web/src/lib/generated/**
+**/evidence/**
+/docs/design/style/**

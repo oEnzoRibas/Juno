@@ -1,5 +1,11 @@
 import { randomBytes } from 'node:crypto';
-import { BadRequestException, ForbiddenException, Injectable, NotFoundException, ServiceUnavailableException } from '@nestjs/common';
+import {
+  BadRequestException,
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+  ServiceUnavailableException,
+} from '@nestjs/common';
 import { sql } from 'drizzle-orm';
 import { AuthService } from '../auth/auth.service';
 import { digest, hashPassword } from '../auth/credentials';
@@ -10,7 +16,10 @@ type Role = 'administrator' | 'member';
 
 @Injectable()
 export class OnboardingService {
-  constructor(private readonly database: DatabaseService, private readonly auth: AuthService) {}
+  constructor(
+    private readonly database: DatabaseService,
+    private readonly auth: AuthService,
+  ) {}
 
   private get db() {
     if (!this.database.db) throw new ServiceUnavailableException();
@@ -19,13 +28,24 @@ export class OnboardingService {
 
   async provision(authorization: string | undefined, input: { slug: string; name: string; accent: string }) {
     const actor = await this.auth.identity(authorization);
-    const result = await this.db.execute<{ id: string | null }>(sql`
+    const result = await this.db
+      .execute<{ id: string | null }>(
+        sql`
       SELECT juno.provision_tenant(${actor.id}::uuid, ${input.slug}, ${input.name}, ${input.accent}) AS id
-    `).catch((error: unknown) => {
-      if (error instanceof Error && 'cause' in error && error.cause && typeof error.cause === 'object'
-        && 'code' in error.cause && error.cause.code === '23505') throw new BadRequestException('Workspace slug is unavailable');
-      throw error;
-    });
+    `,
+      )
+      .catch((error: unknown) => {
+        if (
+          error instanceof Error &&
+          'cause' in error &&
+          error.cause &&
+          typeof error.cause === 'object' &&
+          'code' in error.cause &&
+          error.cause.code === '23505'
+        )
+          throw new BadRequestException('Workspace slug is unavailable');
+        throw error;
+      });
     const id = result.rows[0].id;
     if (!id) throw new ForbiddenException();
     return { id };
@@ -64,7 +84,9 @@ export class OnboardingService {
   async audit(authorization: string | undefined, id: string) {
     const actor = await this.auth.identity(authorization);
     return this.db.transaction(async (tx) => {
-      await tx.execute(sql`SELECT set_config('juno.account_id', ${actor.id}, true), set_config('juno.tenant_id', ${id}, true)`);
+      await tx.execute(
+        sql`SELECT set_config('juno.account_id', ${actor.id}, true), set_config('juno.tenant_id', ${id}, true)`,
+      );
       const result = await tx.execute<{ events: OnboardingAuditEvent[] | null }>(
         sql`SELECT juno.recent_onboarding_audit() AS events`,
       );
@@ -77,7 +99,9 @@ export class OnboardingService {
   async read(authorization: string | undefined, id: string) {
     const actor = await this.auth.identity(authorization);
     return this.db.transaction(async (tx) => {
-      await tx.execute(sql`SELECT set_config('juno.account_id', ${actor.id}, true), set_config('juno.tenant_id', ${id}, true)`);
+      await tx.execute(
+        sql`SELECT set_config('juno.account_id', ${actor.id}, true), set_config('juno.tenant_id', ${id}, true)`,
+      );
       const result = await tx.execute<{ id: string; name: string; slug: string; accent: string; role: Role }>(sql`
         SELECT tenant.id, tenant.name, tenant.slug, tenant.accent_hex AS accent, membership.role
         FROM juno.tenant JOIN juno.membership ON tenant.id = membership.tenant_id

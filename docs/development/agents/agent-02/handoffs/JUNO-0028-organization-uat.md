@@ -1,12 +1,12 @@
 # Organization management UAT handoff
 
-| Field | Evidence |
-| --- | --- |
-| Owner and recipients | JUNO-AGENT-02 to JUNO-AGENT-01, JUNO-AGENT-03 and the maintainer |
-| Candidate | Preview commit 23934aca652cb00423900374f410d516bbf74a4e. Disposable validation used a separate checkout, Compose project, synthetic credentials, port pair and PostgreSQL volume. |
-| Frontend inputs | [Shell #37](https://github.com/oEnzoRibas/Juno/pull/37) a7825a6, [directory #43](https://github.com/oEnzoRibas/Juno/pull/43) e5de071, [lookup #48](https://github.com/oEnzoRibas/Juno/pull/48) 145cb9f, [profile #51](https://github.com/oEnzoRibas/Juno/pull/51) 7894993. |
-| Runtime inputs | [Directory #40](https://github.com/oEnzoRibas/Juno/pull/40) 7d7f7a4, [lookup #41](https://github.com/oEnzoRibas/Juno/pull/41) 46b1a94, [profile #45](https://github.com/oEnzoRibas/Juno/pull/45) 588489f. The preview also includes independent [schema QA #49](https://github.com/oEnzoRibas/Juno/pull/49) 43a3bce and the audit and backup check inputs. |
-| UI scope | Administrator directory, cursor navigation, literal prefix, role and activation filters, member detail and filtered return, organization profile updates, existing settings URL, locale, themes and tenant branding. |
+| Field                | Evidence                                                                                                                                                                                                                                                                                                                                                   |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owner and recipients | JUNO-AGENT-02 to JUNO-AGENT-01, JUNO-AGENT-03 and the maintainer                                                                                                                                                                                                                                                                                           |
+| Candidate            | Preview commit 23934aca652cb00423900374f410d516bbf74a4e. Disposable validation used a separate checkout, Compose project, synthetic credentials, port pair and PostgreSQL volume.                                                                                                                                                                          |
+| Frontend inputs      | [Shell #37](https://github.com/oEnzoRibas/Juno/pull/37) a7825a6, [directory #43](https://github.com/oEnzoRibas/Juno/pull/43) e5de071, [lookup #48](https://github.com/oEnzoRibas/Juno/pull/48) 145cb9f, [profile #51](https://github.com/oEnzoRibas/Juno/pull/51) 7894993.                                                                                 |
+| Runtime inputs       | [Directory #40](https://github.com/oEnzoRibas/Juno/pull/40) 7d7f7a4, [lookup #41](https://github.com/oEnzoRibas/Juno/pull/41) 46b1a94, [profile #45](https://github.com/oEnzoRibas/Juno/pull/45) 588489f. The preview also includes independent [schema QA #49](https://github.com/oEnzoRibas/Juno/pull/49) 43a3bce and the audit and backup check inputs. |
+| UI scope             | Administrator directory, cursor navigation, literal prefix, role and activation filters, member detail and filtered return, organization profile updates, existing settings URL, locale, themes and tenant branding.                                                                                                                                       |
 
 ## Acceptance walkthrough
 

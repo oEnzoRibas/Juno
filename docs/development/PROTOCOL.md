@@ -18,16 +18,16 @@ The repository is the authority for Juno's workflow. This protocol governs devel
 
 ## Lifecycle and exceptions
 
-| Status | Meaning |
-| --- | --- |
-| QUEUED | Registered and awaiting an eligible slot. |
-| IN_PROGRESS | The assigned task is being implemented. |
-| BLOCKED | A documented dependency, validation blocker, or explicit suspension prevents progress. |
-| IMPLEMENTED | The required changes exist and need verification or documentation review. |
-| VALIDATING | Required checks are running or being reviewed. |
-| DOCUMENTING | The task is reconciling its required technical records or handoff. |
-| COMPLETED | Every applicable gate in the [definition of done](DEFINITION_OF_DONE.md) passed. |
-| CANCELLED | Explicitly cancelled. Preserve the reason and any partial work. |
+| Status      | Meaning                                                                                |
+| ----------- | -------------------------------------------------------------------------------------- |
+| QUEUED      | Registered and awaiting an eligible slot.                                              |
+| IN_PROGRESS | The assigned task is being implemented.                                                |
+| BLOCKED     | A documented dependency, validation blocker, or explicit suspension prevents progress. |
+| IMPLEMENTED | The required changes exist and need verification or documentation review.              |
+| VALIDATING  | Required checks are running or being reviewed.                                         |
+| DOCUMENTING | The task is reconciling its required technical records or handoff.                     |
+| COMPLETED   | Every applicable gate in the [definition of done](DEFINITION_OF_DONE.md) passed.       |
+| CANCELLED   | Explicitly cancelled. Preserve the reason and any partial work.                        |
 
 Documentation evolves during implementation. A failed check can return a task to IN_PROGRESS, or BLOCKED if progress requires external input or a dependency. Log significant transitions. Record blockers, attempted remedies, their results, and a specific condition to resume. Proceed with eligible independent work if appropriate.
 
@@ -44,7 +44,6 @@ Keep review-stage work in a separate review section of the authoritative queue. 
 After a meaningful milestone, architecture decision, migration, dependency, security or integration change, failed or successful validation, blocker, or completion, update the task and STATE. Log the transition or event in WORKLOG. Record what changed, why, how, requirements met, relevant alternatives, affected files and docs, tests, and limitations.
 
 Before ending a session, persist the active task and status, files changed, completed and remaining work, ADRs, documentation, actual results and failures, open questions, next action, and Git considerations. Update the queue if selection changed. Link terminal task records from [history](history/README.md). Subsequent sessions must be able to resume from these files and Git evidence.
-
 
 ## Task registration on GitHub
 

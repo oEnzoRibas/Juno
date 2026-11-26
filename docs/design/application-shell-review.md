@@ -6,11 +6,11 @@
 
 The maintainer reviewed the original Shell UAT snapshot `33c3cc6c52e7cffccba982efeaaa6239f507def9` and did not accept its visual and navigation quality. The implementation checkpoint is `a7825a6b814013527414e7478fa77d5b2d3eb60c`. Agent 02 published the editable [design proposal](mockups/juno-shell-redesign-workspace.md) at `a8ecd276fbd80b33171873045c6d0022202c6bb6`. The proposal shows one cohesive visual direction across desktop, mobile and administration. PR #37 stays in draft while the maintainer reviews it.
 
-| View | Baseline and proposed evidence |
-| --- | --- |
-| Workspace desktop | [Original UAT screenshot](../development/agents/agent-02/evidence/shell-review/before-desktop.png) · [Proposed board](../development/agents/agent-02/evidence/shell-review/juno-shell-redesign-workspace.png) |
-| Narrow workspace | [Original UAT screenshot](../development/agents/agent-02/evidence/shell-review/before-mobile.png) · [Proposed board](../development/agents/agent-02/evidence/shell-review/juno-shell-redesign-mobile.png) |
-| Platform and invitations | [Proposed board](../development/agents/agent-02/evidence/shell-review/juno-shell-redesign-administration.png) |
+| View                     | Baseline and proposed evidence                                                                                                                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Workspace desktop        | [Original UAT screenshot](../development/agents/agent-02/evidence/shell-review/before-desktop.png) · [Proposed board](../development/agents/agent-02/evidence/shell-review/juno-shell-redesign-workspace.png) |
+| Narrow workspace         | [Original UAT screenshot](../development/agents/agent-02/evidence/shell-review/before-mobile.png) · [Proposed board](../development/agents/agent-02/evidence/shell-review/juno-shell-redesign-mobile.png)     |
+| Platform and invitations | [Proposed board](../development/agents/agent-02/evidence/shell-review/juno-shell-redesign-administration.png)                                                                                                 |
 
 The proposal is ready for visual review. Implementation screenshots and final functional verification will be added after design approval. Evaluate the persistent authenticated frame, desktop rail collapse, labeled icons and current state, mobile hamburger drawer, organization switcher, route-aware breadcrumbs, explicit parent navigation, dashboard hierarchy and consistent administrative form presentation. A new theme preference or icon dependency shown as an option requires separate scope approval. The current locale, theme and existing product capabilities provide the implementation baseline.
 

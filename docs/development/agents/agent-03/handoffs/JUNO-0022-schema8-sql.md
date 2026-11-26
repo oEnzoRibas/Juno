@@ -12,10 +12,10 @@ Local validation passed frozen install, lint, types, four Vitest tests, fresh an
 
 Independent Windows/Chrome validation against Docker's Linux engine reached schema versions 6, 7 and 8 at the three corrected parent revisions. Each run passed frozen install, lint, type checks, four Vitest tests and HTTP/OpenAPI smoke. The actual web-to-API readiness returned HTTP 200. The #45 run verified one persisted audit event from the authorized actor. Docker inventory after each run showed that its disposable resources were removed.
 
-| Parent | Exact revision | Playwright | SQL |
-| --- | --- | ---: | ---: |
-| #40 | `e43cfb3f7fccadb6d8de116ad68ed76a36aec068` | 7 | 4 |
-| #41 | `1a459a2e52de6973a566b0391a24b20395d1559b` | 7 | 4 |
-| #45 | `9283547d93935ad744e639502e0390a319fe97c8` | 8 | 5 |
+| Parent | Exact revision                             | Playwright | SQL |
+| ------ | ------------------------------------------ | ---------: | --: |
+| #40    | `e43cfb3f7fccadb6d8de116ad68ed76a36aec068` |          7 |   4 |
+| #41    | `1a459a2e52de6973a566b0391a24b20395d1559b` |          7 |   4 |
+| #45    | `9283547d93935ad744e639502e0390a319fe97c8` |          8 |   5 |
 
 See [the #49 review instructions and exact-head results](https://github.com/oEnzoRibas/Juno/pull/49).

@@ -2,9 +2,9 @@
 
 **Status:** PostgreSQL tenant and membership read policies implemented in [migration 0001](../../apps/api/drizzle/0001_tenant_schema.sql). The [onboarding slice](tenant-onboarding.md) resolves the actor from a verified local session, authorizes provisioning and invitation actions, and uses transaction-local scope for dashboard reads. Each Junior Enterprise is a tenant. Tenant data includes members, placements, directorates, teams, projects, subprojects, roles, permissions, integrations, reports, learning, challenges, gamification rules, currency, rewards, branding, settings, and audit records.
 
-| Data scope | Examples |
-| --- | --- |
-| Global | Identity and credential or session records, tenant directory and platform provisioning audit. |
+| Data scope   | Examples                                                                                                                                      |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Global       | Identity and credential or session records, tenant directory and platform provisioning audit.                                                 |
 | Tenant-owned | Memberships, scoped grants, org charts, projects, domain events, rewards, data exports, integration mappings, operational audit and branding. |
 
 - Distinguish global identity from tenant membership. If an identity belongs to several tenants, each membership has its own status, permissions, and lifecycle. Deactivation revokes the affected membership and preserves historical attribution as authorized.

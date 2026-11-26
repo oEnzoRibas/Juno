@@ -4,15 +4,15 @@ Version-controlled Markdown in [docs](../README.md) is the primary documentation
 
 ## What to maintain
 
-| Area | Document with each applicable change |
-| --- | --- |
-| Product and design | Vision, functional and non-functional requirements, roadmap, design system, accessibility, localization, assumptions and limitations. |
-| Architecture and domains | System and module boundaries, business invariants, domain models and events, significant decisions, dependencies and trust boundaries. |
-| Data and API | Entity ownership, schema, data dictionary, field semantics and sensitivity, constraints, migrations and recovery. API contracts include scope, versioning, inputs and outputs, errors, abuse controls and retry semantics. |
-| Identity and security | Authentication, sessions, recovery, authorization and denial behavior, tenant isolation, audit, credential handling, and threat model changes. |
-| Integrations | Configuration, permissions, secret handling, sync, retries, disconnect, failure behavior, provider limits, health, and cost. |
-| Delivery and operations | Test and setup commands, deployment, health checks, backups, restore drills, troubleshooting and incident procedures. |
-| Community and history | Contribution and governance rules, AI disclosure, changelog, task history, known limitations and technical debt. |
+| Area                     | Document with each applicable change                                                                                                                                                                                       |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Product and design       | Vision, functional and non-functional requirements, roadmap, design system, accessibility, localization, assumptions and limitations.                                                                                      |
+| Architecture and domains | System and module boundaries, business invariants, domain models and events, significant decisions, dependencies and trust boundaries.                                                                                     |
+| Data and API             | Entity ownership, schema, data dictionary, field semantics and sensitivity, constraints, migrations and recovery. API contracts include scope, versioning, inputs and outputs, errors, abuse controls and retry semantics. |
+| Identity and security    | Authentication, sessions, recovery, authorization and denial behavior, tenant isolation, audit, credential handling, and threat model changes.                                                                             |
+| Integrations             | Configuration, permissions, secret handling, sync, retries, disconnect, failure behavior, provider limits, health, and cost.                                                                                               |
+| Delivery and operations  | Test and setup commands, deployment, health checks, backups, restore drills, troubleshooting and incident procedures.                                                                                                      |
+| Community and history    | Contribution and governance rules, AI disclosure, changelog, task history, known limitations and technical debt.                                                                                                           |
 
 Log deliberate technical debt with impact, owner, revisit trigger, and removal criteria. For requirements, capture actors, inputs, scope, lifecycle, failure behavior and observable acceptance criteria. Give each document an implementation or proposal status when ambiguous. Use the approved [ADR convention](../architecture/adr/README.md) for significant decisions.
 

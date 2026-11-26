@@ -19,7 +19,6 @@ Open the editable master, confirm node and connector editability, then render th
 
 The [export script](../../scripts/diagrams/README.md) discovers masters, validates native structure and checks or regenerates both exports. Use it before review. Consider optional containerized export for reproducibility when contributors need cross-platform automation. Keep versions, fonts and export flags reproducible. Mermaid may be used for Markdown sketches with text descriptions. Significant views use the Draw.io master. See [ADR-0008](../architecture/adr/0008-editable-diagrams.md).
 
-
 ## Evidence inside the PR
 
 Embed captures and diagrams directly in the review description using a GitHub-accessible pinned URL or attachment. Label historical before captures, actual after captures, integrated evidence and concepts with their scope and revision. For interactive frontend work include representative desktop and narrow views and meaningful theme and interaction states. For backend and operations prefer a flow, model, or applicable run evidence. Use synthetic data and remove credentials, private URLs, invitation tokens and personal data. The [maintainer review standard](git-workflow.md#maintainer-review-standard) governs review readiness.

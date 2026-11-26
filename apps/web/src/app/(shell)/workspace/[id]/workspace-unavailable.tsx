@@ -17,9 +17,13 @@ export function WorkspaceUnavailable({ locale }: { locale?: 'en' | 'pt-BR' }) {
   return (
     <main lang={locale} className="public-shell">
       <section className="public-panel" aria-labelledby="workspace-unavailable">
-        <h1 id="workspace-unavailable" className="mb-4 text-3xl font-semibold">{t('workspaceUnavailable')}</h1>
+        <h1 id="workspace-unavailable" className="mb-4 text-3xl font-semibold">
+          {t('workspaceUnavailable')}
+        </h1>
         <p className="mb-6 text-[var(--muted)]">{t('workspaceUnavailableDescription')}</p>
-        <Link className="action-button" href={locale === 'pt-BR' ? '/session?lang=pt-BR' : '/session'}>{t('workspaces')}</Link>
+        <Link className="action-button" href={locale === 'pt-BR' ? '/session?lang=pt-BR' : '/session'}>
+          {t('workspaces')}
+        </Link>
       </section>
     </main>
   );

@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useSearchParams } from "next/navigation";
-import type { ReviewBuildInfo } from "../server/review-build-info";
-import { reviewBuildMessages } from "../content/review-build-messages";
+import { useSearchParams } from 'next/navigation';
+import type { ReviewBuildInfo } from '../server/review-build-info';
+import { reviewBuildMessages } from '../content/review-build-messages';
 
 export function ReviewBuildInfoPanel({ info }: { info: ReviewBuildInfo }) {
-  const locale = useSearchParams().get("lang") === "pt-BR" ? "pt-BR" : "en";
+  const locale = useSearchParams().get('lang') === 'pt-BR' ? 'pt-BR' : 'en';
   const copy = reviewBuildMessages[locale];
   const warnings = [
     info.revisionMismatch && copy.revisionMismatch,
@@ -13,7 +13,7 @@ export function ReviewBuildInfoPanel({ info }: { info: ReviewBuildInfo }) {
     info.comparisonUnavailable && copy.comparisonUnavailable,
     info.dirtySource && copy.dirtySource,
   ].filter((warning) => warning !== false);
-  const hasWarning = warnings.length > 0 || info.connection !== "connected";
+  const hasWarning = warnings.length > 0 || info.connection !== 'connected';
   const schema =
     info.schemaVersion === null
       ? copy.unknown

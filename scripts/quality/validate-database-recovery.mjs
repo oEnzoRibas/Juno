@@ -16,7 +16,10 @@ function port(name, fallback) {
 
 function docker(args, { env, capture = false } = {}) {
   return execFileSync('docker', args, {
-    cwd: root, env, encoding: 'utf8', stdio: ['ignore', capture ? 'pipe' : 'inherit', 'inherit'],
+    cwd: root,
+    env,
+    encoding: 'utf8',
+    stdio: ['ignore', capture ? 'pipe' : 'inherit', 'inherit'],
   });
 }
 
@@ -47,12 +50,15 @@ async function validate() {
   };
   const options = ['compose', '-p', project, '--env-file', '.env.example', '-f', 'compose.yaml'];
   const compose = (args, capture = false) => docker([...options, ...args], { env, capture });
-  const query = (sql) => compose([
-    'exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-Atv', 'ON_ERROR_STOP=1', '-c', sql,
-  ], true).trim();
-  const schema = () => query(
-    'SELECT (SELECT max(version) FROM juno_runtime.schema_version), (SELECT count(*) FROM drizzle.__drizzle_migrations)',
-  );
+  const query = (sql) =>
+    compose(
+      ['exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-Atv', 'ON_ERROR_STOP=1', '-c', sql],
+      true,
+    ).trim();
+  const schema = () =>
+    query(
+      'SELECT (SELECT max(version) FROM juno_runtime.schema_version), (SELECT count(*) FROM drizzle.__drizzle_migrations)',
+    );
   const marker = "SELECT count(*) FROM juno.account WHERE email = 'recovery-fixture@example.invalid'";
   const ready = new URL(`http://127.0.0.1:${apiPort}/api/ready`);
   const health = new URL('/api/health', ready);
@@ -85,11 +91,15 @@ async function validate() {
     assert.equal(schema(), originalSchema, 'Restart must preserve schema and migration history');
     compose(['run', '--rm', '-T', 'migrate']);
     assert.equal(schema(), originalSchema, 'Migration rerun must preserve the applied migration count');
-    console.info('Readiness recovered on the original API container. Migration history and committed data persisted, and rolled-back data stayed absent.');
+    console.info(
+      'Readiness recovered on the original API container. Migration history and committed data persisted, and rolled-back data stayed absent.',
+    );
   } finally {
     console.info(`Remove disposable recovery project ${project}`);
     compose(['down', '--volumes', '--remove-orphans']);
-    const tagged = docker(['image', 'ls', '--format', '{{.Repository}}:{{.Tag}}', '--filter', `reference=${image}`], { capture: true });
+    const tagged = docker(['image', 'ls', '--format', '{{.Repository}}:{{.Tag}}', '--filter', `reference=${image}`], {
+      capture: true,
+    });
     if (tagged.trim() === image) docker(['image', 'rm', image]);
   }
 }

@@ -1,5 +1,14 @@
 import { Controller, Get, Header, Headers, NotFoundException, Param, ParseUUIDPipe, Query } from '@nestjs/common';
-import { ApiBearerAuth, ApiOkResponse, ApiOperation, ApiParam, ApiProperty, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOkResponse,
+  ApiOperation,
+  ApiParam,
+  ApiProperty,
+  ApiQuery,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { parseDirectoryFilters } from './directory-query';
 import { MemberDirectoryService } from './member-directory.service';
 
@@ -39,7 +48,12 @@ export class MemberDirectoryController {
   @ApiOperation({ summary: 'List memberships in the current tenant as an active tenant administrator.' })
   @ApiParam({ name: 'id', schema: { type: 'string', format: 'uuid' } })
   @ApiQuery({ name: 'after', required: false, schema: { type: 'string', format: 'uuid' } })
-  @ApiQuery({ name: 'emailPrefix', required: false, schema: { type: 'string', minLength: 1, maxLength: 254 }, description: 'Case-insensitive literal email prefix.' })
+  @ApiQuery({
+    name: 'emailPrefix',
+    required: false,
+    schema: { type: 'string', minLength: 1, maxLength: 254 },
+    description: 'Case-insensitive literal email prefix.',
+  })
   @ApiQuery({ name: 'role', required: false, enum: ['administrator', 'member'] })
   @ApiQuery({ name: 'active', required: false, type: Boolean })
   @ApiOkResponse({ type: MemberDirectoryResponse })
@@ -72,7 +86,9 @@ export class MemberDirectoryController {
     @Param('id', ParseUUIDPipe) id: string,
     @Param('accountId', ParseUUIDPipe) accountId: string,
   ): Promise<MemberDirectoryEntry> {
-    const { items: [entry] } = await this.directory.list(authorization, id, { accountId });
+    const {
+      items: [entry],
+    } = await this.directory.list(authorization, id, { accountId });
     if (!entry) throw new NotFoundException();
     return entry;
   }

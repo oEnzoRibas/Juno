@@ -7,7 +7,11 @@ async function start(): Promise<void> {
   const app = await NestFactory.create(AppModule);
   app.getHttpAdapter().getInstance().disable('x-powered-by');
   app.setGlobalPrefix('api');
-  const config = new DocumentBuilder().setTitle('Juno API').setVersion('0.1').addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'opaque' }).build();
+  const config = new DocumentBuilder()
+    .setTitle('Juno API')
+    .setVersion('0.1')
+    .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'opaque' })
+    .build();
   SwaggerModule.setup('api/docs', app, () => SwaggerModule.createDocument(app, config), {
     ui: false,
     jsonDocumentUrl: '/api/openapi.json',

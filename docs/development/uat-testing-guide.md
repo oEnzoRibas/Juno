@@ -4,13 +4,13 @@ A UAT preview is an independently pinned composition. Its URL does not identify 
 
 Use the exact commits and environment in the [preview checkpoint](history/JUNO-0037-uat-preview.md). The approved Windows preview runs on loopback only.
 
-| Entry point | URL |
-| --- | --- |
-| English web | `http://127.0.0.1:3300/` |
-| Brazilian Portuguese web | `http://127.0.0.1:3300/?lang=pt-BR` |
-| Sign in | `http://127.0.0.1:3300/sign-in` |
-| API readiness | `http://127.0.0.1:4300/api/ready` |
-| OpenAPI | `http://127.0.0.1:4300/api/openapi.json` |
+| Entry point              | URL                                      |
+| ------------------------ | ---------------------------------------- |
+| English web              | `http://127.0.0.1:3300/`                 |
+| Brazilian Portuguese web | `http://127.0.0.1:3300/?lang=pt-BR`      |
+| Sign in                  | `http://127.0.0.1:3300/sign-in`          |
+| API readiness            | `http://127.0.0.1:4300/api/ready`        |
+| OpenAPI                  | `http://127.0.0.1:4300/api/openapi.json` |
 
 Use the local private PowerShell credential helper under the Windows account that set up the preview. The companion local operator guide holds the machine-specific path. The helper reads Windows DPAPI-encrypted accounts and invitations. Never commit the credential store or put passwords, tokens, or live invitation links in screenshots or reviews.
 
@@ -26,17 +26,16 @@ The candidate shell, member lifecycle, directorates, teams and projects are outs
 
 See the [Application Shell candidate](uat-shell-candidate.md) for the isolated follow-up preview and separate acceptance checkpoint.
 
-
 ## Review environment inventory
 
 On 2026-11-25 the four signed-in entry pages answered HTTP 200, the four APIs reported ready, and the database schema versions and distinct Compose volumes were checked. The pinned source snapshots and all databases were preserved. Use a separate private browser context or profile for each visit because cookies are shared by host across ports.
 
-| Environment | Frontend and API readiness | Project | Schema | Exact commit |
-| --- | --- | --- | --- | --- |
-| Foundation | [Sign-in](http://127.0.0.1:3300/sign-in?lang=pt-BR) · [API](http://127.0.0.1:4300/api/ready) | `juno-uat` | 5 | `5a8947feceab0867d9ba81c3d3a163200ff8c1cf` |
-| Original Shell | [Sign-in](http://127.0.0.1:3301/sign-in?lang=pt-BR) · [API](http://127.0.0.1:4301/api/ready) | `juno-uat-shell` | 5 | `33c3cc6c52e7cffccba982efeaaa6239f507def9` |
-| Organization Management | [Sign-in](http://127.0.0.1:3302/sign-in?lang=pt-BR) · [API](http://127.0.0.1:4302/api/ready) | `juno-uat-org` | 8 | `72ba6be66715178a750b042fa97c1320d2b7fb1e` |
-| Redesigned Shell | [Sign-in](http://127.0.0.1:3303/sign-in?lang=pt-BR) · [API](http://127.0.0.1:4303/api/ready) | `juno-uat-shell-redesign` | 5 | `4f6ab8f56bc94cecf9ece5651e1d42d7cd63c0c7` |
+| Environment             | Frontend and API readiness                                                                   | Project                   | Schema | Exact commit                               |
+| ----------------------- | -------------------------------------------------------------------------------------------- | ------------------------- | ------ | ------------------------------------------ |
+| Foundation              | [Sign-in](http://127.0.0.1:3300/sign-in?lang=pt-BR) · [API](http://127.0.0.1:4300/api/ready) | `juno-uat`                | 5      | `5a8947feceab0867d9ba81c3d3a163200ff8c1cf` |
+| Original Shell          | [Sign-in](http://127.0.0.1:3301/sign-in?lang=pt-BR) · [API](http://127.0.0.1:4301/api/ready) | `juno-uat-shell`          | 5      | `33c3cc6c52e7cffccba982efeaaa6239f507def9` |
+| Organization Management | [Sign-in](http://127.0.0.1:3302/sign-in?lang=pt-BR) · [API](http://127.0.0.1:4302/api/ready) | `juno-uat-org`            | 8      | `72ba6be66715178a750b042fa97c1320d2b7fb1e` |
+| Redesigned Shell        | [Sign-in](http://127.0.0.1:3303/sign-in?lang=pt-BR) · [API](http://127.0.0.1:4303/api/ready) | `juno-uat-shell-redesign` | 5      | `4f6ab8f56bc94cecf9ece5651e1d42d7cd63c0c7` |
 
 - **Foundation.** Sign-in, onboarding, design system and onboarding audit. Maintainer accepted the original Foundation snapshot. The authenticated Shell redesign and organization directory are outside this preview.
 - **Original Shell.** Original workspace switcher, responsive Shell, invitations and role-dependent links. Visual and navigation acceptance was declined. Keep as a comparison environment.

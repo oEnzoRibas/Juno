@@ -1,12 +1,12 @@
 # ADR-0009 — Native stacked pull requests and review readiness
 
-| Field | Value |
-| --- | --- |
-| Status | Accepted workflow and preferred compatible merge method. |
-| Date | 2026-11-24 |
+| Field          | Value                                                                            |
+| -------------- | -------------------------------------------------------------------------------- |
+| Status         | Accepted workflow and preferred compatible merge method.                         |
+| Date           | 2026-11-24                                                                       |
 | Decision owner | Enzo Ribas, in the [owner brief](../../development/history/JUNO-0016-request.md) |
-| Prepared by | Codex, AI-assisted |
-| Task | [JUNO-0016](../../development/tasks/JUNO-0016.md) |
+| Prepared by    | Codex, AI-assisted                                                               |
+| Task           | [JUNO-0016](../../development/tasks/JUNO-0016.md)                                |
 
 ## Decision
 
@@ -18,11 +18,11 @@ Local validation and complete documentation make a scoped change ready for revie
 
 Independent branches permit separate review and integration. Genuine dependencies need ordered integration. Manual chains work without native tooling but make duplicate patches and unsafe targeting easier. Native stacks expose layer order and integration controls. Automatic rebases can change SHAs, so inspect and authorize any operation that rewrites published history.
 
-| Merge option | Effect and trade-off |
-| --- | --- |
-| Merge commit | Preserves atomic commit identities and branch structure. Adds merge commits to main. |
+| Merge option     | Effect and trade-off                                                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Merge commit     | Preserves atomic commit identities and branch structure. Adds merge commits to main.                                           |
 | Rebase and merge | Keeps meaningful changes recognizable and creates linear history. Recreates commit identities and needs downstream validation. |
-| Squash and merge | Keeps one summary per PR. Collapses individual commits and changes ancestry. |
+| Squash and merge | Keeps one summary per PR. Collapses individual commits and changes ancestry.                                                   |
 
 The owner selected Rebase and merge as the preferred method when supported by the native stack. It retains atomic changes and creates a linear history. Use another method only with explicit owner approval. No merge is authorized by this decision.
 

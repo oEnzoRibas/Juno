@@ -2,8 +2,8 @@
 
 **Date:** 2026-11-24. **Local Git branch:** `preview/juno-uat`. **Preview commit:** `5a8947feceab0867d9ba81c3d3a163200ff8c1cf`. **Tree:** `fbd119f38e916c924c614700e35b78d7773e1fe5`. **Running application input commit:** `0c7b49a0e0d12c981fe60f352b1f166d05dfeb5e`. The later preview commit adds the already validated #36 audit runner and its documentation without changing application or container build inputs.
 
-| Pull request | Included head |
-| --- | --- |
+| Pull request                                      | Included head                              |
+| ------------------------------------------------- | ------------------------------------------ |
 | [#22](https://github.com/oEnzoRibas/Juno/pull/22) | `cb505b2271c76fe9506bd9c10bcfc7a05f674a2a` |
 | [#23](https://github.com/oEnzoRibas/Juno/pull/23) | `30f7e884e69ad5b8ca4c30412b0173e7106fed34` |
 | [#24](https://github.com/oEnzoRibas/Juno/pull/24) | `114a26f9a74694bbf7c62e06406f926e9b120f9b` |
