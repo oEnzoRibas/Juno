@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { createTranslator } from 'next-intl';
 import Link from 'next/link';
+import { PageHeading, Panel } from '../../../components/ui';
 import { messages } from '../../../content/messages';
 import { ProvisionForm } from '../../onboarding/forms';
 import { ApplicationShell } from '../_components/application-shell';
@@ -15,16 +16,23 @@ export default async function Platform({ searchParams }: { searchParams: Promise
   const t = createTranslator({ locale, messages: messages[locale] });
   const back = localPath('/session', locale);
   return (
-    <ApplicationShell locale={locale} platformAdmin accountEmail={account.email} workspaces={workspaces} section="platform">
-      <Link href={back} className={styles.back}><ShellIcon name="back" />{t('backToOrganizations')}</Link>
+    <ApplicationShell
+      locale={locale}
+      platformAdmin
+      accountEmail={account.email}
+      workspaces={workspaces}
+      section="platform"
+    >
+      <Link href={back} className={styles.back}>
+        <ShellIcon name="back" />
+        {t('backToOrganizations')}
+      </Link>
       <div className={styles.pageTitle}>
-        <p>{t('platformAdmin')}</p>
-        <h1>{t('createWorkspace')}</h1>
-        <p>{t('platformDescription')}</p>
+        <PageHeading id="provision-title" title={t('createWorkspace')} description={t('platformDescription')} />
       </div>
-      <section className={styles.sectionPanel} aria-label={t('createWorkspace')}>
+      <Panel aria-labelledby="provision-title">
         <ProvisionForm locale={locale} cancelHref={back} />
-      </section>
+      </Panel>
     </ApplicationShell>
   );
 }
