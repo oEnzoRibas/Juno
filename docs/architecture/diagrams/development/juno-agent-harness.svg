@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="900" viewBox="0 0 1320 900" role="img" aria-labelledby="title">
+<title id="title">Juno agent harness</title>
+<desc>Original project creator: Enzo Ribas | Developed with AI assistance | MIT. Editable source SHA-256: 86eb550d3d055e82fab04f7f11ff1657637fac08ff62b19ec298f8706655c76e.</desc>
+<rect width="1320" height="900" fill="#FAF8FF"/>
+<defs><marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7 Z" fill="#705C95"/></marker></defs>
+<polyline points="660,173 660,221" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="660,297 660,331 232,331 232,368" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="660,297 660,368" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="660,297 660,331 1088,331 1088,368" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="232,474 232,563" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="660,474 660,563" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="1088,474 1088,563" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="412,615 480,615" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="840,615 908,615" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<polyline points="1088,669 1088,749" fill="none" stroke="#705C95" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="467" y="105" width="386" height="68" rx="14" fill="#F2E8FF" stroke="#6942B8" stroke-width="2"/>
+<text x="660" y="133" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">Maintainer</text>
+<text x="660" y="152" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Authorizes scope and acceptance; controls merges</text>
+<rect x="467" y="221" width="386" height="76" rx="14" fill="#FFFFFF" stroke="#B8A4D8" stroke-width="2"/>
+<text x="660" y="253" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">AGENTS.md and task registry</text>
+<text x="660" y="272" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Exact base, reserved paths, checks and handoff</text>
+<rect x="52" y="368" width="360" height="106" rx="14" fill="#F3ECFF" stroke="#AF92E2" stroke-width="2"/>
+<text x="232" y="410" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">Agent 01 · Core and Architecture</text>
+<text x="232" y="434" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Registers work and ADRs</text>
+<text x="232" y="455" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Coordinates contracts and integration</text>
+<rect x="480" y="368" width="360" height="106" rx="14" fill="#F3ECFF" stroke="#AF92E2" stroke-width="2"/>
+<text x="660" y="410" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">Agent 02 · Product and Design</text>
+<text x="660" y="434" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Implements V2 and creative workflows</text>
+<text x="660" y="455" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Qualifies editable Photoshop source</text>
+<rect x="908" y="368" width="360" height="106" rx="14" fill="#E7FAF1" stroke="#6AA990" stroke-width="2"/>
+<text x="1088" y="410" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">Agent 03 · Platform and QA</text>
+<text x="1088" y="434" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Owns platform and reproducible review</text>
+<text x="1088" y="455" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Verifies other lanes independently</text>
+<rect x="52" y="563" width="360" height="106" rx="14" fill="#FFFFFF" stroke="#B8A4D8" stroke-width="2"/>
+<text x="232" y="605" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">Repository skills</text>
+<text x="232" y="629" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Trigger metadata → relevant SKILL.md</text>
+<text x="232" y="650" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Read references and run tools on demand</text>
+<rect x="480" y="563" width="360" height="106" rx="14" fill="#FFFFFF" stroke="#B8A4D8" stroke-width="2"/>
+<text x="660" y="605" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">Temporary specialists</text>
+<text x="660" y="629" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Bounded tasks in isolated worktrees</text>
+<text x="660" y="650" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Return patches, evidence and limitations</text>
+<rect x="908" y="563" width="360" height="106" rx="14" fill="#E7FAF1" stroke="#6AA990" stroke-width="2"/>
+<text x="1088" y="605" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">Independent evidence</text>
+<text x="1088" y="629" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Exact review launcher, provenance and CI</text>
+<text x="1088" y="650" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Verify observed tests and check scope</text>
+<rect x="908" y="749" width="360" height="69" rx="14" fill="#FFF3DD" stroke="#BE9C55" stroke-width="2"/>
+<text x="1088" y="777" text-anchor="middle" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="19">Juno Research</text>
+<text x="1088" y="796" text-anchor="middle" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="15">Pinned inputs, raw checks and matched evaluation</text>
+<text x="52" y="59" text-anchor="start" fill="#241938" font-family="Arial, sans-serif" font-weight="700" font-size="32">Juno agent harness</text>
+<text x="52" y="87" text-anchor="start" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="17">Persistent ownership, focused delegation and verified review</text>
+<text x="52" y="870" text-anchor="start" fill="#524568" font-family="Arial, sans-serif" font-weight="400" font-size="14">Original project creator: Enzo Ribas | Developed with AI assistance | MIT</text>
+</svg>

@@ -1,0 +1,26 @@
+# Skill catalog
+
+Skills carry repeated Juno-specific decisions that are easy to miss. Prefer an instruction-only skill until a repeated task has a deterministic action worth automating. Under `.agents/skills/<name>/SKILL.md`, the description directs discovery, the body guides execution, and a linked reference is loaded only when needed. Existing project policy stays in `AGENTS.md` and the authoritative documents.
+
+| Skill or boundary                                                | Use                                                                      | Overlap decision                                                                                                       |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `juno-task-workflow`                                             | Registration, ownership, handoff, recovery                               | Combines task and handoff so there is one checkpoint procedure.                                                        |
+| `juno-git-workflow`                                              | Exact branch checks, stack maintenance, conflict resolution              | Uses the repository Git workflow. PR readiness is a different trigger.                                                 |
+| `juno-pull-request`                                              | Reproduce exact reviews and audit evidence                               | Gives review authors and readers a common record. Independent QA remains a different owner.                            |
+| `juno-documentation`                                             | ADRs, editable diagrams and durable evidence                             | Covers durable records without duplicating visual QA.                                                                  |
+| `juno-api-development`, `juno-database`, `juno-tenant-isolation` | Contracts, applied schema and defensive scope review                     | Keep separate inputs and failure modes. Architectural sequencing stays in the ADR and registry.                        |
+| `juno-design-system`, `juno-visual-qa`                           | V2 implementation and visual verification                                | A reference defines desired behavior. QA examines the actual revision or export.                                       |
+| `juno-review-environment`, `juno-independent-review`             | Provision exact disposable environments and verify independent receipts  | Runtime tooling combines Compose and provenance; use independent review for observed evidence, including false greens. |
+| `juno-brand-design`                                              | Identity, original art direction, provenance and human concept selection | Governs the brief and brand boundaries. Character craft has a separate trigger.                                        |
+| `character-design`, `digital-illustration`                       | Explore form and expression, or execute editable digital illustration    | Keep separate when the work begins at different artifacts. Combine if matched reviews show duplicate routing.          |
+| `photoshop-automation`                                           | Native PSD workflows through a proved local Photoshop route              | Scope to document automation. Photoshop installation or skill discovery alone cannot qualify the route.                |
+| `character-animation`                                            | Prepare separated layers, pivot and registration evidence                | Begins with an approved editable source. Runtime animation and rigging are future tasks.                               |
+| Vector illustration                                              | Authentic vector assets and editing, where appropriate                   | Optional independent capability. Juno mascot masters use editable Photoshop source.                                    |
+
+Broad orchestration, performance, code-quality, provider integration and automation candidates remain in the underlying canonical guides until repeated evidence shows a distinct activation trigger. The phase owners publish actual files and validation independently. Planned catalog entries do not imply installed or enabled skills.
+
+## Quality and review
+
+Each published skill has a version, a positive trigger and a boundary, inputs, required tools, output, verification and recovery. Validate metadata and relative references, test positive and adjacent negative scenarios in fresh sessions, and record which skill was observed. Explicit invocation, implicit discovery, runtime success and maintainer acceptance have separate evidence. Source, exact versions and assistance disclosures belong in the [research record](baseline.md).
+
+The first dedicated invocation probe validated `juno-pull-request` with no tool calls. Its output reproduced a sentence from the attached skill where the unassisted control had no such text. This establishes the tested explicit route. Use the incident corpus and repeated review before broadening automatic activation claims.

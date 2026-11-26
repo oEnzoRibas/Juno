@@ -4,6 +4,8 @@ This is the authoritative task order for Juno. The [assignment registry](agents/
 
 ## Integrated baseline
 
+[JUNO-0046 through JUNO-0053](harness/README.md#migration-and-gates) form the owner-authorized harness intervention after the 2026-11-26 review cycle. The cohort advances independently of product work with published path reservations. [JUNO-0054](tasks/JUNO-0054.md) releases original mascot concepts and leaves official artwork subject to the maintainer's concept approval. The prior product order and unresolved policy gates remain in the historical queue and linked tasks.
+
 The approved foundation landed at `3053a7beab1ec657305634c77df46efe4ec472f1`. The [post-UAT handoff](agents/agent-01/handoffs/juno-organizational-cycle.md) records the active and successor claims. Platform regression and shell integrations #36 and #37 remain under review. Preserve the optional provider ordering.
 
 ## Active
