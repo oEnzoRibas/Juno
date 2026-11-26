@@ -1,6 +1,6 @@
 # Juno Design System V2 Playground
 
-**Status** — Interactive proposal awaiting maintainer visual approval in [PR #37](https://github.com/oEnzoRibas/Juno/pull/37). This preview uses synthetic data and runs locally in the browser. It does not connect to Juno services, authenticate anyone, send invitations, provision organizations, or change permissions.
+**Status** — The maintainer approved this interactive visual baseline in [PR #37](https://github.com/oEnzoRibas/Juno/pull/37) at [revision 7e434d664e8ad02963684406efd6932fd11b2663](https://github.com/oEnzoRibas/Juno/tree/7e434d664e8ad02963684406efd6932fd11b2663/docs/design/style). This preview uses synthetic data and runs locally in the browser. It does not connect to Juno services, authenticate anyone, send invitations, provision organizations, or change permissions.
 
 ## Start the preview
 
@@ -25,7 +25,7 @@ Open **Playground options** (Portuguese **Opções do playground**) to switch th
 | Palette and typography | Compare Juno purple, teal, and coral with Nunito or the existing system font. Switch organizations to see a different membership role and palette.                                                                       |
 | Component library      | Compare action hierarchy and hover, press, focus, disabled, and loading states. Try native selects, password reveal, checks, radios, dialog, popover, and empty, loading, success, and error feedback.                   |
 
-Members demonstrates filtering and detail navigation. Platform administration demonstrates local form validation and a simulated submission. The destructive button is a component example in the library. Organization roles only alter which demo controls are shown. The preview uses fixed palette pairs for action and neutral tokens while status colors stay semantic. Production adoption still requires approval and independent validation of accessibility, responsive behavior, and server-side authorization.
+Members demonstrates filtering and detail navigation. Platform administration demonstrates local form validation and a simulated submission. The destructive button is a component example in the library. Organization roles only alter which demo controls are shown. The preview uses fixed palette pairs for action and neutral tokens while status colors stay semantic. Production adoption requires independent validation of accessibility, responsive behavior, and server-side authorization followed by final maintainer acceptance.
 
 Nunito is bundled for visual comparison under the [SIL Open Font License 1.1](fonts/OFL.txt). The variable font and license were obtained from the [Google Fonts repository at the pinned source commit](https://github.com/google/fonts/tree/8b0a1d0f5983c89bc2b93f1b5fb55f9e252744b5/ofl/nunito). Nunito's inclusion here is a prototype decision.
 

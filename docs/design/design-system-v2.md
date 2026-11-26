@@ -1,6 +1,6 @@
-# Design System V2 proposal
+# Design System V2
 
-**Status:** Proposed. Formal changes requested on [PR #37](https://github.com/oEnzoRibas/Juno/pull/37). Maintainer approval of this visual direction precedes runtime work. The original proposal, implementation, preview and automated evidence remain historical records. The maintainer did not accept the revised interaction or visual quality.
+**Status:** Visual direction approved by the maintainer on 2026-11-25 at playground revision [7e434d664e8ad02963684406efd6932fd11b2663](https://github.com/oEnzoRibas/Juno/tree/7e434d664e8ad02963684406efd6932fd11b2663/docs/design/style). Production implementation is tracked in [PR #37](https://github.com/oEnzoRibas/Juno/pull/37) and requires separate final acceptance. The prior shell reviews, diagrams, previews and browser evidence are retained.
 
 | Board | Editable source and exports |
 | --- | --- |
