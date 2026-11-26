@@ -1,94 +1,46 @@
-## Summary
+## Overview
 
-Explain the purpose.
+Explain what changed, the problem it solves, and how it helps Juno. Link the task and identify the responsible contributor or agent.
 
-## Motivation
+## Technical implementation
 
-Explain why the change is necessary.
-
-## Development task
-
-Link the JUNO task.
-
-## Scope
-
-Identify the responsibilities included and any material scope exclusions.
-
-## Changes introduced
-
-List meaningful changes.
-
-## Files and modules affected
-
-Identify files, directories and domains.
-
-## Architectural decisions
-
-Link ADRs and record whether proposals were approved.
-
-## Documentation
-
-List affected references, instructions and diagrams.
-
-## Database changes
-
-Describe migrations, data impact and recovery.
-
-## API changes
-
-Describe contracts, behavior and compatibility.
-
-## Security considerations
-
-Describe authorization, data handling, secret review and risks.
-
-## Multi-tenancy
-
-Describe tenant scope and isolation evidence.
-
-## Accessibility and internationalization
-
-Describe relevant locale and accessibility checks.
-
-## Testing
-
-List checks added and executed.
-
-## Validation results
-
-Report actual results and explain inapplicable or missing checks.
+Describe relevant architecture, modules, APIs, data or migrations, compatibility, security, tenancy, accessibility, localization and attribution. Explain intended incremental scope. Give exact head and base, link commits and diff, and identify important ADRs.
 
 ## Visual evidence
 
-Link or attach relevant diagrams and screenshots.
+Embed representative implementation evidence with its exact revision or UAT. Use desktop and narrow captures and relevant states for UI. For backend and infrastructure include applicable diagrams, contracts or run evidence. Label concepts and historical captures. Keep credentials, tokens and private data out.
 
-## Dependencies
+## How to test
 
-List dependent tasks, branches, PRs and required ordering.
+Provide prerequisites, copyable exact checkout and dependency steps, commands, environment and URLs, and safe credential retrieval if applicable. Provide numbered scenarios with expected and negative outcomes, troubleshooting, and cleanup. Link the pinned shared UAT for integrated workflows.
 
-## Stack information
+## Validation results
 
-Record stack name and native identifier if present, position, root branch, immediate parent, required predecessors, known children, merge order, and current dependency status. For independent work, state the main base.
+| Source | Revision and scope | Result or run link |
+| --- | --- | --- |
+| Hosted CI | | |
+| Local, integrated or independent checks | | |
+| Human review and acceptance | | |
 
-## Review instructions
+Report failed and pending checks. Identify the tested diff or merge ref and explain unavailable evidence.
 
-Describe the incremental scope, readiness, review focus, remaining merge gates, and scope evidence against the immediate parent.
+## Dependencies and integration order
 
-## Breaking changes
-
-Document compatibility and migration.
+List the base, immediate parent, native stack/position, required runtime inputs, dependent PRs, conflicts and recommended sequence.
 
 ## Known limitations
 
-Disclose unresolved decisions, incomplete behavior and pending validation.
+Identify pending decisions, excluded behavior, blockers and remaining validation. State any material AI assistance and what was independently verified.
 
-## AI-assisted development
+## Maintainer acceptance checklist
 
-Describe assistance, verification and human review status.
+- [ ] Verify the exact head, base and intended incremental scope.
+- [ ] Follow the PR-specific acceptance and negative scenarios and compare the expected outcomes.
+- [ ] Review applicable visual evidence and the actual test and CI results.
+- [ ] Confirm human gates, dependencies, security, attribution and documentation before approving integration.
 
-## Review checklist
 
-- [ ] Relevant definition-of-done checks passed.
-- [ ] Documentation, ADRs, and diagrams match the scope.
-- [ ] Security, tenant isolation, attribution, and license implications reviewed.
-- [ ] Branch, base, and dependency records verified.
+## Development traceability
+
+- Canonical JUNO task and GitHub issue: `Refs #N` for a partial or stacked delivery. Use `Closes #N` only for the complete verified scope.
+- Add the PR link to the issue. Apply the relevant type, area, documentation, owner, review and current validation labels.

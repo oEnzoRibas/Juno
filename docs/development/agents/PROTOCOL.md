@@ -32,3 +32,13 @@ All agents update their own module documentation, code conventions, diagrams whe
 ## Maintainer acceptance testing
 
 Use an explicitly pinned local [maintainer preview](../maintainer-uat.md) for owner acceptance. Agent publication never replaces the running preview or its volume. Keep each agent’s assigned work and environment independent.
+
+
+## Maintainer review coordination
+
+Agent 01 maintains scope, integration, governance and the published registry. Agent 02 verifies frontend evidence, concepts, interaction captures and accessibility review. Agent 03 verifies disposable infrastructure, security, testing and reproducibility. Each lane hands off exact refs, dependencies and evidence. Agent 01 checks coverage and cross-lane consistency before applying the [review standard](../git-workflow.md#maintainer-review-standard). An assigned or completed task does not imply a running independent session.
+
+
+## Shared GitHub traceability
+
+Agent 01 coordinates issue registration, task ownership, the [traceability index](../traceability.md) and consistency with the assignment registry. Agents 02 and 03 follow the same issue and label rules and hand off verified status changes, exact refs and evidence. Use the [Git workflow](../git-workflow.md#issue-and-pr-traceability).
