@@ -1,0 +1,12 @@
+# JUNO-AGENT-02 extended cycle checkpoint
+
+| Task | State | Evidence |
+| --- | --- | --- |
+| JUNO-0027 | Awaiting human review and UAT | [PR #37](https://github.com/oEnzoRibas/Juno/pull/37), `a7825a6b814013527414e7478fa77d5b2d3eb60c`. Both GitHub Actions checks passed. The three original shell patches replayed without changes onto integrated main. The original tip is preserved at `refs/juno-recovery/20261124T185249Z/pr-37-pre-repair`. The earlier repaired revision passed eight Playwright checks on an isolated Compose stack. |
+| JUNO-0028 member directory UI | Awaiting review in [PR #43](https://github.com/oEnzoRibas/Juno/pull/43) | [Frontend handoff](../handoffs/JUNO-0028-member-directory-ui.md). The isolated Compose runtime pairs the frontend with the exact API revision from #40. |
+
+The authorized follow-up covers the member directory. The same registry pins the next lookup UI on the published directory UI and API lookup heads.
+
+## V2 stack checkpoint
+
+The [adapted #43 directory](https://github.com/oEnzoRibas/Juno/pull/43) is locally validated and awaits review. See the [updated handoff](../handoffs/JUNO-0028-member-directory-ui.md#v2-adaptation) for exact ancestry, runtime captures and checks. The dependent filter and detail scope in #48 awaits the coordinated release.

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Button, PageHeading, Panel } from '../../../components/ui';
 import { messages } from '../../../content/messages';
 import { signOut } from '../../sign-in/actions';
+import { MemberDirectoryNavigation } from '../_components/member-directory-navigation';
 import { ApplicationShell } from '../_components/application-shell';
 import { accountPath, accountWorkspaceReturn, loadShell, localPath, shellLocale } from '../_components/shell-data';
 import { ShellIcon } from '../_components/shell-icon';
@@ -28,6 +29,7 @@ export default async function Account({
       locale={locale}
       platformAdmin={account.platformAdmin}
       current={current}
+      additionalNavigation={<MemberDirectoryNavigation workspace={current} locale={locale} />}
       workspaces={workspaces}
       section="account"
     >
