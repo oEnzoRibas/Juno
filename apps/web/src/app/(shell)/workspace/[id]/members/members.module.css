@@ -81,3 +81,29 @@
     display: block;
   }
 }
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+  gap: var(--space-3);
+  align-items: end;
+}
+
+.filterActions {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filterActions a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--control-height);
+  text-decoration: underline;
+}
+
+.table tbody th a {
+  text-decoration: underline;
+}

@@ -30,9 +30,9 @@ export function PageHeading({ id, title, description }: { id?: string; title: st
   );
 }
 
-export function Notice({ kind, children }: { kind: 'error' | 'success'; children: ReactNode }) {
+export function Notice({ kind, children, id }: { kind: 'error' | 'success'; children: ReactNode; id?: string }) {
   return (
-    <p className="notice" role={kind === 'error' ? 'alert' : 'status'}>
+    <p id={id} className="notice" role={kind === 'error' ? 'alert' : 'status'}>
       {children}
     </p>
   );

@@ -109,6 +109,14 @@ export function ApplicationShell({
       <nav aria-label={t('workspaceNavigation')} className={styles.nav}>
         {mainLinks}
         {additionalNavigation}
+        {dashboard && current?.role === 'administrator' && (
+          <NavigationLink
+            href={localPath('/workspace/' + current.id + '/settings', locale)}
+            label={t('organizationSettings')}
+            icon="settings"
+            active={section === 'settings'}
+          />
+        )}
         {dashboard && canInvite && (
           <NavigationLink href={dashboard + '#member-invite'} label={t('inviteMember')} icon="invite" />
         )}

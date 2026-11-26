@@ -39,10 +39,10 @@ test('lists authorized tenant members, handles cursor navigation and keeps denia
   const workspace = await createWorkspace(`member-ui-${suffix}`, org);
   const other = await createWorkspace(`member-ui-other-${suffix}`, 'Other directory');
 
-  async function addMember(role) {
-    const email = `directory-${role}-${suffix}@example.invalid`;
+  async function addMember(role, tenant = workspace) {
+    const email = `directory-${role}-${suffix}${tenant === workspace ? '' : '-foreign'}@example.invalid`;
     const password = randomBytes(18).toString('hex');
-    const invite = await request.post(`${api}/tenants/${workspace}/invitations`, {
+    const invite = await request.post(`${api}/tenants/${tenant}/invitations`, {
       headers: platform,
       data: { email, role },
     });
@@ -110,6 +110,62 @@ test('lists authorized tenant members, handles cursor navigation and keeps denia
   await expect(page.getByRole('heading', { name: 'Members' })).toBeVisible();
   await expect(page.getByRole('columnheader', { name: 'Joined' })).toBeVisible();
 
+  await page.goto(`${directoryUrl}?lang=pt-BR&after=${rows.at(-1).accountId}`);
+  await page.getByLabel('Início do e-mail').fill(member.email.toUpperCase());
+  await page.getByRole('combobox', { name: 'Função', exact: true }).selectOption('member');
+  await page.getByRole('combobox', { name: 'Status', exact: true }).selectOption('true');
+  await page.getByRole('button', { name: 'Aplicar filtros' }).click();
+  await expect(page.getByRole('link', { name: member.email, exact: true })).toBeVisible();
+  expect(new URL(page.url()).searchParams.has('after')).toBe(false);
+  await expect(page.getByText(administrator.email)).toHaveCount(0);
+  await page.setViewportSize({ width: 1280, height: 820 });
+  await page.emulateMedia({ colorScheme: 'light' });
+  await testInfo.attach('member-lookup-filters', {
+    body: await page.screenshot({ path: testInfo.outputPath('member-lookup-filters.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('link', { name: member.email, exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Detalhes do membro' })).toBeVisible();
+  await expect(page.getByRole('main').getByText(member.email, { exact: true })).toBeVisible();
+  await page.getByRole('banner').getByRole('link', { name: 'Sua conta' }).click();
+  await page.getByRole('combobox', { name: 'Idioma' }).selectOption('en');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+  await page.getByRole('link', { name: 'Back to workspace' }).click();
+  await expect(page.getByRole('heading', { name: 'Member details' })).toBeVisible();
+  const returned = new URL(page.url());
+  expect(returned.pathname).toMatch(/\/members\/[0-9a-f-]{36}$/i);
+  expect(returned.searchParams.get('emailPrefix')).toBe(member.email.toUpperCase());
+  expect(returned.searchParams.get('role')).toBe('member');
+  expect(returned.searchParams.get('active')).toBe('true');
+  await page.setViewportSize({ width: 375, height: 820 });
+  await page.emulateMedia({ colorScheme: 'dark' });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
+  await testInfo.attach('member-lookup-detail', {
+    body: await page.screenshot({ path: testInfo.outputPath('member-lookup-detail.png') }),
+    contentType: 'image/png',
+  });
+  await page.getByRole('link', { name: 'Back to members' }).click();
+  await expect(page.getByLabel('Email starts with')).toHaveValue(member.email.toUpperCase());
+  await expect(page.getByRole('combobox', { name: 'Role', exact: true })).toHaveValue('member');
+  await page.getByRole('combobox', { name: 'Status', exact: true }).selectOption('false');
+  await page.getByRole('button', { name: 'Apply filters' }).click();
+  await expect(page.getByText('No memberships on this page.')).toBeVisible();
+  await page.getByRole('link', { name: 'Clear filters' }).click();
+  await expect(page.getByRole('link', { name: administrator.email, exact: true })).toBeVisible();
+
+  const detailPath = `${directoryUrl}/${rows.find((row) => row.email === member.email).accountId}`;
+  const foreignAdmin = await addMember('administrator', other);
+  const foreignSession = await signInApi(foreignAdmin.email, foreignAdmin.password);
+  const foreignRows = await request.get(api + '/tenants/' + other + '/members', { headers: foreignSession });
+  expect(foreignRows.status()).toBe(200);
+  const foreignId = (await foreignRows.json()).items[0].accountId;
+  expect((await page.goto(directoryUrl + '/' + foreignId + '?lang=pt-BR'))?.status()).toBe(404);
+  await expect(page.getByRole('heading', { name: 'Organização indisponível' })).toBeVisible();
+  await expect(page.getByText(foreignAdmin.email)).toHaveCount(0);
+  const foreignDetail = `/workspace/${other}/members/${rows.at(-1).accountId}`;
+  expect((await page.goto(`${foreignDetail}?lang=pt-BR`))?.status()).toBe(404);
+  await expect(page.getByText(member.email)).toHaveCount(0);
+
   for (const path of [`/workspace/${other}/members?lang=pt-BR`, `${directoryUrl}?lang=pt-BR&after=wrong`]) {
     expect((await page.goto(path))?.status()).toBe(404);
     await expect(page.getByRole('heading', { name: 'Organização indisponível' })).toBeVisible();
@@ -124,6 +180,8 @@ test('lists authorized tenant members, handles cursor navigation and keeps denia
     await expect(memberPage.getByRole('link', { name: 'Membros', exact: true })).toHaveCount(0);
     expect((await memberPage.goto(`${directoryUrl}?lang=pt-BR`))?.status()).toBe(404);
     await expect(memberPage.getByText(administrator.email)).toHaveCount(0);
+    expect((await memberPage.goto(`${detailPath}?lang=pt-BR`))?.status()).toBe(404);
+    await expect(memberPage.getByText(member.email)).toHaveCount(0);
   } finally {
     await memberContext.close();
   }
