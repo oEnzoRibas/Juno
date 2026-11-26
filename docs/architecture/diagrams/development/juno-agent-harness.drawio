@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="32.7.4" compressed="false">
+  <diagram id="juno-agent-harness" name="Agent harness">
+    <mxGraphModel grid="1" gridSize="10" guides="1" page="1" pageScale="1" pageWidth="1320" pageHeight="900" background="#FAF8FF">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e0" parent="1" source="owner" target="registry" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" parent="1" source="registry" target="core" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="331" />
+              <mxPoint x="232" y="331" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" parent="1" source="registry" target="product" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" parent="1" source="registry" target="quality" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="331" />
+              <mxPoint x="1088" y="331" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" parent="1" source="core" target="skills" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" parent="1" source="product" target="specialists" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" parent="1" source="quality" target="evidence" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" parent="1" source="skills" target="specialists" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" parent="1" source="specialists" target="evidence" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" parent="1" source="evidence" target="research" edge="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#705C95;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="owner" value="Maintainer&#10;Authorizes scope and acceptance; controls merges" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#F2E8FF;strokeColor=#6942B8;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="467" y="105" width="386" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="registry" value="AGENTS.md and task registry&#10;Exact base, reserved paths, checks and handoff" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#FFFFFF;strokeColor=#B8A4D8;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="467" y="221" width="386" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="core" value="Agent 01 · Core and Architecture&#10;Registers work and ADRs&#10;Coordinates contracts and integration" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#F3ECFF;strokeColor=#AF92E2;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="52" y="368" width="360" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="product" value="Agent 02 · Product and Design&#10;Implements V2 and creative workflows&#10;Qualifies editable Photoshop source" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#F3ECFF;strokeColor=#AF92E2;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="480" y="368" width="360" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="quality" value="Agent 03 · Platform and QA&#10;Owns platform and reproducible review&#10;Verifies other lanes independently" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#E7FAF1;strokeColor=#6AA990;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="908" y="368" width="360" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="skills" value="Repository skills&#10;Trigger metadata → relevant SKILL.md&#10;Read references and run tools on demand" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#FFFFFF;strokeColor=#B8A4D8;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="52" y="563" width="360" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="specialists" value="Temporary specialists&#10;Bounded tasks in isolated worktrees&#10;Return patches, evidence and limitations" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#FFFFFF;strokeColor=#B8A4D8;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="480" y="563" width="360" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="evidence" value="Independent evidence&#10;Exact review launcher, provenance and CI&#10;Verify observed tests and check scope" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#E7FAF1;strokeColor=#6AA990;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="908" y="563" width="360" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="research" value="Juno Research&#10;Pinned inputs, raw checks and matched evaluation" vertex="1" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=0;verticalAlign=middle;align=center;spacing=6;fillColor=#FFF3DD;strokeColor=#BE9C55;strokeWidth=2;fontColor=#241938;fontSize=17;fontFamily=Arial;">
+          <mxGeometry x="908" y="749" width="360" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="title" value="Juno agent harness" vertex="1" parent="1" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#241938;fontSize=32;fontStyle=1;fontFamily=Arial;">
+          <mxGeometry x="52" y="22" width="1200" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Persistent ownership, focused delegation and verified review" vertex="1" parent="1" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#524568;fontSize=17;fontStyle=0;fontFamily=Arial;">
+          <mxGeometry x="52" y="65" width="1200" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="footnote" value="Original project creator: Enzo Ribas | Developed with AI assistance | MIT" vertex="1" parent="1" style="text;html=0;align=left;verticalAlign=middle;whiteSpace=wrap;strokeColor=none;fillColor=none;fontColor=#524568;fontSize=14;fontStyle=0;fontFamily=Arial;">
+          <mxGeometry x="52" y="852" width="1200" height="23" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

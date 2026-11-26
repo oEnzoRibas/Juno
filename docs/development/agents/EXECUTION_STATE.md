@@ -1,5 +1,14 @@
 # Agent execution checkpoints
 
+## Agent harness checkpoint · 2026-11-26
+
+- Agent 01 observed the baseline and released the [scoped tasks](ASSIGNMENTS.md#agent-harness-intervention) through [#117](https://github.com/oEnzoRibas/Juno/issues/117).
+- Agent 02 acknowledged the initial V2 and creative-tool releases on `a75e7dc`. Its [#119](https://github.com/oEnzoRibas/Juno/pull/119) evidence is review-stage. Photoshop proof and [mascot concepts](../tasks/JUNO-0054.md) are distinct claims and have separate approval gates.
+- Agent 03 published [#118](https://github.com/oEnzoRibas/Juno/pull/118). Independent verification of other increments starts on their exact published heads; authorship remains separate from that review.
+- [Research PR #10](https://github.com/oEnzoRibas/juno-research/pull/10) preserves a verified separate baseline, with the Photoshop intervention decision and notebook evidence.
+
+## Historical checkpoints
+
 This record complements the [authoritative assignments](ASSIGNMENTS.md). Agent 01 records the last observed session state, its source, the last acknowledged registry revision when known, and the latest repository checkpoint. A task's delivery state can advance through a separately observed isolated execution while an independent Codex session remains interrupted or ended.
 
 | Agent         | Last independent session state                                                                                                                                                                                                                                                                    | Last published task checkpoint                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |

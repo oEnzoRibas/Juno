@@ -25,6 +25,8 @@ Publish and consume the canonical registry from its exact Git revision, includin
 
 ## Conflicts and handoffs
 
+For task-scoped specialists, see the [agent harness](../harness/README.md#roles-and-use). The owning lane remains accountable for scope and handoff. A specialist's tool profile is inherited from its parent session. Keep independent verification separate from the authoring execution and checkpoint interruptions with exact repository evidence.
+
 When revisions conflict, stop edits to the shared path, publish the conflict and evidence, and let Agent 01 negotiate ordering or transfer. Change reservations before resuming. Verify remote branch ownership before any history operation. Follow the [Git workflow](../git-workflow.md) for atomic commits, focused PRs, native linear stacks where the dependency fits, and required human approval. Parallel siblings keep correct bases and are not chained solely to obtain native stack metadata.
 
 Handoffs record contract revisions, exact SHA, PR, files, dependencies, validation, limits and next action. A receiving owner verifies evidence and records acknowledgement when observed. Repository publication is the shared channel. Account for separate tool state and conversational memory. Read the [ownership rules](OWNERSHIP.md) before touching shared inputs.

@@ -1,0 +1,21 @@
+# Pre-intervention baseline
+
+The maintainer authorized the harness intervention on 2026-11-26. Agent 01 observed main `a75e7dcca90d4868302e0b558da29d48f643a4fe` and zero open product repository PRs before registration. The [immutable product tree](https://github.com/oEnzoRibas/Juno/tree/a75e7dcca90d4868302e0b558da29d48f643a4fe) contains the following references.
+
+| Baseline capability                                                          | Evidence                                                                                                                                                                                                  |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Three persistent ownership lanes, finite statuses and handoffs               | [ADR-0011](../../architecture/adr/0011-three-agent-development.md), [registry](../agents/ASSIGNMENTS.md) and [execution records](../agents/EXECUTION_STATE.md)                                            |
+| Worktree ownership, native stacks, merged branches and review evidence       | [Git workflow](../git-workflow.md), [Definition of Done](../DEFINITION_OF_DONE.md) and [PR #52](https://github.com/oEnzoRibas/Juno/pull/52)                                                               |
+| Exact review start, status, credentials, tests and teardown                  | [Existing launcher](../../../scripts/review/README.md) and [PR #109](https://github.com/oEnzoRibas/Juno/pull/109)                                                                                         |
+| Review-only provenance from built images and connected schema                | [Runtime protocol](../../testing/juno-review-runtime.md) and [PR #106](https://github.com/oEnzoRibas/Juno/pull/106) / [PR #107](https://github.com/oEnzoRibas/Juno/pull/107)                              |
+| Integrated V2 shell, organization UI, independent SQL and browser validation | [V2 design record](../../design/design-system-v2-implementation.md), [native stack #50](https://github.com/oEnzoRibas/Juno/stack/50) and [backend review history](../history/JUNO-0044-stack42-review.md) |
+| Tenant isolation and operational security                                    | [Tenancy requirements](../../architecture/tenancy.md) and [threat model](../../security/threat-model.md)                                                                                                  |
+| Repository-scoped custom agents and skills                                   | The pinned tree has neither `.agents/skills/` nor `.codex/`. Existing agent guidance is repository Markdown and session handoffs.                                                                         |
+
+## Incidents and observation limits
+
+The [PR #40 record](../history/JUNO-0042-pr-40-runtime-review.md) distinguishes a skipped SQL fixture and an unrecorded process exit code from tests the maintainer actually observed. [Stack #42](../history/JUNO-0044-stack42-review.md) supplies later independently qualified structured evidence. [V2 production handoff](../agents/agent-02/handoffs/JUNO-0027-v2-runtime.md) provides exact visual and locale provenance for a different checkpoint. Historical GitHub CI and human UAT refer to the evaluated inputs in their own records.
+
+The independent [Research PR #10](https://github.com/oEnzoRibas/juno-research/pull/10) records AAD-BASE-001 and AAD-DEC-001 at `c597673e1a77b38851d1d4f26a769a35dc91e9ac` and links the Research Notebook. Its record validation and notebook build passed. The pinned product tree is the technical control condition. Historical incident counts, session durations and anecdotal reports measure different workflows. Matched pilot measurements are recorded separately with their task input and treatment.
+
+The 2026-11-26 intervention amendment replaces Illustrator as the proposed primary mascot environment with local Adobe Photoshop. Historical vector or brand evidence retains its original attribution and role. Vector artwork remains an independent optional deliverable when the asset requires it.
