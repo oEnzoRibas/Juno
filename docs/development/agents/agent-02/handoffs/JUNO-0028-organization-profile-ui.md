@@ -22,3 +22,17 @@ Maintainer-authorized navigation is included. Tenant administrators can open Org
 The exact coordinator preview revision 72ba6be66715178a750b042fa97c1320d2b7fb1e includes the released settings navigation and isolated login fixtures. Agent 02 independently ran frozen installation, lint, TypeScript, four Vitest tests and the standard Compose runner. All twelve Chromium tests and five PostgreSQL regressions passed in a disposable project. The browser suite verified keyboard entry, the current-page state in both locales, a 320 px dark layout, member link visibility, and direct-route denial for regular members and foreign administrators.
 
 [Actual desktop capture](../evidence/organization-settings/organization-profile-desktop.png) · [Actual mobile capture](../evidence/organization-settings/organization-profile-mobile.png)
+
+## V2 integration
+
+PR #51 keeps its implementation history and integrates the released V2 member lookup parent b3a2891bb3ccaac9b7063b3f7f58b7c4cc48bc06. The locally validated runtime is 09505023f706de556d2cc2fba70896b077e3fb5e, tree 0f4f58f927a0301269f88e389f6821457f67d87f. The profile retains its public `/workspace/[id]/settings` path and is now in the V2 route group. Active tenant administrators can navigate to settings from the desktop rail and the mobile drawer. Existing lookup navigation stays available. The form uses V2 fields, feedback, button states, a decorative workspace accent, and contextual Back. Changing language through Account returns to Settings. The same profile API and server permission boundary authorize every write.
+
+The disposable Linux Compose run built the application and passed HTTP and OpenAPI probes, idempotent migrations, schema 8, five SQL regressions, 13 Playwright scenarios, and the persisted concurrent profile audit check. The profile browser scenario verified validation, normalized name and accent, reload and navigation, mobile field containment at 320 CSS px, contextual drawer focus, and neutral denial for unauthorized and foreign accounts.
+
+- [Desktop profile](../evidence/v2-organization-profile/organization-profile-desktop.png)
+- [Mobile dark profile](../evidence/v2-organization-profile/organization-profile-mobile.png)
+- [Structured Playwright results](../evidence/v2-organization-profile/compose-scenarios.json)
+- [Editable mockup and exports](../visuals/juno-organization-profile-ui.md)
+- [Stack #50 release record](https://github.com/oEnzoRibas/Juno/issues/89)
+
+Use `pnpm review:test --pr 51 --sha FULL_PR_HEAD` from a checkout that contains the review CLI. For the historical runtime pin above, use a detached checkout of that revision with `pnpm install --frozen-lockfile`, `pnpm exec playwright install chromium`, and `node scripts/quality/validate-compose.mjs`. Choose free loopback ports separate from the active UATs. The existing review launcher and Compose validator manage disposable projects and fixture accounts. Independent stack qualification and final maintainer acceptance are recorded separately.

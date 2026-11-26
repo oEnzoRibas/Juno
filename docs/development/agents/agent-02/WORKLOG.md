@@ -13,3 +13,5 @@ Add dated entries for observed work and validation. Record new claims in the aut
 - 2026-11-25 — Adapted the administrator's directory UI to the V2 Shell in #43 and validated tenant, navigation and locale behavior through Compose. See the [directory handoff](handoffs/JUNO-0028-member-directory-ui.md#v2-adaptation).
 
 - 2026-11-25 — Adapted member filters and detail to the V2 Shell in #48, including locale-aware return state and neutral denials. See the [runtime handoff](handoffs/JUNO-0028-member-lookup-ui.md#v2-integration).
+
+- 2026-11-26 — Adapted organization settings to the V2 Shell in #51. Verified live scoped editing, normalized values, desktop and mobile navigation, and denial without changing the profile API. [Runtime handoff](handoffs/JUNO-0028-organization-profile-ui.md#v2-integration).
