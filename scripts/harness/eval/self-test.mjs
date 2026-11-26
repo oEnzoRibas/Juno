@@ -94,6 +94,11 @@ test('grades recorded evidence and distinguishes matched, unverified and confoun
     write(assisted, { ...covered, skill: { ...covered.skill, loaded: [] } });
     assert.equal(json('compare', control, assisted).match, 'confounded');
 
+    write(assisted, { ...covered, skill: { ...covered.skill, loaded: [...covered.skill.loaded, 'auxiliary-skill'] } });
+    const confounded = json('compare', control, assisted);
+    assert.equal(confounded.match, 'confounded');
+    assert.equal(confounded.auxiliarySkillsDiffer, true);
+
     write(assisted, { ...covered, conditions: { ...covered.conditions, inputSha256: 'wrong' } });
     const invalid = call('grade', assisted);
     assert.equal(invalid.status, 2);

@@ -174,8 +174,18 @@ function compare(control, assisted, cases) {
     (key) => !unknownConditions.includes(key) && control.conditions[key] !== assisted.conditions[key],
   );
   const controlContaminated = control.skill.loaded?.includes(assisted.skill.requested) ?? null;
+  const auxiliarySkillsDiffer =
+    control.skill.loaded === null || assisted.skill.loaded === null
+      ? null
+      : !equalClaim(
+          assisted.skill.loaded.filter((name) => name !== assisted.skill.requested),
+          control.skill.loaded,
+        );
   const match =
-    differingConditions.length || controlContaminated === true || intervention.activation === false
+    differingConditions.length ||
+    auxiliarySkillsDiffer === true ||
+    controlContaminated === true ||
+    intervention.activation === false
       ? 'confounded'
       : unknownConditions.length || controlContaminated === null || intervention.activation === null
         ? 'unverified'
@@ -194,6 +204,7 @@ function compare(control, assisted, cases) {
     differingConditions,
     unknownConditions,
     controlContaminated,
+    auxiliarySkillsDiffer,
     observedDelta,
     control: baseline,
     skillAssisted: intervention,
