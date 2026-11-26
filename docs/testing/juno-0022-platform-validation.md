@@ -54,3 +54,17 @@ The existing local draft at `2fa7bf1b29bd8b185a97cdc2db0ca367dbe8e8ec` was the s
 | JUNO-0022-OPS-01 | Production readiness follow-up | The starter runtime inherits the workspace stage with development dependencies. Validate a minimal production image, SBOM and vulnerability scan before recommending production deployment. Validate HTTPS ingress, ARM64 execution and recovery at schema version 4 separately. |
 
 The workflow passed `actionlint` 1.7.12. Against the published PR #29 contract, the local run passed the frozen install, lint, type checks, four Vitest tests, Compose build and startup, empty PostgreSQL migration and rerun, OpenAPI smoke, both SQL regressions, and both Playwright flows. Synthetic Compose resources were removed after the run. Previous isolation, negative-run and outage outcomes are recorded above.
+
+## Schema 8 SQL coverage
+
+The disposable Compose runner applies migration 0007 on the [organization profile candidate](https://github.com/oEnzoRibas/Juno/pull/45) at `588489f6ef2ef7bb141d868d097f0761bcec8f65`. It executes the database fixtures for tenant reads, invitation expiry, onboarding audit, the member directory, and organization profile updates. Each fixture uses synthetic data and rolls back. A fixture error stops the run before browser checks.
+
+The directory fixture covers paging, filters, member detail, and denial for regular members and foreign tenants. The profile fixture covers the active administrator requirement, denied cross-tenant writes, audit integrity, and one audit record for a repeated update. The onboarding audit fixture carries forward the [independently reviewed coverage](https://github.com/oEnzoRibas/Juno/pull/36) so the schema 8 candidate also exercises it.
+
+## Stack #42 corrective validation
+
+[JUNO-0044](https://github.com/oEnzoRibas/Juno/issues/110) synchronizes this runner with the [corrected profile review](https://github.com/oEnzoRibas/Juno/pull/45) at `9283547d93935ad744e639502e0390a319fe97c8`. The suite keeps the five SQL fixtures in order and fails before browser checks if any fixture exits unsuccessfully. The manifest test verifies that each fixture appears once. Keep the test and the manifest in sync when the suite changes.
+
+The runner bootstraps a primary platform administrator and a dedicated profile administrator with different synthetic email addresses and passwords. The profile browser scenario requires `JUNO_TEST_PROFILE_ADMIN_EMAIL`, `JUNO_TEST_PROFILE_ADMIN_PASSWORD`, and `JUNO_TEST_PROFILE_RUN`. After the browser test sends both concurrent profile updates, the runner uses the migration role to verify the normalized persisted profile and exactly one audit event for the authorized actor. Application database grants remain the same. Composed Shell scenarios require their own test identities.
+
+For review evidence, set `JUNO_REVIEW_REPORT` to a local path outside the checkout. The Playwright report records test status, duration and named assertion outcomes. Use a fresh detached checkout and an unused loopback port pair. When checking failure handling, an intentionally failing SQL fixture should stop before Playwright, and an unavailable browser channel should stop before the persisted-audit assertion. Each failure should exit with status 1 and clean up its own Compose resources.
