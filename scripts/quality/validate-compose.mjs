@@ -56,6 +56,7 @@ try {
   };
   assertDistinctReviewAdministrators(admin, profileAdmin);
   const profileRun = randomBytes(6).toString('hex');
+  const directoratesRun = randomBytes(6).toString('hex');
   const smokeEnv = {
     ...process.env,
     JUNO_SMOKE_WEB: `http://127.0.0.1:${webPort}`,
@@ -184,6 +185,7 @@ try {
         JUNO_TEST_PROFILE_RUN: profileRun,
         JUNO_TEST_DIRECTORATES_ADMIN_EMAIL: directoratesAdmin.email,
         JUNO_TEST_DIRECTORATES_ADMIN_PASSWORD: directoratesAdmin.password,
+        JUNO_TEST_DIRECTORATES_RUN: directoratesRun,
       },
     });
     const audit = JSON.parse(
@@ -228,6 +230,52 @@ try {
     }
     console.info(
       `[PASS] Concurrent identical profile requests persist one audit event for the authorized actor | Expected 1 | Actual ${audit.actorEvents}`,
+    );
+    const directoratesAudit = JSON.parse(
+      compose(
+        'Inspect the persisted directorate and audit after concurrent HTTP requests',
+        [
+          'exec',
+          '-T',
+          'db',
+          'psql',
+          '-U',
+          'juno_migrator',
+          '-d',
+          'juno',
+          '-At',
+          '-v',
+          'ON_ERROR_STOP=1',
+          '-v',
+          `directorates_slug=directorates-atlas-${directoratesRun}`,
+          '-v',
+          `directorates_actor=directorates-atlas-admin-${directoratesRun}@example.invalid`,
+        ],
+        {
+          capture: true,
+          input: `
+      SELECT json_build_object(
+        'directorates', count(directorate.id),
+        'events', count(audit.directorate_id),
+        'actorEvents', count(audit.directorate_id) FILTER (WHERE actor.email = :'directorates_actor')
+      )
+      FROM juno.directorate
+      JOIN juno.tenant AS tenant ON tenant.id = directorate.tenant_id
+      LEFT JOIN juno.directorate_audit AS audit
+        ON (audit.tenant_id, audit.directorate_id) = (directorate.tenant_id, directorate.id)
+      LEFT JOIN juno.account AS actor ON actor.id = audit.actor_id
+      WHERE tenant.slug = :'directorates_slug' AND directorate.name = 'Gestão Interna';
+    `,
+        },
+      ),
+    );
+    if (directoratesAudit.directorates !== 1 || directoratesAudit.events !== 1 || directoratesAudit.actorEvents !== 1) {
+      throw new Error(
+        'Expected one directorate and one attributed audit event after the concurrent duplicate requests',
+      );
+    }
+    console.info(
+      '[PASS] Concurrent directorate requests persisted one directorate and one audit for the expected actor',
     );
   } finally {
     try {

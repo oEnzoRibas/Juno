@@ -2,12 +2,11 @@ import { randomBytes } from 'node:crypto';
 import { expect, test } from '@playwright/test';
 import { verifyStatus } from './review-status.mjs';
 
-async function fixtures(request) {
+async function fixtures(request, suffix = randomBytes(6).toString('hex')) {
   const api = `${process.env.JUNO_SMOKE_API ?? 'http://127.0.0.1:3001'}/api`;
   const email = process.env.JUNO_TEST_DIRECTORATES_ADMIN_EMAIL;
   const password = process.env.JUNO_TEST_DIRECTORATES_ADMIN_PASSWORD;
   if (!email || !password) throw new Error('Bootstrap the dedicated synthetic directorate fixture in Compose.');
-  const suffix = randomBytes(6).toString('hex');
 
   async function signIn(credentials) {
     const response = await verifyStatus('Synthetic actor signs in', 200, () =>
@@ -52,7 +51,9 @@ async function fixtures(request) {
 
 test('directorate API enforces tenant scope, administrator writes and stable pagination', async ({ request }) => {
   test.setTimeout(60_000);
-  const { api, member, platform, signIn, tenant } = await fixtures(request);
+  const run = process.env.JUNO_TEST_DIRECTORATES_RUN;
+  if (!/^[a-f0-9]{12}$/.test(run ?? '')) throw new Error('The Compose validator must supply a directorate run ID.');
+  const { api, member, platform, signIn, tenant } = await fixtures(request, run);
   const own = await tenant('Atlas');
   const other = await tenant('Boreal');
   const administrator = await signIn(await member(own, 'administrator', 'atlas-admin'));
