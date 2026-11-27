@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { readJournal } from './events/journal.mjs';
+import { taskIdPattern } from './task-id.mjs';
 
 const sha = /^[0-9a-f]{40}$/;
 const isRevision = (value) => typeof value === 'string' && sha.test(value);
@@ -21,7 +22,7 @@ function verifyReservations(paths) {
 }
 
 export function verify(record, git, journal) {
-  if (!isRecord(record) || typeof record.task !== 'string' || !/^JUNO-\d{4}$/.test(record.task)) {
+  if (!isRecord(record) || typeof record.task !== 'string' || !taskIdPattern.test(record.task)) {
     throw new Error('Provide a JUNO task ID.');
   }
   const { base, head, reservedPaths, checks } = record;

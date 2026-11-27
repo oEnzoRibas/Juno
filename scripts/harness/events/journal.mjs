@@ -1,3 +1,5 @@
+import { taskIdPattern } from '../task-id.mjs';
+
 const identifier = /^[a-z][a-z0-9-]{0,63}$/;
 const digest = /^[0-9a-f]{64}$/;
 const revision = /^[0-9a-f]{40}$/;
@@ -62,7 +64,7 @@ function verifyEvent(event) {
     event.version === 1 &&
       matches(identifier, event.id) &&
       matches(identifier, event.run) &&
-      matches(/^JUNO-\d{4}$/, event.task) &&
+      matches(taskIdPattern, event.task) &&
       matches(revision, event.revision) &&
       sources[event.type].includes(event.source) &&
       matches(digest, event.evidenceDigest),

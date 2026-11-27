@@ -76,6 +76,13 @@ test('binds additive check provenance to the task, exact head, source, command a
     checks: [{ ...record.checks[0], provenance: { eventId: completed.id, source: 'local', evidenceDigest } }],
   };
   assert.equal(verify(receipt, fakeGit([]), parse(start, completed)).checkReceipts, 1);
+  const task = 'JUNO-0028-directorates';
+  const subtaskJournal = parse({ ...start, task }, { ...completed, task });
+  assert.equal(verify({ ...receipt, task }, fakeGit([]), subtaskJournal).checkReceipts, 1);
+  assert.throws(
+    () => verify({ ...receipt, task: 'JUNO-0028-directorates-review' }, fakeGit([]), subtaskJournal),
+    /matching observed/,
+  );
   assert.throws(() => verify(receipt, fakeGit([])), /matching observed/);
   assert.throws(() => verify(receipt, fakeGit([]), parse({ ...start, check: 'lint' }, completed)), /matching observed/);
   assert.throws(
