@@ -2,9 +2,9 @@
 
 ## Start every session
 
-1. Read [STATE](docs/development/STATE.md), [QUEUE](docs/development/QUEUE.md), and the [development protocol](docs/development/PROTOCOL.md). Inspect tracked, staged, and untracked changes. Preserve existing work and reconcile claims with evidence.
-2. Read the active task and related requirements, ADRs, security and testing docs. Resume its verified checkpoint. Register each new owner implementation request with a sequential ID, source requirements, dependencies and acceptance criteria. Append it in FIFO order and document any exception or blocker.
-3. Work documentation-first. Keep changes traceable to the task. Record significant decisions in ADRs and obtain required human approval. Follow the [Git workflow](docs/development/git-workflow.md). Use task branches, atomic Conventional Commits, scoped staging and focused PRs. Target main for independent work. Use native stacks for genuine dependencies where available, and mark locally validated work ready even while merge dependencies are open. Verify the authorized destination. Never push directly to main or merge without human approval.
+1. Check the current GitHub issue and PR, then read the task checkpoint and [coordination protocol](docs/development/agents/PROTOCOL.md) as needed. Use [QUEUE](docs/development/QUEUE.md) for the historical roadmap. Inspect tracked, staged, and untracked changes. Preserve existing work and reconcile claims with evidence.
+2. Read the active task and related requirements, ADRs, security and testing docs. Resume its verified checkpoint. Use the GitHub issue for scope, dependencies and acceptance criteria. Preserve established IDs and record an ordering exception there when applicable.
+3. Deliver the smallest change that meets the approved requirement. Reuse existing code and tools. Add a component only when an existing mechanism cannot meet a current requirement or correct an observed failure. Update affected documentation in the same delivery. Record significant decisions in ADRs and obtain required human approval. Follow the [Git workflow](docs/development/git-workflow.md). Use task branches, atomic Conventional Commits, scoped staging and focused PRs. Target main for independent work. Use native stacks for genuine dependencies where available, and mark locally validated work ready even while merge dependencies are open. Verify the authorized destination. Never push directly to main or merge without human approval.
 
 ## Worktree hygiene
 
@@ -19,7 +19,7 @@ Fetch the remote and keep the primary worktree on `main` fast-forwarded to `orig
 
 ## Coordination and task ownership
 
-For owner-authorized parallel work, read the [agent protocol](docs/development/agents/PROTOCOL.md) and verify the current [assignment registry](docs/development/agents/ASSIGNMENTS.md). Only Agent 01 controls IDs, assignments and the central queue. Use one isolated worktree per agent, honor reserved paths, and publish handoffs before changing a shared contract.
+For owner-authorized parallel work, read the [agent protocol](docs/development/agents/PROTOCOL.md) and verify the current [assignment registry](docs/development/agents/ASSIGNMENTS.md). During the approved pilot, Agent 00 coordinates GitHub backlog, assignments and integration. Agents 01–03 retain Core, Product and Platform ownership. Use isolated worktrees, verify reservations, and publish the shared contract before parallel writes.
 
 ## During implementation
 
@@ -37,7 +37,7 @@ For owner-authorized parallel work, read the [agent protocol](docs/development/a
 
 ## Handoff
 
-After meaningful milestones, validation and blockers, checkpoint the task and [STATE](docs/development/STATE.md) and log transitions in [WORKLOG](docs/development/WORKLOG.md). Persist changed files, decisions, security and tenant impact, actual checks and failures, limitations, remaining approvals, queue state, and the next action. Apply the [definition of done](docs/development/DEFINITION_OF_DONE.md) before closing a task.
+At each handoff or interruption, update the single execution checkpoint with exact Git revisions, checks, failures, blockers and the next action. GitHub records issue and PR dispositions. Preserve significant decisions and historical evidence. Apply the [definition of done](docs/development/DEFINITION_OF_DONE.md) before closing a task.
 
 ## Pull request readiness
 
@@ -47,4 +47,4 @@ Every executable PR must give a reproducible review entry point for its own head
 
 ## Issue linkage and labels
 
-Before creating an implementation branch, verify the registered task, issue, acceptance criteria and owner with Agent 01. Apply the shared labels and include the issue in the pull request. Follow the [issue and PR traceability workflow](docs/development/git-workflow.md#issue-and-pr-traceability). Keep review state and CI evidence current, and update an issue's disposition only after its verified closure criteria are satisfied.
+Before creating an implementation branch, verify the registered task, issue, acceptance criteria and owner with Agent 00 during the pilot. Apply the shared labels and include the issue in the pull request. Follow the [issue and PR traceability workflow](docs/development/git-workflow.md#issue-and-pr-traceability). Keep review state and CI evidence current, and update an issue's disposition only after its verified closure criteria are satisfied.

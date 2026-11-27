@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { createTranslator } from 'next-intl';
 import Link from 'next/link';
 import { messages } from '../../../content/messages';
+import { directorateMessages } from '../../../content/directorates';
 import { accountPath, localPath, type ShellLocale, type WorkspaceSummary } from './shell-data';
 import { ShellIcon, type ShellIconName } from './shell-icon';
 import { NavigationToggle, OrganizationSwitcher } from './shell-preferences';
@@ -14,7 +15,7 @@ interface ShellProps {
   current?: WorkspaceSummary;
   workspaces: WorkspaceSummary[];
   children: ReactNode;
-  section?: 'dashboard' | 'organizations' | 'account' | 'platform' | 'members' | 'settings';
+  section?: 'dashboard' | 'organizations' | 'account' | 'platform' | 'members' | 'settings' | 'directorates';
   localePath?: (locale: ShellLocale) => string;
   breadcrumbs?: Array<{ label: string; href?: string }>;
   additionalNavigation?: ReactNode;
@@ -109,6 +110,14 @@ export function ApplicationShell({
       <nav aria-label={t('workspaceNavigation')} className={styles.nav}>
         {mainLinks}
         {additionalNavigation}
+        {current && (
+          <NavigationLink
+            href={localPath('/workspace/' + current.id + '/directorates', locale)}
+            label={directorateMessages[locale].title}
+            icon="organization"
+            active={section === 'directorates'}
+          />
+        )}
         {dashboard && current?.role === 'administrator' && (
           <NavigationLink
             href={localPath('/workspace/' + current.id + '/settings', locale)}

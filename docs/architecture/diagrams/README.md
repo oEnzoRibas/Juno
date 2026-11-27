@@ -17,6 +17,8 @@
 
 ## Development workflow
 
+- [Experimental orchestration operating model](development/orchestration/experimental-operating-model.md)
+
 - [Stacked pull request workflow](development/juno-stacked-pull-request-workflow.md)
 - [Multi-agent development architecture](development/juno-multi-agent-development-architecture.md)
 - [Multi-agent coordination workflow](development/juno-multi-agent-coordination-workflow.md)
