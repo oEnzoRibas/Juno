@@ -146,11 +146,19 @@ test('directorate screen supports keyboard creation on mobile and read-only acce
     await target.getByRole('button', { name: copy.signIn, exact: true }).click();
     await expect(target).toHaveURL(`/session${query}`);
     await target.getByRole('link', { name: organization.name, exact: true }).click();
+    await expect(target).toHaveURL(`/workspace/${organization.id}${query}`);
     let navigation = target.getByRole('navigation');
     if (copy.openNavigation) {
       const toggle = target.getByRole('button', { name: copy.openNavigation });
-      await toggle.press('Enter');
-      navigation = target.getByRole('dialog', { name: copy.openNavigation }).getByRole('navigation');
+      const drawer = target.getByRole('dialog', { name: copy.openNavigation });
+      await expect(async () => {
+        if (!(await drawer.isVisible())) {
+          await toggle.focus();
+          await target.keyboard.press('Enter');
+        }
+        await expect(drawer).toBeVisible({ timeout: 500 });
+      }).toPass({ timeout: 5000 });
+      navigation = drawer.getByRole('navigation');
     }
     const link = navigation.getByRole('link', { name: copy.heading, exact: true });
     await link.focus();
