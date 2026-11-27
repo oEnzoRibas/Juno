@@ -33,7 +33,7 @@ beforeEach(() => {
 
 test('creates with trimmed display spelling and refreshes the scoped list only on 201', async () => {
   mocks.request.mockResolvedValue(new Response('{}', { status: 201 }));
-  expect(await create('  Produção  ')).toEqual({ status: 'created' });
+  expect(await create('\t Produção \n')).toEqual({ status: 'created' });
   expect(mocks.request).toHaveBeenCalledWith(
     'tenants/' + id + '/directorates',
     expect.objectContaining({
@@ -45,7 +45,7 @@ test('creates with trimmed display spelling and refreshes the scoped list only o
   expect(mocks.revalidate).toHaveBeenCalledWith('/workspace/' + id + '/directorates');
 });
 test('respects the Unicode code point limit and rejects controls and malformed surrogates', async () => {
-  for (const value of ['', '  ', 'x'.repeat(121), 'a\n', 'a\0']) {
+  for (const value of ['', '  ', 'x'.repeat(121), 'a\nb', 'a\0']) {
     expect(await create(value)).toEqual({ status: 'invalid' });
   }
   expect(mocks.request).not.toHaveBeenCalled();
