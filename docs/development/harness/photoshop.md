@@ -19,3 +19,11 @@ The local application executed without a purchase or cloud call. Account subscri
 [Adobe UXP scripting](https://developer.adobe.com/photoshop/uxp/ps_reference/media/uxpscripting/) · [Adobe batchPlay](https://developer.adobe.com/photoshop/uxp/ps_reference/media/batchplay/)
 
 Agent 02 used Codex to author and run the local proof. Synthetic geometry has no external artwork dependency.
+
+## Cleanup correction and regression evidence
+
+After synchronization with main c83a5469bd6250ffab595cee1653740db308c1e1, the PowerShell runner loads the fixed local cleanup helper before the proof. The helper attempts proof close, ruler-unit restoration, dialog restoration and the initial active-document selection independently. Each failure is retained in an error report; an earlier proof failure is included when cleanup also fails. It only attempts to close the document created by the proof. Existing user documents are never closed or saved by cleanup.
+
+Eight Node/Vitest cases exercise normal restoration, each individual failure, simultaneous failures, a create interrupted before a document exists and retention of the original proof error. They execute the actual JSX helper in a sandbox with mock Photoshop objects. Full repository tests passed (52 cases). An initial empty-array parameterization failed in the test runner and was corrected to named case objects before the final pass.
+
+The fresh native proof on this corrected revision was blocked by automatic execution approval review. The stated risk was that COM changes application preferences and opens, saves and closes documents while the reviewer could not establish authorization for the live operation. The saved native Photoshop 28.0.0 receipts above belong to the original implementation. They establish the original document round trip. They do not qualify the new cleanup helper against live Photoshop failures. Repeat the bounded PowerShell command in an authorized desktop session to close this gate.

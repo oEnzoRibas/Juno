@@ -8,7 +8,8 @@ if (-not $parent.PSIsContainer) { throw 'Choose an existing creative workspace d
 $run = Join-Path $parent.FullName ('proof-' + [guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $run -ErrorAction Stop | Out-Null
 $app = New-Object -ComObject Photoshop.Application
-$script = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'proof.jsx') -Raw
+$cleanup = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'cleanup.jsx') -Raw
+$script = $cleanup + "`n" + (Get-Content -LiteralPath (Join-Path $PSScriptRoot 'proof.jsx') -Raw)
 # Encode the path as JSON data. Only the checked-in JSX is executable.
 $literal = ConvertTo-Json -Compress -InputObject $run
 $result = $app.DoJavaScript("var proofOutput = $literal;`n" + $script)

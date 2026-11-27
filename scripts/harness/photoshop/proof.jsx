@@ -3,6 +3,7 @@
   var s = stringIDToTypeID;
   var c = charIDToTypeID;
   var doc;
+  var failure;
   var original = app.documents.length ? app.activeDocument : null;
   var oldDialogs = app.displayDialogs;
   var oldUnits = app.preferences.rulerUnits;
@@ -154,10 +155,10 @@
       throw Error('Edited component failed round trip.');
     doc.saveAs(image, new PNGSaveOptions(), true, Extension.LOWERCASE);
     return 'PASS 384x384 sRGB; Study/Body solid vector shape; clipped Violet lighting gradient; Construction triangle path; embedded Beacon visible and translated 18px after two native reopens.';
+  } catch (error) {
+    failure = error;
+    throw error;
   } finally {
-    if (doc) doc.close(SaveOptions.DONOTSAVECHANGES);
-    app.preferences.rulerUnits = oldUnits;
-    app.displayDialogs = oldDialogs;
-    if (original) app.activeDocument = original;
+    junoRestoreProof(doc, app, original, oldUnits, oldDialogs, failure);
   }
 })();
