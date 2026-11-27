@@ -18,7 +18,9 @@ function pathKey(path) {
   assert(
     parts.every(
       (p) =>
-        /^[\w.@+-][\w.@+ -]*$/u.test(p) &&
+        p.length > 0 &&
+        !/[\\:*?"<>|]/u.test(p) &&
+        [...p].every((character) => character.charCodeAt(0) >= 32 && character.charCodeAt(0) !== 127) &&
         !/[. ]$/.test(p) &&
         !/^(con|prn|aux|nul|com[0-9]|lpt[0-9])(\.|$)/i.test(p) &&
         !p.includes('~') &&

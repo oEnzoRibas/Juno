@@ -9,6 +9,12 @@ function scenario(change = () => {}) {
   return plan(graph, vi.fn());
 }
 describe('task allocation', () => {
+  it('accepts literal Next.js route groups and dynamic segments', () => {
+    const result = scenario((g, a) => {
+      a.reservedPaths = ['apps/web/src/app/(shell)/[organization]/'];
+    });
+    expect(result.batch).toContain(fixture.tasks[0].id);
+  });
   it('computes a FIFO compatible batch and a dependency-only weighted critical path', () => {
     const [a, b, c] = fixture.tasks;
     const result = scenario();
