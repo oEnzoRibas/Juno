@@ -1,0 +1,31 @@
+{
+  "id": "JUNO-0055-shell",
+  "objective": "Investigate focus return when closing the mobile workspace drawer.",
+  "owner": "JUNO-AGENT-02",
+  "baseRevision": "a75e7dcca90d4868302e0b558da29d48f643a4fe",
+  "state": "assigned",
+  "recovery": "Reassemble this package and rerun the narrow keyboard scenario.",
+  "reservedPaths": ["apps/web/src/app/(shell)/_components/"],
+  "readOnlyInputs": [
+    "AGENTS.md",
+    "docs/development/STATE.md",
+    "docs/development/QUEUE.md",
+    "docs/development/PROTOCOL.md",
+    "docs/development/agents/ASSIGNMENTS.md",
+    "docs/design/design-system-v2-implementation.md",
+    "apps/web/src/app/(shell)/_components/application-shell.tsx",
+    "tests/browser/application-shell.spec.mjs",
+    "docs/architecture/adr/0001-tenant-data-isolation.md"
+  ],
+  "dependencies": [],
+  "estimate": 1,
+  "resources": [],
+  "requirements": ["Preserve EN and pt-BR labels and server-verified workspace access."],
+  "expectedArtifacts": ["Record an isolated mobile focus reproduction and propose a minimal change."],
+  "skills": [],
+  "tools": ["git", "node"],
+  "acceptanceCriteria": ["Opening and closing the drawer returns focus to its trigger at 320 CSS pixels."],
+  "validation": ["Verify keyboard focus and overlay bounds in both locales at 320 and 390 CSS pixels."],
+  "permissions": ["Read-only synthetic evaluation. No product mutation, publication or merge."],
+  "blockers": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "JUNO-0055",
+  "objective": "Resume a synthetic interrupted review of the workspace settings page using a prior checkpoint.",
+  "owner": "JUNO-AGENT-02",
+  "baseRevision": "a75e7dcca90d4868302e0b558da29d48f643a4fe",
+  "state": "interrupted",
+  "recovery": "Rebuild this package, verify the checkpoint and read the settings handoff.",
+  "reservedPaths": ["tests/browser/organization-profile-ui.spec.mjs"],
+  "readOnlyInputs": [
+    "AGENTS.md",
+    "docs/development/STATE.md",
+    "docs/development/QUEUE.md",
+    "docs/development/PROTOCOL.md",
+    "docs/development/agents/ASSIGNMENTS.md",
+    "docs/development/agents/agent-02/handoffs/JUNO-0028-organization-profile-ui.md",
+    "apps/web/src/app/(shell)/workspace/[id]/settings/page.tsx",
+    "tests/browser/organization-profile-ui.spec.mjs",
+    "docs/architecture/adr/0001-tenant-data-isolation.md"
+  ],
+  "dependencies": [],
+  "estimate": 1,
+  "resources": [],
+  "requirements": ["Keep tenant denial and language return-path coverage visible."],
+  "expectedArtifacts": ["Produce a handoff listing confirmed coverage, open checks and the next scoped test."],
+  "skills": [],
+  "tools": ["git", "node"],
+  "acceptanceCriteria": ["Identify outstanding review gates without converting an unexecuted check into a pass."],
+  "validation": ["Compare checkpoint head to checkout and inspect individual check receipts before resuming."],
+  "permissions": ["Read-only synthetic evaluation. No product mutation, publication or merge."],
+  "blockers": ["Independent exact-head review of this synthetic case is outstanding."]
+}

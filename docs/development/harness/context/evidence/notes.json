@@ -1,0 +1,8 @@
+{
+  "blockers": [
+    "No product checks executed in this dry run."
+  ],
+  "nextSteps": [
+    "Read the scoped handoff and execute the first outstanding check."
+  ]
+}
