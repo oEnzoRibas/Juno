@@ -138,11 +138,12 @@ test('directorate screen supports keyboard creation on mobile and read-only acce
   const path = `/workspace/${organization.id}/directorates`;
 
   async function visit(target, credentials, copy) {
-    await target.goto(`/sign-in?lang=${copy.locale}`);
+    const query = copy.locale === 'pt-BR' ? '?lang=pt-BR' : '';
+    await target.goto(`/sign-in${query}`);
     await target.getByLabel(copy.email, { exact: true }).fill(credentials.email);
     await target.getByLabel(copy.password, { exact: true }).fill(credentials.password);
     await target.getByRole('button', { name: copy.signIn, exact: true }).click();
-    await expect(target).toHaveURL(new RegExp(`/session\\?lang=${copy.locale}$`));
+    await expect(target).toHaveURL(`/session${query}`);
     await target.getByRole('link', { name: organization.name, exact: true }).click();
     let navigation = target.getByRole('navigation');
     if (copy.openNavigation) {
@@ -154,7 +155,7 @@ test('directorate screen supports keyboard creation on mobile and read-only acce
     await link.focus();
     await expect(link).toBeFocused();
     await target.keyboard.press('Enter');
-    await expect(target).toHaveURL(`${path}?lang=${copy.locale}`);
+    await expect(target).toHaveURL(`${path}${query}`);
     await expect(target.getByRole('heading', { name: copy.heading, exact: true })).toBeVisible();
   }
 
