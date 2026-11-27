@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Juno Independent Review'
+  short_description: 'Verify and report independent Juno QA'
+  default_prompt: 'Use $juno-independent-review to qualify the pinned Juno candidate independently.'

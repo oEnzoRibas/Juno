@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Juno Review Environment'
+  short_description: 'Run isolated exact-revision Juno reviews'
+  default_prompt: 'Use $juno-review-environment to start or test an isolated Juno review.'
