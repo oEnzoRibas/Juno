@@ -1,0 +1,24 @@
+{
+  "variant": "control",
+  "delivery": "noSkillInput",
+  "completed": true,
+  "methods": [
+    "userMessage",
+    "agentMessage"
+  ],
+  "usage": {
+    "elapsedMs": 3489,
+    "inputTokens": 18390,
+    "outputTokens": 6,
+    "skillContextTokens": null,
+    "toolCalls": 0,
+    "humanInterventions": 0,
+    "recoveryAttempts": 0
+  },
+  "response": null,
+  "final": "unavailable",
+  "model": "gpt-6.2-sol",
+  "effort": "medium",
+  "catalogVerification": true,
+  "visibleSkillEvent": false
+}

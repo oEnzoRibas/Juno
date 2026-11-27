@@ -1,0 +1,44 @@
+{
+  "id": "tenant-isolation",
+  "task": "Triage the synthetic authorization report and decide whether the tenant boundary is intact. Use the explicit expectations and observations. Return one JSON object using the response fields.",
+  "artifacts": {
+    "policy": "An empty or neutral denial is required when the authenticated principal belongs only to the other organization. A successful scoped positive control does not establish isolation.",
+    "setup": {
+      "tenantAlphaMember": "actor-alpha",
+      "tenantBetaMember": "actor-beta",
+      "recordAlpha": "record-alpha"
+    },
+    "checks": [
+      {
+        "id": "alpha-positive",
+        "actor": "actor-alpha",
+        "resource": "record-alpha",
+        "expectedStatus": 200,
+        "actualStatus": 200,
+        "returnedResource": "record-alpha"
+      },
+      {
+        "id": "beta-negative",
+        "actor": "actor-beta",
+        "resource": "record-alpha",
+        "expectedStatus": 404,
+        "actualStatus": 200,
+        "returnedResource": "record-alpha"
+      },
+      {
+        "id": "anonymous-negative",
+        "actor": "anonymous",
+        "resource": "record-alpha",
+        "expectedStatus": 401,
+        "actualStatus": 401,
+        "returnedResource": null
+      }
+    ],
+    "reportSummary": "All HTTP requests returned responses."
+  },
+  "responseFields": {
+    "regressions": "Array of check IDs with observed cross-tenant authorization regressions.",
+    "releaseDisposition": "One of ready, block-release, or unknown.",
+    "evidence": "One of scoped-positive-only, cross-tenant-record-returned, or no-observations."
+  }
+}

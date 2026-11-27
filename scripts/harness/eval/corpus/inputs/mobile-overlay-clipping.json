@@ -1,0 +1,39 @@
+{
+  "id": "mobile-overlay-clipping",
+  "task": "Review synthetic V2 overlay measurements. Detect where the primary action is unreachable and distinguish unmeasured behavior. Return one JSON object using the response fields.",
+  "artifacts": {
+    "policy": "An in-flow action is reachable if its bottom is within the viewport or its container can scroll to reveal it. Escape should close the dialog and return focus to its trigger.",
+    "observations": [
+      {
+        "viewportWidth": 320,
+        "viewportHeight": 568,
+        "primaryActionBottom": 602,
+        "containerCanRevealByScroll": false,
+        "escapeCloses": true,
+        "focusRestored": null
+      },
+      {
+        "viewportWidth": 390,
+        "viewportHeight": 740,
+        "primaryActionBottom": 701,
+        "containerCanRevealByScroll": false,
+        "escapeCloses": true,
+        "focusRestored": true
+      },
+      {
+        "viewportWidth": 768,
+        "viewportHeight": 870,
+        "primaryActionBottom": 721,
+        "containerCanRevealByScroll": false,
+        "escapeCloses": true,
+        "focusRestored": true
+      }
+    ],
+    "desktopScreenshotReviewed": true
+  },
+  "responseFields": {
+    "clippedWidths": "Array of affected widths as integers.",
+    "focusAt320": "One of verified, failed, or unmeasured.",
+    "mobileDisposition": "One of pass, fix-and-retest, or unknown."
+  }
+}

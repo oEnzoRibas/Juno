@@ -1,0 +1,27 @@
+{
+  "id": "incorrect-test-success",
+  "task": "Reconcile the synthetic test claim with its actual revision, exit code and scope. Return one JSON object using the response fields.",
+  "artifacts": {
+    "policy": "Distinguish tool scope, exit status, and exact revision. An older hosted result or a partial new command does not qualify the new head.",
+    "currentHead": "4444444444444444444444444444444444444444",
+    "priorCi": {
+      "sha": "5555555555555555555555555555555555555555",
+      "conclusion": "success",
+      "scope": "full-suite"
+    },
+    "currentRun": {
+      "sha": "4444444444444444444444444444444444444444",
+      "exitCode": 1,
+      "passed": ["lint", "types"],
+      "failed": ["compose-sql"],
+      "notRun": ["browser"]
+    },
+    "draftSummary": "All checks and browser tests passed on the current head."
+  },
+  "responseFields": {
+    "currentRunStatus": "One of passed, failed, or unknown.",
+    "failureId": "Exact failing current check ID.",
+    "browserStatus": "One of passed, failed, or not-run.",
+    "hostedRelevance": "One of exact-head, historical-only, or unknown."
+  }
+}

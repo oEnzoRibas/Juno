@@ -1,0 +1,38 @@
+{
+  "id": "design-system-consistency",
+  "task": "Review the synthetic design deltas against approved V2 guidance and distinguish declared variants from regressions. Return one JSON object using the response fields.",
+  "artifacts": {
+    "approved": {
+      "controls": "Use shared ActionButton and semantic action and focus tokens for ordinary form actions.",
+      "documentedVariant": "Desktop shell allows a compact rail preference. That variant is approved."
+    },
+    "candidate": [
+      {
+        "id": "settings-submit",
+        "component": "inline-button",
+        "actionColor": "#1664FF",
+        "focusToken": null
+      },
+      {
+        "id": "settings-cancel",
+        "component": "ActionButton",
+        "actionColor": "var(--action)",
+        "focusToken": "var(--focus)"
+      },
+      {
+        "id": "rail-desktop-compact",
+        "component": "ShellRail",
+        "variant": "approved-compact"
+      }
+    ],
+    "screenshots": {
+      "light": true,
+      "dark": false
+    }
+  },
+  "responseFields": {
+    "inconsistencies": "Array of IDs with design inconsistencies.",
+    "approvedVariant": "ID of the documented candidate variant.",
+    "darkThemeEvidence": "One of verified, failed, or unmeasured."
+  }
+}
