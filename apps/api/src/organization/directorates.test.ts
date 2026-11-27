@@ -100,4 +100,14 @@ describe('organization directorates', () => {
     f.execute.mockRejectedValueOnce(unexpected);
     await expect(f.controller.list(bearer, tenant)).rejects.toBe(unexpected);
   });
+
+  it.each(['Connection terminated due to connection timeout', 'Connection terminated unexpectedly'])(
+    'maps the PostgreSQL driver error %s to 503 during session lookup',
+    async (message) => {
+      const f = fixture(null);
+      f.identity.mockRejectedValueOnce(new Error('query failed', { cause: new Error(message) }));
+      await expect(f.controller.list(bearer, tenant)).rejects.toMatchObject({ status: 503 });
+      expect(f.transaction).not.toHaveBeenCalled();
+    },
+  );
 });

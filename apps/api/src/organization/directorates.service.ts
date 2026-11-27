@@ -27,12 +27,18 @@ const disconnected = new Set([
   '57P03',
 ]);
 
+const driverDisconnectMessages = new Set([
+  'timeout exceeded when trying to connect',
+  'Connection terminated due to connection timeout',
+  'Connection terminated unexpectedly',
+]);
+
 function databaseUnavailable(error: unknown): boolean {
   // Drizzle wraps driver failures as causes. Unexpected query errors stay distinguishable.
   for (let failure = error; failure instanceof Error; failure = failure.cause) {
     const code = 'code' in failure ? failure.code : undefined;
     if (typeof code === 'string' && (code.startsWith('08') || disconnected.has(code))) return true;
-    if (failure.message === 'timeout exceeded when trying to connect') return true;
+    if (driverDisconnectMessages.has(failure.message)) return true;
   }
   return false;
 }
