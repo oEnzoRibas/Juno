@@ -51,7 +51,7 @@ export function accountWorkspaceReturn(workspace: string, locale: ShellLocale, r
   const [path, search] = returnTo.split('?');
   if (!path.startsWith(root + '/')) return localPath(root, locale);
   const section = path.slice(root.length);
-  if (!/^\/(?:members(?:\/[a-f0-9-]{36})?|settings)$/i.test(section)) return localPath(root, locale);
+  if (!/^\/(?:members(?:\/[a-f0-9-]{36})?|settings|directorates)$/i.test(section)) return localPath(root, locale);
   const params = new URLSearchParams(search);
   if (locale === 'pt-BR') params.set('lang', locale);
   else params.delete('lang');

@@ -1,14 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { assertDistinctReviewAdministrators, schema8SqlFixtures } from './schema8-regression-contract.mjs';
+import { assertDistinctReviewAdministrators, runtimeSqlFixtures } from './schema8-regression-contract.mjs';
 
-describe('schema 8 Compose regression contract', () => {
+describe('Compose regression contract', () => {
   it('executes each base and feature SQL fixture once, in migration order', () => {
-    expect(schema8SqlFixtures).toEqual([
+    expect(runtimeSqlFixtures).toEqual([
       'tenant-isolation.sql',
       'invitation-expiry.sql',
       'onboarding-audit.sql',
       'member-directory.sql',
       'organization-profile.sql',
+      'directorates.sql',
     ]);
   });
 
