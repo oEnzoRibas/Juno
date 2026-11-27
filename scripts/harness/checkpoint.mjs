@@ -1,6 +1,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { readJournal } from './events/journal.mjs';
 
 const sha = /^[0-9a-f]{40}$/;
 const isRevision = (value) => typeof value === 'string' && sha.test(value);
@@ -19,7 +20,7 @@ function verifyReservations(paths) {
   }
 }
 
-export function verify(record, git) {
+export function verify(record, git, journal) {
   if (!isRecord(record) || typeof record.task !== 'string' || !/^JUNO-\d{4}$/.test(record.task)) {
     throw new Error('Provide a JUNO task ID.');
   }
@@ -41,7 +42,10 @@ export function verify(record, git) {
       throw new Error('Check receipts need unique names.');
     }
     names.add(check.name);
-    if (check.status === 'not-run' && check.head === null && check.exitCode === null) continue;
+    if (check.status === 'not-run' && check.head === null && check.exitCode === null) {
+      if (Object.hasOwn(check, 'provenance')) throw new Error('An unexecuted check cannot reference a completion.');
+      continue;
+    }
     if (
       !['passed', 'failed'].includes(check.status) ||
       check.head !== head ||
@@ -57,16 +61,37 @@ export function verify(record, git) {
     ) {
       throw new Error(`Inconsistent exit code or missing evidence for ${check.name}.`);
     }
+    if (Object.hasOwn(check, 'provenance')) {
+      const { provenance } = check;
+      const event = journal?.events.get(provenance?.eventId);
+      if (
+        !isRecord(provenance) ||
+        Object.keys(provenance).length !== 3 ||
+        event?.type !== 'validation.completed' ||
+        event.task !== record.task ||
+        event.revision !== head ||
+        event.source !== provenance.source ||
+        event.exitCode !== check.exitCode ||
+        event.evidenceDigest !== provenance.evidenceDigest ||
+        journal.starts.get(event.start).check !== check.name ||
+        journal.latest.get(event.source + ':' + check.name) !== event.id
+      ) {
+        throw new Error('Check provenance requires a matching observed validation completion.');
+      }
+    }
   }
   return { task: record.task, base, head, touchedPaths: touched.length, checkReceipts: names.size };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
-    if (process.argv.length !== 3) throw new Error('Usage: node scripts/harness/checkpoint.mjs <checkpoint.json>');
+    if (![3, 4].includes(process.argv.length)) {
+      throw new Error('Usage: node scripts/harness/checkpoint.mjs <checkpoint.json> [journal.jsonl]');
+    }
     const record = JSON.parse(readFileSync(process.argv[2], 'utf8'));
     const git = (...args) => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
-    console.info(JSON.stringify(verify(record, git), null, 2));
+    const journal = process.argv[3] ? readJournal(readFileSync(process.argv[3], 'utf8')) : undefined;
+    console.info(JSON.stringify(verify(record, git, journal), null, 2));
   } catch (error) {
     console.error(error.message);
     process.exitCode = 1;
