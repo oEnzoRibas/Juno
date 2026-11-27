@@ -189,7 +189,9 @@ test('directorate screen supports keyboard creation on mobile and read-only acce
 
   await field.fill(name.toLowerCase());
   await field.press('Enter');
-  await expect(page.getByRole('alert')).toContainText('Já existe uma diretoria com esse nome');
+  await expect(page.getByRole('region', { name: 'Criar diretoria' }).getByRole('alert')).toContainText(
+    'Já existe uma diretoria com esse nome',
+  );
   await expect(field).toHaveAttribute('aria-invalid', 'true');
   await expect(field).toHaveAccessibleDescription(/Já existe uma diretoria/);
 
