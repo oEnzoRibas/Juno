@@ -20,7 +20,11 @@ function verifyReservations(paths) {
 }
 
 export function verify(record, git) {
-  if (!isRecord(record) || typeof record.task !== 'string' || !/^JUNO-\d{4}$/.test(record.task)) {
+  if (
+    !isRecord(record) ||
+    typeof record.task !== 'string' ||
+    !/^JUNO-[0-9]{4}(?:-[a-z][a-z0-9-]*)?$/.test(record.task)
+  ) {
     throw new Error('Provide a JUNO task ID.');
   }
   const { base, head, reservedPaths, checks } = record;

@@ -42,3 +42,9 @@ test('rejects a colliding prefix and a historical or false green result', () => 
     /Inconsistent/,
   );
 });
+
+test('accepts a work package ID in the same receipt and rejects malformed IDs', () => {
+  const task = 'JUNO-0028-teams';
+  assert.equal(verify({ ...record, task }, fakeGit(['docs/team.md'])).task, task);
+  assert.throws(() => verify({ ...record, task: 'JUNO-0028-../teams' }, fakeGit([])), /task ID/);
+});
