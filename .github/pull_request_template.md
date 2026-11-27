@@ -41,6 +41,10 @@ Identify pending decisions, excluded behavior, blockers and remaining validation
 - [ ] Review applicable visual evidence and the actual test and CI results.
 - [ ] Confirm human gates, dependencies, security, attribution and documentation before approving integration.
 
+## Architecture and research impact
+
+Record changes to architecture, responsibilities, orchestration, skills, tools or models, and identify any research evidence. Link the affected technical docs and editable diagrams, embed the relevant render, and pin separate research records to the PR and commit when applicable.
+
 ## Development traceability
 
 - Canonical JUNO task and GitHub issue: `Refs #N` for a partial or stacked delivery. Use `Closes #N` only for the complete verified scope.
