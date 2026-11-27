@@ -13,3 +13,7 @@ The [organizational cycle handoff](agents/agent-01/handoffs/juno-organizational-
 Completed [directory query and profile API](agents/agent-01/handoffs/juno-organizational-cycle.md) as review-stage increments. The [integration record](history/JUNO-0034-shell-candidate.md) preserves exact test and recovery evidence. Continue independent QA and frontend from the released revisions. Core lifecycle transitions and delegated roles need policy before implementation.
 
 The [integration consolidation](history/JUNO-0034-integration-consolidation.md) preserves the database recovery evidence, original batches and formatting cutover. Its [current synchronization checkpoint](history/JUNO-0034-integration-consolidation.md#remaining-review-checkpoint) records main `1bed5952bc121b45d2be4e998ae1d256473919e9`. Stack #42 and #54, #109 and #111 are integrated. The [historical Organization Management candidate](uat-organization-candidate.md) uses its own database. Acceptance of #37 and any adapted frontend composition remains pending.
+
+## Advanced harness checkpoint
+
+The maintainer prioritized [JUNO-0055](tasks/JUNO-0055.md) at main `a75e7dcca90d4868302e0b558da29d48f643a4fe`. Follow the registry and the exact revisions in issue #128. The nine first-intervention deliveries were open at intake. The matched SQL pilot scored 4/4 in each arm. Wider throughput and behavioral routing still require measurements.

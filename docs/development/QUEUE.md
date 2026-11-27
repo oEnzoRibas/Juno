@@ -61,3 +61,7 @@ See the [history index](history/README.md). IDs are never reused.
 ## Reproducible review correction
 
 The maintainer's independent PR #40 findings authorize a parallel correction without changing product dependencies or provider order. In registered order: [JUNO-0041](tasks/JUNO-0041.md) isolated review tooling, [JUNO-0042](tasks/JUNO-0042.md) build provenance and review protocol, and [JUNO-0043](tasks/JUNO-0043.md) runtime information UI. [Reservations and dependencies](agents/ASSIGNMENTS.md#reproducible-review-and-runtime-identification) govern parallel work.
+
+## Advanced harness intervention
+
+The maintainer explicitly prioritized [JUNO-0055](tasks/JUNO-0055.md) over new product and branding work. Track adoption separately from review-stage deliveries.
