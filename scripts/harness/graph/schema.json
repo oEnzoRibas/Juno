@@ -1,0 +1,220 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Juno task graph",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "concurrency", "tasks"],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "concurrency": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 32
+    },
+    "tasks": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^JUNO-[0-9]{4}(?:-[a-z][a-z0-9-]*)?$"
+          },
+          "objective": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "owner": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "baseRevision": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{40}$"
+          },
+          "state": {
+            "enum": [
+              "assigned",
+              "acknowledged",
+              "executing",
+              "paused",
+              "interrupted",
+              "blocked",
+              "awaiting-review",
+              "completed"
+            ]
+          },
+          "recovery": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "dependencies": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "^JUNO-[0-9]{4}(?:-[a-z][a-z0-9-]*)?$"
+            }
+          },
+          "estimate": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000
+          },
+          "requirements": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "expectedArtifacts": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "validation": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "acceptanceCriteria": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "permissions": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "blockers": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "resources": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "reservedPaths": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "readOnlyInputs": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "skills": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "tools": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 0,
+            "items": {
+              "type": "string",
+              "pattern": "\\S"
+            }
+          },
+          "checkpoint": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["revision", "ref", "evidence"],
+            "properties": {
+              "revision": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "ref": {
+                "type": "string",
+                "pattern": "^refs/remotes/origin/[A-Za-z0-9._/-]+$"
+              },
+              "evidence": {
+                "type": "string",
+                "pattern": "^https://[^\\s]+$"
+              }
+            }
+          },
+          "dependencyPins": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{40}$"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "objective",
+          "owner",
+          "baseRevision",
+          "state",
+          "recovery",
+          "dependencies",
+          "estimate",
+          "requirements",
+          "expectedArtifacts",
+          "validation",
+          "acceptanceCriteria",
+          "permissions",
+          "blockers",
+          "resources",
+          "reservedPaths",
+          "readOnlyInputs",
+          "skills",
+          "tools"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}
