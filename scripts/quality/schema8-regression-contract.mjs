@@ -1,9 +1,10 @@
-export const schema8SqlFixtures = Object.freeze([
+export const runtimeSqlFixtures = Object.freeze([
   'tenant-isolation.sql',
   'invitation-expiry.sql',
   'onboarding-audit.sql',
   'member-directory.sql',
   'organization-profile.sql',
+  'directorates.sql',
 ]);
 
 export function assertDistinctReviewAdministrators(primary, profile) {

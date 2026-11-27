@@ -1,14 +1,14 @@
 # Development queue
 
-This is the authoritative task order for Juno. The [assignment registry](agents/ASSIGNMENTS.md) governs active ownership, path reservations and parallel execution. Linked task records are authoritative for lifecycle status and blockers. [STATE.md](STATE.md) records resumption instructions. [WORKLOG.md](WORKLOG.md) records significant transitions.
+This index preserves the approved roadmap, task IDs and dependency-aware order. During the pilot, Agent 00 uses [GitHub Issues](https://github.com/oEnzoRibas/Juno/issues) for live scope, dependencies and priority, and [pull requests](https://github.com/oEnzoRibas/Juno/pulls) for delivery disposition. The [coordination protocol](agents/PROTOCOL.md) defines one checkpoint per execution. Existing task records preserve history.
 
 ## Integrated baseline
 
-The approved foundation landed at `3053a7beab1ec657305634c77df46efe4ec472f1`. The [post-UAT handoff](agents/agent-01/handoffs/juno-organizational-cycle.md) records the active and successor claims. Platform regression and shell integrations #36 and #37 remain under review. Preserve the optional provider ordering.
+The approved foundation landed at `3053a7beab1ec657305634c77df46efe4ec472f1`. The [post-UAT handoff](agents/agent-01/handoffs/juno-organizational-cycle.md) records the active and successor claims. Platform regression #36 and the application shell #37 are integrated. Preserve the optional provider ordering.
 
 ## Active
 
-[JUNO-0028 — Organizational management foundation](tasks/JUNO-0028.md) has a validated [member directory increment](https://github.com/oEnzoRibas/Juno/pull/40) awaiting review. Core delivered member filters, detail and the auditable organization profile API in [#41 and #45](https://github.com/oEnzoRibas/Juno/pull/45). Membership lifecycle and delegated directorate authority need confirmed policy. Agent 02 and Agent 03 have released [parallel assignments](agents/agent-01/handoffs/juno-organizational-cycle.md).
+[JUNO-0028 — Organizational management foundation](tasks/JUNO-0028.md) includes the merged [member directory increment](https://github.com/oEnzoRibas/Juno/pull/40). The approved next vertical increment is [directorate listing and creation](https://github.com/oEnzoRibas/Juno/issues/89). Core delivered member filters, detail and the auditable organization profile API in [#41 and #45](https://github.com/oEnzoRibas/Juno/pull/45). Membership lifecycle and delegated directorate authority need confirmed policy. Agent 02 and Agent 03 have released [parallel assignments](agents/agent-01/handoffs/juno-organizational-cycle.md).
 
 [JUNO-0038 — Independent self-hosted distribution](tasks/JUNO-0038.md) is released alongside organization management. Dependencies and reservations are in the distribution handoff.
 
@@ -29,9 +29,7 @@ The [Phase 1 dependency graph](phase-1-dependencies.md) records the owner-author
 
 ## Under review
 
-- [JUNO-0022](tasks/JUNO-0022.md), integrated workflow in #31 and remaining [audit regression #36](https://github.com/oEnzoRibas/Juno/pull/36).
-- [JUNO-0027](tasks/JUNO-0027.md), [application shell #37](https://github.com/oEnzoRibas/Juno/pull/37), owned by Agent 02. The maintainer's V2 playground approval releases implementation. The [handoff](agents/agent-01/handoffs/juno-0027-v2-implementation.md) defines independent QA and the stable V2 adoption gate for #43, #48 and #51.
-- [Maintainer acceptance and protocol #38](https://github.com/oEnzoRibas/Juno/pull/38), including the pinned UAT record and alpha gates.
+See the [open PRs](https://github.com/oEnzoRibas/Juno/pulls) for actual review state. The integrated [#38 acceptance record](https://github.com/oEnzoRibas/Juno/pull/38) preserves its pinned UAT and alpha gates.
 
 ## Integrated scope
 
