@@ -1,0 +1,47 @@
+[
+  {
+    "path": "AGENTS.md",
+    "mode": "reference",
+    "reason": "Required session entry point; read at the pinned revision."
+  },
+  {
+    "path": "docs/development/STATE.md",
+    "mode": "reference",
+    "reason": "Required session entry point; read at the pinned revision."
+  },
+  {
+    "path": "docs/development/QUEUE.md",
+    "mode": "reference",
+    "reason": "Required session entry point; read at the pinned revision."
+  },
+  {
+    "path": "docs/development/PROTOCOL.md",
+    "mode": "reference",
+    "reason": "Required session entry point; read at the pinned revision."
+  },
+  {
+    "path": "docs/development/agents/ASSIGNMENTS.md",
+    "mode": "reference",
+    "reason": "Required session entry point; read at the pinned revision."
+  },
+  {
+    "path": "docs/development/agents/agent-02/handoffs/JUNO-0028-organization-profile-ui.md",
+    "mode": "inline",
+    "reason": "Task-specific design or recovery evidence."
+  },
+  {
+    "path": "apps/web/src/app/(shell)/workspace/[id]/settings/page.tsx",
+    "mode": "reference",
+    "reason": "Inspect the feature source on demand."
+  },
+  {
+    "path": "tests/browser/organization-profile-ui.spec.mjs",
+    "mode": "reference",
+    "reason": "Use the existing browser test as a validation reference."
+  },
+  {
+    "path": "docs/architecture/adr/0001-tenant-data-isolation.md",
+    "mode": "reference",
+    "reason": "Enforce the existing tenant boundary."
+  }
+]

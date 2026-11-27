@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "packageSha256": "ac75c189548693e320b503241aecf626123a5e337ac06306c6c766846190ba6a",
+  "checkpoint": {
+    "task": "JUNO-0055",
+    "base": "a75e7dcca90d4868302e0b558da29d48f643a4fe",
+    "head": "a75e7dcca90d4868302e0b558da29d48f643a4fe",
+    "touchedPaths": 0,
+    "checkReceipts": 0
+  },
+  "packageState": {
+    "blockers": [
+      "Independent exact-head review of this synthetic case is outstanding."
+    ],
+    "recovery": "Rebuild this package, verify the checkpoint and read the settings handoff."
+  },
+  "notes": {
+    "blockers": [
+      "No product checks executed in this dry run."
+    ],
+    "nextSteps": [
+      "Read the scoped handoff and execute the first outstanding check."
+    ]
+  }
+}

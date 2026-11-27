@@ -1,0 +1,20 @@
+[
+  {
+    "case": "shell",
+    "base": "a75e7dcca90d4868302e0b558da29d48f643a4fe",
+    "sourceFiles": 9,
+    "allInlineSourceBytes": 64396,
+    "inlineSourceBytes": 7000,
+    "packageBytes": 11052,
+    "budgetBytes": 32000
+  },
+  {
+    "case": "resume",
+    "base": "a75e7dcca90d4868302e0b558da29d48f643a4fe",
+    "sourceFiles": 9,
+    "allInlineSourceBytes": 55975,
+    "inlineSourceBytes": 7090,
+    "packageBytes": 11334,
+    "budgetBytes": 32000
+  }
+]
