@@ -1,0 +1,3 @@
+interface:
+  display_name: 'Juno Visual QA'
+  short_description: 'Inspect Juno screens and character artwork in context'
