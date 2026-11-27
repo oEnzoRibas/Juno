@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { assertDistinctReviewAdministrators, schema8SqlFixtures } from './schema8-regression-contract.mjs';
+import { assertDistinctReviewAdministrators, runtimeSqlFixtures } from './schema8-regression-contract.mjs';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const require = createRequire(import.meta.url);
@@ -50,6 +50,10 @@ try {
   };
   const admin = { email: `qa-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
   const profileAdmin = { email: `qa-profile-${project}@example.invalid`, password: randomBytes(32).toString('hex') };
+  const directoratesAdmin = {
+    email: `qa-directorates-${project}@example.invalid`,
+    password: randomBytes(32).toString('hex'),
+  };
   assertDistinctReviewAdministrators(admin, profileAdmin);
   const profileRun = randomBytes(6).toString('hex');
   const smokeEnv = {
@@ -104,18 +108,26 @@ try {
       '-e',
       'const o=process.env.JUNO_API_ORIGIN;fetch(new URL("/api/ready",o)).then(async r=>{const data=await r.json();if(!r.ok||data.status!=="ready")process.exit(1);console.log(`Web API readiness: ${r.status}`)}).catch(()=>process.exit(1))',
     ]);
-    compose('Read the connected database schema', [
-      'exec',
-      '-T',
-      'db',
-      'psql',
-      '-U',
-      'juno_migrator',
-      '-d',
-      'juno',
-      '-Atc',
-      'SELECT max(version) FROM juno_runtime.schema_version',
-    ]);
+    const version = Number(
+      compose(
+        'Read the connected database schema',
+        [
+          'exec',
+          '-T',
+          'db',
+          'psql',
+          '-U',
+          'juno_migrator',
+          '-d',
+          'juno',
+          '-Atc',
+          'SELECT max(version) FROM juno_runtime.schema_version',
+        ],
+        { capture: true },
+      ).trim(),
+    );
+    if (version !== 9) throw new Error(`Expected connected database schema 9, got ${version}`);
+    console.info(`Connected database schema: ${version}`);
     run('Verify web locales, API health and OpenAPI', process.execPath, ['scripts/runtime-smoke.mjs'], {
       env: smokeEnv,
     });
@@ -139,7 +151,7 @@ try {
     const after = Number(compose('Verify the migration journal is unchanged', journalQuery, { capture: true }).trim());
     if (after !== before) throw new Error('Rerunning migrations changed the migration journal');
 
-    for (const sql of schema8SqlFixtures) {
+    for (const sql of runtimeSqlFixtures) {
       compose(
         `Run database regression ${sql}`,
         ['exec', '-T', 'db', 'psql', '-U', 'juno_migrator', '-d', 'juno', '-v', 'ON_ERROR_STOP=1'],
@@ -157,6 +169,11 @@ try {
       ['run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin'],
       { input: JSON.stringify(profileAdmin) },
     );
+    compose(
+      'Bootstrap the dedicated synthetic directorate fixture administrator',
+      ['run', '--rm', '-T', 'migrate', 'pnpm', '--filter', '@juno/api', 'bootstrap-admin'],
+      { input: JSON.stringify(directoratesAdmin) },
+    );
     run('Run Playwright and save the structured review report', process.execPath, [playwright, 'test', '--workers=1'], {
       env: {
         ...smokeEnv,
@@ -165,6 +182,8 @@ try {
         JUNO_TEST_PROFILE_ADMIN_EMAIL: profileAdmin.email,
         JUNO_TEST_PROFILE_ADMIN_PASSWORD: profileAdmin.password,
         JUNO_TEST_PROFILE_RUN: profileRun,
+        JUNO_TEST_DIRECTORATES_ADMIN_EMAIL: directoratesAdmin.email,
+        JUNO_TEST_DIRECTORATES_ADMIN_PASSWORD: directoratesAdmin.password,
       },
     });
     const audit = JSON.parse(
